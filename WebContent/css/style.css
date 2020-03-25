@@ -1,0 +1,87 @@
+@charset "ISO-8859-1";
+
+/*Fonts*/
+@font-face {
+     font-family: Catamaran;
+     src: url('./../fonts/Catamaran-Regular.ttf');
+}
+
+@font-face {
+     font-family: Catamaran medium;
+     src: url('./../fonts/Catamaran-Medium.ttf');
+}
+
+@font-face {
+     font-family: Catamaran semibold;
+     src: url('./../fonts/Catamaran-SemiBold.ttf');
+}
+
+@font-face {
+     font-family: Catamaran bold;
+     src: url('./../fonts/Catamaran-Bold.ttf');
+}
+/*End Fonts*/
+
+.container {
+	width: 80%;	
+}
+
+/*Login admin*/
+.ladm-logo-header {
+	font-family: Catamaran;
+	font-size: 66px;
+	color: #345D7D;
+	line-height: 70px;
+	margin: 20px 30px;
+}
+
+.ladm-logo-header span {
+	color: #F2717F;
+}
+
+.ladm-content {
+	min-height: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.ladm-content p {
+	font-family: Catamaran;
+	font-size: 18px;
+	color: #345D7D;
+	line-height: 16px;
+}
+
+.ladm-content a {
+	color: #F2717F;
+	text-decoration: none;
+}
+
+.ladm-form {
+    min-height: 230px;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-around;
+}
+
+.ladm-content input {
+	width: 400px;
+	font-family: Catamaran;
+	font-size: 22px;
+	color: #345D7D;
+	line-height: 45px;
+	border-width: 0 0 2px 0;
+	border-color: #345D7D;
+}
+
+.ladm-content button {
+	font-family: Catamaran;
+	font-size: 26px;
+	color: #FFF;
+	line-height: 48px;
+	border: none;
+	background-color: #F2717F;
+	border-radius: 10px;
+}
