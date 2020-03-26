@@ -49,3 +49,33 @@ header {
 .logout-wrapper > img {
     width: 100%;
 }
+
+/* Menu */
+
+nav {
+    position: fixed;
+    width: 64px;
+    height: 409px;
+    left: 31px;
+    top: 25%;
+    background: linear-gradient(180deg, #345D7D 0%, #6F5A7D 100%);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-icon-wrapper {
+    width: 35px;
+}
+
+.menu-icon-wrapper > img {
+    width: 100%;
+}
+
+/* Conteudo */
+
+.content {
+    margin-left: 120px;
+}
