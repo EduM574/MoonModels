@@ -1,19 +1,37 @@
 @charset "UTF-8";
-@import url('style.css');
+@import url('fonts.css');
 
-.ladm-logo-header {
-	font-family: Catamaran;
-	font-size: 66px;
-	color: #345D7D;
-	line-height: 70px;
-	margin: 20px 30px;
+body {
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+    margin: 0;
 }
 
-.ladm-logo-header span {
-	color: #F2717F;
+header {
+    padding: 15px 0;
 }
 
-.ladm-content {
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 36pt;
+    color: #345D7D;
+}
+
+.logo-pink {
+    color: #F2717F;
+}
+
+.content {
 	min-height: 400px;
 	display: flex;
 	flex-direction: column;
@@ -21,36 +39,37 @@
 	justify-content: center;
 }
 
-.ladm-content p {
+.content p {
 	font-family: Catamaran;
 	font-size: 18px;
 	color: #345D7D;
 	line-height: 16px;
 }
 
-.ladm-content a {
+.content a {
 	color: #F2717F;
 	text-decoration: none;
 }
 
-.ladm-form {
+.form {
     min-height: 230px;
 	display: flex;
 	flex-direction: column;
     justify-content: space-around;
 }
 
-.ladm-content input {
+.form input {
 	width: 400px;
 	font-family: Catamaran;
-	font-size: 22px;
+	font-size: 20px;
 	color: #345D7D;
 	line-height: 45px;
+	background-color: #f9f9f9;
 	border-width: 0 0 2px 0;
 	border-color: #345D7D;
 }
 
-.ladm-content button {
+.form button {
 	font-family: Catamaran;
 	font-size: 26px;
 	color: #FFF;
