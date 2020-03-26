@@ -4,7 +4,7 @@ import java.util.Date;
 import java.io.File;
 
 
-public class Solicitacao {
+public class Comentario {
 	private int identificadorSolicitacao;
 	private String nome;
 	private String descricao;
@@ -14,9 +14,9 @@ public class Solicitacao {
 	private int prazo;
 	private Aluno aluno;
 	
-	public Solicitacao() {}
+	public Comentario() {}
 	
-	public Solicitacao(int identificadorSolicitacao, String nome, String descricao, File anexo, String status, Date data_abertura, int prazo, Aluno aluno) {
+	public Comentario(int identificadorSolicitacao, String nome, String descricao, File anexo, String status, Date data_abertura, int prazo, Aluno aluno) {
 		
 		this.identificadorSolicitacao = identificadorSolicitacao;
 		this.nome = nome;
