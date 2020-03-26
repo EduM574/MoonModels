@@ -18,7 +18,7 @@
 				<button type="submit">Fazer login</button>
 			</form>
 			<p>
-				Ainda n„o possuo conta, <a href="">fazer cadastro</a> 
+				Ainda n√£o possuo conta, <a href="">fazer cadastro</a> 
 			</p>
 		</section>
 	</body>
