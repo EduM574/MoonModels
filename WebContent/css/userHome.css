@@ -110,3 +110,52 @@ nav {
     font-size: 50pt;
     margin: 0;
 }
+
+.titulo-solicitacao {
+	color: #F2717F;
+}
+
+.s-card-color {
+	width: 30%;
+    height: 100px;
+    background: #345D7D;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.s-card-content {
+	width: 100%;
+	height: 60%;
+	background: #f9f9f9;
+    border: 2px solid #345D7D;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.s-card-subtitle {
+	color: #C06C84;
+	font-weight: 600;
+}
+
+.s-status-ativo {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #F2717F;
+}
+
+.s-status-inativo {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #898989;
+}
+
+.s-row {
+	display: flex;
+    justify-content: space-between;
+}
