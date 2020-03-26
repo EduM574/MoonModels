@@ -1,8 +1,8 @@
 package model;
 
-import java.util.Date;
 import java.io.File;
-
+import java.util.GregorianCalendar;
+import java.util.ArrayList;
 
 public class Solicitacao {
 	private int identificadorSolicitacao;
@@ -10,13 +10,14 @@ public class Solicitacao {
 	private String descricao;
 	private File anexo;
 	private String status;
-	private Date data_abertura;
+	private GregorianCalendar data_abertura;
 	private int prazo;
 	private Aluno aluno;
+	private ArrayList<Comentario> comentarios;
 	
 	public Solicitacao() {}
 	
-	public Solicitacao(int identificadorSolicitacao, String nome, String descricao, File anexo, String status, Date data_abertura, int prazo, Aluno aluno) {
+	public Solicitacao(int identificadorSolicitacao, String nome, String descricao, File anexo, String status, GregorianCalendar data_abertura, int prazo, Aluno aluno, ArrayList<Comentario> comentarios) {
 		
 		this.identificadorSolicitacao = identificadorSolicitacao;
 		this.nome = nome;
@@ -26,6 +27,8 @@ public class Solicitacao {
 		this.data_abertura = data_abertura;
 		this.prazo = prazo;
 		this.aluno = aluno;
+		this.comentarios = comentarios;
+
 	}
 	
 	public int getIdSolicitacao() {
@@ -63,10 +66,10 @@ public class Solicitacao {
 		this.status = status;
 	}
 	
-	public Date getDataAbertura() {
+	public GregorianCalendar getDataAbertura() {
 		return data_abertura;
 	}
-	public void setDataAbertura(Date dataAbertura) {
+	public void setDataAbertura(GregorianCalendar dataAbertura) {
 		this.data_abertura = dataAbertura;
 	}
 	
@@ -80,7 +83,14 @@ public class Solicitacao {
 	public Aluno getAluno() {
 		return aluno;
 	}
-	public void setAluno(Aluno aluno) {
+	public void setAlunos(Aluno aluno) {
 		this.aluno = aluno;
+	}
+	
+	public ArrayList<Comentario> getComentarios(){
+		return comentarios;
+	}
+	public void setComentario(ArrayList<Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 }

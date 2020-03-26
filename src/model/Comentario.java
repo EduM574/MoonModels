@@ -1,17 +1,18 @@
 package model;
 
+import java.util.GregorianCalendar;
 
 public class Comentario {
 	private int identificadorComentario;
 	private String texto;
-	private String data_hora;
+	private GregorianCalendar data_hora;
 	private Aluno aluno;
 	private Administrador administrador;
 	private Solicitacao solicitacao;
 	
 	public Comentario() {}
 	
-	public Comentario(int identificadorComentario, String texto, String data_hora, Aluno aluno, Administrador administrador, Solicitacao solicitacao) {
+	public Comentario(int identificadorComentario, String texto, GregorianCalendar data_hora, Aluno aluno, Administrador administrador, Solicitacao solicitacao) {
 		
 		this.identificadorComentario = identificadorComentario;
 		this.texto = texto;
@@ -35,10 +36,10 @@ public class Comentario {
 		this.texto = texto;
 	}
 	
-	public String getDataHora() {
+	public GregorianCalendar getDataHora() {
 		return data_hora;
 	}
-	public void setDataHora(String dataHora) {
+	public void setDataHora(GregorianCalendar dataHora) {
 		this.data_hora = dataHora;
 	}
 	
