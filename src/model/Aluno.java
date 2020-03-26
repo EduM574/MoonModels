@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Aluno {
 	private int identificadorAluno;
@@ -10,7 +11,7 @@ public class Aluno {
 	private int ra;
 	private String status;
 	private int cpf;
-	private String data_nascimento;// converter para date depois?
+	private GregorianCalendar data_nascimento;// converter para date depois?
 	private String curso;
 	private String turno;
 	private String unidade;
@@ -24,7 +25,7 @@ public class Aluno {
 	}
 
 	public Aluno(int identificadorAluno, String nome, String sobrenome, int ra, String status, int cpf,
-			String data_nascimento, String curso, String turno, String unidade, String semestre, String email,
+			GregorianCalendar data_nascimento, String curso, String turno, String unidade, String semestre, String email,
 			String senha, Administrador adm, ArrayList<Solicitacao> solicitacoes) {
 
 		this.identificadorAluno = identificadorAluno;
@@ -43,47 +44,7 @@ public class Aluno {
 		this.adm = adm;
 		this.solicitacoes = solicitacoes;
 	}
-
-	// SEM RA
-	public Aluno(int identificadorAluno, String nome, String sobrenome, String status, int cpf, String data_nascimento,
-			String curso, String turno, String unidade, String semestre, String email, String senha, Administrador adm,
-			ArrayList<Solicitacao> solicitacoes) {
-
-		this.identificadorAluno = identificadorAluno;
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.status = status;
-		this.cpf = cpf;
-		this.data_nascimento = data_nascimento;
-		this.curso = curso;
-		this.turno = turno;
-		this.unidade = unidade;
-		this.semestre = semestre;
-		this.email = email;
-		this.senha = senha;
-		this.adm = adm;
-		this.solicitacoes = solicitacoes;
-	}
-
-	public Aluno(String nome, String sobrenome, String status, int cpf, String data_nascimento, String curso,
-			String turno, String unidade, String semestre, String email, String senha, Administrador adm,
-			ArrayList<Solicitacao> solicitacoes) {
-
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.status = status;
-		this.cpf = cpf;
-		this.data_nascimento = data_nascimento;
-		this.curso = curso;
-		this.turno = turno;
-		this.unidade = unidade;
-		this.semestre = semestre;
-		this.email = email;
-		this.senha = senha;
-		this.adm = adm;
-		this.solicitacoes = solicitacoes;
-	}
-
+	
 	public int getIdentificadorAluno() {
 		return identificadorAluno;
 	}
@@ -108,7 +69,7 @@ public class Aluno {
 		return cpf;
 	}
 
-	public String getData_nascimento() {
+	public GregorianCalendar getData_nascimento() {
 		return data_nascimento;
 	}
 
@@ -168,7 +129,7 @@ public class Aluno {
 		this.cpf = cpf;
 	}
 
-	public void setData_nascimento(String data_nascimento) {
+	public void setData_nascimento(GregorianCalendar data_nascimento) {
 		this.data_nascimento = data_nascimento;
 	}
 

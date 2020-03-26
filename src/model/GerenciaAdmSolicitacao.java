@@ -1,18 +1,19 @@
 package model;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class GerenciaAdmSolicitacao {
 	private int identificadorGerencia;
 	private Administrador administrador;
 	private Solicitacao solicitacao;
-	private Date data;
+	private GregorianCalendar data;
 
 	public GerenciaAdmSolicitacao() {
 	}
 
 	public GerenciaAdmSolicitacao(int identificadorGerencia, Administrador administrador, Solicitacao solicitacao,
-			Date data) {
+			GregorianCalendar data) {
 
 		this.identificadorGerencia = identificadorGerencia;
 		this.administrador = administrador;
@@ -44,11 +45,11 @@ public class GerenciaAdmSolicitacao {
 		this.solicitacao = solicitacao;
 	}
 
-	public Date getData() {
+	public GregorianCalendar getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(GregorianCalendar data) {
 		this.data = data;
 	}
 

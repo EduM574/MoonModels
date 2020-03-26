@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Administrador {
-	private int identificadorAdministrador;
+	
 	private String nome;
 	private String sobrenome;
 	private String status;
@@ -31,25 +31,6 @@ public class Administrador {
 		this.solicitacoes = solicitacoes;
 	}
 
-	// com ID
-	public Administrador(int identificadorAdministrador, String nome, String sobrenome, String status, int cpf,
-			String email, String senha, String setor, ArrayList<Aluno> alunos, ArrayList<Solicitacao> solicitacoes) {
-
-		this.identificadorAdministrador = identificadorAdministrador;
-		this.nome = nome;
-		this.sobrenome = sobrenome;
-		this.status = status;
-		this.cpf = cpf;
-		this.email = email;
-		this.senha = senha;
-		this.setor = setor;
-		this.alunos = alunos;
-		this.solicitacoes = solicitacoes;
-	}
-
-	public int getIdentificadorAdministrador() {
-		return identificadorAdministrador;
-	}
 
 	public String getNome() {
 		return nome;
@@ -87,9 +68,6 @@ public class Administrador {
 		return solicitacoes;
 	}
 
-	public void setIdentificadorAdministrador(int identificadorAdministrador) {
-		this.identificadorAdministrador = identificadorAdministrador;
-	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
