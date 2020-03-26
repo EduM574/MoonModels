@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Aluno {
-	private int identificadorAluno;
+
 	private String nome;
 	private String sobrenome;
 	private int ra;
@@ -15,20 +15,19 @@ public class Aluno {
 	private String curso;
 	private String turno;
 	private String unidade;
-	private String semestre;
+	private int semestre;
 	private String email;
 	private String senha;
 	private Administrador adm;
 	private ArrayList<Solicitacao> solicitacoes;
-
+	private ArrayList <Comentario> comentarios;
+	
 	public Aluno() {
 	}
 
-	public Aluno(int identificadorAluno, String nome, String sobrenome, int ra, String status, int cpf,
-			GregorianCalendar data_nascimento, String curso, String turno, String unidade, String semestre, String email,
-			String senha, Administrador adm, ArrayList<Solicitacao> solicitacoes) {
-
-		this.identificadorAluno = identificadorAluno;
+	public Aluno(String nome, String sobrenome, int ra, String status, int cpf, GregorianCalendar data_nascimento,
+			String curso, String turno, String unidade, int semestre, String email, String senha, Administrador adm,
+			ArrayList<Solicitacao> solicitacoes, ArrayList<Comentario> comentarios) {
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.ra = ra;
@@ -43,10 +42,7 @@ public class Aluno {
 		this.senha = senha;
 		this.adm = adm;
 		this.solicitacoes = solicitacoes;
-	}
-	
-	public int getIdentificadorAluno() {
-		return identificadorAluno;
+		this.comentarios = comentarios;
 	}
 
 	public String getNome() {
@@ -85,7 +81,7 @@ public class Aluno {
 		return unidade;
 	}
 
-	public String getSemestre() {
+	public int getSemestre() {
 		return semestre;
 	}
 
@@ -103,10 +99,6 @@ public class Aluno {
 
 	public ArrayList<Solicitacao> getSolicitacoes() {
 		return solicitacoes;
-	}
-
-	public void setIdentificadorAluno(int identificadorAluno) {
-		this.identificadorAluno = identificadorAluno;
 	}
 
 	public void setNome(String nome) {
@@ -145,7 +137,7 @@ public class Aluno {
 		this.unidade = unidade;
 	}
 
-	public void setSemestre(String semestre) {
+	public void setSemestre(int semestre) {
 		this.semestre = semestre;
 	}
 

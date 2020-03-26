@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class GerenciaAdmSolicitacao {
-	private int identificadorGerencia;
+	
 	private Administrador administrador;
 	private Solicitacao solicitacao;
 	private GregorianCalendar data;
@@ -15,18 +15,9 @@ public class GerenciaAdmSolicitacao {
 	public GerenciaAdmSolicitacao(int identificadorGerencia, Administrador administrador, Solicitacao solicitacao,
 			GregorianCalendar data) {
 
-		this.identificadorGerencia = identificadorGerencia;
 		this.administrador = administrador;
 		this.solicitacao = solicitacao;
 		this.data = data;
-	}
-
-	public int getIdGerenciamento() {
-		return identificadorGerencia;
-	}
-
-	public void setIdGerenciamento(int idGerenciamento) {
-		this.identificadorGerencia = idGerenciamento;
 	}
 
 	public Administrador getAdministrador() {

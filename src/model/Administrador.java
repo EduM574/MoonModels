@@ -13,13 +13,15 @@ public class Administrador {
 	private String setor;
 	private ArrayList<Aluno> alunos;
 	private ArrayList<Solicitacao> solicitacoes;
-
+	private ArrayList<Comentario> comentarios;
+	
 	public Administrador() {
 	}
 
 	public Administrador(String nome, String sobrenome, String status, int cpf, String email, String senha,
-			String setor, ArrayList<Aluno> alunos, ArrayList<Solicitacao> solicitacoes) {
-
+			String setor, ArrayList<Aluno> alunos, ArrayList<Solicitacao> solicitacoes,
+			ArrayList<Comentario> comentarios) {
+	
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.status = status;
@@ -29,8 +31,16 @@ public class Administrador {
 		this.setor = setor;
 		this.alunos = alunos;
 		this.solicitacoes = solicitacoes;
+		this.comentarios = comentarios;
 	}
 
+	public ArrayList<Comentario> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(ArrayList<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
 
 	public String getNome() {
 		return nome;
