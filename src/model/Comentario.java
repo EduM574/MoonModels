@@ -1,80 +1,45 @@
 package model;
 
-import java.util.Date;
-import java.io.File;
-
 
 public class Comentario {
-	private int identificadorSolicitacao;
-	private String nome;
-	private String descricao;
-	private File anexo;
-	private String status;
-	private Date data_abertura;
-	private int prazo;
+	private int identificadorComentario;
+	private String texto;
+	private String data_hora;
 	private Aluno aluno;
+	private Administrador administrador;
+	private Solicitacao solicitacao;
 	
 	public Comentario() {}
 	
-	public Comentario(int identificadorSolicitacao, String nome, String descricao, File anexo, String status, Date data_abertura, int prazo, Aluno aluno) {
+	public Comentario(int identificadorComentario, String texto, String data_hora, Aluno aluno, Administrador administrador, Solicitacao solicitacao) {
 		
-		this.identificadorSolicitacao = identificadorSolicitacao;
-		this.nome = nome;
-		this.descricao = descricao;
-		this.anexo = anexo;
-		this.status = status;
-		this.data_abertura = data_abertura;
-		this.prazo = prazo;
+		this.identificadorComentario = identificadorComentario;
+		this.texto = texto;
+		this.data_hora = data_hora;
 		this.aluno = aluno;
+		this.administrador = administrador;
+		this.solicitacao = solicitacao;
 	}
 	
-	public int getIdSolicitacao() {
-		return identificadorSolicitacao;
+	public int getIdComentario() {
+		return identificadorComentario;
 	}
-	public void SetIdSolicitacao(int idSolicitacao) {
-		this.identificadorSolicitacao = idSolicitacao;
-	}
-	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setIdComentario(int idComentario) {
+		this.identificadorComentario = idComentario;
 	}
 	
-	public String getDescricao() {
-		return descricao;
+	public String getTexto() {
+		return texto;
 	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-	
-	public File getAnexo() {
-		return anexo;
-	}
-	public void setAnexo(File anexo) {
-		this.anexo = anexo;
+	public void setTexto(String texto) {
+		this.texto = texto;
 	}
 	
-	public String getStatus() {
-		return status;
+	public String getDataHora() {
+		return data_hora;
 	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	
-	public Date getDataAbertura() {
-		return data_abertura;
-	}
-	public void setDataAbertura(Date dataAbertura) {
-		this.data_abertura = dataAbertura;
-	}
-	
-	public int getPrazo() {
-		return prazo;
-	}
-	public void setPrazo(int prazo) {
-		this.prazo = prazo;
+	public void setDataHora(String dataHora) {
+		this.data_hora = dataHora;
 	}
 	
 	public Aluno getAluno() {
@@ -82,5 +47,19 @@ public class Comentario {
 	}
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+	
+	public Administrador getAdministrador() {
+		return administrador;
+	}
+	public void setAdministrador(Administrador administrador) {
+		this.administrador = administrador;
+	}
+	
+	public Solicitacao getSolicitacao() {
+		return solicitacao;
+	}
+	public void setSolicitacao(Solicitacao solicitacao) {
+		this.solicitacao = solicitacao;
 	}
 }
