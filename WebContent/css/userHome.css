@@ -1,0 +1,161 @@
+@charset "ISO-8859-1";
+
+body {
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+header {
+    border-bottom: solid 1px #345D7D;
+    padding: 15px 0;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 22pt;
+    color: #345D7D;
+}
+
+.logo-pink {
+    color: #F2717F;
+}
+
+.username-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.username-wrapper > span {
+    margin-right: 15px;
+    font-size: 18pt;
+    color: #345D7D;
+}
+
+.logout-wrapper {
+    width: 30px;
+}
+
+.logout-wrapper > img {
+    width: 100%;
+}
+
+/* Menu */
+
+nav {
+    position: fixed;
+    width: 64px;
+    height: 409px;
+    left: 31px;
+    top: 25%;
+    background: linear-gradient(180deg, #345D7D 0%, #6F5A7D 100%);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-icon-wrapper {
+    width: 35px;
+}
+
+.menu-icon-wrapper > img {
+    width: 100%;
+}
+
+/* Conteudo */
+
+.content {
+    margin-left: 120px;
+    padding: 20px;
+}
+
+/* info */
+
+.info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-card {
+    width: 30%;
+    height: 100px;  
+    padding: 15px;
+    background: #6F5A7D;
+    border: 2px solid #6F5A7D;
+    border-radius: 15px;
+}
+
+.info-title {
+    color: #fff;
+    font-weight: 600;
+    font-size: 14pt;
+    margin-top: 0;
+}
+
+.info-content {
+    color: #fff;
+    font-weight: bold;
+    font-size: 50pt;
+    margin: 0;
+}
+
+.titulo-solicitacao {
+	color: #F2717F;
+}
+
+.s-card-color {
+	width: 30%;
+    height: 100px;
+    background: #345D7D;
+    border-radius: 15px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.s-card-content {
+	width: 100%;
+	height: 60%;
+	background: #f9f9f9;
+    border: 2px solid #345D7D;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.s-card-subtitle {
+	color: #C06C84;
+	font-weight: 600;
+}
+
+.s-status-ativo {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #F2717F;
+}
+
+.s-status-inativo {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #898989;
+}
+
+.s-row {
+	display: flex;
+    justify-content: space-between;
+}
