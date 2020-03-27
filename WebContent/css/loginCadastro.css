@@ -58,8 +58,15 @@ header {
     justify-content: space-around;
 }
 
+.form2 {
+    min-height: 400px;
+	display: flex;
+	flex-direction: column;
+    justify-content: space-around;
+}
+
 .form input {
-	width: 400px;
+	width: 100%;
 	font-family: Catamaran;
 	font-size: 20px;
 	color: #345D7D;
@@ -77,4 +84,34 @@ header {
 	border: none;
 	background-color: #C06C84;
 	border-radius: 10px;
+}
+
+.form2 input {
+	width: 100%;
+	font-family: Catamaran;
+	font-size: 20px;
+	color: #345D7D;
+	line-height: 45px;
+	background-color: #f9f9f9;
+	border-width: 0 0 2px 0;
+	border-color: #345D7D;
+}
+
+.form2 button {
+	font-family: Catamaran;
+	font-size: 26px;
+	color: #FFF;
+	line-height: 48px;
+	border: none;
+	background-color: #C06C84;
+	border-radius: 10px;
+}
+
+.mini-input {
+	display: flex;
+	justify-content: space-between;
+}
+
+.mini-input input {
+	width: 48%;
 }

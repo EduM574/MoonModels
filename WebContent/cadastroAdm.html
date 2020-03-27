@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/loginCadastro.css" media="screen" />
+		<title>Cadastro Administrador</title>
+	</head>
+	<body>
+		<header>
+			<div class="container main-header">
+				<span class="logo">MO<span class="logo-pink">O</span>N</span>
+			</div>
+		</header>
+		<section class="content">
+			<form action="CadastraAdm.do" method="post" class="form2">
+				<div class="mini-input">
+					<input type="text" name="nome" maxlength= "15" placeholder="Nome">
+					<input type="text" name="sobrenome" maxlength= "15" placeholder="Sobrenome">
+				</div>	
+				<input type="number" name="cpf" placeholder="CPF">
+				<input type="email" name="email" placeholder="E-mail">
+				<input type="password" name="password" maxlength="15" placeholder="Senha">
+				<button type="submit">Cadastrar</button>
+			</form>
+			<p>
+				Já possuo conta, <a href="loginAdmin.html">fazer login</a>
+			</p>
+		</section>
+	</body>
+</html>
