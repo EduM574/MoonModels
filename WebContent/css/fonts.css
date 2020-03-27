@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: Catamaran;
+    src: url('./../fonts/Catamaran-Regular.ttf');
+}
+
+@font-face {
+    font-family: Catamaran medium;
+    src: url('./../fonts/Catamaran-Medium.ttf');
+}
+
+@font-face {
+    font-family: Catamaran semibold;
+    src: url('./../fonts/Catamaran-SemiBold.ttf');
+}
+
+@font-face {
+    font-family: Catamaran bold;
+    src: url('./../fonts/Catamaran-Bold.ttf');
+}
