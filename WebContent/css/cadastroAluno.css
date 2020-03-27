@@ -1,3 +1,6 @@
+@charset "UTF-8";
+@import url('fonts.css');
+
 body {
     background-color: #f9f9f9;
     font-family: sans-serif;
@@ -70,4 +73,63 @@ nav {
 
 .menu-icon-wrapper > img {
     width: 100%;
+}
+
+.content {
+    margin-left: 120px;
+    margin-right: 70px;
+    padding: 20px;
+}
+
+.form {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.form button {
+    font-family: Catamaran;
+    font-size: 26px;
+    color: #FFF;
+    line-height: 48px;
+    border: none;
+    background-color: #C06C84;
+    border-radius: 14px;
+    padding: 4px 30px;
+    margin-right: 5%;
+}
+
+.input-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.box {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.box input, select{
+    font-family: Catamaran;
+	font-size: 20px;
+	color: #345D7D;
+	line-height: 45px;
+	background-color: #f9f9f9;
+	border-width: 0 0 2px 0;
+    border-color: #345D7D;
+    margin: 10px 0;
+}
+
+.mini-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mini-box select {
+    width: 40%;
 }
