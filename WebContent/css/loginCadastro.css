@@ -53,6 +53,7 @@ header {
 
 .form {
     min-height: 230px;
+    width: 450px;
 	display: flex;
 	flex-direction: column;
     justify-content: space-around;
