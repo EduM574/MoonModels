@@ -81,8 +81,16 @@ nav {
     padding: 20px;
 }
 
+.title {
+	font-family: Catamaran;
+	color: #F2717F;
+	font-size: 32px;
+	line-height: 30px;
+	margin-left: 5%;
+}
+
 .form {
-    min-height: 500px;
+    min-height: 430px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -130,6 +138,14 @@ nav {
     justify-content: space-between;
 }
 
-.mini-box select {
-    width: 40%;
+.normal  {
+    width: 48%;
+}
+
+.maior {
+	width: 76%;
+}
+
+.menor {
+	width: 20%;
 }
