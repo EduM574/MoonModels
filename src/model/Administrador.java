@@ -10,7 +10,7 @@ public class Administrador {
 	private int cpf;
 	private String email;
 	private String senha;
-	private String setor;
+	private Setor setor;
 	private ArrayList<Aluno> alunos;
 	private ArrayList<Solicitacao> solicitacoes;
 	private ArrayList<Comentario> comentarios;
@@ -19,7 +19,7 @@ public class Administrador {
 	}
 
 	public Administrador(String nome, String sobrenome, String status, int cpf, String email, String senha,
-			String setor, ArrayList<Aluno> alunos, ArrayList<Solicitacao> solicitacoes,
+			Setor setor, ArrayList<Aluno> alunos, ArrayList<Solicitacao> solicitacoes,
 			ArrayList<Comentario> comentarios) {
 	
 		this.nome = nome;
@@ -66,7 +66,7 @@ public class Administrador {
 		return senha;
 	}
 
-	public String getSetor() {
+	public Setor getSetor() {
 		return setor;
 	}
 
@@ -103,7 +103,7 @@ public class Administrador {
 		this.senha = senha;
 	}
 
-	public void setSetor(String setor) {
+	public void setSetor(Setor setor) {
 		this.setor = setor;
 	}
 

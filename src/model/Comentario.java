@@ -1,22 +1,25 @@
 package model;
 
 import java.util.GregorianCalendar;
+import java.io.File;
 
 public class Comentario {
 	private int identificadorComentario;
 	private String texto;
 	private GregorianCalendar data_hora;
+	private File anexo;
 	private Aluno aluno;
 	private Administrador administrador;
 	private Solicitacao solicitacao;
 	
 	public Comentario() {}
 	
-	public Comentario(int identificadorComentario, String texto, GregorianCalendar data_hora, Aluno aluno, Administrador administrador, Solicitacao solicitacao) {
+	public Comentario(int identificadorComentario, String texto, GregorianCalendar data_hora, File anexo, Aluno aluno, Administrador administrador, Solicitacao solicitacao) {
 		
 		this.identificadorComentario = identificadorComentario;
 		this.texto = texto;
 		this.data_hora = data_hora;
+		this.anexo = anexo;
 		this.aluno = aluno;
 		this.administrador = administrador;
 		this.solicitacao = solicitacao;
@@ -41,6 +44,13 @@ public class Comentario {
 	}
 	public void setDataHora(GregorianCalendar dataHora) {
 		this.data_hora = dataHora;
+	}
+	
+	public File getAnexo() {
+		return anexo;
+	}
+	public void setAnexo(File anexo) {
+		this.anexo = anexo;
 	}
 	
 	public Aluno getAluno() {
