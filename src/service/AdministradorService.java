@@ -10,5 +10,9 @@ public class AdministradorService {
     public void create(Administrador adm) {
         adm.setStatus("INATIVO");
 		admDAO.createAdminitrador(adm);
-	}
+    }
+    
+    public void updateTotal(Administrador adm) {
+        admDAO.updateTotalAdministrador(adm);
+    }
 }

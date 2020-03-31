@@ -7,7 +7,7 @@ public class Administrador {
 	private String nome;
 	private String sobrenome;
 	private String status;
-	private int cpf;
+	private String cpf;
 	private String email;
 	private String senha;
 	private Setor setor;
@@ -18,7 +18,7 @@ public class Administrador {
 	public Administrador() {
 	}
 
-	public Administrador(String nome, String sobrenome, String status, int cpf, String email, String senha,
+	public Administrador(String nome, String sobrenome, String status, String cpf, String email, String senha,
 			Setor setor, ArrayList<Aluno> alunos, ArrayList<Solicitacao> solicitacoes,
 			ArrayList<Comentario> comentarios) {
 	
@@ -54,7 +54,7 @@ public class Administrador {
 		return status;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
@@ -91,7 +91,7 @@ public class Administrador {
 		this.status = status;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
