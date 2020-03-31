@@ -20,6 +20,10 @@ public class Main {
 
         //Update de primeiro acesso na plataforma (nome, sobrenome, cpf, senha, status) o status muda para ATIVO
         Administrador adm3 = new Administrador("João", "Fulano", "", "48997195824", "fulano2@usjt.br", "1234", null, null, null, null);
-        admService.updateInicialAdministrador(adm3);
+        admService.updateInicial(adm3);
+
+        //Update dentro da plataforma (senha)
+        Administrador adm4 = new Administrador("", "", "", "", "fulano2@usjt.br", "12345", null, null, null, null);
+        admService.updateSenha(adm4);
     }
 }

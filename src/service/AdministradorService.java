@@ -12,12 +12,16 @@ public class AdministradorService {
 		admDAO.createAdminitrador(adm);
     }
 
-    public void updateInicialAdministrador(Administrador adm) {
+    public void updateInicial(Administrador adm) {
         adm.setStatus("ATIVO");
         admDAO.updateInicialAdministrador(adm);
     }
     
     public void updateTotal(Administrador adm) {
         admDAO.updateTotalAdministrador(adm);
+    }
+
+    public void updateSenha(Administrador adm) {
+        admDAO.updateSenhaAdministrador(adm);
     }
 }

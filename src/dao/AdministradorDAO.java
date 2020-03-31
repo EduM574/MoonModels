@@ -85,4 +85,23 @@ public class AdministradorDAO {
 			e.printStackTrace();
 		}
     }
+
+    public void updateSenhaAdministrador(Administrador adm) {
+        String update = "UPDATE administrador SET senha = ? WHERE email = ?";
+
+        try(PreparedStatement pst = conexao.prepareStatement(update)) {
+
+            pst.setString(1, adm.getSenha());
+            pst.setString(2, adm.getEmail());
+
+            pst.execute();
+
+        } catch(SQLException e) {
+			System.err.println("Falha no banco: " + e.getMessage());
+			e.printStackTrace();
+		} catch ( Exception e) {
+			System.err.println("Falha no java: " + e.getMessage());
+			e.printStackTrace();
+		}
+    }
 }
