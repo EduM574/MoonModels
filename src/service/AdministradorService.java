@@ -1,0 +1,14 @@
+package service;
+
+import dao.Conexao;
+import dao.AdministradorDAO;
+import model.Administrador;
+
+public class AdministradorService {
+    AdministradorDAO admDAO = new AdministradorDAO(Conexao.conectar());
+
+    public void create(Administrador adm) {
+        adm.setStatus("INATIVO");
+		admDAO.createAdminitrador(adm);
+	}
+}
