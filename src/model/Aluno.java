@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Aluno {
@@ -11,7 +10,7 @@ public class Aluno {
 	private int ra;
 	private String status;
 	private int cpf;
-	private GregorianCalendar data_nascimento;// converter para date depois?
+	private GregorianCalendar data_nascimento;
 	private String curso;
 	private String turno;
 	private String unidade;
@@ -101,6 +100,10 @@ public class Aluno {
 		return solicitacoes;
 	}
 
+	public ArrayList<Comentario> getComentarios() {
+		return comentarios;
+	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -157,5 +160,7 @@ public class Aluno {
 		this.solicitacoes = solicitacoes;
 	}
 
-	
+	public void setComentarios(ArrayList<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}	
 }
