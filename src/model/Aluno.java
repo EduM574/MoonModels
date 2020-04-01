@@ -9,7 +9,7 @@ public class Aluno {
 	private String sobrenome;
 	private int ra;
 	private String status;
-	private int cpf;
+	private String cpf;
 	private GregorianCalendar data_nascimento;
 	private String curso;
 	private String turno;
@@ -24,7 +24,7 @@ public class Aluno {
 	public Aluno() {
 	}
 
-	public Aluno(String nome, String sobrenome, int ra, String status, int cpf, GregorianCalendar data_nascimento,
+	public Aluno(String nome, String sobrenome, int ra, String status, String cpf, GregorianCalendar data_nascimento,
 			String curso, String turno, String unidade, int semestre, String email, String senha, Administrador adm,
 			ArrayList<Solicitacao> solicitacoes, ArrayList<Comentario> comentarios) {
 		this.nome = nome;
@@ -60,7 +60,7 @@ public class Aluno {
 		return status;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
@@ -120,7 +120,7 @@ public class Aluno {
 		this.status = status;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
