@@ -41,10 +41,25 @@ public class SolicitacaoDAO {
 		} catch( Exception e) {
 			System.err.println("Falha no java: " + e.getMessage());
 			e.printStackTrace();
-		}
-		
-		
-		
+		}				
 	}
-
+	
+	public void updateSolicitacao(Solicitacao solicitacao) {
+		String update = "UPDATE solicitacao SET statusS = ?" + "WHERE codigo = ?";
+		
+		try(PreparedStatement pst = conexao.prepareStatement(update)){
+			
+			pst.setString(1, solicitacao.getStatus());
+			pst.setInt(2, solicitacao.getIdSolicitacao());
+			
+			pst.execute();
+			
+		} catch(SQLException e) {
+			System.err.println("Falha no banco: " + e.getMessage());
+			e.printStackTrace();
+		} catch( Exception e) {
+			System.err.println("Falha no java: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
 }

@@ -33,7 +33,10 @@ public class Main {
          Aluno aluno1 = new Aluno("caio", "silva", 2, "indo", "35496197821", null, "computação", "noite", "paulista", 3, "caiogsilva@eumesmoeevai", "seraio", adm, null, null );
          SolicitacaoService soliService = new SolicitacaoService();
         //Create nova Solicitação
-         Solicitacao soli1 = new Solicitacao(1,"passe", "solicitação de passe", null, "deferida", null, 6, aluno1, null);
-         soliService.create(soli1);
+//         Solicitacao soli1 = new Solicitacao(1,"passe", "solicitação de passe", null, "deferida", null, 6, aluno1, null);
+//        soliService.create(soli1);
+         
+         Solicitacao soli2 = new Solicitacao(1, "", "", null , "pendente", null, 0, null, null);
+         soliService.update(soli2);
     }
 }

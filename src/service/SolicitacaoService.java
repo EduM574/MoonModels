@@ -11,5 +11,9 @@ public class SolicitacaoService {
 		solicitacao.setStatus("SOLICITADO");
 		soliDAO.createSolicitacao(solicitacao);
 	}
+	
+	public void update(Solicitacao solicitacao) {
+		soliDAO.updateSolicitacao(solicitacao);
+	}
 
 }
