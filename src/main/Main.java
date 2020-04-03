@@ -4,11 +4,8 @@ package main;
 // import java.text.SimpleDateFormat;
 // import java.util.Calendar;
 
-// import model.Administrador;
-// import model.Aluno;
-// import model.Setor;
-// import service.AdministradorService;
-// import service.AlunoService;
+import model.*;
+import service.*;
 
 public class Main {
 	public static void main(String args[]) {
@@ -16,8 +13,8 @@ public class Main {
 		// AlunoService alnService = new AlunoService();
 
     //    //Insert de novos adm (email, setor, status) o status começa com INATIVO
-    //    Setor setor = new Setor(1, "", "", "", null);
-    //    Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
+       Setor setor = new Setor(1, "", "", "", null);
+       Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
     //    admService.create(adm);
 
        //Update em qualquer adm (todos os parâmetros exceto email)
@@ -50,5 +47,26 @@ public class Main {
         //  Aluno aln3 = new Aluno("Dani", "Moreira", 2, "INATIVO","33333",null,"Direito ", "Manha", "Paulista", 4, "danimail@", "kex", adm4,null,null);
         //  alnService.updateDoAdm(aln3);
 
-	}
+        //Update dentro da plataforma (senha)
+ //       Administrador adm4 = new Administrador("", "", "", "", "fulano2@usjt.br", "12345", null, null, null, null);
+ //       admService.updateSenha(adm4);
+        
+        //  Aluno aluno1 = new Aluno("caio", "silva", 2, "indo", "35496197821", null, "computa��o", "noite", "paulista", 3, "caiogsilva@eumesmoeevai", "seraio", adm, null, null );
+        //  SolicitacaoService soliService = new SolicitacaoService();
+        //Create nova Solicitacao
+		// Solicitacao soli1 = new Solicitacao(0,"passe", "solicitacao de passe", null, "", null, 6, aluno1, null);
+		// System.out.println(soli1.getIdSolicitacao());
+	   	// soliService.create(soli1);
+	   	// System.out.println(soli1.getIdSolicitacao());
+         
+         Solicitacao soli2 = new Solicitacao(1, "", "", null , "pendente", null, 0, null, null);
+         //Atualiza a solicitação
+        //  soliService.update(soli2);
+         
+         //Registra essa atualização
+         GerenciaAdmSolicitacao gerencia = new GerenciaAdmSolicitacao(adm, soli2, null, "Processo concluido com sucesso");
+         GerenciaAdmSolicitacaoService gerenciaService = new GerenciaAdmSolicitacaoService();
+         gerenciaService.create(gerencia);
+
+    }
 }

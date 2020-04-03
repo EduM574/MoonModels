@@ -7,19 +7,17 @@ public class GerenciaAdmSolicitacao {
 	private Administrador administrador;
 	private Solicitacao solicitacao;
 	private GregorianCalendar data;
-	private String status;
 	private String descricao;
 
 	public GerenciaAdmSolicitacao() {
 	}
 
-	public GerenciaAdmSolicitacao(int identificadorGerencia, Administrador administrador, Solicitacao solicitacao,
-			GregorianCalendar data, String status, String descricao) {
+	public GerenciaAdmSolicitacao(Administrador administrador, Solicitacao solicitacao,
+			GregorianCalendar data, String descricao) {
 
 		this.administrador = administrador;
 		this.solicitacao = solicitacao;
 		this.data = data;
-		this.status = status;
 		this.descricao = descricao;
 	}
 
@@ -45,14 +43,6 @@ public class GerenciaAdmSolicitacao {
 
 	public void setData(GregorianCalendar data) {
 		this.data = data;
-	}
-	
-	public String getStatus() {
-		return status;
-	}
-	
-	public void setStatus(String status) {
-		this.status = status;
 	}
 	
 	public String getDescricao() {
