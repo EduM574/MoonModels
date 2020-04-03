@@ -1,9 +1,8 @@
 package dao;
 
 import java.sql.*;
-import java.util.GregorianCalendar;
+// import java.util.GregorianCalendar;
 
-import model.Administrador;
 import model.Aluno;
 
 public class AlunoDAO {
@@ -17,7 +16,7 @@ public class AlunoDAO {
 		this.conexao = conexao;
 	}
 
-	public void createAluno(Aluno aluno) {
+	public int createAluno(Aluno aluno) {
 		String create = "INSERT INTO aluno(nome, sobrenome, statusA, cpf,data_nascimento, curso, turno, unidade, semestre, email, senha,fk_email_adm)"
 				+ "VALUES (?, ?, ?, ?,'2000-01-19', ?, ?, ?, ?, ?, ?, ?)";
 
@@ -37,6 +36,16 @@ public class AlunoDAO {
 
 			pst.execute();
 
+			String sqlQuery = "SELECT LAST_INSERT_ID()";
+			try (PreparedStatement stm2 = conexao.prepareStatement(sqlQuery);
+					ResultSet rs = stm2.executeQuery();) {
+				if (rs.next()) {
+					aluno.setRa(rs.getInt(1));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+
 		} catch (SQLException e) {
 			System.err.println("Falha no banco: " + e.getMessage());
 			e.printStackTrace();
@@ -44,25 +53,22 @@ public class AlunoDAO {
 			System.err.println("Falha no java: " + e.getMessage());
 			e.printStackTrace();
 		}
+
+		return aluno.getRa();
 	}
 //    GregorianCalendar gc = new GregorianCalendar();
 //    gc = aluno.getData_nascimento();
 	// pst.setDate(5, (Date)gc.getTime());
 
 	public void updateSenhaAluno(Aluno aluno) {
-		String update = "UPDATE aluno SET senha = ? WHERE cpf=? and cpf=senha";
+		String update = "UPDATE aluno SET senha = ? WHERE ra=?";
 
 		try (PreparedStatement pst = conexao.prepareStatement(update)) {
-			if (aluno.getSenha().equals(aluno.getCpf())) {
-				System.out.println("Mesma senha de criação");
-			} else if (aluno.getSenha().equals(null) || aluno.getCpf().equals(null)) {
-				System.out.println("Senha nova não inserida");
-			} else {
-				pst.setString(1, aluno.getSenha());
-				pst.setString(2, aluno.getCpf());
-//            pst.setString(3, aluno.getCpf());
-				pst.execute();
-			}
+			
+			pst.setString(1, aluno.getSenha());
+			pst.setInt(2, aluno.getRa());
+			pst.execute();
+			
 		} catch (SQLException e) {
 			System.err.println("Falha no banco: " + e.getMessage());
 			e.printStackTrace();
@@ -73,7 +79,7 @@ public class AlunoDAO {
 	}
 
 	public void updateDoAdmAluno(Aluno aluno) {
-		String update = "UPDATE aluno SET nome= ?, sobrenome= ?, statusA= ?, cpf= ?, data_nascimento= '2000-01-10', curso= ?, turno= ?, unidade= ?, semestre= ?, email= ?, senha= ? WHERE (fk_email_adm = ? )";
+		String update = "UPDATE aluno SET nome= ?, sobrenome= ?, statusA= ?, cpf= ?, data_nascimento= '2000-01-10', curso= ?, turno= ?, unidade= ?, semestre= ?, email= ?, senha= ? WHERE ra = ? ";
 
 		try (PreparedStatement pst = conexao.prepareStatement(update)) {
 
@@ -87,7 +93,7 @@ public class AlunoDAO {
 			pst.setInt(8, aluno.getSemestre());
 			pst.setString(9, aluno.getEmail());
 			pst.setString(10, aluno.getSenha());
-			pst.setString(11, aluno.getAdm().getEmail());
+			pst.setInt(11, aluno.getRa());
 
 			pst.execute();
 
