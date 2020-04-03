@@ -7,23 +7,21 @@ import model.Administrador;
 import model.Aluno;
 
 public class AlunoService {
-    AlunoDAO alunoDAO = new AlunoDAO(Conexao.conectar());
+	AlunoDAO alunoDAO = new AlunoDAO(Conexao.conectar());
 
-    public void create(Aluno aluno) {
-        aluno.setStatus("ATIVO");
+	public void create(Aluno aluno) {
+		aluno.setStatus("ATIVO");
+		aluno.setSenha(aluno.getCpf());
 		alunoDAO.createAluno(aluno);
-    }
+	}
 
-//    public void updateInicial(Aluno aluno) {
-//        adm.setStatus("ATIVO");
-//        alunoDAO.updateInicialAdministrador(adm);
-//    }
-//    
-//    public void updateTotal(Aluno aluno) {
-//        alunoDAO.updateTotalAdministrador(adm);
-//    }
-//
-//    public void updateSenha(Aluno aluno) {
-//        alunoDAO.updateSenhaAdministrador(adm);
-//    }
+	public void updateSenha(Aluno aluno) {
+		aluno.setStatus("ATIVO");
+		alunoDAO.updateSenhaAluno(aluno);
+	}
+
+	public void updateDoAdm(Aluno aluno) {
+		aluno.setStatus("ATIVO");
+		alunoDAO.updateDoAdmAluno(aluno);
+	}
 }

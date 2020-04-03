@@ -11,8 +11,9 @@ import service.AdministradorService;
 import service.AlunoService;
 
 public class Main {
-    public static void main(String args[]) {
-        AdministradorService admService = new AdministradorService();
+	public static void main(String args[]) {
+		AdministradorService admService = new AdministradorService();
+		AlunoService alnService = new AlunoService();
 
 //        //Insert de novos adm (email, setor, status) o status come√ßa com INATIVO
 //        Setor setor = new Setor(1, "", "", "", null);
@@ -29,14 +30,20 @@ public class Main {
 //        admService.updateInicial(adm3);
 //
 //        //Update dentro da plataforma (senha)
-//        Administrador adm4 = new Administrador("", "", "", "", "fulano2@usjt.br", "12345", null, null, null, null);
+//		  Administrador adm4 = new Administrador("", "", "", "", "fulano2@usjt.br","12345", null, null, null, null);
 //        admService.updateSenha(adm4);
-        
-         //Insert de novos alunos
-    
-         Aluno aln1 = new Aluno("Duts", "Silva", 0, "","33333",null,"Letras", "Noite", "Paulista", 3, "edumail@", "edu123", null,null,null);
-         AlunoService alnService = new AlunoService();
-         alnService.create(aln1); 
 
-    }
+		// Insert de novos alunos: nome, sobrenome, ra, status, cpf, data nasci, curso,
+		// turno, unidade semestre, email, senha
+
+//         Aluno aln1 = new Aluno("Duts", "Silva", 0, "","33333",null,"Letras", "Noite", "Paulista", 3, "edumail@", "", adm4,null,null);        
+//         alnService.create(aln1); 
+
+//         Aluno aln2 = new Aluno("", "", 0, "","33333",null,"", "", "", 0, "", "edu123", adm4,null,null);
+//         alnService.updateSenha(aln2);
+
+//          Aluno aln3 = new Aluno("Dani", "Moreira", 0, "","33333",null,"Direito ", "Manh„", "Paulista", 4, "danimail@", "edu123", adm4,null,null);
+//          alnService.updateDoAdm(aln3);
+
+	}
 }
