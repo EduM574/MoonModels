@@ -43,8 +43,10 @@ public class Main {
          
          ComentarioService comService = new ComentarioService();
          
-         Comentario com1 = new Comentario(0, "Ó eu aqui.", null, null, aluno1, adm, soli2);
-         comService.create(com1);
+//         Comentario com1 = new Comentario(0, "Ó eu aqui.", null, null, aluno1, adm, soli2);
+//         comService.create(com1);
          
+         Comentario com2 = new Comentario(1, "isso é update.",null,null,null,null,null);
+         comService.update(com2);
     }
 }

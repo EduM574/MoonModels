@@ -43,4 +43,29 @@ public class ComentarioDAO {
 		}
 	}
 	
+	public void updateComentario(Comentario comentario) {
+		String update = "UPDATE comentario SET texto = ?, anexo = ? " + "WHERE codigo = ?";
+		
+		try(PreparedStatement pst = conexao.prepareStatement(update)) {
+			
+			pst.setString(1, comentario.getTexto());
+			pst.setInt(3, comentario.getIdComentario());
+			
+			if(comentario.getAnexo() != null) {
+				FileInputStream inputStream = new FileInputStream(comentario.getAnexo());
+				pst.setBinaryStream(2, (InputStream) inputStream, (int)(comentario.getAnexo().length()));
+			} else {
+				pst.setBinaryStream(2, null);
+			}
+			
+			pst.execute();
+			
+		} catch(SQLException e) {
+			System.err.println("Falha no banco: " + e.getMessage());
+			e.printStackTrace();
+		} catch( Exception e) {
+			System.err.println("Falha no java: " + e.getMessage());
+			e.printStackTrace();
+		}
+	} 
 }

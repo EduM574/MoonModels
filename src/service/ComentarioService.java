@@ -10,5 +10,9 @@ public class ComentarioService {
 	public void create(Comentario comentario) {
 		comDAO.createComentario(comentario);
 	}
+	
+	public void update(Comentario comentario) {
+		comDAO.updateComentario(comentario);
+	}
 
 }
