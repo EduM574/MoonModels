@@ -7,6 +7,8 @@ import model.Aluno;
 import model.Solicitacao;
 import dao.Conexao;
 import service.SolicitacaoService;
+import service.ComentarioService;
+import model.Comentario;
 
 public class Main {
     public static void main(String args[]) {
@@ -38,5 +40,11 @@ public class Main {
          
          Solicitacao soli2 = new Solicitacao(1, "", "", null , "pendente", null, 0, null, null);
          soliService.update(soli2);
+         
+         ComentarioService comService = new ComentarioService();
+         
+         Comentario com1 = new Comentario(0, "Ó eu aqui.", null, null, aluno1, adm, soli2);
+         comService.create(com1);
+         
     }
 }
