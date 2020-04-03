@@ -19,8 +19,8 @@ public class Aluno {
 	private String senha;
 	private Administrador adm;
 	private ArrayList<Solicitacao> solicitacoes;
-	private ArrayList <Comentario> comentarios;
-	
+	private ArrayList<Comentario> comentarios;
+
 	public Aluno() {
 	}
 
@@ -162,5 +162,9 @@ public class Aluno {
 
 	public void setComentarios(ArrayList<Comentario> comentarios) {
 		this.comentarios = comentarios;
-	}	
+	}
+
+//	-Insert (todos os dados exceto ra) a senha inicial vai ser o CPF do aluno, status inicial é ATIVO
+//	-Update dentro da plataforma (senha)
+//	-Update feito pelo ADM (todos os dados exceto FK e RA)
 }
