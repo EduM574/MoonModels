@@ -162,6 +162,10 @@ nav {
 
 /* Historico de solicitações */
 
+#detalhe-solicitacao {
+    visibility: hidden;
+}
+
 .hist-solicit {
 	z-index: 2;
     position: fixed;
@@ -176,10 +180,16 @@ nav {
     overflow-y: auto;
 }
 
+.top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .s-hist-title {
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 57px;
     color: #C06C84;
 }
@@ -187,9 +197,17 @@ nav {
 .s-hist-subtitle {
     font-style: normal;
     font-weight: normal;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 57px;
     color: #898989;
+}
+
+.title-wrapper {
+    height: 35px;
+}
+
+.s-hist-step-wrapper {
+    margin-top: 20px;
 }
 
 .s-hist-sub-info {
@@ -224,7 +242,27 @@ nav {
 }
 
 .caixa-mensagem {
-    height: 300px;
+    height: 100px;
+}
+
+.s-comment-user {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 39px;
+    color: #C06C84; 
+}
+
+.s-comment-content {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 39px;
+    color: #464646;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
 }
 
 .s-hist-input {
@@ -241,6 +279,10 @@ nav {
     border-radius: 50%;
     border-style: none;
     background-color: #F2717F;
+}
+
+.s-hist-send-comment-btn > img {
+    width: 95%;
 }
 
 ::-webkit-scrollbar {
