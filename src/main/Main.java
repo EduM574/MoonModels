@@ -1,7 +1,8 @@
 package main;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+// import java.text.SimpleDateFormat;
+// import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 // // import java.text.DateFormat;
 // // import java.text.SimpleDateFormat;
@@ -13,7 +14,7 @@ import service.*;
 public class Main {
 	public static void main(String args[]) {
 		// AdministradorService admService = new AdministradorService();
-		// AlunoService alnService = new AlunoService();
+		AlunoService alnService = new AlunoService();
 
        //Insert de novos adm (email, setor, status) o status começa com INATIVO
        Setor setor = new Setor(1, "", "", "", null);
@@ -37,10 +38,13 @@ public class Main {
 // 			//turno, unidade semestre, email, senha
 
 // 			//Insert (todos os dados exceto ra) *a senha inicial vai ser o CPF do aluno, status inicial é **ATIVO** *
-//         // Aluno aln1 = new Aluno("Duts", "Silva", 0, "","33333", null, "Letras", "Noite", "Paulista", 3, "edumail@", "", adm4, null, null);        
-// 		// System.out.println(aln1.getRa());
-// 		// alnService.create(aln1); 
-// 		// System.out.println(aln1.getRa());
+        // Aluno aln1 = new Aluno("Duts", "Silva", 0, "","33333", null, "Letras", "Noite", "Paulista", 3, "edumail@", "", adm, null, null);        
+        //GregorianCalendar(int year, int month, int dayOfMonth);
+        GregorianCalendar dataNascimento = new GregorianCalendar(2000, 8, 1);
+        Aluno aln1 = new Aluno("Kex", "Fortuna", 0, "","56789", dataNascimento, "Arquitetura", "Manhã", "Mooca", 3, "Kessy@gmail.com", "", adm, null, null);
+		System.out.println(aln1.getRa());
+		alnService.create(aln1); 
+		System.out.println(aln1.getRa());
 
 // 			//Update dentro da plataforma (senha)
 //         // Aluno aln2 = new Aluno("", "", 2, "","33333",null,"", "", "", 0, "", "edu123", adm4,null,null);
@@ -55,7 +59,7 @@ public class Main {
 //  //       admService.updateSenha(adm4);
         
 //          Aluno aluno1 = new Aluno("caio", "silva", 2, "indo", "35496197821", null, "computa��o", "noite", "paulista", 3, "caiogsilva@eumesmoeevai", "seraio", adm, null, null );
-         SolicitacaoService soliService = new SolicitacaoService();
+        //  SolicitacaoService soliService = new SolicitacaoService();
 //         //Create nova Solicitacao
 // 		// Solicitacao soli1 = new Solicitacao(0,"passe", "solicitacao de passe", null, "", null, 6, aluno1, null);
 // 		// System.out.println(soli1.getIdSolicitacao());
@@ -82,22 +86,22 @@ public class Main {
 //         //  comService.update(com2);
         
         //Todos os dados de todas as solicitações correspondentes a aquele aluno se estiver ativo e com aquele status (exibe pro aluno)
-        Aluno aln1 = new Aluno("Duts", "Silva", 2, "ATIVO","33333", null, "Letras", "Noite", "Paulista", 3, "edumail@", "", adm, null, null);
-        ArrayList<Solicitacao> solicitacoesAluno = soliService.selectSolicitacoesAluno(aln1);
+        // Aluno aln1 = new Aluno("Duts", "Silva", 2, "ATIVO","33333", null, "Letras", "Noite", "Paulista", 3, "edumail@", "", adm, null, null);
+        // ArrayList<Solicitacao> solicitacoesAluno = soliService.selectSolicitacoesAluno(aln1);
 
-        for(Solicitacao solicitacaoAluno : solicitacoesAluno) {
-            System.out.println("Código: " + solicitacaoAluno.getIdSolicitacao());
-            System.out.println("Nome: " + solicitacaoAluno.getNome());
-            System.out.println("Descrição: " + solicitacaoAluno.getDescricao());
-            System.out.println("Anexo: " + solicitacaoAluno.getAnexo());
-            System.out.println("Status: " + solicitacaoAluno.getStatus());
+        // for(Solicitacao solicitacaoAluno : solicitacoesAluno) {
+        //     System.out.println("Código: " + solicitacaoAluno.getIdSolicitacao());
+        //     System.out.println("Nome: " + solicitacaoAluno.getNome());
+        //     System.out.println("Descrição: " + solicitacaoAluno.getDescricao());
+        //     System.out.println("Anexo: " + solicitacaoAluno.getAnexo());
+        //     System.out.println("Status: " + solicitacaoAluno.getStatus());
 
-            SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(solicitacaoAluno.getDataAbertura().getTime());
-            System.out.println("Data de abertura: " + dataFormatada);
+        //     SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
+        //     String dataFormatada = sdf.format(solicitacaoAluno.getDataAbertura().getTime());
+        //     System.out.println("Data de abertura: " + dataFormatada);
 
-            System.out.println("Prazo: " + solicitacaoAluno.getPrazo());
-            System.out.println("Código do aluno: " + solicitacaoAluno.getAluno().getRa());
-        }
+        //     System.out.println("Prazo: " + solicitacaoAluno.getPrazo());
+        //     System.out.println("Código do aluno: " + solicitacaoAluno.getAluno().getRa());
+        // }
     }
 }

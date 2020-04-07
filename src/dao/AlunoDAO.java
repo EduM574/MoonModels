@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.*;
 // import java.util.GregorianCalendar;
+import java.util.GregorianCalendar;
 
 import model.Aluno;
 
@@ -18,21 +19,25 @@ public class AlunoDAO {
 
 	public int createAluno(Aluno aluno) {
 		String create = "INSERT INTO aluno(nome, sobrenome, statusA, cpf,data_nascimento, curso, turno, unidade, semestre, email, senha,fk_email_adm)"
-				+ "VALUES (?, ?, ?, ?,'2000-01-19', ?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try (PreparedStatement pst = conexao.prepareStatement(create)) {
-
+			String data = aluno.getData_nascimento().get(GregorianCalendar.YEAR) + "-"
+						+ aluno.getData_nascimento().get(GregorianCalendar.MONTH) + "-"
+						+ aluno.getData_nascimento().get(GregorianCalendar.DAY_OF_MONTH);
+			
 			pst.setString(1, aluno.getNome());
 			pst.setString(2, aluno.getSobrenome());
 			pst.setString(3, aluno.getStatus());
 			pst.setString(4, aluno.getCpf());
-			pst.setString(5, aluno.getCurso());
-			pst.setString(6, aluno.getTurno());
-			pst.setString(7, aluno.getUnidade());
-			pst.setInt(8, aluno.getSemestre());
-			pst.setString(9, aluno.getEmail());
-			pst.setString(10, aluno.getSenha());
-			pst.setString(11, aluno.getAdm().getEmail());
+			pst.setString(5, data);
+			pst.setString(6, aluno.getCurso());
+			pst.setString(7, aluno.getTurno());
+			pst.setString(8, aluno.getUnidade());
+			pst.setInt(9, aluno.getSemestre());
+			pst.setString(10, aluno.getEmail());
+			pst.setString(11, aluno.getSenha());
+			pst.setString(12, aluno.getAdm().getEmail());
 
 			pst.execute();
 
