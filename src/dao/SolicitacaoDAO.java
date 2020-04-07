@@ -79,12 +79,13 @@ public class SolicitacaoDAO {
 		}
 	}
 
-	public ArrayList<Solicitacao> solicitacoesAluno(Aluno aluno) {
-		String consulta = "SELECT * FROM solicitacao WHERE fk_ra_aluno = ?;";
+	public ArrayList<Solicitacao> solicitacoesAluno(Aluno aluno, String statusSolicitacao) {
+		String consulta = "SELECT * FROM solicitacao WHERE fk_ra_aluno = ? AND statusS = ?;";
 		
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
 			
 			pst.setInt(1, aluno.getRa());
+			pst.setString(2, statusSolicitacao);
 			
 			ResultSet resultado = pst.executeQuery();
 			

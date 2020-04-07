@@ -19,9 +19,9 @@ public class SolicitacaoService {
 		soliDAO.updateSolicitacao(solicitacao);
 	}
 
-	public ArrayList<Solicitacao> selectSolicitacoesAluno(Aluno aluno) {
+	public ArrayList<Solicitacao> selectSolicitacoesAluno(Aluno aluno, String statusSolicitacao) {
 		if(aluno.getStatus().equals("ATIVO")){
-			return soliDAO.solicitacoesAluno(aluno);
+			return soliDAO.solicitacoesAluno(aluno, statusSolicitacao);
 		} else {
 			return null;
 		}
