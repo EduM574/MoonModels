@@ -20,7 +20,7 @@ public class SolicitacaoService {
 		soliDAO.updateSolicitacao(solicitacao);
 	}
 
-	public ArrayList<Solicitacao> selectSolicitacoesAlunoDefInd(Aluno aluno, String statusSolicitacao) {
+	public ArrayList<Solicitacao> selectSolicitacoesAluno(Aluno aluno, String statusSolicitacao) {
 		if(aluno.getStatus().equals("ATIVO")) {
 			if(statusSolicitacao.equals("INDEFERIDA") || statusSolicitacao.equals("DEFERIDA")) {
 				return soliDAO.solicitacoesDeferidaIndeferidaAluno(aluno, statusSolicitacao);
@@ -32,13 +32,26 @@ public class SolicitacaoService {
 		}
 	}
 
-	// public ArrayList<Solicitacao> selectSolicitacoesADM(Administrador adm) {
-	// 	if(aluno.getStatus().equals("ATIVO")) {
-	// 		return soliDAO.solicitacoesDeferidaIndeferidaAluno(aluno, statusSolicitacao);
-	// 	} else {
-	// 		return null;
-	// 	}
-	// }
+	public ArrayList<Solicitacao> selectSolicitacoesADM(Administrador adm) {
 
+		if(adm.getSetor().getNome().equals("Transporte escolar")) {
+			return soliDAO.solicitacoesADM("Bilhete da SPTrans");
+
+		} else if(adm.getSetor().getNome().equals("Gestão de estagio")) {
+			return soliDAO.solicitacoesADM("Contrato de estágio");
+
+		} else if(adm.getSetor().getNome().equals("Atividades curriculares")) {
+			ArrayList<Solicitacao> array1 = soliDAO.solicitacoesADM("Entrega de atividades complementares");
+			ArrayList<Solicitacao> array2 = soliDAO.solicitacoesADM("Mudança de horário");
+			
+			ArrayList<Solicitacao> resultado = new ArrayList<Solicitacao>(array1.size()+ array2.size());
+			resultado.addAll(array1);
+			resultado.addAll(array2);
+
+			return resultado;			 
+		}
+
+		return null;
+	}
 	
 }
