@@ -132,16 +132,21 @@
         </section>
     </div>
     
-    <section class="hist-solicit">
-    	<div>
-            <span class="s-hist-title">Nome:</span>
-            <span class="s-hist-subtitle">{{Nome da solicitação}}</span>
+    <section class="hist-solicit" id="detalhe-solicitacao">
+    	<div class="title-wrapper top-content">
+            <div>
+                <span class="s-hist-title">Nome:</span>
+                <span class="s-hist-subtitle">{{Nome da solicitação}}</span>
+            </div>
+            <button class="s-hist-send-comment-btn">
+                <img src="./img/download.png" alt="enviar">
+            </button>
         </div>
-        <div>
+        <div class="title-wrapper">
             <span class="s-hist-title">Código:</span>
             <span class="s-hist-subtitle">{{Código}}</span>
         </div>
-        <div class="s-hist-sub-info">
+        <div class="s-hist-sub-info title-wrapper">
             <div>
                 <span class="s-hist-title">Abertura:</span>
                 <span class="s-hist-subtitle">{{data}}</span>
@@ -152,7 +157,7 @@
                 <span class="s-hist-subtitle">{{prazo}}</span>
             </div>
         </div>
-        <div>
+        <div class="s-hist-step-wrapper">
             <div class="s-hist-step">
                 <div class="step-dot"></div>
                 <p class="step-text">{{Parte 1}}</p>
@@ -176,12 +181,17 @@
         </div>
         <span class="s-hist-title">Comentários</span>
         <div class="caixa-mensagem">
-
+            <div>
+                <span class="s-comment-user">{{nome do usuário}}:</span>
+                <span class="s-comment-content">{{comentario}}</span>
+            </div>
         </div>
         <div>
             <form>
                 <input type="text" class="s-hist-input">
-                <button class="s-hist-send-comment-btn">a</button>
+                <button class="s-hist-send-comment-btn">
+                    <img src="./img/forward.png" alt="enviar">
+                </button>
             </form>
         </div>
     </section>
