@@ -1,20 +1,23 @@
-// package main;
+package main;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 // // import java.text.DateFormat;
 // // import java.text.SimpleDateFormat;
 // // import java.util.Calendar;
 
-// import model.*;
-// import service.*;
+import model.*;
+import service.*;
 
-// public class Main {
-// 	public static void main(String args[]) {
-// 		// AdministradorService admService = new AdministradorService();
-// 		// AlunoService alnService = new AlunoService();
+public class Main {
+	public static void main(String args[]) {
+		// AdministradorService admService = new AdministradorService();
+		// AlunoService alnService = new AlunoService();
 
-//     //    //Insert de novos adm (email, setor, status) o status começa com INATIVO
-//        Setor setor = new Setor(1, "", "", "", null);
-//        Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
+       //Insert de novos adm (email, setor, status) o status começa com INATIVO
+       Setor setor = new Setor(1, "", "", "", null);
+       Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
 //     //    admService.create(adm);
 
 //        //Update em qualquer adm (todos os parâmetros exceto email)
@@ -52,7 +55,7 @@
 //  //       admService.updateSenha(adm4);
         
 //          Aluno aluno1 = new Aluno("caio", "silva", 2, "indo", "35496197821", null, "computa��o", "noite", "paulista", 3, "caiogsilva@eumesmoeevai", "seraio", adm, null, null );
-//         //  SolicitacaoService soliService = new SolicitacaoService();
+         SolicitacaoService soliService = new SolicitacaoService();
 //         //Create nova Solicitacao
 // 		// Solicitacao soli1 = new Solicitacao(0,"passe", "solicitacao de passe", null, "", null, 6, aluno1, null);
 // 		// System.out.println(soli1.getIdSolicitacao());
@@ -77,5 +80,24 @@
          
 //         //  Comentario com2 = new Comentario(1, "isso e update.",null,null,null,null,null);
 //         //  comService.update(com2);
-//     }
-// }
+        
+        //Todos os dados de todas as solicitações correspondentes a aquele aluno se estiver ativo e com aquele status (exibe pro aluno)
+        Aluno aln1 = new Aluno("Duts", "Silva", 2, "ATIVO","33333", null, "Letras", "Noite", "Paulista", 3, "edumail@", "", adm, null, null);
+        ArrayList<Solicitacao> solicitacoesAluno = soliService.selectSolicitacoesAluno(aln1);
+
+        for(Solicitacao solicitacaoAluno : solicitacoesAluno) {
+            System.out.println("Código: " + solicitacaoAluno.getIdSolicitacao());
+            System.out.println("Nome: " + solicitacaoAluno.getNome());
+            System.out.println("Descrição: " + solicitacaoAluno.getDescricao());
+            System.out.println("Anexo: " + solicitacaoAluno.getAnexo());
+            System.out.println("Status: " + solicitacaoAluno.getStatus());
+
+            SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
+            String dataFormatada = sdf.format(solicitacaoAluno.getDataAbertura().getTime());
+            System.out.println("Data de abertura: " + dataFormatada);
+
+            System.out.println("Prazo: " + solicitacaoAluno.getPrazo());
+            System.out.println("Código do aluno: " + solicitacaoAluno.getAluno().getRa());
+        }
+    }
+}

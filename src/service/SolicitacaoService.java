@@ -1,8 +1,11 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.Conexao;
 import dao.SolicitacaoDAO;
 import model.Solicitacao;
+import model.Aluno;
 
 public class SolicitacaoService {
 	SolicitacaoDAO soliDAO = new SolicitacaoDAO(Conexao.conectar());
@@ -16,4 +19,11 @@ public class SolicitacaoService {
 		soliDAO.updateSolicitacao(solicitacao);
 	}
 
+	public ArrayList<Solicitacao> selectSolicitacoesAluno(Aluno aluno) {
+		if(aluno.getStatus().equals("ATIVO")){
+			return soliDAO.solicitacoesAluno(aluno);
+		} else {
+			return null;
+		}
+	}
 }

@@ -34,7 +34,7 @@ public class Solicitacao {
 	public int getIdSolicitacao() {
 		return identificadorSolicitacao;
 	}
-	public void SetIdSolicitacao(int idSolicitacao) {
+	public void setIdSolicitacao(int idSolicitacao) {
 		this.identificadorSolicitacao = idSolicitacao;
 	}
 	
@@ -83,7 +83,7 @@ public class Solicitacao {
 	public Aluno getAluno() {
 		return aluno;
 	}
-	public void setAlunos(Aluno aluno) {
+	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
 	
