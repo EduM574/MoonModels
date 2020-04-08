@@ -61,7 +61,7 @@ public class Main {
 // 	   	soliService.create(soli1);
 // 	   	System.out.println(soli1.getIdSolicitacao());
          
-//          Solicitacao soli2 = new Solicitacao(1, "", "", null , "pendente", null, 0, null, null);
+          Solicitacao soli2 = new Solicitacao(1, "", "", null , "pendente", null, 0, null, null);
 //          //Atualiza a solicitação
 //         //  soliService.update(soli2);
          
@@ -70,7 +70,7 @@ public class Main {
 //         //  GerenciaAdmSolicitacaoService gerenciaService = new GerenciaAdmSolicitacaoService();
 //         //  gerenciaService.create(gerencia);
          
-//          ComentarioService comService = new ComentarioService();
+          ComentarioService comService = new ComentarioService();
          
 //         Comentario com1 = new Comentario(0, "o eu aqui.", null, null, aluno1, adm, soli2);
 //         System.out.println(com1.getIdComentario());
@@ -100,21 +100,39 @@ public class Main {
         // }
 
         
-        ArrayList<Solicitacao> solicitacoesADM = soliService.selectSolicitacoesADM(adm);
+//        ArrayList<Solicitacao> solicitacoesADM = soliService.selectSolicitacoesADM(adm);
+//
+//        for(Solicitacao solicitacaoADM : solicitacoesADM) {
+//            System.out.println("Código: " + solicitacaoADM.getIdSolicitacao());
+//            System.out.println("Nome: " + solicitacaoADM.getNome());
+//            System.out.println("Descrição: " + solicitacaoADM.getDescricao());
+//            System.out.println("Anexo: " + solicitacaoADM.getAnexo());
+//            System.out.println("Status: " + solicitacaoADM.getStatus());
+//
+//            SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
+//            String dataFormatada = sdf.format(solicitacaoADM.getDataAbertura().getTime());
+//            System.out.println("Data de abertura: " + dataFormatada);
+//
+//            System.out.println("Prazo: " + solicitacaoADM.getPrazo());
+//            System.out.println("Código do aluno: " + solicitacaoADM.getAluno().getRa() + "\n");
+//        }
+         
+         ArrayList<Comentario> comentariosGeral = comService.selectComentariosDados(soli2);
+         
+         for(Comentario comentarios : comentariosGeral) {
+           System.out.println("C�digo: " + comentarios.getIdComentario());
+           System.out.println("Texto: " + comentarios.getTexto());
+           System.out.println("Anexo: " + comentarios.getAnexo());
 
-        for(Solicitacao solicitacaoADM : solicitacoesADM) {
-            System.out.println("Código: " + solicitacaoADM.getIdSolicitacao());
-            System.out.println("Nome: " + solicitacaoADM.getNome());
-            System.out.println("Descrição: " + solicitacaoADM.getDescricao());
-            System.out.println("Anexo: " + solicitacaoADM.getAnexo());
-            System.out.println("Status: " + solicitacaoADM.getStatus());
+           SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+           String dataFormatada = sdf.format(comentarios.getDataHora().getTime());
+           System.out.println("Data de abertura: " + dataFormatada);
 
-            SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(solicitacaoADM.getDataAbertura().getTime());
-            System.out.println("Data de abertura: " + dataFormatada);
-
-            System.out.println("Prazo: " + solicitacaoADM.getPrazo());
-            System.out.println("Código do aluno: " + solicitacaoADM.getAluno().getRa() + "\n");
-        }
+           System.out.println("C�digo do aluno: " + comentarios.getAluno().getRa());
+           System.out.println("Email do adm: " + comentarios.getAdministrador().getEmail());
+           System.out.println("C�digo da Solicita��o: " + comentarios.getSolicitacao().getIdSolicitacao() + "\n");
+       }
+         
+         
     }
 }
