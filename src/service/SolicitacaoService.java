@@ -13,6 +13,20 @@ public class SolicitacaoService {
 	
 	public void create(Solicitacao solicitacao) {
 		solicitacao.setStatus("ABERTA");
+
+		if(solicitacao.getNome().equals("Contrato de estágio")) {
+			solicitacao.setPrazo(15);
+
+		} else if(solicitacao.getNome().equals("Bilhete da SPTrans")) {
+			solicitacao.setPrazo(20);
+
+		} else if(solicitacao.getNome().equals("Entrega de atividades complementares")) {
+			solicitacao.setPrazo(8);
+			
+		} else if(solicitacao.getNome().equals("Mudança de horário")) {
+			solicitacao.setPrazo(10);
+		}
+
 		soliDAO.createSolicitacao(solicitacao);
 	}
 	
@@ -55,6 +69,4 @@ public class SolicitacaoService {
 
 		return null;
 	}
-	
-	
 }
