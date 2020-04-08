@@ -49,9 +49,12 @@ public class SolicitacaoService {
 			resultado.addAll(array2);
 
 			return resultado;			 
+		} else if(adm.getSetor().getNome().equals("MASTER")) {
+			return soliDAO.solicitacoesADMaster();
 		}
 
 		return null;
 	}
+	
 	
 }

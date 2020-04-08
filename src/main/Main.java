@@ -13,7 +13,7 @@ public class Main {
 		// AlunoService alnService = new AlunoService();
 
        //Insert de novos adm (email, setor, status) o status começa com INATIVO
-       Setor setor = new Setor(1, "Atividades curriculares", "", "", null);
+       Setor setor = new Setor(1, "MASTER", "", "", null);
        Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
     //    admService.create(adm);
 
