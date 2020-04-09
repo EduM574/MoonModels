@@ -1,5 +1,5 @@
-@charset "ISO-8859-1";
-
+@charset "UTF-8";
+@import url('fonts.css');
 body {
     background-color: #f9f9f9;
     font-family: sans-serif;
@@ -36,7 +36,7 @@ header {
     align-items: center;
 }
 
-.username-wrapper > span {
+.username-wrapper>span {
     margin-right: 15px;
     font-size: 18pt;
     color: #345D7D;
@@ -46,9 +46,10 @@ header {
     width: 30px;
 }
 
-.logout-wrapper > img {
+.logout-wrapper>img {
     width: 100%;
 }
+
 
 /* Menu */
 
@@ -66,13 +67,46 @@ nav {
     align-items: center;
 }
 
+
+/* Icone Chatboat */
+
+.chatboat-icon {
+    position: fixed;
+    width: 94px;
+    height: 94px;
+    right: 40px;
+    bottom: 20px;
+    background-color: #F2717F;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.chatboat-icon button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.chatboat-icon button:focus {
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+.chatboat-icon img {
+    width: 50%;
+}
+
 .menu-icon-wrapper {
     width: 35px;
 }
 
-.menu-icon-wrapper > img {
+.menu-icon-wrapper>img {
     width: 100%;
 }
+
 
 /* Conteudo */
 
@@ -80,6 +114,7 @@ nav {
     margin-left: 120px;
     padding: 20px;
 }
+
 
 /* info */
 
@@ -90,7 +125,7 @@ nav {
 
 .info-card {
     width: 30%;
-    height: 100px;  
+    height: 100px;
     padding: 15px;
     background: #6F5A7D;
     border: 2px solid #6F5A7D;
@@ -112,11 +147,11 @@ nav {
 }
 
 .titulo-solicitacao {
-	color: #F2717F;
+    color: #F2717F;
 }
 
 .s-card-color {
-	width: 30%;
+    width: 30%;
     height: 100px;
     background: #345D7D;
     border-radius: 15px;
@@ -125,9 +160,9 @@ nav {
 }
 
 .s-card-content {
-	width: 100%;
-	height: 60%;
-	background: #f9f9f9;
+    width: 100%;
+    height: 60%;
+    background: #f9f9f9;
     border: 2px solid #345D7D;
     border-radius: 15px;
     padding: 15px;
@@ -137,37 +172,38 @@ nav {
 }
 
 .s-card-subtitle {
-	color: #C06C84;
-	font-weight: 600;
+    color: #C06C84;
+    font-weight: 600;
 }
 
 .s-status-ativo {
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background: #F2717F;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #F2717F;
 }
 
 .s-status-inativo {
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background: #898989;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #898989;
 }
 
 .s-row {
-	display: flex;
+    display: flex;
     justify-content: space-between;
 }
 
-/* Historico de solicita��es */
+
+/* Historico de solicitaï¿½ï¿½es */
 
 #detalhe-solicitacao {
     visibility: hidden;
 }
 
 .hist-solicit {
-	z-index: 2;
+    z-index: 2;
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -250,7 +286,7 @@ nav {
     font-weight: 400;
     font-size: 16px;
     line-height: 39px;
-    color: #C06C84; 
+    color: #C06C84;
 }
 
 .s-comment-content {
@@ -281,27 +317,167 @@ form {
     background-color: #F2717F;
 }
 
-.s-hist-send-comment-btn > img {
+.s-hist-send-comment-btn>img {
     width: 95%;
 }
 
 ::-webkit-scrollbar {
     width: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888; 
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
     border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #f9f9f9; 
-  }
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #f9f9f9;
+}
+
+#tela-chatboat {
+    visibility: hidden;
+}
+
+.chatboat {
+    z-index: 2;
+    position: fixed;
+    right: 40px;
+    top: 11%;
+    background-color: #fff;
+    height: 70%;
+    width: 28%;
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.chat-header {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px 20px;
+    border-bottom: 2px solid #E5E5E5;
+}
+
+.chat-header img {
+    width: 10%;
+}
+
+.title-chat {
+    font-family: Catamaran;
+    color: #C06C84;
+    font-size: 32px;
+    line-height: 32px;
+    margin-left: 15px;
+}
+
+.chat-footer {
+    position: relative;
+    top: 0px;
+}
+
+.chat-footer form {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.chat-footer input {
+    width: 75%;
+    height: 40px;
+    background: #FFFFFF;
+    border: 2px solid #345D7D;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    padding: 10px 15px;
+}
+
+.chat-footer input:focus {
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+.chat-footer button {
+    background-color: #F2717F;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    padding: 10px 2px;
+}
+
+.chat-footer button:focus {
+    outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+.chat-footer img {
+    width: 50%;
+}
+
+.chat-content {
+    height: 65%;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.text-left {
+    margin-bottom: 10px;
+}
+
+.text-left span {
+    font-family: Catamaran semibold;
+    color: #F2717F;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.text-left p {
+    width: 80%;
+    font-family: Catamaran;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FFFFFF;
+    background: #6F5A7D;
+    border-radius: 0px 15px 15px 15px;
+    padding: 10px;
+    margin: 0;
+}
+
+.text-right {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.text-right span {
+    font-family: Catamaran semibold;
+    color: #F2717F;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.text-right p {
+    font-family: Catamaran;
+    font-size: 14px;
+    line-height: 20px;
+    color: #898989;
+    border: 2px solid #F2717F;
+    border-radius: 15px 0px 15px 15px;
+    padding: 10px;
+    margin: 0 0 0 20%;
+}
