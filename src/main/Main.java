@@ -9,7 +9,7 @@ import service.*;
 
 public class Main {
 	public static void main(String args[]) {
-		// AdministradorService admService = new AdministradorService();
+		 AdministradorService admService = new AdministradorService();
 		// AlunoService alnService = new AlunoService();
 
        //Insert de novos adm (email, setor, status) o status comeÃ§a com INATIVO
@@ -117,22 +117,23 @@ public class Main {
 //            System.out.println("CÃ³digo do aluno: " + solicitacaoADM.getAluno().getRa() + "\n");
 //        }
          
-         ArrayList<Comentario> comentariosGeral = comService.selectComentariosDados(soli2);
+//         ArrayList<Comentario> comentariosGeral = comService.selectComentariosDados(soli2);
+//         
+//         for(Comentario comentarios : comentariosGeral) {
+//           System.out.println("Código: " + comentarios.getIdComentario());
+//           System.out.println("Texto: " + comentarios.getTexto());
+//           System.out.println("Anexo: " + comentarios.getAnexo());
+//
+//           SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//           String dataFormatada = sdf.format(comentarios.getDataHora().getTime());
+//           System.out.println("Data de abertura: " + dataFormatada);
+//
+//           System.out.println("Código do aluno: " + comentarios.getAluno().getRa());
+//           System.out.println("Email do adm: " + comentarios.getAdministrador().getEmail());
+//           System.out.println("Código da Solicitação: " + comentarios.getSolicitacao().getIdSolicitacao() + "\n");
+//         }
          
-         for(Comentario comentarios : comentariosGeral) {
-           System.out.println("Código: " + comentarios.getIdComentario());
-           System.out.println("Texto: " + comentarios.getTexto());
-           System.out.println("Anexo: " + comentarios.getAnexo());
-
-           SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-           String dataFormatada = sdf.format(comentarios.getDataHora().getTime());
-           System.out.println("Data de abertura: " + dataFormatada);
-
-           System.out.println("Código do aluno: " + comentarios.getAluno().getRa());
-           System.out.println("Email do adm: " + comentarios.getAdministrador().getEmail());
-           System.out.println("Código da Solicitação: " + comentarios.getSolicitacao().getIdSolicitacao() + "\n");
-       }
-         
+//         ArrayList<Administrador> administradoresGeral = 
          
     }
 }

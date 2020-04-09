@@ -3,6 +3,7 @@ package service;
 import dao.Conexao;
 import dao.AdministradorDAO;
 import model.Administrador;
+import java.util.ArrayList;
 
 public class AdministradorService {
     AdministradorDAO admDAO = new AdministradorDAO(Conexao.conectar());
@@ -23,5 +24,9 @@ public class AdministradorService {
 
     public void updateSenha(Administrador adm) {
         admDAO.updateSenhaAdministrador(adm);
+    }
+    
+    public ArrayList<Administrador> selectAdminGeral(Administrador adm) {
+    	return admDAO.adminGeral(adm);
     }
 }

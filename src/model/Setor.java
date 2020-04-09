@@ -23,7 +23,7 @@ public class Setor {
 		return identificadorSetor;
 	}
 	
-	public void SetIdSetor(int idSetor) {
+	public void setIdSetor(int idSetor) {
 		this.identificadorSetor = idSetor;
 	}
 	
