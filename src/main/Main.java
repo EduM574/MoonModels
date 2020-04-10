@@ -1,6 +1,6 @@
 package main;
 
-import java.text.SimpleDateFormat;
+// import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 // import java.util.GregorianCalendar;
 
@@ -13,8 +13,8 @@ public class Main {
 		// AlunoService alnService = new AlunoService();
 
        //Insert de novos adm (email, setor, status) o status começa com INATIVO
-        Setor setor = new Setor(1, "MASTER", "", "", null);
-        Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
+        // Setor setor = new Setor(1, "MASTER", "", "", null);
+        // Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
     //    admService.create(adm);
        
     //    Setor setor2 = new Setor(2, "Sptrans", "� nois", "", null);
@@ -69,7 +69,7 @@ public class Main {
 // 	   	soliService.create(soli1);
 // 	   	System.out.println(soli1.getIdSolicitacao());
          
-          Solicitacao soli2 = new Solicitacao(2, "", "", null , "pendente", null, 0, null, null);
+        //   Solicitacao soli2 = new Solicitacao(2, "", "", null , "pendente", null, 0, null, null);
 //          //Atualiza a solicitação
 //         //  soliService.update(soli2);
          
@@ -78,7 +78,7 @@ public class Main {
 //         //  GerenciaAdmSolicitacaoService gerenciaService = new GerenciaAdmSolicitacaoService();
 //         //  gerenciaService.create(gerencia);
          
-          ComentarioService comService = new ComentarioService();
+        //   ComentarioService comService = new ComentarioService();
          
 //         Comentario com1 = new Comentario(0, "o eu aqui.", null, null, aluno1, adm, soli2);
 //         System.out.println(com1.getIdComentario());
@@ -141,31 +141,29 @@ public class Main {
 //          System.out.println("Codigo da Solicitacao: " + comentarios.getSolicitacao().getIdSolicitacao() + "\n");
 //        }
          
-         ArrayList<Administrador> administradoresGeral = admService.selectAdminGeral(adm);
-         
-         for(Administrador adminis : administradoresGeral) {
-        	 System.out.println("Nome: " + adminis.getNome());
-        	 System.out.println("Sobrenome: " + adminis.getSobrenome());
-        	 System.out.println("CPF: " + adminis.getCpf());
-        	 System.out.println("Status: " + adminis.getStatus());
-        	 System.out.println("E-mail: " + adminis.getEmail());
-        	 System.out.println("Senha: " + adminis.getSenha());
-        	 System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
+        // Administrador adminis = admService.selectAdminGeral(adm);
+        // System.out.println("Nome: " + adminis.getNome());
+        // System.out.println("Sobrenome: " + adminis.getSobrenome());
+        // System.out.println("CPF: " + adminis.getCpf());
+        // System.out.println("Status: " + adminis.getStatus());
+        // System.out.println("E-mail: " + adminis.getEmail());
+        // System.out.println("Senha: " + adminis.getSenha());
+        // System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
         	 
-         }
+         
           
-        // ArrayList<Administrador> administradoresOrder = admService.selectAdminOrder(null);
+        ArrayList<Administrador> administradoresOrder = admService.selectAdminOrder();
         
-        // for(Administrador adminis : administradoresOrder) {
-        //     System.out.println("Nome: " + adminis.getNome());
-        //     System.out.println("Sobrenome: " + adminis.getSobrenome());
-        //     System.out.println("CPF: " + adminis.getCpf());
-        //     System.out.println("Status: " + adminis.getStatus());
-        //     System.out.println("E-mail: " + adminis.getEmail());
-        //     System.out.println("Senha: " + adminis.getSenha());
-        //     System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
+        for(Administrador adminis : administradoresOrder) {
+            System.out.println("Nome: " + adminis.getNome());
+            System.out.println("Sobrenome: " + adminis.getSobrenome());
+            System.out.println("CPF: " + adminis.getCpf());
+            System.out.println("Status: " + adminis.getStatus());
+            System.out.println("E-mail: " + adminis.getEmail());
+            System.out.println("Senha: " + adminis.getSenha());
+            System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor() + "\n");
             
-        // }
+        }
          
     }
 }

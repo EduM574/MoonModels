@@ -107,7 +107,7 @@ public class AdministradorDAO {
 		}
     }
     
-    public ArrayList<Administrador> adminGeral(Administrador adm){
+    public Administrador adminGeral(Administrador adm){
     	String consulta = "SELECT * FROM administrador WHERE email = ?;";
     	
     	try(PreparedStatement pst = conexao.prepareStatement(consulta)) {
@@ -116,11 +116,10 @@ public class AdministradorDAO {
     		
     		ResultSet resultado = pst.executeQuery();
     		
-    		ArrayList<Administrador> admin = new ArrayList<Administrador>();
-    		
-    		while(resultado.next()) {
-    			Administrador admini = new Administrador();
-    			Setor set = new Setor();
+			Administrador admini = new Administrador();
+			Setor set = new Setor();
+
+    		if(resultado.next()) {
     			
     			String nome = resultado.getString("nome");
     			String sobrenome = resultado.getString("sobrenome");
@@ -140,11 +139,9 @@ public class AdministradorDAO {
     			admini.setSenha(senha);
     			admini.setSetor(set);
     			
-    			admin.add(admini);
-    			
     		}
     		
-    		return admin;
+    		return admini;
     		
     	} catch(SQLException e) {
     		System.err.println("Falha no banco: " + e.getMessage());
@@ -156,7 +153,7 @@ public class AdministradorDAO {
     	return null;
     }
     
-    public ArrayList<Administrador> adminOrder(Administrador adm){
+    public ArrayList<Administrador> adminOrder(){
     	String consulta = "SELECT * FROM administrador ORDER BY nome ASC;";
     	
     	try(PreparedStatement pst = conexao.prepareStatement(consulta)){

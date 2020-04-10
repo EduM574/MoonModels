@@ -26,11 +26,11 @@ public class AdministradorService {
         admDAO.updateSenhaAdministrador(adm);
     }
     
-    public ArrayList<Administrador> selectAdminGeral(Administrador adm) {
+    public Administrador selectAdminGeral(Administrador adm) {
     	return admDAO.adminGeral(adm);
     }
     
-    public ArrayList<Administrador> selectAdminOrder(Administrador adm){
-    	return admDAO.adminOrder(adm);
+    public ArrayList<Administrador> selectAdminOrder(){
+    	return admDAO.adminOrder();
     }
 }
