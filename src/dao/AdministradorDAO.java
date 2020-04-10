@@ -108,9 +108,11 @@ public class AdministradorDAO {
     }
     
     public ArrayList<Administrador> adminGeral(Administrador adm){
-    	String consulta = "SELECT * FROM administrador;";
+    	String consulta = "SELECT * FROM administrador WHERE email = ?;";
     	
     	try(PreparedStatement pst = conexao.prepareStatement(consulta)) {
+    		
+    		pst.setString(1, adm.getEmail());
     		
     		ResultSet resultado = pst.executeQuery();
     		

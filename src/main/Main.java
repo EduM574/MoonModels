@@ -9,12 +9,12 @@ import service.*;
 
 public class Main {
 	public static void main(String args[]) {
-		//  AdministradorService admService = new AdministradorService();
+		  AdministradorService admService = new AdministradorService();
 		// AlunoService alnService = new AlunoService();
 
        //Insert de novos adm (email, setor, status) o status começa com INATIVO
-    //    Setor setor = new Setor(1, "MASTER", "", "", null);
-    //    Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
+        Setor setor = new Setor(1, "MASTER", "", "", null);
+        Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
     //    admService.create(adm);
        
     //    Setor setor2 = new Setor(2, "Sptrans", "� nois", "", null);
@@ -125,34 +125,34 @@ public class Main {
 //            System.out.println("Código do aluno: " + solicitacaoADM.getAluno().getRa() + "\n");
 //        }
          
-        ArrayList<Comentario> comentariosGeral = comService.selectComentariosDados(soli2);
-        
-        for(Comentario comentarios : comentariosGeral) {
-          System.out.println("Codigo: " + comentarios.getIdComentario());
-          System.out.println("Texto: " + comentarios.getTexto());
-          System.out.println("Anexo: " + comentarios.getAnexo());
-
-          SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-          String dataFormatada = sdf.format(comentarios.getDataHora().getTime());
-          System.out.println("Data de abertura: " + dataFormatada);
-
-          System.out.println("Codigo do aluno: " + comentarios.getAluno().getRa());
-          System.out.println("Email do adm: " + comentarios.getAdministrador().getEmail());
-          System.out.println("Codigo da Solicitacao: " + comentarios.getSolicitacao().getIdSolicitacao() + "\n");
-        }
+//        ArrayList<Comentario> comentariosGeral = comService.selectComentariosDados(soli2);
+//        
+//        for(Comentario comentarios : comentariosGeral) {
+//          System.out.println("Codigo: " + comentarios.getIdComentario());
+//          System.out.println("Texto: " + comentarios.getTexto());
+//          System.out.println("Anexo: " + comentarios.getAnexo());
+//
+//          SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//          String dataFormatada = sdf.format(comentarios.getDataHora().getTime());
+//          System.out.println("Data de abertura: " + dataFormatada);
+//
+//          System.out.println("Codigo do aluno: " + comentarios.getAluno().getRa());
+//          System.out.println("Email do adm: " + comentarios.getAdministrador().getEmail());
+//          System.out.println("Codigo da Solicitacao: " + comentarios.getSolicitacao().getIdSolicitacao() + "\n");
+//        }
          
-//         ArrayList<Administrador> administradoresGeral = admService.selectAdminGeral(null);
-//         
-//         for(Administrador adminis : administradoresGeral) {
-//        	 System.out.println("Nome: " + adminis.getNome());
-//        	 System.out.println("Sobrenome: " + adminis.getSobrenome());
-//        	 System.out.println("CPF: " + adminis.getCpf());
-//        	 System.out.println("Status: " + adminis.getStatus());
-//        	 System.out.println("E-mail: " + adminis.getEmail());
-//        	 System.out.println("Senha: " + adminis.getSenha());
-//        	 System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
-//        	 
-//         }
+         ArrayList<Administrador> administradoresGeral = admService.selectAdminGeral(adm);
+         
+         for(Administrador adminis : administradoresGeral) {
+        	 System.out.println("Nome: " + adminis.getNome());
+        	 System.out.println("Sobrenome: " + adminis.getSobrenome());
+        	 System.out.println("CPF: " + adminis.getCpf());
+        	 System.out.println("Status: " + adminis.getStatus());
+        	 System.out.println("E-mail: " + adminis.getEmail());
+        	 System.out.println("Senha: " + adminis.getSenha());
+        	 System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
+        	 
+         }
           
         // ArrayList<Administrador> administradoresOrder = admService.selectAdminOrder(null);
         
