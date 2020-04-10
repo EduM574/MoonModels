@@ -9,17 +9,25 @@ import service.*;
 
 public class Main {
 	public static void main(String args[]) {
-		// AdministradorService admService = new AdministradorService();
+		 AdministradorService admService = new AdministradorService();
 		// AlunoService alnService = new AlunoService();
 
        //Insert de novos adm (email, setor, status) o status come√ßa com INATIVO
        Setor setor = new Setor(1, "MASTER", "", "", null);
        Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
     //    admService.create(adm);
+       
+       Setor setor2 = new Setor(2, "Sptrans", "È nois", "", null);
+       Administrador adm5 = new Administrador("James", "Carter", "ATIVO", "35496279821", "fulano5@usjt.br", "senhaÈessa", setor2, null, null, null);
+       admService.updateTotal(adm5);
+       
+       Setor setor3 = new Setor(3, "Estagio", "È isso", "", null);
+       Administrador adm6 = new Administrador("Karim", "Abdhul", "ATIVO", "35496279621", "fulano6@usjt.br", "senhaÈessaai", setor3, null, null, null);
+       admService.updateTotal(adm6);
 
        //Update em qualquer adm (todos os par√¢metros exceto email)
     //    Setor setor2 = new Setor(2, "", "", "", null);
-    //    Administrador adm2 = new Administrador("Jo√£o", "Fulano", "ATIVO", "48997195824", "fulano2@usjt.br", "1234", setor2, null, null, null);
+        Administrador adm2 = new Administrador("Jo√£o", "Fulano", "ATIVO", "48997195824", "fulano2@usjt.br", "1234", setor2, null, null, null);
     //    admService.updateTotal(adm2);
 // //
 // //        //Update de primeiro acesso na plataforma (nome, sobrenome, cpf, senha, status) o status muda para ATIVO
@@ -61,7 +69,7 @@ public class Main {
 // 	   	soliService.create(soli1);
 // 	   	System.out.println(soli1.getIdSolicitacao());
          
-//          Solicitacao soli2 = new Solicitacao(1, "", "", null , "pendente", null, 0, null, null);
+          Solicitacao soli2 = new Solicitacao(1, "", "", null , "pendente", null, 0, null, null);
 //          //Atualiza a solicita√ß√£o
 //         //  soliService.update(soli2);
          
@@ -70,7 +78,7 @@ public class Main {
 //         //  GerenciaAdmSolicitacaoService gerenciaService = new GerenciaAdmSolicitacaoService();
 //         //  gerenciaService.create(gerencia);
          
-//          ComentarioService comService = new ComentarioService();
+          ComentarioService comService = new ComentarioService();
          
 //         Comentario com1 = new Comentario(0, "o eu aqui.", null, null, aluno1, adm, soli2);
 //         System.out.println(com1.getIdComentario());
@@ -100,21 +108,64 @@ public class Main {
         // }
 
         
-        ArrayList<Solicitacao> solicitacoesADM = soliService.selectSolicitacoesADM(adm);
-
-        for(Solicitacao solicitacaoADM : solicitacoesADM) {
-            System.out.println("C√≥digo: " + solicitacaoADM.getIdSolicitacao());
-            System.out.println("Nome: " + solicitacaoADM.getNome());
-            System.out.println("Descri√ß√£o: " + solicitacaoADM.getDescricao());
-            System.out.println("Anexo: " + solicitacaoADM.getAnexo());
-            System.out.println("Status: " + solicitacaoADM.getStatus());
-
-            SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(solicitacaoADM.getDataAbertura().getTime());
-            System.out.println("Data de abertura: " + dataFormatada);
-
-            System.out.println("Prazo: " + solicitacaoADM.getPrazo());
-            System.out.println("C√≥digo do aluno: " + solicitacaoADM.getAluno().getRa() + "\n");
-        }
+//        ArrayList<Solicitacao> solicitacoesADM = soliService.selectSolicitacoesADM(adm);
+//
+//        for(Solicitacao solicitacaoADM : solicitacoesADM) {
+//            System.out.println("C√≥digo: " + solicitacaoADM.getIdSolicitacao());
+//            System.out.println("Nome: " + solicitacaoADM.getNome());
+//            System.out.println("Descri√ß√£o: " + solicitacaoADM.getDescricao());
+//            System.out.println("Anexo: " + solicitacaoADM.getAnexo());
+//            System.out.println("Status: " + solicitacaoADM.getStatus());
+//
+//            SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
+//            String dataFormatada = sdf.format(solicitacaoADM.getDataAbertura().getTime());
+//            System.out.println("Data de abertura: " + dataFormatada);
+//
+//            System.out.println("Prazo: " + solicitacaoADM.getPrazo());
+//            System.out.println("C√≥digo do aluno: " + solicitacaoADM.getAluno().getRa() + "\n");
+//        }
+         
+//         ArrayList<Comentario> comentariosGeral = comService.selectComentariosDados(soli2);
+//         
+//         for(Comentario comentarios : comentariosGeral) {
+//           System.out.println("CÛdigo: " + comentarios.getIdComentario());
+//           System.out.println("Texto: " + comentarios.getTexto());
+//           System.out.println("Anexo: " + comentarios.getAnexo());
+//
+//           SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//           String dataFormatada = sdf.format(comentarios.getDataHora().getTime());
+//           System.out.println("Data de abertura: " + dataFormatada);
+//
+//           System.out.println("CÛdigo do aluno: " + comentarios.getAluno().getRa());
+//           System.out.println("Email do adm: " + comentarios.getAdministrador().getEmail());
+//           System.out.println("CÛdigo da SolicitaÁ„o: " + comentarios.getSolicitacao().getIdSolicitacao() + "\n");
+//         }
+         
+//         ArrayList<Administrador> administradoresGeral = admService.selectAdminGeral(null);
+//         
+//         for(Administrador adminis : administradoresGeral) {
+//        	 System.out.println("Nome: " + adminis.getNome());
+//        	 System.out.println("Sobrenome: " + adminis.getSobrenome());
+//        	 System.out.println("CPF: " + adminis.getCpf());
+//        	 System.out.println("Status: " + adminis.getStatus());
+//        	 System.out.println("E-mail: " + adminis.getEmail());
+//        	 System.out.println("Senha: " + adminis.getSenha());
+//        	 System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
+//        	 
+//         }
+          
+          ArrayList<Administrador> administradoresOrder = admService.selectAdminOrder(null);
+          
+          for(Administrador adminis : administradoresOrder) {
+         	 System.out.println("Nome: " + adminis.getNome());
+         	 System.out.println("Sobrenome: " + adminis.getSobrenome());
+         	 System.out.println("CPF: " + adminis.getCpf());
+         	 System.out.println("Status: " + adminis.getStatus());
+         	 System.out.println("E-mail: " + adminis.getEmail());
+         	 System.out.println("Senha: " + adminis.getSenha());
+         	 System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
+         	 
+          }
+         
     }
 }

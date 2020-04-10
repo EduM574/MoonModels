@@ -3,6 +3,11 @@ package dao;
 import java.sql.*;
 import model.Comentario;
 import java.io.*;
+import java.util.ArrayList;
+import model.Solicitacao;
+import java.util.GregorianCalendar;
+import model.Aluno;
+import model.Administrador;
 
 public class ComentarioDAO {
 	private Connection conexao;
@@ -80,4 +85,73 @@ public class ComentarioDAO {
 			e.printStackTrace();
 		}
 	} 
+	
+	public ArrayList<Comentario> comentariosDados(Solicitacao solicitacao) {
+		String consulta = "SELECT * FROM comentario WHERE fk_codigo_solicitacao = ?;";
+		
+		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+			
+			pst.setInt(1, solicitacao.getIdSolicitacao());
+			
+			ResultSet resultado = pst.executeQuery();
+			
+			ArrayList<Comentario> comentarios = new ArrayList<Comentario>();
+			
+			while(resultado.next()) {
+				Comentario comenta = new Comentario();
+				Aluno alu = new Aluno();
+				Administrador admin = new Administrador();
+				Solicitacao solici = new Solicitacao();
+				
+				int codigo =  resultado.getInt("codigo");
+				String texto = resultado.getString("texto");
+				int fkAluno = resultado.getInt("fk_ra_aluno");
+				String fkAdm = resultado.getString("fk_email_adm");
+				int fkSolicitacao = resultado.getInt("fk_codigo_solicitacao");
+				GregorianCalendar data = new GregorianCalendar();
+				InputStream anexo = resultado.getBinaryStream("anexo");
+				
+				data.setTime(new java.util.Date(resultado.getTimestamp("data_hora").getTime()));
+				
+				if(anexo != null) {
+					File novoAnexo = new File("anexo_" + codigo + ".pdf");
+					FileOutputStream output = new FileOutputStream(novoAnexo);
+					
+					byte[] buffer = new byte[1024];
+					
+					while (anexo.read(buffer) > 0) {
+						output.write(buffer);
+					}
+					
+					anexo.close();
+					output.close();
+					
+					comenta.setAnexo(novoAnexo);
+				}
+				alu.setRa(fkAluno);
+				admin.setEmail(fkAdm);
+				solici.setIdSolicitacao(fkSolicitacao);
+				
+				comenta.setIdComentario(codigo);
+				comenta.setTexto(texto);
+				comenta.setDataHora(data);
+				comenta.setAluno(alu);
+				comenta.setAdministrador(admin);
+				comenta.setSolicitacao(solici);
+				
+				comentarios.add(comenta);				
+			}
+			return comentarios;
+			
+		} catch(SQLException e) {
+			System.err.println("Falha no banco: " + e.getMessage());
+			e.printStackTrace();
+		} catch( Exception e) {
+			System.err.println("Falha no java: " + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
 }
