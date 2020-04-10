@@ -16,10 +16,18 @@ public class Main {
        Setor setor = new Setor(1, "MASTER", "", "", null);
        Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
     //    admService.create(adm);
+       
+       Setor setor2 = new Setor(2, "Sptrans", "é nois", "", null);
+       Administrador adm5 = new Administrador("James", "Carter", "ATIVO", "35496279821", "fulano5@usjt.br", "senhaéessa", setor2, null, null, null);
+       admService.updateTotal(adm5);
+       
+       Setor setor3 = new Setor(3, "Estagio", "é isso", "", null);
+       Administrador adm6 = new Administrador("Karim", "Abdhul", "ATIVO", "35496279621", "fulano6@usjt.br", "senhaéessaai", setor3, null, null, null);
+       admService.updateTotal(adm6);
 
        //Update em qualquer adm (todos os parÃ¢metros exceto email)
     //    Setor setor2 = new Setor(2, "", "", "", null);
-    //    Administrador adm2 = new Administrador("JoÃ£o", "Fulano", "ATIVO", "48997195824", "fulano2@usjt.br", "1234", setor2, null, null, null);
+        Administrador adm2 = new Administrador("JoÃ£o", "Fulano", "ATIVO", "48997195824", "fulano2@usjt.br", "1234", setor2, null, null, null);
     //    admService.updateTotal(adm2);
 // //
 // //        //Update de primeiro acesso na plataforma (nome, sobrenome, cpf, senha, status) o status muda para ATIVO
@@ -133,7 +141,31 @@ public class Main {
 //           System.out.println("Código da Solicitação: " + comentarios.getSolicitacao().getIdSolicitacao() + "\n");
 //         }
          
-//         ArrayList<Administrador> administradoresGeral = 
+//         ArrayList<Administrador> administradoresGeral = admService.selectAdminGeral(null);
+//         
+//         for(Administrador adminis : administradoresGeral) {
+//        	 System.out.println("Nome: " + adminis.getNome());
+//        	 System.out.println("Sobrenome: " + adminis.getSobrenome());
+//        	 System.out.println("CPF: " + adminis.getCpf());
+//        	 System.out.println("Status: " + adminis.getStatus());
+//        	 System.out.println("E-mail: " + adminis.getEmail());
+//        	 System.out.println("Senha: " + adminis.getSenha());
+//        	 System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
+//        	 
+//         }
+          
+          ArrayList<Administrador> administradoresOrder = admService.selectAdminOrder(null);
+          
+          for(Administrador adminis : administradoresOrder) {
+         	 System.out.println("Nome: " + adminis.getNome());
+         	 System.out.println("Sobrenome: " + adminis.getSobrenome());
+         	 System.out.println("CPF: " + adminis.getCpf());
+         	 System.out.println("Status: " + adminis.getStatus());
+         	 System.out.println("E-mail: " + adminis.getEmail());
+         	 System.out.println("Senha: " + adminis.getSenha());
+         	 System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor());
+         	 
+          }
          
     }
 }

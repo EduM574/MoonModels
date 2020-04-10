@@ -29,4 +29,8 @@ public class AdministradorService {
     public ArrayList<Administrador> selectAdminGeral(Administrador adm) {
     	return admDAO.adminGeral(adm);
     }
+    
+    public ArrayList<Administrador> selectAdminOrder(Administrador adm){
+    	return admDAO.adminOrder(adm);
+    }
 }

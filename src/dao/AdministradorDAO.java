@@ -153,4 +153,51 @@ public class AdministradorDAO {
     	}
     	return null;
     }
+    
+    public ArrayList<Administrador> adminOrder(Administrador adm){
+    	String consulta = "SELECT * FROM administrador ORDER BY nome ASC;";
+    	
+    	try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+    		
+    		ResultSet resultado = pst.executeQuery();
+    		
+    		ArrayList<Administrador> admin2 = new ArrayList<Administrador>();
+    		
+    		while(resultado.next()) {
+    			Administrador admini2 = new Administrador();
+    			Setor set2 = new Setor();
+    			
+    			String nome = resultado.getString("nome");
+    			String sobrenome = resultado.getString("sobrenome");
+    			String cpf = resultado.getString("cpf");
+    			String statusA = resultado.getString("statusA");
+    			String email = resultado.getString("email");
+    			String senha = resultado.getString("senha");
+    			int fkCodSetor = resultado.getInt("fk_cod_setor");
+    			
+    			set2.setIdSetor(fkCodSetor);
+    			
+    			admini2.setNome(nome);
+    			admini2.setSobrenome(sobrenome);
+    			admini2.setCpf(cpf);
+    			admini2.setStatus(statusA);
+    			admini2.setEmail(email);
+    			admini2.setSenha(senha);
+    			admini2.setSetor(set2);
+    			
+    			admin2.add(admini2);
+    		}
+    		
+    		return admin2;
+    		
+    	} catch(SQLException e) {
+    		System.err.println("Falha no banco: " + e.getMessage());
+    		e.printStackTrace();
+    	} catch( Exception e) {
+    		System.err.println("Falha no java: " + e.getMessage());
+    		e.printStackTrace();
+    	}
+    
+    	return null;
+    }
 }
