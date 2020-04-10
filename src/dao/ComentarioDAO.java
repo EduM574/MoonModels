@@ -87,7 +87,7 @@ public class ComentarioDAO {
 	} 
 	
 	public ArrayList<Comentario> comentariosDados(Solicitacao solicitacao) {
-		String consulta = "SELECT * FROM comentario WHERE fk_codigo_solicitacao = ?;";
+		String consulta = "SELECT * FROM comentario WHERE fk_codigo_solicitacao = ? ORDER BY data_hora ASC;";
 		
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
 			
