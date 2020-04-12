@@ -90,7 +90,7 @@ nav {
 }
 
 .form {
-    min-height: 430px;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -113,44 +113,7 @@ nav {
     width: 100%;
     display: flex;
     justify-content: space-around;
-}
-
-.input-form2 {
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   
-}
-
-.input-form2 textarea {
-   	width: 90%;
-   	display: flex;
-   	justify-content: space-around;
-   	font-family: Catamaran;
-	font-size: 20px;
-	color: #345D7D;
-	line-height: 45px;
-	background-color: #f9f9f9;
-	border-width: 0 0 2px 0;
-    border-color: #345D7D;
-    margin: 10px 0;
-}
-
-.input-form2 textarea:focus {
-	outline: thin dotted;
-    outline: 0px auto -webkit-focus-ring-color;
-    outline-offset: 0px;
-}
-
-.input-form2 label {
-	font-family: Catamaran;
-	font-size: 20px;
-	color: #345D7D;
-	line-height: 45px;
-	display: flex;
-    width: 100%;
-    margin-left: 10%;
+    height: 200px;
 }
 
 .box {
@@ -158,6 +121,7 @@ nav {
     display: flex;
     flex-direction: column;
     margin: 0 20px;
+    justify-content: space-around;
 }
 
 .box input, select{
@@ -171,77 +135,3 @@ nav {
     margin: 10px 0;
 }
 
-.mini-box {
-    display: flex;
-    justify-content: space-between;
-}
-
-.normal  {
-    width: 48%;
-}
-
-.maior {
-	width: 76%;
-}
-
-.menor {
-	width: 20%;
-}
-
-.lista-alunos {
-	margin-left: 5%;
-}
-
-.linha-aluno {
-	background-color: #FFF;
-	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
-	border-radius: 15px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 20px 0;
-	padding: 0 20px;
-}
-
-.linha-aluno p {
-	font-family: Catamaran;
-	color: #345D7D;
-	font-size: 26px;
-	line-height: 30px;
-	margin: 12px 0;
-}
-
-[type="file"] {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute !important;
-  white-space: nowrap;
-  width: 1px;
-}
- 
-[type="file"] + label {
-	font-family: Catamaran;
-    font-size: 20px;
-    color: #345D7D;
-    line-height: 38px;
-    background-color: #f9f9f9;
-    border-width: 0 0 2px 0;
-    border-color: #345D7D;
-    margin: 8px 0;
-	width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: solid 1.5px #345D7D;
-  cursor: pointer;
-}
-  
-[type="file"]:focus + label {
-  outline: 1px dotted #000;
-}
-
-.altura-diferente {
-	margin-top: 22px;
-}
