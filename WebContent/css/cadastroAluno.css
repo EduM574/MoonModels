@@ -118,7 +118,9 @@ nav {
 .input-form2 {
    width: 100%;
    display: flex;
-   justify-content: space-around;
+   flex-direction: column;
+   align-items: center;
+   
 }
 
 .input-form2 textarea {
@@ -133,6 +135,22 @@ nav {
 	border-width: 0 0 2px 0;
     border-color: #345D7D;
     margin: 10px 0;
+}
+
+.input-form2 textarea:focus {
+	outline: thin dotted;
+    outline: 0px auto -webkit-focus-ring-color;
+    outline-offset: 0px;
+}
+
+.input-form2 label {
+	font-family: Catamaran;
+	font-size: 20px;
+	color: #345D7D;
+	line-height: 45px;
+	display: flex;
+    width: 100%;
+    margin-left: 10%;
 }
 
 .box {
@@ -208,19 +226,16 @@ nav {
 	font-family: Catamaran;
     font-size: 20px;
     color: #345D7D;
-    line-height: 45px;
+    line-height: 38px;
     background-color: #f9f9f9;
     border-width: 0 0 2px 0;
     border-color: #345D7D;
-    margin: 10px 0;
-	width: 250px;
-  display: flex !important;
+    margin: 8px 0;
+	width: 100%;
+  display: flex;
   justify-content: space-between;
-  border-bottom: solid 1px #345D7D;
-  color: #345D7D;
+  border-bottom: solid 1.5px #345D7D;
   cursor: pointer;
-  display: inline-block;
-  padding-left: 2rem 4rem;
 }
   
 [type="file"]:focus + label {
