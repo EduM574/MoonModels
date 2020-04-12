@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
-		<title>Cadastro Aluno</title>
+		<title>Editar Aluno</title>
 	</head>
 	<body>
 		<header>
@@ -40,12 +40,12 @@
             </a>
         </nav>
         <section class="content">
-        	<p class="title">Cadastrar um aluno</p>
+        	<p class="title">Editar um aluno</p>
             <form action="CadastroAluno.do" method="POST" class="form">
                 <div class="input-form">
                     <div class="box">
                         <input type="text" name="nome" placeholder="Nome">
-                    	<div class="mini-box">
+                        <div class="mini-box">
                     		<input type="text" name="cpf" placeholder="CPF" class="normal">
                     		<input type="date" name="nascimento" placeholder="Data de nascimento" class="normal">
                     	</div>
@@ -66,6 +66,7 @@
                                 <option value="8">8º</option>
                             </select>
                         </div>
+                        <input type="password" name="password" maxlength="15" placeholder="Nova senha">
                     </div>
                     <div class="box">
                         <input type="text" name="sobrenome" placeholder="Sobrenome">
@@ -82,9 +83,13 @@
                                 <option value="noturno">Noturno</option>
                             </select>
                         </div>
+                        <select name="status" class="altura-diferente">
+                                <option value="ATIVO" selected>ATIVO</option> 
+                                <option value="INATIVO">INATIVO</option>
+                        </select>
                     </div>
-                </div>    
-				<button type="submit">Cadastrar</button>
+                </div>
+				<button type="submit">Editar</button>
             </form>
         </section>
 	</body>

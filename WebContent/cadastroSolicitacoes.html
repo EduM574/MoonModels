@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
+		<title>Criar Solicitação</title>
+	</head>
+	<body>
+		<header>
+			<div class="container main-header">
+					<span class="logo">MO<span class="logo-pink">O</span>N</span>
+				<div class="username-wrapper">
+					<span>User Name</span>
+				<div class="logout-wrapper">
+					<img src="img/logout.png" alt="logout">
+				</div>
+                </div>
+            </div>
+		</header>
+		<nav>
+			<a href="#">
+				<div class="menu-icon-wrapper">
+					<img src="./img/home.png" alt="Home">
+				</div>
+			</a>
+			<a href="#">
+				<div class="menu-icon-wrapper">
+					<img src="./img/newsfeed.png" alt="Solicitações">
+				</div>
+			</a>
+			<a href="#">
+				<div class="menu-icon-wrapper">
+					<img src="./img/add-friend.png" alt="Adicionar usuário">
+				</div>
+			</a>
+			<a href="#">
+				<div class="menu-icon-wrapper">
+					<img src="./img/user.png" alt="Editar perfil">
+				</div>
+			</a>
+		</nav>
+			<section class="content">
+				<p class="title">Criar Solicitação</p>
+					<form action="CadastroAluno.do" method="POST" class="form">
+						<div class="input-form">
+							<div class="box">
+								<select name="solicitacao" class="">
+									<option value="SUS" selected>Selecione uma Solicitação</option> 
+									<option value="CDE">Contrato de Estágio</option> 
+									<option value="BDS">Bilhete da SPTrans</option>
+									<option value="EAC">Entrega de Atividades Complementares</option>
+									<option value="MDH">Mudança de Horário</option>
+								</select>
+							</div>
+							<div class="box">
+								<input type="file" id="file" />
+								<label for="file" >
+								<span>Escolha um arquivo</span>
+								<span>+</span>
+								</label>
+							</div>
+						</div>
+						<div class= "input-form2">
+							<textarea rows="3" class="grande" type="text" name="descricao" placeholder="Escreva uma descrição"></textarea>                  
+						</div>
+				<button type="submit">Enviar</button>
+			</form>
+		</section>
+	</body>
+</html>
