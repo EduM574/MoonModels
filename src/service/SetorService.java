@@ -1,13 +1,10 @@
 package service;
 
-import dao.Conexao;
-import dao.SetorDAO;
-
 import java.util.ArrayList;
 
-import dao.AlunoDAO;
-import model.Aluno;
 import model.Setor;
+import dao.Conexao;
+import dao.SetorDAO;
 
 public class SetorService {
 	SetorDAO setorDAO = new SetorDAO (Conexao.conectar());

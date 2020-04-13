@@ -1,15 +1,9 @@
 package dao;
 
 import java.sql.*;
-import model.Comentario;
-import model.Setor;
-
-import java.io.*;
 import java.util.ArrayList;
-import model.Solicitacao;
-import java.util.GregorianCalendar;
-import model.Aluno;
-import model.Administrador;
+
+import model.Setor;
 
 public class SetorDAO {
 	private Connection conexao;

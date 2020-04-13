@@ -7,7 +7,6 @@ import java.util.GregorianCalendar;
 
 import model.Administrador;
 import model.Aluno;
-import model.Setor;
 
 public class AlunoDAO {
 	private Connection conexao;
@@ -64,9 +63,6 @@ public class AlunoDAO {
 
 		return aluno.getRa();
 	}
-//    GregorianCalendar gc = new GregorianCalendar();
-//    gc = aluno.getData_nascimento();
-	// pst.setDate(5, (Date)gc.getTime());
 
 	public void updateSenhaAluno(Aluno aluno) {
 		String update = "UPDATE aluno SET senha = ? WHERE ra=?";
@@ -128,7 +124,8 @@ public class AlunoDAO {
     		if(resultado.next()) {
     			
     			String nome = resultado.getString("nome");
-    			String sobrenome = resultado.getString("sobrenome");
+				String sobrenome = resultado.getString("sobrenome");
+				int ra = resultado.getInt("ra");
     			String cpf = resultado.getString("cpf");
     			String statusA = resultado.getString("statusA");
     			GregorianCalendar dataNasc = new GregorianCalendar();
@@ -142,7 +139,8 @@ public class AlunoDAO {
     			String emailAdm = resultado.getString("fk_email_adm");
     			
     			aluno1.setNome(nome);
-    			aluno1.setSobrenome(sobrenome);
+				aluno1.setSobrenome(sobrenome);
+				aluno1.setRa(ra);
     			aluno1.setCpf(cpf);
     			aluno1.setStatus(statusA);
     			aluno1.setData_nascimento(dataNasc);
@@ -182,7 +180,8 @@ public class AlunoDAO {
     			Aluno aluno1 = new Aluno(); 
     			Administrador adm = new Administrador();
     			String nome = resultado.getString("nome");
-    			String sobrenome = resultado.getString("sobrenome");
+				String sobrenome = resultado.getString("sobrenome");
+				int ra = resultado.getInt("ra");
     			String cpf = resultado.getString("cpf");
     			String statusA = resultado.getString("statusA");
     			GregorianCalendar dataNasc = new GregorianCalendar();
@@ -196,7 +195,8 @@ public class AlunoDAO {
     			String emailAdm = resultado.getString("fk_email_adm");
     			
     			aluno1.setNome(nome);
-    			aluno1.setSobrenome(sobrenome);
+				aluno1.setSobrenome(sobrenome);
+				aluno1.setRa(ra);
     			aluno1.setCpf(cpf);
     			aluno1.setStatus(statusA);
     			aluno1.setData_nascimento(dataNasc);
