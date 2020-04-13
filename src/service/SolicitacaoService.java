@@ -48,23 +48,25 @@ public class SolicitacaoService {
 
 	public ArrayList<Solicitacao> selectSolicitacoesADM(Administrador adm) {
 
-		if(adm.getSetor().getNome().equals("Transporte escolar")) {
-			return soliDAO.solicitacoesADM("Bilhete da SPTrans");
-
-		} else if(adm.getSetor().getNome().equals("Gestão de estagio")) {
-			return soliDAO.solicitacoesADM("Contrato de estágio");
-
-		} else if(adm.getSetor().getNome().equals("Atividades curriculares")) {
-			ArrayList<Solicitacao> array1 = soliDAO.solicitacoesADM("Entrega de atividades complementares");
-			ArrayList<Solicitacao> array2 = soliDAO.solicitacoesADM("Mudança de horário");
-			
-			ArrayList<Solicitacao> resultado = new ArrayList<Solicitacao>(array1.size()+ array2.size());
-			resultado.addAll(array1);
-			resultado.addAll(array2);
-
-			return resultado;			 
-		} else if(adm.getSetor().getNome().equals("MASTER")) {
-			return soliDAO.solicitacoesADMaster();
+		if(adm.getStatus().equals("ATIVO")) {
+			if(adm.getSetor().getNome().equals("Transporte escolar")) {
+				return soliDAO.solicitacoesADM("Bilhete da SPTrans");
+	
+			} else if(adm.getSetor().getNome().equals("Gestão de estagio")) {
+				return soliDAO.solicitacoesADM("Contrato de estágio");
+	
+			} else if(adm.getSetor().getNome().equals("Atividades curriculares")) {
+				ArrayList<Solicitacao> array1 = soliDAO.solicitacoesADM("Entrega de atividades complementares");
+				ArrayList<Solicitacao> array2 = soliDAO.solicitacoesADM("Mudança de horário");
+				
+				ArrayList<Solicitacao> resultado = new ArrayList<Solicitacao>(array1.size()+ array2.size());
+				resultado.addAll(array1);
+				resultado.addAll(array2);
+	
+				return resultado;			 
+			} else if(adm.getSetor().getNome().equals("MASTER")) {
+				return soliDAO.solicitacoesADMaster();
+			}
 		}
 
 		return null;
