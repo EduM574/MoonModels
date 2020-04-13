@@ -3,6 +3,7 @@ package main;
 // import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 // import java.util.GregorianCalendar;
+import java.util.GregorianCalendar;
 
 import model.*;
 import service.*;
@@ -10,12 +11,12 @@ import service.*;
 public class Main {
 	public static void main(String args[]) {
 		  AdministradorService admService = new AdministradorService();
-		// AlunoService alnService = new AlunoService();
+		  AlunoService alnService = new AlunoService();
 
        //Insert de novos adm (email, setor, status) o status começa com INATIVO
-        // Setor setor = new Setor(1, "MASTER", "", "", null);
-        // Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
-    //    admService.create(adm);
+         Setor setor = new Setor(1, "MASTER", "", "", null);
+         Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
+//        admService.create(adm);
        
     //    Setor setor2 = new Setor(2, "Sptrans", "� nois", "", null);
     //    Administrador adm5 = new Administrador("James", "Carter", "ATIVO", "35496279821", "fulano5@usjt.br", "senha�essa", setor2, null, null, null);
@@ -29,7 +30,7 @@ public class Main {
     //    Setor setor2 = new Setor(2, "", "", "", null);
         // Administrador adm2 = new Administrador("João", "Fulano", "ATIVO", "48997195824", "fulano2@usjt.br", "1234", setor2, null, null, null);
     //    admService.updateTotal(adm2);
-// //
+
 // //        //Update de primeiro acesso na plataforma (nome, sobrenome, cpf, senha, status) o status muda para ATIVO
 // //        Administrador adm3 = new Administrador("João", "Fulano", "", "48997195824", "fulano2@usjt.br", "1234", null, null, null, null);
 // //        admService.updateInicial(adm3);
@@ -42,12 +43,12 @@ public class Main {
 // 			//turno, unidade semestre, email, senha
 
 // 			//Insert (todos os dados exceto ra) *a senha inicial vai ser o CPF do aluno, status inicial é **ATIVO** *
-        // GregorianCalendar(int year, int month, int day);
-        // GregorianCalendar dataNascimento = new GregorianCalendar(2000, 8, 1);
-        // Aluno aln1 = new Aluno("Kex", "Fortuna", 0, "","56789", dataNascimento, "Arquitetura", "Manhã", "Mooca", 3, "Kessy@gmail.com", "", adm, null, null);
-		// System.out.println(aln1.getRa());
-		// alnService.create(aln1); 
-        // System.out.println(aln1.getRa());
+//         GregorianCalendar(int year, int month, int day);
+         GregorianCalendar dataNascimento = new GregorianCalendar(2000, 8, 1);
+         Aluno aln1 = new Aluno("Kex", "Fortuna", 0, "","56789", dataNascimento, "Arquitetura", "Manhã", "Mooca", 3, "Kessy@gmail.com", "", adm, null, null);
+		 System.out.println(aln1.getRa());
+		 alnService.create(aln1); 
+		 System.out.println(aln1.getRa());
         
 // 			//Update dentro da plataforma (senha)
 //         // Aluno aln2 = new Aluno("", "", 2, "","33333",null,"", "", "", 0, "", "edu123", adm4,null,null);
@@ -152,17 +153,23 @@ public class Main {
         	 
          
           
-        ArrayList<Administrador> administradoresOrder = admService.selectAdminOrder();
+//        ArrayList<Administrador> administradoresOrder = admService.selectAdminOrder();
+//        
+//        for(Administrador adminis : administradoresOrder) {
+//            System.out.println("Nome: " + adminis.getNome());
+//            System.out.println("Sobrenome: " + adminis.getSobrenome());
+//            System.out.println("CPF: " + adminis.getCpf());
+//            System.out.println("Status: " + adminis.getStatus());
+//            System.out.println("E-mail: " + adminis.getEmail());
+//            System.out.println("Senha: " + adminis.getSenha());
+//            System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor() + "\n");
+//            
+//        }
+        System.out.println(alnService.selectAluno(aln1));
+        ArrayList<Aluno> alunos = alnService.listarAlunos();
         
-        for(Administrador adminis : administradoresOrder) {
-            System.out.println("Nome: " + adminis.getNome());
-            System.out.println("Sobrenome: " + adminis.getSobrenome());
-            System.out.println("CPF: " + adminis.getCpf());
-            System.out.println("Status: " + adminis.getStatus());
-            System.out.println("E-mail: " + adminis.getEmail());
-            System.out.println("Senha: " + adminis.getSenha());
-            System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor() + "\n");
-            
+        for(Aluno aluno : alunos) {
+        	System.out.println("Da listinha: " + aluno);
         }
          
     }

@@ -6,7 +6,7 @@ public class Conexao {
 	public static Connection conectar() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost/moon?useTimezone=true&serverTimezone=America/Sao_Paulo&useSSL=false", "root", "confioemti");
+			return DriverManager.getConnection("jdbc:mysql://localhost/moon?useTimezone=true&serverTimezone=America/Sao_Paulo&useSSL=false", "root", "edu12345");
 		} catch(Exception e) {
 			System.err.println("Falha: " + e.getMessage());
 			e.printStackTrace();

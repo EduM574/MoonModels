@@ -115,4 +115,12 @@ public class Administrador {
 		this.solicitacoes = solicitacoes;
 	}
 
+	@Override
+	public String toString() {
+		return "Administrador [nome=" + nome + ", sobrenome=" + sobrenome + ", status=" + status + ", cpf=" + cpf
+				+ ", email=" + email + ", senha=" + senha + ", setor=" + setor + ", alunos=" + alunos
+				+ ", solicitacoes=" + solicitacoes + ", comentarios=" + comentarios + "]";
+	}
+
+	
 }

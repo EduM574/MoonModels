@@ -1,10 +1,13 @@
 package dao;
 
 import java.sql.*;
+import java.util.ArrayList;
 // import java.util.GregorianCalendar;
 import java.util.GregorianCalendar;
 
+import model.Administrador;
 import model.Aluno;
+import model.Setor;
 
 public class AlunoDAO {
 	private Connection conexao;
@@ -110,4 +113,115 @@ public class AlunoDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	public Aluno alunoBusca(Aluno aluno){
+    	String consulta = "SELECT * FROM aluno WHERE ra = ?;";
+    	
+    	try(PreparedStatement pst = conexao.prepareStatement(consulta)) {
+    		
+    		pst.setInt(1, aluno.getRa());
+    		
+    		ResultSet resultado = pst.executeQuery();
+    		
+			Aluno aluno1= new Aluno();
+			Administrador adm = new Administrador();
+    		if(resultado.next()) {
+    			
+    			String nome = resultado.getString("nome");
+    			String sobrenome = resultado.getString("sobrenome");
+    			String cpf = resultado.getString("cpf");
+    			String statusA = resultado.getString("statusA");
+    			GregorianCalendar dataNasc = new GregorianCalendar();
+    			dataNasc.setTime(new java.util.Date(resultado.getTimestamp("data_nascimento").getTime()));
+    			String curso = resultado.getString("curso");
+    			String turno = resultado.getString("turno");
+    			String unidade = resultado.getString("unidade");
+    			int semestre = resultado.getInt("semestre");
+    			String email = resultado.getString("email");
+    			String senha = resultado.getString("senha");
+    			String emailAdm = resultado.getString("fk_email_adm");
+    			
+    			aluno1.setNome(nome);
+    			aluno1.setSobrenome(sobrenome);
+    			aluno1.setCpf(cpf);
+    			aluno1.setStatus(statusA);
+    			aluno1.setData_nascimento(dataNasc);
+    			aluno1.setCurso(curso);
+    			aluno1.setTurno(turno);
+    			aluno1.setUnidade(unidade);
+    			aluno1.setSemestre(semestre);
+    			aluno1.setEmail(email);
+    			aluno1.setSenha(senha);
+    			aluno1.setAdm(adm);
+    			aluno1.getAdm().setEmail(emailAdm);
+    			
+    		}
+    		
+    		return aluno1;
+    		
+    	} catch(SQLException e) {
+    		System.err.println("Falha no banco: " + e.getMessage());
+    		e.printStackTrace();
+    	} catch( Exception e) {
+    		System.err.println("Falha no java: " + e.getMessage());
+    		e.printStackTrace();
+    	}
+    	return null;
+    }
+    
+    public ArrayList<Aluno> alunoOrder(){
+    	String consulta = "SELECT * FROM aluno ORDER BY nome ASC;";
+    	
+    	try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+    		
+    		ResultSet resultado = pst.executeQuery();
+    		
+    		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+    		
+    		while(resultado.next()) {
+    			Aluno aluno1 = new Aluno(); 
+    			Administrador adm = new Administrador();
+    			String nome = resultado.getString("nome");
+    			String sobrenome = resultado.getString("sobrenome");
+    			String cpf = resultado.getString("cpf");
+    			String statusA = resultado.getString("statusA");
+    			GregorianCalendar dataNasc = new GregorianCalendar();
+    			dataNasc.setTime(new java.util.Date(resultado.getTimestamp("data_nascimento").getTime()));
+    			String curso = resultado.getString("curso");
+    			String turno = resultado.getString("turno");
+    			String unidade = resultado.getString("unidade");
+    			int semestre = resultado.getInt("semestre");
+    			String email = resultado.getString("email");
+    			String senha = resultado.getString("senha");
+    			String emailAdm = resultado.getString("fk_email_adm");
+    			
+    			aluno1.setNome(nome);
+    			aluno1.setSobrenome(sobrenome);
+    			aluno1.setCpf(cpf);
+    			aluno1.setStatus(statusA);
+    			aluno1.setData_nascimento(dataNasc);
+    			aluno1.setCurso(curso);
+    			aluno1.setTurno(turno);
+    			aluno1.setUnidade(unidade);
+    			aluno1.setSemestre(semestre);
+    			aluno1.setEmail(email);
+    			aluno1.setSenha(senha);
+    			aluno1.setAdm(adm);
+    			aluno1.getAdm().setEmail(emailAdm);
+    			
+    			alunos.add(aluno1);
+    		}
+    		
+    		return alunos;
+    		
+    	} catch(SQLException e) {
+    		System.err.println("Falha no banco: " + e.getMessage());
+    		e.printStackTrace();
+    	} catch( Exception e) {
+    		System.err.println("Falha no java: " + e.getMessage());
+    		e.printStackTrace();
+    	}
+    
+    	return null;
+    }
 }

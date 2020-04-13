@@ -164,7 +164,16 @@ public class Aluno {
 		this.comentarios = comentarios;
 	}
 
-//	-Insert (todos os dados exceto ra) a senha inicial vai ser o CPF do aluno, status inicial é ATIVO
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", sobrenome=" + sobrenome + ", ra=" + ra + ", status=" + status + ", cpf=" + cpf
+				+ ", data_nascimento=" + data_nascimento + ", curso=" + curso + ", turno=" + turno + ", unidade="
+				+ unidade + ", semestre=" + semestre + ", email=" + email + ", senha=" + senha + ", adm=" + adm
+				+ ", solicitacoes=" + solicitacoes + ", comentarios=" + comentarios + "]";
+	}
+
+	
+//	-Insert (todos os dados exceto ra) a senha inicial vai ser o CPF do aluno, status inicial ï¿½ ATIVO
 //	-Update dentro da plataforma (senha)
 //	-Update feito pelo ADM (todos os dados exceto FK e RA)
 }

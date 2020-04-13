@@ -1,6 +1,9 @@
 package service;
 
 import dao.Conexao;
+
+import java.util.ArrayList;
+
 import dao.AlunoDAO;
 import model.Aluno;
 
@@ -19,5 +22,13 @@ public class AlunoService {
 
 	public void updateDoAdm(Aluno aluno) {
 		alunoDAO.updateDoAdmAluno(aluno);
+	}
+	
+	public Aluno selectAluno(Aluno aluno) {
+		return alunoDAO.alunoBusca(aluno);
+	}
+	
+	public ArrayList<Aluno> listarAlunos() {
+		return alunoDAO.alunoOrder();
 	}
 }
