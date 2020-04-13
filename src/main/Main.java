@@ -165,13 +165,15 @@ public class Main {
 //            System.out.println("Codigo setor: " + adminis.getSetor().getIdSetor() + "\n");
 //            
 //        }
+         
+        // teste de aluno read 
         System.out.println(alnService.selectAluno(aln1));
         ArrayList<Aluno> alunos = alnService.listarAlunos();
         
         for(Aluno aluno : alunos) {
         	System.out.println("Da listinha: " + aluno);
         }
-        
+     // teste de setor read 
         ArrayList<Setor> setores = setService.listarSetores();
         for(Setor setor1 : setores) {
         	System.out.println(setor1.getIdSetor());
