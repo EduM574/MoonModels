@@ -25,10 +25,15 @@
     </plugins>
   </build>
   <dependencies>
+	<dependency>
+		<groupId>com.ibm.cloud.sdk</groupId>
+		<artifactId>java-sdk-core</artifactId>
+		<version>1.0.1</version>
+	</dependency>
   	<dependency>
-	  <groupId>com.ibm.watson</groupId>
-	  <artifactId>assistant</artifactId>
-	  <version>8.3.1</version>
+		<groupId>com.ibm.watson</groupId>
+		<artifactId>assistant</artifactId>
+		<version>8.3.1</version>
 	</dependency>
 	<dependency>
 		<groupId>com.google.code.gson</groupId>
