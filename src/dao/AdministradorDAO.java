@@ -201,7 +201,27 @@ public class AdministradorDAO {
 	}
 	
 	public boolean createValidation(Administrador adm) {
-		String consulta = "SELECT * FROM administrador ORDER BY nome ASC;";
+		String consulta = "SELECT * FROM administrador WHERE email = ?;";
+
+		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+			
+			pst.setString(1, adm.getEmail());
+			ResultSet resultado = pst.executeQuery();
+
+			if(resultado.next()) {
+				return true;
+			} else {
+				return false;
+			}
+			
+		} catch(SQLException e) {
+    		System.err.println("Falha no banco: " + e.getMessage());
+    		e.printStackTrace();
+    	} catch( Exception e) {
+    		System.err.println("Falha no java: " + e.getMessage());
+    		e.printStackTrace();
+    	}
+		
 		return false;
 	}
 }
