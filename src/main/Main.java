@@ -254,9 +254,10 @@ public class Main {
         //Se retornar true avisa quem ta cadastrando
         //Se retornar false, pode continuar
         if(v.getStatus()) {
+            //Mensagem de erro para o usuário
             System.out.println(v.getText());
         } else {
-            System.out.println("Segue o baile DEV");
+            //Seguindo o baile pq ta tudo certo
             admService.create(adm);
         }
     }
