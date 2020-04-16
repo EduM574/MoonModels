@@ -1,7 +1,7 @@
 package main;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+// import java.text.SimpleDateFormat;
+// import java.util.ArrayList;
 // import java.util.GregorianCalendar;
 
 import model.*;
@@ -9,12 +9,12 @@ import service.*;
 
 public class Main {
     public static void main(String args[]) {
-        // AdministradorService admService = new AdministradorService();
-        AlunoService alnService = new AlunoService();
+        AdministradorService admService = new AdministradorService();
+        // AlunoService alnService = new AlunoService();
         // SetorService setService = new SetorService();
         // Insert de novos adm (email, setor, status) o status começa com INATIVO
-        // Setor setor = new Setor(1, "MASTER", "", "", null);
-        // Administrador adm = new Administrador("", "", "", "", "fulano2@usjt.br", "", setor, null, null, null);
+        Setor setor = new Setor(1, "MASTER", "", "", null);
+        Administrador adm = new Administrador("", "", "", "", "fulaninho2@usjt.br", "", setor, null, null, null);
         // admService.create(adm);
 
         // Setor setor2 = new Setor(2, "Sptrans", "� nois", "", null);
@@ -218,28 +218,28 @@ public class Main {
         // System.out.println("FK ADM: " + aluninho.getAdm().getEmail());
 
 
-        ArrayList<Aluno> alunos = alnService.listarAlunos();
+        // ArrayList<Aluno> alunos = alnService.listarAlunos();
 
-        for (Aluno aluno : alunos) {
-            System.out.println("Nome: " + aluno.getNome());
-            System.out.println("Sobrenome: " + aluno.getSobrenome());
-            System.out.println("RA: " + aluno.getRa());
-            System.out.println("Status: " + aluno.getStatus());
-            System.out.println("CPF: " + aluno.getCpf());
+        // for (Aluno aluno : alunos) {
+        //     System.out.println("Nome: " + aluno.getNome());
+        //     System.out.println("Sobrenome: " + aluno.getSobrenome());
+        //     System.out.println("RA: " + aluno.getRa());
+        //     System.out.println("Status: " + aluno.getStatus());
+        //     System.out.println("CPF: " + aluno.getCpf());
 
-            SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
-            String dataFormatada = sdf.format(aluno.getData_nascimento().getTime());
+        //     SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyyy");
+        //     String dataFormatada = sdf.format(aluno.getData_nascimento().getTime());
             
-            System.out.println("Data de nascimento: " + dataFormatada);
+        //     System.out.println("Data de nascimento: " + dataFormatada);
 
-            System.out.println("Curso: " + aluno.getCurso());
-            System.out.println("Turno: " + aluno.getTurno());
-            System.out.println("Unidade: " + aluno.getUnidade());
-            System.out.println("Semestre: " + aluno.getSemestre());
-            System.out.println("Email: " + aluno.getEmail());
-            System.out.println("Senha: " + aluno.getSenha());
-            System.out.println("FK ADM: " + aluno.getAdm().getEmail() + "\n");
-        }
+        //     System.out.println("Curso: " + aluno.getCurso());
+        //     System.out.println("Turno: " + aluno.getTurno());
+        //     System.out.println("Unidade: " + aluno.getUnidade());
+        //     System.out.println("Semestre: " + aluno.getSemestre());
+        //     System.out.println("Email: " + aluno.getEmail());
+        //     System.out.println("Senha: " + aluno.getSenha());
+        //     System.out.println("FK ADM: " + aluno.getAdm().getEmail() + "\n");
+        // }
 
         // teste de setor read
         // ArrayList<Setor> setores = setService.listarSetores();
@@ -248,5 +248,16 @@ public class Main {
         //     System.out.println(setor1.getNome());
         // }
 
+        Validation v = admService.createValidation(adm);
+        
+        //Se já existir um ADM com aquele email no banco
+        //Se retornar true avisa quem ta cadastrando
+        //Se retornar false, pode continuar
+        if(v.getStatus()) {
+            System.out.println(v.getText());
+        } else {
+            System.out.println("Segue o baile DEV");
+            admService.create(adm);
+        }
     }
 }
