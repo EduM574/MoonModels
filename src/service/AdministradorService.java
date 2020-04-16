@@ -3,10 +3,12 @@ package service;
 import dao.Conexao;
 import dao.AdministradorDAO;
 import model.Administrador;
+import model.Validation;
 import java.util.ArrayList;
 
 public class AdministradorService {
     AdministradorDAO admDAO = new AdministradorDAO(Conexao.conectar());
+    Validation admV = new Validation();
 
     public void create(Administrador adm) {
         adm.setStatus("INATIVO");
@@ -32,5 +34,18 @@ public class AdministradorService {
     
     public ArrayList<Administrador> selectAdminOrder(){
     	return admDAO.adminOrder();
+    }
+
+    public Validation createValidation(Administrador adm) {
+        
+        if(admDAO.createValidation(adm)) {
+            admV.setStatus(true);
+            admV.setText("Já existe um administrador com esse e-mail cadastrado no banco");
+        } else {
+            admV.setStatus(false);
+            admV.setText("");
+        }
+        
+        return admV;
     }
 }

@@ -198,5 +198,10 @@ public class AdministradorDAO {
     	}
     
     	return null;
-    }
+	}
+	
+	public boolean createValidation(Administrador adm) {
+		String consulta = "SELECT * FROM administrador ORDER BY nome ASC;";
+		return false;
+	}
 }
