@@ -59,10 +59,11 @@ public class AssistantController extends HttpServlet{
             .build();
         
         // Conectando com o Assistant e recebendo a resposta dele
-        MessageResponse response = service.message(messageOptions).execute().getResult();
+        // MessageResponse response = service.message(messageOptions).execute().getResult();
 		
-		this.context = response.getContext();
+		// this.context = response.getContext();
 
-		return response;
+        // return response;
+        return null;
     }
 }
