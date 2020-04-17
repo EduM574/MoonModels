@@ -2,11 +2,11 @@ package dao;
 
 import java.sql.*;
 import java.util.ArrayList;
-// import java.util.GregorianCalendar;
 import java.util.GregorianCalendar;
 
 import model.Administrador;
 import model.Aluno;
+import model.Validation;
 
 public class AlunoDAO {
 	private Connection conexao;
@@ -223,5 +223,61 @@ public class AlunoDAO {
     	}
     
     	return null;
-    }
+	}
+	
+	public Validation createValidation(Aluno aluno) {
+		String consulta = "SELECT * FROM aluno WHERE cpf = ?;";
+		Validation v = new Validation();
+
+		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+			
+			pst.setString(1, aluno.getCpf());
+			ResultSet resultado = pst.executeQuery();
+
+			if(resultado.next()) {
+				//caso encontre um registro com o cpf
+				v.setStatus(true);
+            	v.setText("Aluno já cadastrado no sistema");
+
+			} else {
+				//caso nao encontre registro com esse cpf, verificar email
+				String consulta2 = "SELECT * FROM aluno WHERE email = ?;";
+
+				try(PreparedStatement pst2 = conexao.prepareStatement(consulta2)){
+
+					pst2.setString(1, aluno.getEmail());
+
+					ResultSet resultado2 = pst2.executeQuery();
+
+					if(resultado2.next()) {
+						//caso encontre alguem com esse email o ADM deverá escolher outro
+						v.setStatus(true);
+						v.setText("Já existe um usuário registrado com esse e-mail, por favor escolha outro");
+					} else {
+						//caso nao encontre alguem com esse email, o cadastro pode ser concluido
+						v.setStatus(false);
+						v.setText("");
+					}
+				
+				} catch(SQLException e) {
+					System.err.println("Falha no banco: " + e.getMessage());
+					e.printStackTrace();
+				} catch( Exception e) {
+					System.err.println("Falha no java: " + e.getMessage());
+					e.printStackTrace();
+				}
+			}
+
+			return v;
+			
+		} catch(SQLException e) {
+    		System.err.println("Falha no banco: " + e.getMessage());
+    		e.printStackTrace();
+    	} catch( Exception e) {
+    		System.err.println("Falha no java: " + e.getMessage());
+    		e.printStackTrace();
+    	}
+		
+		return null;
+	}
 }

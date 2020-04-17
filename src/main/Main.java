@@ -2,15 +2,15 @@ package main;
 
 // import java.text.SimpleDateFormat;
 // import java.util.ArrayList;
-// import java.util.GregorianCalendar;
+import java.util.GregorianCalendar;
 
 import model.*;
 import service.*;
 
 public class Main {
     public static void main(String args[]) {
-        AdministradorService admService = new AdministradorService();
-        // AlunoService alnService = new AlunoService();
+        // AdministradorService admService = new AdministradorService();
+        AlunoService alnService = new AlunoService();
         // SetorService setService = new SetorService();
         // Insert de novos adm (email, setor, status) o status começa com INATIVO
         Setor setor = new Setor(1, "MASTER", "", "", null);
@@ -51,9 +51,9 @@ public class Main {
         // //Insert (todos os dados exceto ra) *a senha inicial vai ser o CPF do aluno,
         // status inicial é **ATIVO** *
         // GregorianCalendar(int year, int month, int day);
-        // GregorianCalendar dataNascimento = new GregorianCalendar(2000, 8, 1);
-        // Aluno aln1 = new Aluno("Kex", "Fortuna", 0, "", "56789", dataNascimento, "Arquitetura", "Manhã", "Mooca", 3,
-        //         "Kessy@gmail.com", "", adm, null, null);
+        GregorianCalendar dataNascimento = new GregorianCalendar(2000, 8, 1);
+        Aluno aln1 = new Aluno("Kex3", "Fortuna", 0, "", "234562278", dataNascimento, "Arquitetura", "Manhã", "Mooca", 3,
+                "kess@gmail.com.br", "", adm, null, null);
         // System.out.println(aln1.getRa());
         // alnService.create(aln1);
         // System.out.println(aln1.getRa());
@@ -278,14 +278,28 @@ public class Main {
         //Login e senha do ADM
         //Se o ADM estiver inativo, com senha ou email errados o acesso é negado e retorna true
         //Se os ADM estiver ativo e com dados certos retorna false
-        Validation v3 = admService.loginValidation(adm);
+        // Validation v3 = admService.loginValidation(adm);
 
-        if(v3.getStatus()) {
+        // if(v3.getStatus()) {
+        //     //Mensagem de erro para o usuário
+        //     System.out.println(v3.getText());
+        // } else {
+        //     //Seguindo o baile pq ta tudo certo
+        //     System.out.println("Deu certo, bora pra próxima página");
+        // }
+
+        Validation a = alnService.createValidation(aln1);
+
+        //Antes de cadastrar um aluno verificar se o email 
+        //ou o CPF já existem em algum registro no banco
+        //se der erro volta true
+        //se nao segue o baile
+        if(a.getStatus()) {
             //Mensagem de erro para o usuário
-            System.out.println(v3.getText());
+            System.out.println(a.getText());
         } else {
-            //Seguindo o baile pq ta tudo certo
-            System.out.println("Deu certo, bora pra próxima página");
+            System.out.println("Segue o baile DEV");
+            alnService.create(aln1);
         }
     }
 }

@@ -1,11 +1,10 @@
 package service;
 
-import dao.Conexao;
-
 import java.util.ArrayList;
-
-import dao.AlunoDAO;
 import model.Aluno;
+import model.Validation;
+import dao.Conexao;
+import dao.AlunoDAO;
 
 public class AlunoService {
 	AlunoDAO alunoDAO = new AlunoDAO(Conexao.conectar());
@@ -30,5 +29,9 @@ public class AlunoService {
 	
 	public ArrayList<Aluno> listarAlunos() {
 		return alunoDAO.alunoOrder();
+	}
+
+	public Validation createValidation(Aluno aluno) {
+		return alunoDAO.createValidation(aluno);
 	}
 }
