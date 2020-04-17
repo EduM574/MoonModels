@@ -36,16 +36,7 @@ public class AdministradorService {
     	return admDAO.adminOrder();
     }
 
-    public Validation createValidation(Administrador adm) {
-        
-        if(admDAO.createValidation(adm)) {
-            admV.setStatus(true);
-            admV.setText("Já existe um administrador com esse e-mail cadastrado no banco");
-        } else {
-            admV.setStatus(false);
-            admV.setText("");
-        }
-        
-        return admV;
+    public Validation createValidation(Administrador adm) {        
+        return admDAO.createValidation(adm);
     }
 }

@@ -1,9 +1,10 @@
 package dao;
 
 import java.sql.*;
-import model.Administrador;
 import java.util.ArrayList;
+import model.Administrador;
 import model.Setor;
+import model.Validation;
 
 public class AdministradorDAO {
     private Connection conexao;
@@ -200,8 +201,9 @@ public class AdministradorDAO {
     	return null;
 	}
 	
-	public boolean createValidation(Administrador adm) {
+	public Validation createValidation(Administrador adm) {
 		String consulta = "SELECT * FROM administrador WHERE email = ?;";
+		Validation v = new Validation();
 
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
 			
@@ -209,10 +211,14 @@ public class AdministradorDAO {
 			ResultSet resultado = pst.executeQuery();
 
 			if(resultado.next()) {
-				return true;
+				v.setStatus(true);
+            	v.setText("Já existe um administrador com esse e-mail cadastrado no banco");
 			} else {
-				return false;
+				v.setStatus(false);
+            	v.setText("");
 			}
+
+			return v;
 			
 		} catch(SQLException e) {
     		System.err.println("Falha no banco: " + e.getMessage());
@@ -222,6 +228,45 @@ public class AdministradorDAO {
     		e.printStackTrace();
     	}
 		
-		return false;
+		return null;
+	}
+
+	public Validation updateInicialValidation(Administrador adm) {
+		// Antes de dar o update de primeiro acesso do ADM verificar se o 
+		// CPF já não existe no banco e se o **email confere com o email 
+		// de algum ADM INATIVO no banco**
+		
+		String consulta = "SELECT * FROM administrador WHERE email = ? AND statusA = 'INATIVO';";
+		Validation v = new Validation();
+
+		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+			
+			pst.setString(1, adm.getEmail());
+			ResultSet resultado = pst.executeQuery();
+
+			if(resultado.next()) {
+				//caso encontre alguem com esse email, verificar o cpf
+				String consulta2 = "SELECT * FROM administrador WHERE email = ? AND statusA = 'INATIVO' "
+								+ " AND cpf = ?;";
+
+
+
+			} else {
+				//caso nao encontre alguem com esse email
+				v.setStatus(true);
+            	v.setText("Este usuário não possui acesso ao sistema");
+			}
+
+			return v;
+			
+		} catch(SQLException e) {
+    		System.err.println("Falha no banco: " + e.getMessage());
+    		e.printStackTrace();
+    	} catch( Exception e) {
+    		System.err.println("Falha no java: " + e.getMessage());
+    		e.printStackTrace();
+    	}
+		
+		return null;
 	}
 }
