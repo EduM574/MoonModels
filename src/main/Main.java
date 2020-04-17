@@ -52,8 +52,8 @@ public class Main {
         // status inicial é **ATIVO** *
         // GregorianCalendar(int year, int month, int day);
         GregorianCalendar dataNascimento = new GregorianCalendar(2000, 8, 1);
-        Aluno aln1 = new Aluno("Kex3", "Fortuna", 0, "", "234562278", dataNascimento, "Arquitetura", "Manhã", "Mooca", 3,
-                "kess@gmail.com.br", "", adm, null, null);
+        Aluno aln1 = new Aluno("Kex3", "Fortuna", 4, "", "234562278", dataNascimento, "Arquitetura", "Manhã", "Mooca", 3,
+                "kess@gmail.com.br", "234562278", adm, null, null);
         // System.out.println(aln1.getRa());
         // alnService.create(aln1);
         // System.out.println(aln1.getRa());
@@ -288,18 +288,31 @@ public class Main {
         //     System.out.println("Deu certo, bora pra próxima página");
         // }
 
-        Validation a = alnService.createValidation(aln1);
+        // Validation a = alnService.createValidation(aln1);
 
-        //Antes de cadastrar um aluno verificar se o email 
-        //ou o CPF já existem em algum registro no banco
+        // //Antes de cadastrar um aluno verificar se o email 
+        // //ou o CPF já existem em algum registro no banco
+        // //se der erro volta true
+        // //se nao segue o baile
+        // if(a.getStatus()) {
+        //     //Mensagem de erro para o usuário
+        //     System.out.println(a.getText());
+        // } else {
+        //     System.out.println("Segue o baile DEV");
+        //     alnService.create(aln1);
+        // }
+
+        Validation a2 = alnService.loginValidation(aln1);
+
+        //Verifica se o RA e a senha do login do aluno ATIVO estao certos
         //se der erro volta true
         //se nao segue o baile
-        if(a.getStatus()) {
+        if(a2.getStatus()) {
             //Mensagem de erro para o usuário
-            System.out.println(a.getText());
+            System.out.println(a2.getText());
         } else {
             System.out.println("Segue o baile DEV");
-            alnService.create(aln1);
+            System.out.println("Deu certo, bora pra próxima página");
         }
     }
 }

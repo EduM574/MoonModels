@@ -34,4 +34,8 @@ public class AlunoService {
 	public Validation createValidation(Aluno aluno) {
 		return alunoDAO.createValidation(aluno);
 	}
+
+	public Validation loginValidation(Aluno aluno) {
+		return alunoDAO.loginValidation(aluno);
+	}
 }

@@ -280,4 +280,36 @@ public class AlunoDAO {
 		
 		return null;
 	}
+
+	public Validation loginValidation(Aluno aluno) {
+		String consulta = "SELECT * FROM aluno WHERE ra = ? "
+						+" AND senha = ? AND statusA = 'ATIVO';";
+		Validation v = new Validation();
+
+		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+			
+			pst.setInt(1, aluno.getRa());
+			pst.setString(2, aluno.getSenha());
+			ResultSet resultado = pst.executeQuery();
+
+			if(resultado.next()) {
+				v.setStatus(false);
+            	v.setText("");
+			} else {
+				v.setStatus(true);
+            	v.setText("Acesso negado para essas credenciais. Verifique seu e-mail e senha");
+			}
+
+			return v;
+			
+		} catch(SQLException e) {
+    		System.err.println("Falha no banco: " + e.getMessage());
+    		e.printStackTrace();
+    	} catch( Exception e) {
+    		System.err.println("Falha no java: " + e.getMessage());
+    		e.printStackTrace();
+    	}
+		
+		return null;
+	}
 }
