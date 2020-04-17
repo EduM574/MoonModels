@@ -261,6 +261,10 @@ public class Main {
         //     admService.create(adm);
         // }
 
+        //Antes de dar o update de primeiro acesso do ADM verificar se o CPF já 
+        //não existe no banco e se o email confere com o email de algum ADM INATIVO no banco
+        //se retornar true aquele cara já existe ou nao tem acesso para se cadastrar
+        //se retornar false ta tudo certo
         Validation v2 = admService.updateInicialValidation(adm);
 
         if(v2.getStatus()) {
