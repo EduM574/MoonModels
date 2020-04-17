@@ -236,7 +236,7 @@ public class AdministradorDAO {
 		// CPF já não existe no banco e se o **email confere com o email 
 		// de algum ADM INATIVO no banco**
 		
-		String consulta = "SELECT * FROM administrador WHERE email = ? AND statusA = 'INATIVO';";
+		String consulta = "SELECT * FROM administrador WHERE email = ?;";
 		Validation v = new Validation();
 
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
@@ -246,10 +246,33 @@ public class AdministradorDAO {
 
 			if(resultado.next()) {
 				//caso encontre alguem com esse email, verificar o cpf
-				String consulta2 = "SELECT * FROM administrador WHERE email = ? AND statusA = 'INATIVO' "
-								+ " AND cpf = ?;";
+				String consulta2 = "SELECT * FROM administrador WHERE email = ? AND cpf = ?;";
 
+				try(PreparedStatement pst2 = conexao.prepareStatement(consulta2)){
 
+					pst2.setString(1, adm.getEmail());
+					pst2.setString(2, adm.getCpf());
+
+					ResultSet resultado2 = pst2.executeQuery();
+
+					if(resultado2.next()) {
+						//caso encontre alguem com esse cpf o cadastro nao pode ser feito
+						//pois a pessoa ja esta registrada no sistema
+						v.setStatus(true);
+						v.setText("Este usuário já existe no sistema, não é possivel cadastra-lo novamente");
+					} else {
+						//caso nao encontre alguem com esse cpf o cadastro pode ser feito
+						v.setStatus(false);
+						v.setText("");
+					}
+				
+				} catch(SQLException e) {
+					System.err.println("Falha no banco: " + e.getMessage());
+					e.printStackTrace();
+				} catch( Exception e) {
+					System.err.println("Falha no java: " + e.getMessage());
+					e.printStackTrace();
+				}
 
 			} else {
 				//caso nao encontre alguem com esse email

@@ -14,7 +14,7 @@ public class Main {
         // SetorService setService = new SetorService();
         // Insert de novos adm (email, setor, status) o status começa com INATIVO
         Setor setor = new Setor(1, "MASTER", "", "", null);
-        Administrador adm = new Administrador("", "", "", "", "fulaninho2@usjt.br", "", setor, null, null, null);
+        Administrador adm = new Administrador("", "", "", "4567876", "fulaninho2@usjt.br", "", setor, null, null, null);
         // admService.create(adm);
 
         // Setor setor2 = new Setor(2, "Sptrans", "� nois", "", null);
@@ -248,17 +248,28 @@ public class Main {
         //     System.out.println(setor1.getNome());
         // }
 
-        Validation v = admService.createValidation(adm);
+        // Validation v = admService.createValidation(adm);
         
         //Se já existir um ADM com aquele email no banco
         //Se retornar true avisa quem ta cadastrando
         //Se retornar false, pode continuar
-        if(v.getStatus()) {
+        // if(v.getStatus()) {
+        //     //Mensagem de erro para o usuário
+        //     System.out.println(v.getText());
+        // } else {
+        //     //Seguindo o baile pq ta tudo certo
+        //     admService.create(adm);
+        // }
+
+        Validation v2 = admService.updateInicialValidation(adm);
+
+        if(v2.getStatus()) {
             //Mensagem de erro para o usuário
-            System.out.println(v.getText());
+            System.out.println(v2.getText());
         } else {
             //Seguindo o baile pq ta tudo certo
-            admService.create(adm);
+            admService.updateInicial(adm);
         }
+
     }
 }
