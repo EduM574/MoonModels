@@ -232,10 +232,6 @@ public class AdministradorDAO {
 	}
 
 	public Validation updateInicialValidation(Administrador adm) {
-		// Antes de dar o update de primeiro acesso do ADM verificar se o 
-		// CPF já não existe no banco e se o **email confere com o email 
-		// de algum ADM INATIVO no banco**
-		
 		String consulta = "SELECT * FROM administrador WHERE email = ?;";
 		Validation v = new Validation();
 
