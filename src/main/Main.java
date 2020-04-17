@@ -14,7 +14,7 @@ public class Main {
         // SetorService setService = new SetorService();
         // Insert de novos adm (email, setor, status) o status começa com INATIVO
         Setor setor = new Setor(1, "MASTER", "", "", null);
-        Administrador adm = new Administrador("", "", "", "4567876", "fulaninho2@usjt.br", "", setor, null, null, null);
+        Administrador adm = new Administrador("", "", "", "4567876", "maria@usjt.br", "876", setor, null, null, null);
         // admService.create(adm);
 
         // Setor setor2 = new Setor(2, "Sptrans", "� nois", "", null);
@@ -265,15 +265,27 @@ public class Main {
         //não existe no banco e se o email confere com o email de algum ADM INATIVO no banco
         //se retornar true aquele cara já existe ou nao tem acesso para se cadastrar
         //se retornar false ta tudo certo
-        Validation v2 = admService.updateInicialValidation(adm);
+        // Validation v2 = admService.updateInicialValidation(adm);
 
-        if(v2.getStatus()) {
+        // if(v2.getStatus()) {
+        //     //Mensagem de erro para o usuário
+        //     System.out.println(v2.getText());
+        // } else {
+        //     //Seguindo o baile pq ta tudo certo
+        //     admService.updateInicial(adm);
+        // }
+
+        //Login e senha do ADM
+        //Se o ADM estiver inativo, com senha ou email errados o acesso é negado e retorna true
+        //Se os ADM estiver ativo e com dados certos retorna false
+        Validation v3 = admService.loginValidation(adm);
+
+        if(v3.getStatus()) {
             //Mensagem de erro para o usuário
-            System.out.println(v2.getText());
+            System.out.println(v3.getText());
         } else {
             //Seguindo o baile pq ta tudo certo
-            admService.updateInicial(adm);
+            System.out.println("Deu certo, bora pra próxima página");
         }
-
     }
 }

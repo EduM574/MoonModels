@@ -43,4 +43,8 @@ public class AdministradorService {
     public Validation updateInicialValidation(Administrador adm) {        
         return admDAO.updateInicialValidation(adm);
     }
+
+    public Validation loginValidation(Administrador adm) {
+        return admDAO.loginValidation(adm);
+    }
 }

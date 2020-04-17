@@ -292,4 +292,36 @@ public class AdministradorDAO {
 		
 		return null;
 	}
+
+	public Validation loginValidation(Administrador adm) {
+		String consulta = "SELECT * FROM administrador WHERE email = ? "
+						+" AND senha = ? AND statusA = 'ATIVO';";
+		Validation v = new Validation();
+
+		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+			
+			pst.setString(1, adm.getEmail());
+			pst.setString(2, adm.getSenha());
+			ResultSet resultado = pst.executeQuery();
+
+			if(resultado.next()) {
+				v.setStatus(false);
+            	v.setText("");
+			} else {
+				v.setStatus(true);
+            	v.setText("Acesso negado para essas credenciais. Verifique seu e-mail e senha");
+			}
+
+			return v;
+			
+		} catch(SQLException e) {
+    		System.err.println("Falha no banco: " + e.getMessage());
+    		e.printStackTrace();
+    	} catch( Exception e) {
+    		System.err.println("Falha no java: " + e.getMessage());
+    		e.printStackTrace();
+    	}
+		
+		return null;
+	}
 }
