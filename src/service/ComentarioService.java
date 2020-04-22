@@ -1,13 +1,13 @@
 package service;
 
-import dao.Conexao;
+import dao.ConnectionFactory;
 import dao.ComentarioDAO;
 import model.Comentario;
 import model.Solicitacao;
 import java.util.ArrayList;
 
 public class ComentarioService {
-	ComentarioDAO comDAO = new ComentarioDAO(Conexao.conectar());
+	ComentarioDAO comDAO = new ComentarioDAO(ConnectionFactory.conectar());
 	
 	public void create(Comentario comentario) {
 		comDAO.createComentario(comentario);

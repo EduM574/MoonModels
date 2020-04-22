@@ -3,11 +3,11 @@ package service;
 import java.util.ArrayList;
 import model.Aluno;
 import model.Validation;
-import dao.Conexao;
+import dao.ConnectionFactory;
 import dao.AlunoDAO;
 
 public class AlunoService {
-	AlunoDAO alunoDAO = new AlunoDAO(Conexao.conectar());
+	AlunoDAO alunoDAO = new AlunoDAO(ConnectionFactory.conectar());
 
 	public void create(Aluno aluno) {
 		aluno.setStatus("ATIVO");

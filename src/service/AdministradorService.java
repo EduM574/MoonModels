@@ -1,13 +1,14 @@
 package service;
 
-import dao.Conexao;
+import dao.ConnectionFactory;
 import dao.AdministradorDAO;
 import model.Administrador;
 import model.Validation;
+
 import java.util.ArrayList;
 
 public class AdministradorService {
-    AdministradorDAO admDAO = new AdministradorDAO(Conexao.conectar());
+    AdministradorDAO admDAO = new AdministradorDAO(ConnectionFactory.conectar());
     Validation admV = new Validation();
 
     public void create(Administrador adm) {

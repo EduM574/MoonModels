@@ -2,14 +2,14 @@ package service;
 
 import java.util.ArrayList;
 
-import dao.Conexao;
+import dao.ConnectionFactory;
 import dao.SolicitacaoDAO;
 import model.Solicitacao;
 import model.Administrador;
 import model.Aluno;
 
 public class SolicitacaoService {
-	SolicitacaoDAO soliDAO = new SolicitacaoDAO(Conexao.conectar());
+	SolicitacaoDAO soliDAO = new SolicitacaoDAO(ConnectionFactory.conectar());
 	
 	public void create(Solicitacao solicitacao) {
 		solicitacao.setStatus("ABERTA");
