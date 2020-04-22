@@ -2,7 +2,7 @@
 ## Conection
 ##############################
 
-src/dao/Conexao.java
+src/dao/ConectionFactory.java
 
 ##############################
 ## Java
