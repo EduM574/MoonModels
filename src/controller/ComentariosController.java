@@ -1,9 +1,7 @@
 package controller;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,9 +13,7 @@ import model.Administrador;
 import model.Aluno;
 import model.Comentario;
 import model.Solicitacao;
-import service.AdministradorService;
 import service.ComentarioService;
-import service.SolicitacaoService;
 
 /**
  * Servlet implementation class CadastroAdmController
@@ -47,11 +43,13 @@ public class ComentariosController extends HttpServlet {
 
 		// criar obj
 		Aluno al = new Aluno();
-		al.setRa(4);
+		al.setRa(3);
+
 		Administrador adm = new Administrador();
 		adm.setEmail("fulano2@usjt.br");
+
 		Solicitacao sol = new Solicitacao();
-		sol.setIdSolicitacao(1);
+		sol.setIdSolicitacao(5);
 
 		Comentario cm = new Comentario();
 		cm.setTexto(cTexto);

@@ -1,9 +1,7 @@
 package controller;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,10 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Administrador;
 import model.Aluno;
 import model.Solicitacao;
-import service.AdministradorService;
 import service.SolicitacaoService;
 
 /**
@@ -43,11 +39,10 @@ public class CadastroSolicitacoesController extends HttpServlet {
 		String sNome = request.getParameter("solicitacao");
 		String sDescricao = request.getParameter("descricao");
 		// COLOCAR CAPTURA DO ANEXO
-		// COLETAR FK ALUNO E ADM
 
 		// criar obj
 		Aluno al = new Aluno();
-		al.setRa(4);// id pronto
+		al.setRa(4);// id pronto, trocar depois
 		Solicitacao sol = new Solicitacao();
 		sol.setNome(sNome);
 		sol.setDescricao(sDescricao);
