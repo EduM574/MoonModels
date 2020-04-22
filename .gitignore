@@ -37,3 +37,4 @@ local.properties
 ##############################
 .vscode/
 /target/
+pom.xml
