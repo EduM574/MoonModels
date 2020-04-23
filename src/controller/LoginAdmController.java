@@ -1,8 +1,7 @@
- package controller;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Administrador;
-import service.AdministradorService;
 import model.Validation;
+import service.AdministradorService;
 
 /**
- * Servlet implementation class CadastroAdmController
+ * Servlet implementation class LoginAdmController
  */
-@WebServlet("/CadastraAdm.do")
-public class CadastroAdmController extends HttpServlet {
+@WebServlet("/LoginAdmin.do")
+public class LoginAdmController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -32,37 +31,24 @@ public class CadastroAdmController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String pNome = request.getParameter("nome");
-		String pSobrenome = request.getParameter("sobrenome");
-		String pCpf = request.getParameter("cpf");
 		String pEmail = request.getParameter("email");
-		String pSenha =  request.getParameter("password");
+		String pSenha = request.getParameter("password");
 		
 		Administrador adm = new Administrador();
-		adm.setNome(pNome);
-		adm.setSobrenome(pSobrenome);
-		adm.setCpf(pCpf);
 		adm.setEmail(pEmail);
 		adm.setSenha(pSenha);
 		
 		AdministradorService as = new AdministradorService();
-		Validation v = as.updateInicialValidation(adm);
+		Validation v = as.loginValidation(adm);
 		
 		if(v.getStatus()) {
 			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Cadastro Administrador</title></head><body>");
-			out.println(	"Erro = " + v.getText() + "<br>");			
+			out.println("<html><head><title>Login Administrador</title></head><body>");
+			out.println(	"Erro = " + v.getText() + "<br>");
 			out.println("</body></html>");
 		} else {
-		
-			as.updateInicial(adm);
-			adm = as.selectAdminGeral(adm);
-		
 			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Cadastro Administrador</title></head><body>");
-			out.println(	"Nome = " + adm.getNome() + "<br>");
-			out.println(	"Sobrenome = " + adm.getSobrenome() + "<br>");		
-			out.println(	"Cpf = " + adm.getCpf() + "<br>");
+			out.println("<html><head><title>Login Administrador</title></head><body>");
 			out.println(	"Email = " + adm.getEmail() + "<br>");
 			out.println(	"Senha = " + adm.getSenha() + "<br>");
 			out.println("</body></html>");

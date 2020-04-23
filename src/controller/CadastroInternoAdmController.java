@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Administrador;
 import model.Setor;
-import service.AdministradorService;;
+import service.AdministradorService;
+import model.Validation;
 
 /**
  * Servlet implementation class CadastroInternoAdmController
@@ -45,6 +46,14 @@ public class CadastroInternoAdmController extends HttpServlet {
 		adm.setSetor(setor);
 		
 		AdministradorService as = new AdministradorService();
+		Validation v = as.createValidation(adm);
+		
+		if(v.getStatus()) {
+			PrintWriter out = response.getWriter();
+			out.println("<html><head><title>Cadastro Interno Administrador</title></head><body>");
+			out.println(	"Erro = " + v.getText() + "<br>");
+			out.println("</body></html>");
+		} else {
 		as.create(adm);
 		adm = as.selectAdminGeral(adm);
 		
@@ -53,6 +62,7 @@ public class CadastroInternoAdmController extends HttpServlet {
 		out.println(	"Email = " + adm.getEmail() + "<br>");
 		out.println(	"Setor = " + adm.getSetor() + "<br>");
 		out.println("</body></html>");
+		}
 	}
 
 }
