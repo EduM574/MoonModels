@@ -101,8 +101,8 @@ nav {
     display: flex;
 }
 
-.form .buttons button,
-a {
+.form .buttons .buttons-a,
+.buttons-b {
     font-family: Catamaran;
     font-size: 26px;
     color: #FFF;
