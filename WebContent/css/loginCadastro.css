@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url('fonts.css');
-
 body {
     background-color: #f9f9f9;
     font-family: sans-serif;
@@ -32,87 +31,116 @@ header {
 }
 
 .content {
-	min-height: 400px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .content p {
-	font-family: Catamaran;
-	font-size: 18px;
-	color: #345D7D;
-	line-height: 16px;
+    font-family: Catamaran;
+    font-size: 18px;
+    color: #345D7D;
+    line-height: 16px;
 }
 
 .content a {
-	color: #F2717F;
-	text-decoration: none;
+    color: #F2717F;
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline;
 }
 
 .form {
     min-height: 230px;
     width: 450px;
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 
 .form2 {
     min-height: 400px;
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
 }
 
 .form input {
-	width: 100%;
-	font-family: Catamaran;
-	font-size: 20px;
-	color: #345D7D;
-	line-height: 45px;
-	background-color: #f9f9f9;
-	border-width: 0 0 2px 0;
-	border-color: #345D7D;
+    width: 100%;
+    font-family: Catamaran;
+    font-size: 20px;
+    color: #345D7D;
+    line-height: 45px;
+    background-color: #f9f9f9;
+    border-width: 0 0 2px 0;
+    border-color: #345D7D;
 }
 
 .form button {
-	font-family: Catamaran;
-	font-size: 26px;
-	color: #FFF;
-	line-height: 48px;
-	border: none;
-	background-color: #C06C84;
-	border-radius: 10px;
+    font-family: Catamaran;
+    font-size: 26px;
+    color: #FFF;
+    line-height: 48px;
+    border: none;
+    background-color: #C06C84;
+    border-radius: 10px;
 }
 
 .form2 input {
-	width: 100%;
-	font-family: Catamaran;
-	font-size: 20px;
-	color: #345D7D;
-	line-height: 45px;
-	background-color: #f9f9f9;
-	border-width: 0 0 2px 0;
-	border-color: #345D7D;
+    width: 100%;
+    font-family: Catamaran;
+    font-size: 20px;
+    color: #345D7D;
+    line-height: 45px;
+    background-color: #f9f9f9;
+    border-width: 0 0 2px 0;
+    border-color: #345D7D;
 }
 
 .form2 button {
-	font-family: Catamaran;
-	font-size: 26px;
-	color: #FFF;
-	line-height: 48px;
-	border: none;
-	background-color: #C06C84;
-	border-radius: 10px;
+    font-family: Catamaran;
+    font-size: 26px;
+    color: #FFF;
+    line-height: 48px;
+    border: none;
+    background-color: #C06C84;
+    border-radius: 10px;
 }
 
 .mini-input {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .mini-input input {
-	width: 48%;
+    width: 48%;
+}
+
+.redirect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.redirect .new-password {
+    color: #F2717F;
+    text-decoration: none;
+}
+
+.redirect .new-password:hover {
+    text-decoration: underline;
+}
+
+.redirect .login-adm {
+    color: #345D7D;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.redirect .login-adm:hover {
+    text-decoration: underline;
 }

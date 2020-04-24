@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url('fonts.css');
-
 body {
     background-color: #f9f9f9;
     font-family: sans-serif;
@@ -37,7 +36,7 @@ header {
     align-items: center;
 }
 
-.username-wrapper > span {
+.username-wrapper>span {
     margin-right: 15px;
     font-size: 18pt;
     color: #345D7D;
@@ -47,9 +46,10 @@ header {
     width: 30px;
 }
 
-.logout-wrapper > img {
+.logout-wrapper>img {
     width: 100%;
 }
+
 
 /* Menu */
 
@@ -71,7 +71,7 @@ nav {
     width: 35px;
 }
 
-.menu-icon-wrapper > img {
+.menu-icon-wrapper>img {
     width: 100%;
 }
 
@@ -82,11 +82,11 @@ nav {
 }
 
 .title {
-	font-family: Catamaran;
-	color: #F2717F;
-	font-size: 32px;
-	line-height: 30px;
-	margin-left: 5%;
+    font-family: Catamaran;
+    color: #F2717F;
+    font-size: 32px;
+    line-height: 30px;
+    margin-left: 5%;
 }
 
 .form {
@@ -97,7 +97,12 @@ nav {
     align-items: flex-end;
 }
 
-.form button {
+.form .buttons {
+    display: flex;
+}
+
+.form .buttons button,
+a {
     font-family: Catamaran;
     font-size: 26px;
     color: #FFF;
@@ -107,6 +112,7 @@ nav {
     border-radius: 14px;
     padding: 4px 30px;
     margin-right: 5%;
+    text-decoration: none;
 }
 
 .input-form {
@@ -124,14 +130,14 @@ nav {
     justify-content: space-around;
 }
 
-.box input, select{
+.box input,
+select {
     font-family: Catamaran;
-	font-size: 20px;
-	color: #345D7D;
-	line-height: 45px;
-	background-color: #f9f9f9;
-	border-width: 0 0 2px 0;
+    font-size: 20px;
+    color: #345D7D;
+    line-height: 45px;
+    background-color: #f9f9f9;
+    border-width: 0 0 2px 0;
     border-color: #345D7D;
     margin: 10px 0;
 }
-
