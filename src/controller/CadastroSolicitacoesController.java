@@ -1,18 +1,18 @@
 package controller;
 
-import java.io.File;
+// import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
+// import java.io.InputStream;
 import java.io.PrintWriter;
-import java.nio.file.Paths;
-import java.io.FileOutputStream;
+// import java.nio.file.Paths;
+// import java.io.FileOutputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+// import javax.servlet.http.Part;
 
 import model.Aluno;
 import model.Solicitacao;
@@ -44,15 +44,15 @@ public class CadastroSolicitacoesController extends HttpServlet {
 		String sNome = request.getParameter("solicitacao");
 		String sDescricao = request.getParameter("descricao");
 		
-		Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
+		// Part filePart = request.getPart("file"); // Retrieves <input type="file" name="file">
 //		String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // MSIE fix.
-		InputStream fileContent = filePart.getInputStream();
+		// InputStream fileContent = filePart.getInputStream();
 		
-		String FILE_TO = "c:\\Download\\google.pdf";
+		// String FILE_TO = "c:\\Download\\google.pdf";
 		
-		try {
-            File file = new File(FILE_TO);
-            copyInputStreamToFile(fileContent, file);
+		// try {
+            // File file = new File(FILE_TO);
+            // copyInputStreamToFile(fileContent, file);
             
             // criar obj
             Aluno al = new Aluno();
@@ -61,7 +61,7 @@ public class CadastroSolicitacoesController extends HttpServlet {
             sol.setNome(sNome);
             sol.setDescricao(sDescricao);
             sol.setAluno(al);
-            sol.setAnexo(file);
+            // sol.setAnexo(file);
             
             SolicitacaoService ss = new SolicitacaoService();
             ss.create(sol);
@@ -72,28 +72,28 @@ public class CadastroSolicitacoesController extends HttpServlet {
             out.println("Descrição = " + sol.getDescricao() + "<br>");
             out.println("Ra = " + sol.getAluno().getRa() + "<br>");
             out.println("</body></html>");
-        } catch(IOException e) {
-        	e.printStackTrace();
-        }
+        // } catch(IOException e) {
+        // 	e.printStackTrace();
+        // }
 
 	}
 
-	private static void copyInputStreamToFile(InputStream inputStream, File file)
-			throws IOException {
+	// private static void copyInputStreamToFile(InputStream inputStream, File file)
+	// 		throws IOException {
 
-	        try (FileOutputStream outputStream = new FileOutputStream(file)) {
+	//         try (FileOutputStream outputStream = new FileOutputStream(file)) {
 
-	            int read;
-	            byte[] bytes = new byte[1024];
+	//             int read;
+	//             byte[] bytes = new byte[1024];
 
-	            while ((read = inputStream.read(bytes)) != -1) {
-	                outputStream.write(bytes, 0, read);
-	            }
+	//             while ((read = inputStream.read(bytes)) != -1) {
+	//                 outputStream.write(bytes, 0, read);
+	//             }
 
-				// commons-io
-	            //IOUtils.copy(inputStream, outputStream);
+	// 			// commons-io
+	//             //IOUtils.copy(inputStream, outputStream);
 
-	        }
+	//         }
 
-	    }
+	//     }
 }
