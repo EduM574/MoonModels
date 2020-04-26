@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @import url('fonts.css');
-
 body {
     background-color: #f9f9f9;
     font-family: sans-serif;
@@ -37,7 +36,7 @@ header {
     align-items: center;
 }
 
-.username-wrapper > span {
+.username-wrapper>span {
     margin-right: 15px;
     font-size: 18pt;
     color: #345D7D;
@@ -47,9 +46,10 @@ header {
     width: 30px;
 }
 
-.logout-wrapper > img {
+.logout-wrapper>img {
     width: 100%;
 }
+
 
 /* Menu */
 
@@ -71,7 +71,7 @@ nav {
     width: 35px;
 }
 
-.menu-icon-wrapper > img {
+.menu-icon-wrapper>img {
     width: 100%;
 }
 
@@ -82,11 +82,11 @@ nav {
 }
 
 .title {
-	font-family: Catamaran;
-	color: #F2717F;
-	font-size: 32px;
-	line-height: 30px;
-	margin-left: 5%;
+    font-family: Catamaran;
+    color: #F2717F;
+    font-size: 32px;
+    line-height: 30px;
+    margin-left: 5%;
 }
 
 .form {
@@ -116,39 +116,38 @@ nav {
 }
 
 .input-form2 {
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .input-form2 textarea {
-   	width: 90%;
-   	display: flex;
-   	justify-content: space-around;
-   	font-family: Catamaran;
-	font-size: 20px;
-	color: #345D7D;
-	line-height: 45px;
-	background-color: #f9f9f9;
-	border-width: 0 0 2px 0;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    font-family: Catamaran;
+    font-size: 20px;
+    color: #345D7D;
+    line-height: 45px;
+    background-color: #f9f9f9;
+    border-width: 0 0 2px 0;
     border-color: #345D7D;
     margin: 10px 0;
 }
 
 .input-form2 textarea:focus {
-	outline: thin dotted;
+    outline: thin dotted;
     outline: 0px auto -webkit-focus-ring-color;
     outline-offset: 0px;
 }
 
 .input-form2 label {
-	font-family: Catamaran;
-	font-size: 20px;
-	color: #345D7D;
-	line-height: 45px;
-	display: flex;
+    font-family: Catamaran;
+    font-size: 20px;
+    color: #345D7D;
+    line-height: 45px;
+    display: flex;
     width: 100%;
     margin-left: 10%;
 }
@@ -160,13 +159,14 @@ nav {
     margin: 0 20px;
 }
 
-.box input, select{
+.box input,
+select {
     font-family: Catamaran;
-	font-size: 20px;
-	color: #345D7D;
-	line-height: 45px;
-	background-color: #f9f9f9;
-	border-width: 0 0 2px 0;
+    font-size: 20px;
+    color: #345D7D;
+    line-height: 45px;
+    background-color: #f9f9f9;
+    border-width: 0 0 2px 0;
     border-color: #345D7D;
     margin: 10px 0;
 }
@@ -176,72 +176,68 @@ nav {
     justify-content: space-between;
 }
 
-.normal  {
+.normal {
     width: 48%;
 }
 
 .maior {
-	width: 76%;
+    width: 76%;
 }
 
 .menor {
-	width: 20%;
+    width: 20%;
 }
 
 .lista-alunos {
-	margin-left: 5%;
+    margin-left: 5%;
 }
 
 .linha-aluno {
-	background-color: #FFF;
-	box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
-	border-radius: 15px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 20px 0;
-	padding: 0 20px;
+    background-color: #FFF;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 0 20px;
 }
 
 .linha-aluno p {
-	font-family: Catamaran;
-	color: #345D7D;
-	font-size: 26px;
-	line-height: 30px;
-	margin: 12px 0;
-}
-
-[type="file"] {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute !important;
-  white-space: nowrap;
-  width: 1px;
-}
- 
-[type="file"] + label {
-	font-family: Catamaran;
-    font-size: 20px;
+    font-family: Catamaran;
     color: #345D7D;
-    line-height: 38px;
-    background-color: #f9f9f9;
-    border-width: 0 0 2px 0;
-    border-color: #345D7D;
-    margin: 8px 0;
-	width: 100%;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: solid 1.5px #345D7D;
-  cursor: pointer;
-}
-  
-[type="file"]:focus + label {
-  outline: 1px dotted #000;
+    font-size: 26px;
+    line-height: 30px;
+    margin: 12px 0;
 }
 
 .altura-diferente {
-	margin-top: 22px;
+    margin-top: 22px;
+}
+
+.inputFile {
+    width: 445px;
+    height: 45px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid #345D7D;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.inputFile span {
+    font-family: Catamaran;
+    font-size: 20px;
+    color: #345D7D;
+    line-height: 56px;
+}
+
+.inputFile input {
+    width: 445px;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    cursor: pointer;
 }
