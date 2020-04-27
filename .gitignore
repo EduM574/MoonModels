@@ -16,6 +16,12 @@ src/dao/ConnectionFactory.java
 hs_err_pid*
 
 ##############################
+## Node
+##############################
+WebContent/chatbot/backend/node_modules
+node_modules
+
+##############################
 ## Eclipse
 ##############################
 .settings/

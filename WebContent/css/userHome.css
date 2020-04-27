@@ -348,9 +348,10 @@ form {
     background: #f9f9f9;
 }
 
-#tela-chatboat {
+
+/* #tela-chatboat {
     visibility: hidden;
-}
+} */
 
 .chatboat {
     z-index: 2;

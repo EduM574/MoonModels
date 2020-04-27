@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/userHome.css">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <script src="chatbot/frontend/script.js" defer></script>
     <title>Document</title>
 </head>
 
@@ -201,11 +203,11 @@
                 <button class="s-hist-send-comment-btn" type="submit">
                     <img src="./img/forward.png" alt="enviar">
                 </button>
-            </>
+            </form>
         </div>
     </section>
 
-    <section class="chatboat" id="tela-chatboat">
+    <!-- <section class="chatboat" id="tela-chatboat">
         <div class="chat-header">
             <img src="./img/lunaIcon.png" alt="Icone de lua">
             <span class="title-chat">Luna</span>
@@ -231,14 +233,20 @@
             </div>
         </div>
         <div class="chat-footer">
-            <form action="">
-                <input type="text" name="pergunta">
+            <form method="POST" id="form-chatbot">
+                <input type=" text" name="pergunta" id="input-chatbot">
                 <button type="submit">
-                    <img src="./img/buttonChatboat.png" alt="enviar">
+                    <img src="./img/buttonChatboat.png" alt="enviar ">
                 </button>
             </form>
         </div>
-    </section>
+    </section> -->
+    <div class="chat-column">
+        <div id="chat"></div>
+        <label for="textInput" class="inputOutline">
+          <input id="textInput" class="input responsive-column" autofocus placeholder="Pergunte algo" type="text">
+        </label>
+    </div>
 </body>
 
 </html>
