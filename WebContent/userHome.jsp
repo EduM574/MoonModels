@@ -207,46 +207,18 @@
         </div>
     </section>
 
-    <!-- <section class="chatboat" id="tela-chatboat">
+    <section class="chatboat" id="tela-chatboat">
         <div class="chat-header">
             <img src="./img/lunaIcon.png" alt="Icone de lua">
             <span class="title-chat">Luna</span>
         </div>
-        <div class="chat-content">
-            <div class="text-left">
-                <span>Luna</span>
-                <p>
-                    Ola, meu nome é Luna e estou aqui para te ajudar com dúvidas sobre contato, endereço, datas do calendário acadêmico e horário de atendimento. O que deseja saber hoje?
-                </p>
-            </div>
-            <div class="text-right">
-                <span>Ana Lima</span>
-                <p>
-                    Qual o horario de funcionamento da secretária?
-                </p>
-            </div>
-            <div class="text-left">
-                <span>Luna</span>
-                <p>
-                    A secretaria funciona entre 09:00 e 21:00
-                </p>
-            </div>
+        <div class="chat-content" id="chat-content">
+
         </div>
         <div class="chat-footer">
-            <form method="POST" id="form-chatbot">
-                <input type=" text" name="pergunta" id="input-chatbot">
-                <button type="submit">
-                    <img src="./img/buttonChatboat.png" alt="enviar ">
-                </button>
-            </form>
+            <input type="text" id="textInput">
         </div>
-    </section> -->
-    <div class="chat-column">
-        <div id="chat"></div>
-        <label for="textInput" class="inputOutline">
-          <input id="textInput" class="input responsive-column" autofocus placeholder="Pergunte algo" type="text">
-        </label>
-    </div>
+    </section>
 </body>
 
 </html>

@@ -437,18 +437,18 @@ form {
     overflow-y: auto;
 }
 
-.text-left {
+.from-watson {
     margin-bottom: 10px;
 }
 
-.text-left span {
+.from-watson span {
     font-family: Catamaran semibold;
     color: #F2717F;
     font-size: 16px;
     line-height: 32px;
 }
 
-.text-left p {
+.from-watson p {
     width: 80%;
     font-family: Catamaran;
     font-size: 14px;
@@ -460,19 +460,19 @@ form {
     margin: 0;
 }
 
-.text-right {
+.from-user {
     text-align: right;
     margin-bottom: 10px;
 }
 
-.text-right span {
+.from-user span {
     font-family: Catamaran semibold;
     color: #F2717F;
     font-size: 16px;
     line-height: 32px;
 }
 
-.text-right p {
+.from-user p {
     font-family: Catamaran;
     font-size: 14px;
     line-height: 20px;

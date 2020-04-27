@@ -1,5 +1,5 @@
 const textInput = document.getElementById('textInput');
-const chat = document.getElementById('chat');
+const chat = document.getElementById('chat-content');
 
 let context = {};
 
