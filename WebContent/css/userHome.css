@@ -359,17 +359,18 @@ form {
     right: 40px;
     top: 11%;
     background-color: #fff;
-    height: 70%;
+    height: 450px;
     width: 28%;
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
 }
 
 .chat-header {
+    height: 35px;
     display: flex;
     align-items: flex-end;
     padding: 10px 20px;
-    border-bottom: 2px solid #E5E5E5;
+    border-bottom: 1px solid #E5E5E5;
 }
 
 .chat-header img {
@@ -385,19 +386,17 @@ form {
 }
 
 .chat-footer {
+    height: 58px;
     position: relative;
     top: 0px;
-}
-
-.chat-footer form {
-    width: 100%;
+    border-top: 1px solid #E5E5E5;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
 }
 
 .chat-footer input {
-    width: 75%;
+    width: 85%;
     height: 40px;
     background: #FFFFFF;
     border: 2px solid #345D7D;
@@ -413,32 +412,14 @@ form {
     outline-offset: 0px;
 }
 
-.chat-footer button {
-    background-color: #F2717F;
-    border: none;
-    border-radius: 22px;
-    cursor: pointer;
-    padding: 10px 2px;
-}
-
-.chat-footer button:focus {
-    outline: thin dotted;
-    outline: 0px auto -webkit-focus-ring-color;
-    outline-offset: 0px;
-}
-
-.chat-footer img {
-    width: 50%;
-}
-
 .chat-content {
-    height: 65%;
+    height: 295px;
     padding: 20px;
     overflow-y: auto;
 }
 
 .from-watson {
-    margin-bottom: 10px;
+    display: flex;
 }
 
 .from-watson span {
@@ -449,20 +430,19 @@ form {
 }
 
 .from-watson p {
-    width: 80%;
     font-family: Catamaran;
     font-size: 14px;
     line-height: 20px;
     color: #FFFFFF;
     background: #6F5A7D;
     border-radius: 0px 15px 15px 15px;
-    padding: 10px;
+    padding: 8px 18px;
     margin: 0;
 }
 
 .from-user {
-    text-align: right;
-    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .from-user span {
@@ -479,6 +459,6 @@ form {
     color: #898989;
     border: 2px solid #F2717F;
     border-radius: 15px 0px 15px 15px;
-    padding: 10px;
-    margin: 0 0 0 20%;
+    padding: 8px 18px;
+    margin: 10px 0;
 }

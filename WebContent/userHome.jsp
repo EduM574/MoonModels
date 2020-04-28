@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/userHome.css">
     <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
     <script src="chatbot/frontend/script.js" defer></script>
-    <title>Document</title>
+    <title>Solicitações</title>
 </head>
 
 <body>
