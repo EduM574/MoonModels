@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,12 +31,12 @@
         </a>
         <a href="#">
             <div class="menu-icon-wrapper">
-                <img src="./img/newsfeed.png" alt="Solicitações">
+                <img src="./img/newsfeed.png" alt="SolicitaÃ§Ãµes">
             </div>
         </a>
         <a href="#">
             <div class="menu-icon-wrapper">
-                <img src="./img/add-friend.png" alt="Adicionar usuário">
+                <img src="./img/add-friend.png" alt="Adicionar usuÃ¡rio">
             </div>
         </a>
         <a href="#">
@@ -53,15 +55,15 @@
     <div class="content">
         <section class="info">
             <div class="info-card">
-                <p class="info-title">Total de solicitações</p>
+                <p class="info-title">Total de solicitaÃ§Ãµes</p>
                 <p class="info-content">15</p>
             </div>
             <div class="info-card">
-                <p class="info-title">Solicitações concluídas</p>
+                <p class="info-title">SolicitaÃ§Ãµes concluÃ­das</p>
                 <p class="info-content">5</p>
             </div>
             <div class="info-card">
-                <p class="info-title">Solicitações deferidas</p>
+                <p class="info-title">SolicitaÃ§Ãµes deferidas</p>
                 <p class="info-content">2</p>
             </div>
         </section>
@@ -73,7 +75,7 @@
                     <div class="s-row">
                         <div>
                             <span class="s-card-subtitle">Nome:</span>
-                            <span>Cartão do estudante</span>
+                            <span>CartÃ£o do estudante</span>
                         </div>
                         <div class="s-status-ativo"></div>
                     </div>
@@ -83,7 +85,7 @@
                             <span>1/4</span>
                         </div>
                         <div>
-                            <span class="s-card-subtitle">Código:</span>
+                            <span class="s-card-subtitle">CÃ³digo:</span>
                             <span>1470</span>
                         </div>
                     </div>
@@ -98,7 +100,7 @@
                     <div class="s-row">
                         <div>
                             <span class="s-card-subtitle">Nome:</span>
-                            <span>Cartão do estudante</span>
+                            <span>CartÃ£o do estudante</span>
                         </div>
                         <div class="s-status-ativo"></div>
                     </div>
@@ -108,7 +110,7 @@
                             <span>1/4</span>
                         </div>
                         <div>
-                            <span class="s-card-subtitle">Código:</span>
+                            <span class="s-card-subtitle">CÃ³digo:</span>
                             <span>1470</span>
                         </div>
                     </div>
@@ -123,7 +125,7 @@
                     <div class="s-row">
                         <div>
                             <span class="s-card-subtitle">Nome:</span>
-                            <span>Cartão do estudante</span>
+                            <span>CartÃ£o do estudante</span>
                         </div>
                         <div class="s-status-ativo"></div>
                     </div>
@@ -133,7 +135,7 @@
                             <span>1/4</span>
                         </div>
                         <div>
-                            <span class="s-card-subtitle">Código:</span>
+                            <span class="s-card-subtitle">CÃ³digo:</span>
                             <span>1470</span>
                         </div>
                     </div>
@@ -146,15 +148,15 @@
         <div class="title-wrapper top-content">
             <div>
                 <span class="s-hist-title">Nome:</span>
-                <span class="s-hist-subtitle">{{Nome da solicitação}}</span>
+                <span class="s-hist-subtitle">{{Nome da solicitaÃ§Ã£o}}</span>
             </div>
             <button class="s-hist-send-comment-btn">
                 <img src="./img/download.png" alt="enviar">
             </button>
         </div>
         <div class="title-wrapper">
-            <span class="s-hist-title">Código:</span>
-            <span class="s-hist-subtitle">{{Código}}</span>
+            <span class="s-hist-title">CÃ³digo:</span>
+            <span class="s-hist-subtitle">{{CÃ³digo}}</span>
         </div>
         <div class="s-hist-sub-info title-wrapper">
             <div>
@@ -189,10 +191,10 @@
                 <p class="step-text">{{Parte 5}}</p>
             </div>
         </div>
-        <span class="s-hist-title">Comentários</span>
+        <span class="s-hist-title">ComentÃ¡rios</span>
         <div class="caixa-mensagem">
             <div>
-                <span class="s-comment-user">{{nome do usuário}}:</span>
+                <span class="s-comment-user">{{nome do usuÃ¡rio}}:</span>
                 <span class="s-comment-content">{{comentario}}</span>
             </div>
         </div>
