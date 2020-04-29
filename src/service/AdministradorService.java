@@ -12,13 +12,9 @@ public class AdministradorService {
     Validation admV = new Validation();
 
     public void create(Administrador adm) {
-        adm.setStatus("INATIVO");
-		admDAO.createAdminitrador(adm);
-    }
-
-    public void updateInicial(Administrador adm) {
         adm.setStatus("ATIVO");
-        admDAO.updateInicialAdministrador(adm);
+        adm.setSenha(adm.getCpf());
+		admDAO.createAdminitrador(adm);
     }
     
     public void updateTotal(Administrador adm) {
