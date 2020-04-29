@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="css/loginCadastro.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
     <title>Cadastro Administrador</title>
 </head>
 
@@ -11,22 +11,63 @@
     <header>
         <div class="container main-header">
             <span class="logo">MO<span class="logo-pink">O</span>N</span>
+            <div class="username-wrapper">
+                <span>User Name</span>
+                <div class="logout-wrapper">
+                    <img src="img/logout.png" alt="logout">
+                </div>
+            </div>
         </div>
     </header>
-    <section class="content">
-        <form action="CadastraAdm.do" method="post" class="form2">
-            <div class="mini-input">
-                <input type="text" name="nome" maxlength="15" placeholder="Nome">
-                <input type="text" name="sobrenome" maxlength="15" placeholder="Sobrenome">
+    <nav>
+        <a href="#">
+            <div class="menu-icon-wrapper">
+                <img src="./img/home.png" alt="Home">
             </div>
-            <input type="number" name="cpf" placeholder="CPF">
-            <input type="email" name="email" placeholder="E-mail">
-            <input type="password" name="password" maxlength="15" placeholder="Senha">
+        </a>
+        <a href="#">
+            <div class="menu-icon-wrapper">
+                <img src="./img/newsfeed.png" alt="Solicitações">
+            </div>
+        </a>
+        <a href="#">
+            <div class="menu-icon-wrapper">
+                <img src="./img/add-friend.png" alt="Adicionar usuário">
+            </div>
+        </a>
+        <a href="#">
+            <div class="menu-icon-wrapper">
+                <img src="./img/user.png" alt="Editar perfil">
+            </div>
+        </a>
+    </nav>
+    <section class="content">
+        <p class="title">Cadastrar um Administrador</p>
+        <form action="CadastroAluno.do" method="POST" class="form">
+            <div class="input-form">
+                <div class="box">
+                    <input type="text" name="nome" placeholder="Nome">
+                    <input type="text" name="sobrenome" placeholder="Sobrenome">
+                    <div class="mini-box">
+                        <input type="text" name="cpf" placeholder="CPF" class="normal">
+                    </div>
+                </div>
+                <div class="box">
+                    <input type="email" name="email" placeholder="E-mail">
+                    <input type="password" name="senha" placeholder="Senha">
+                    <div class="mini-box">
+                        <select name="curso" class="normal">
+                            <option disabled selected>Setor</option>
+                            <option value="1">Transporte escolar</option>
+                            <option value="2">Gestão de estagio</option>
+                            <option value="3">Atividades curriculares</option>
+                            <option value="4">MASTER</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
             <button type="submit">Cadastrar</button>
         </form>
-        <p>
-            Já possuo conta, <a href="loginAdm.html">fazer login</a>
-        </p>
     </section>
 </body>
 
