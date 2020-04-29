@@ -18,8 +18,8 @@ public class AdministradorDAO {
 	}
 
 	public void createAdminitrador(Administrador adm) {
-		String create = "INSERT INTO administrador(nome, sobrenome, cpf, statusA, email, senha, fk_cod_setor)" 
-			+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String create = "INSERT INTO administrador(nome, sobrenome, cpf, statusA, email, senha, fk_cod_setor)"
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try (PreparedStatement pst = conexao.prepareStatement(create)) {
 
@@ -179,63 +179,67 @@ public class AdministradorDAO {
 		return null;
 	}
 
+	// public Validation createValidation(Administrador adm) {
+	// String consulta = "SELECT * FROM administrador WHERE email = ?;";
+	// Validation v = new Validation();
+
+	// try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
+
+	// pst.setString(1, adm.getEmail());
+	// ResultSet resultado = pst.executeQuery();
+
+	// if (resultado.next()) {
+	// v.setStatus(true);
+	// v.setText("Já existe um administrador com esse e-mail cadastrado no banco");
+	// } else {
+	// v.setStatus(false);
+	// v.setText("");
+	// }
+
+	// return v;
+
+	// } catch (SQLException e) {
+	// System.err.println("Falha no banco: " + e.getMessage());
+	// e.printStackTrace();
+	// } catch (Exception e) {
+	// System.err.println("Falha no java: " + e.getMessage());
+	// e.printStackTrace();
+	// }
+
+	// return null;
+	// }
+
 	public Validation createValidation(Administrador adm) {
-		String consulta = "SELECT * FROM administrador WHERE email = ?;";
+		String consulta = "SELECT * FROM administrador WHERE cpf = ?;";
 		Validation v = new Validation();
 
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
 
-			pst.setString(1, adm.getEmail());
+			pst.setString(1, adm.getCpf());
 			ResultSet resultado = pst.executeQuery();
 
 			if (resultado.next()) {
+				// caso encontre alguem com esse cpf o cadastro nao pode ser feito
+				// pois a pessoa ja esta registrada no sistema
 				v.setStatus(true);
-				v.setText("Já existe um administrador com esse e-mail cadastrado no banco");
+				v.setText("Este usuário já existe no sistema, não é possivel cadastra-lo novamente");
 			} else {
-				v.setStatus(false);
-				v.setText("");
-			}
-
-			return v;
-
-		} catch (SQLException e) {
-			System.err.println("Falha no banco: " + e.getMessage());
-			e.printStackTrace();
-		} catch (Exception e) {
-			System.err.println("Falha no java: " + e.getMessage());
-			e.printStackTrace();
-		}
-
-		return null;
-	}
-
-	public Validation updateInicialValidation(Administrador adm) {
-		String consulta = "SELECT * FROM administrador WHERE email = ?;";
-		Validation v = new Validation();
-
-		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
-
-			pst.setString(1, adm.getEmail());
-			ResultSet resultado = pst.executeQuery();
-
-			if (resultado.next()) {
-				// caso encontre alguem com esse email, verificar o cpf
-				String consulta2 = "SELECT * FROM administrador WHERE email = ? AND cpf = ?;";
-
+				// caso não encontre alguem com esse cpf, verificar o email
+				String consulta2 = "SELECT * FROM administrador WHERE email = ?;";
+				
 				try (PreparedStatement pst2 = conexao.prepareStatement(consulta2)) {
-
+					
 					pst2.setString(1, adm.getEmail());
-					pst2.setString(2, adm.getCpf());
-
+					
 					ResultSet resultado2 = pst2.executeQuery();
-
+					
 					if (resultado2.next()) {
-						// caso encontre alguem com esse cpf o cadastro nao pode ser feito
-						// pois a pessoa ja esta registrada no sistema
+						// caso encontre alguem com esse email deve escolher outro
 						v.setStatus(true);
-						v.setText("Este usuário já existe no sistema, não é possivel cadastra-lo novamente");
+						v.setText("Já existe um administrador com esse e-mail cadastrado no banco. Escolha outro");
+						
 					} else {
-						// caso nao encontre alguem com esse cpf o cadastro pode ser feito
+						// caso nao encontre alguem com esse email e cpf o cadastro pode ser feito
 						v.setStatus(false);
 						v.setText("");
 					}
@@ -247,11 +251,6 @@ public class AdministradorDAO {
 					System.err.println("Falha no java: " + e.getMessage());
 					e.printStackTrace();
 				}
-
-			} else {
-				// caso nao encontre alguem com esse email
-				v.setStatus(true);
-				v.setText("Este usuário não possui acesso ao sistema");
 			}
 
 			return v;
