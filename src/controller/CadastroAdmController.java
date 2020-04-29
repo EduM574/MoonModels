@@ -1,4 +1,4 @@
- package controller;
+package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Administrador;
+import model.Setor;
 import service.AdministradorService;
 import model.Validation;
 
@@ -32,11 +33,16 @@ public class CadastroAdmController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String pSetor = request.getParameter("setor");
 		String pNome = request.getParameter("nome");
 		String pSobrenome = request.getParameter("sobrenome");
 		String pCpf = request.getParameter("cpf");
 		String pEmail = request.getParameter("email");
 		String pSenha =  request.getParameter("password");
+
+		int setConv = Integer.parseInt(pSetor);
+		Setor setor = new Setor();
+		setor.setIdSetor(setConv);
 		
 		Administrador adm = new Administrador();
 		adm.setNome(pNome);
@@ -44,6 +50,7 @@ public class CadastroAdmController extends HttpServlet {
 		adm.setCpf(pCpf);
 		adm.setEmail(pEmail);
 		adm.setSenha(pSenha);
+		adm.setSetor(setor);
 		
 		AdministradorService as = new AdministradorService();
 		Validation v = as.updateInicialValidation(adm);
