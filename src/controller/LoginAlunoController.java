@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Aluno;
 import service.AlunoService;
@@ -50,11 +51,12 @@ public class LoginAlunoController extends HttpServlet {
 			out.println(	"Erro = " + v.getText() + "<br>");
 			out.println("</body></html>");
 		} else {
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Login Aluno</title></head><body>");
-			out.println(	"Email = " + aln.getRa() + "<br>");
-			out.println(	"Senha = " + aln.getSenha() + "<br>");
-			out.println("</body></html>");
+			aln = as.selectAluno(aln);
+			HttpSession session = request.getSession();
+			session.setAttribute("aluno", aln);
+
+			response.sendRedirect("userHome.do");
+
 		}
 	}
 
