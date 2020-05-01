@@ -9,26 +9,33 @@
         <title>Login administrador</title>
     </head>
 
-    <body>
-        <header>
-            <div class="container main-header">
-                <span class="logo">MO<span class="logo-pink">O</span>N</span>
-            </div>
-        </header>
-        <section class="content">
-            <form action="LoginAdmin.do" method="post" class="form">
-                <input type="email" name="email" placeholder="E-mail">
-                <input type="password" name="password" placeholder="Senha">
-                <button type="submit">Fazer login</button>
-            </form>
-            <p>
-                Ainda não possuo conta, <a href="cadastroAdm.html">fazer cadastro</a>
-            </p>
-            <div class="redirect">
-                <a href="esqueciSenhaAdm.html" class="new-password">Esqueci a senha</a>
-                <a href="loginAluno.jsp" class="login-adm">Fazer login como aluno</a>
-            </div>
-        </section>
-    </body>
+    <% 
+        if (session != null) {
+            //caso ja esteja logado
+            response.sendRedirect("UserHome.do");
+        }
+    %>
+
+        <body>
+            <header>
+                <div class="container main-header">
+                    <span class="logo">MO<span class="logo-pink">O</span>N</span>
+                </div>
+            </header>
+            <section class="content">
+                <form action="LoginAdmin.do" method="post" class="form">
+                    <input type="email" name="email" placeholder="E-mail">
+                    <input type="password" name="password" placeholder="Senha">
+                    <button type="submit">Fazer login</button>
+                </form>
+                <p>
+                    Ainda não possuo conta, <a href="cadastroAdm.html">fazer cadastro</a>
+                </p>
+                <div class="redirect">
+                    <a href="esqueciSenhaAdm.html" class="new-password">Esqueci a senha</a>
+                    <a href="loginAluno.jsp" class="login-adm">Fazer login como aluno</a>
+                </div>
+            </section>
+        </body>
 
     </html>
