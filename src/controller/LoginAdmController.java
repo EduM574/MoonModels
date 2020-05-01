@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,10 +45,10 @@ public class LoginAdmController extends HttpServlet {
 		Validation v = as.loginValidation(adm);
 		
 		if(v.getStatus()) {
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Login Administrador</title></head><body>");
-			out.println(	"Erro = " + v.getText() + "<br>");
-			out.println("</body></html>");
+			request.setAttribute("erro", v.getText());
+        
+			RequestDispatcher view = request.getRequestDispatcher("loginAdm.jsp");
+			view.forward(request, response);
 		} else {
 			adm = as.selectAdminGeral(adm);
 			HttpSession session = request.getSession();

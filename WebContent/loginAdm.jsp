@@ -14,6 +14,8 @@
             //caso ja esteja logado
             response.sendRedirect("UserHome.do");
         }
+
+        String erro = (String) request.getAttribute("erro");
     %>
 
         <body>
@@ -26,6 +28,9 @@
                 <form action="LoginAdmin.do" method="post" class="form">
                     <input type="email" name="email" placeholder="E-mail">
                     <input type="password" name="password" placeholder="Senha">
+                    <p class="erro">
+                        <% if(erro != null) out.print(erro); %>
+                    </p>
                     <button type="submit">Fazer login</button>
                 </form>
                 <div class="redirect">
