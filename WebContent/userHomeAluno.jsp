@@ -26,7 +26,7 @@
                             <span>
                                 <%= aluno.getNome() %>
                             </span>
-                            <form action="logout.do" mothod="post" class="logout-wrapper">
+                            <form action="Logout.do" mothod="post" class="logout-wrapper">
                                 <button type="submit">
 			                        <img src="img/logout.png" alt="logout">
 			                    </button>
