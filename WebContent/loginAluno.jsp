@@ -9,7 +9,7 @@
     </head>
 
     <% 
-        if (session != null) {
+        if (session != null && (session.getAttribute("aluno") != null || session.getAttribute("adm") != null)) {
             //caso ja esteja logado
             response.sendRedirect("UserHome.do");
         }
