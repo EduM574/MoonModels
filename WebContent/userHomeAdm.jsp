@@ -1,27 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@page import="model.Administrador" %>
-        <!DOCTYPE html>
-        <html lang="en">
+        <%
+            if (session.isNew()) {
+                //caso a pessoa não esteja logada
+                response.sendRedirect("loginAdm.jsp");
+            } else {
+	            Administrador adm = (Administrador) session.getAttribute("adm");
+            }
+        
+        %>
+            <!DOCTYPE html>
+            <html lang="en">
 
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="css/userHome.css">
-            <script src="chatbot/frontend/script.js" defer></script>
-            <title>Solicitações</title>
-        </head>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="stylesheet" href="css/userHome.css">
+                <script src="chatbot/frontend/script.js" defer></script>
+                <title>Solicitações</title>
+            </head>
 
-        <%Administrador adm = (Administrador) session.getAttribute("adm");%>
+
 
             <body>
                 <header>
                     <div class="container main-header">
                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                         <div class="username-wrapper">
-                            <span><%= adm.getNome() %></span>
-                            <div class="logout-wrapper">
-                                <img src="img/logout.png" alt="logout">
-                            </div>
+
+                            <form action="logout.do" mothod="post" class="logout-wrapper">
+                                <button type="submit">
+                        <img src="img/logout.png" alt="logout">
+                    </button>
+                            </form>
                         </div>
                     </div>
                 </header>
@@ -224,4 +235,4 @@
                 </section>
             </body>
 
-        </html>
+            </html>
