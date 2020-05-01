@@ -16,7 +16,7 @@
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" href="css/userHome.css">
-                <script src="chatbot/frontend/script.js" defer></script>
+                <!-- <script src="chatbot/frontend/script.js" defer></script> -->
                 <title>Solicitações</title>
             </head>
 
@@ -58,12 +58,6 @@
                         </div>
                     </a>
                 </nav>
-
-                <div class="chatboat-icon">
-                    <button id="button-chatboat-icon">
-            <img src="./img/comment.png" alt="Icone do chatboat">
-        </button>
-                </div>
 
                 <div class="content">
                     <section class="info">
@@ -218,19 +212,6 @@
                     <img src="./img/forward.png" alt="enviar">
                 </button>
                         </form>
-                    </div>
-                </section>
-
-                <section class="chatboat" id="tela-chatboat">
-                    <div class="chat-header">
-                        <img src="./img/lunaIcon.png" alt="Icone de lua">
-                        <span class="title-chat">Luna</span>
-                    </div>
-                    <div class="chat-content" id="chat-content">
-
-                    </div>
-                    <div class="chat-footer">
-                        <input type="text" id="textInput">
                     </div>
                 </section>
             </body>

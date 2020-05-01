@@ -15,6 +15,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <link rel="stylesheet" href="css/userHome.css">
                 <script src="chatbot/frontend/script.js" defer></script>
+                <script src="js/script.js" defer></script>
                 <title>Solicitações</title>
             </head>
 
@@ -59,8 +60,8 @@
 
                 <div class="chatboat-icon">
                     <button id="button-chatboat-icon">
-            <img src="./img/comment.png" alt="Icone do chatboat">
-        </button>
+                        <img src="./img/comment.png" alt="Icone do chatboat">
+                    </button>
                 </div>
 
                 <div class="content">
@@ -162,8 +163,8 @@
                             <span class="s-hist-subtitle">{{Nome da solicitação}}</span>
                         </div>
                         <button class="s-hist-send-comment-btn">
-                <img src="./img/download.png" alt="enviar">
-            </button>
+                            <img src="./img/download.png" alt="enviar">
+                        </button>
                     </div>
                     <div class="title-wrapper">
                         <span class="s-hist-title">Código:</span>
