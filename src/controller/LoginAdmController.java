@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Administrador;
 import model.Validation;
@@ -47,11 +48,12 @@ public class LoginAdmController extends HttpServlet {
 			out.println(	"Erro = " + v.getText() + "<br>");
 			out.println("</body></html>");
 		} else {
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Login Administrador</title></head><body>");
-			out.println(	"Email = " + adm.getEmail() + "<br>");
-			out.println(	"Senha = " + adm.getSenha() + "<br>");
-			out.println("</body></html>");
+			adm = as.selectAdminGeral(adm);
+			HttpSession session = request.getSession();
+			session.setAttribute("adm", adm);
+
+			response.sendRedirect("UserHome.do");
+
 		}
 	}
 
