@@ -11,8 +11,6 @@ import javax.servlet.http.HttpSession;
 
 import model.Administrador;
 import model.Aluno;
-// import service.AlunoService;
-// import model.Validation;
 
 @WebServlet("/UserHome.do")
 public class UserHomeController extends HttpServlet {
@@ -43,10 +41,12 @@ public class UserHomeController extends HttpServlet {
 		} else if (session.getAttribute("aluno") != null) {
 			//caso a pessoa que esteja logada seja um aluno
 			Aluno aluno = (Aluno) session.getAttribute("aluno");
+			System.out.println(aluno);
 
 		} else if (session.getAttribute("adm") != null) {
 			//caso a pessoa que esteja logada seja um adm
 			Administrador adm = (Administrador) session.getAttribute("adm");
+			System.out.println(adm);
 		}
 	}
 }
