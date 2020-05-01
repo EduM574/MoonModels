@@ -28,9 +28,6 @@
                     <input type="password" name="password" placeholder="Senha">
                     <button type="submit">Fazer login</button>
                 </form>
-                <p>
-                    Ainda não possuo conta, <a href="cadastroAdm.html">fazer cadastro</a>
-                </p>
                 <div class="redirect">
                     <a href="esqueciSenhaAdm.html" class="new-password">Esqueci a senha</a>
                     <a href="loginAluno.jsp" class="login-adm">Fazer login como aluno</a>
