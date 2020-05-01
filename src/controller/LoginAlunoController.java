@@ -1,8 +1,8 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,10 +46,11 @@ public class LoginAlunoController extends HttpServlet {
 		Validation v = as.loginValidation(aln);
 		
 		if(v.getStatus()) {
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Login Aluno</title></head><body>");
-			out.println(	"Erro = " + v.getText() + "<br>");
-			out.println("</body></html>");
+			request.setAttribute("erro", v.getText());
+        
+			RequestDispatcher view = request.getRequestDispatcher("loginAluno.jsp");
+			view.forward(request, response);
+
 		} else {
 			aln = as.selectAluno(aln);
 			HttpSession session = request.getSession();
