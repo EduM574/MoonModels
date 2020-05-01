@@ -5,8 +5,8 @@
                 //caso a pessoa não esteja logada
                 response.sendRedirect("loginAdm.jsp");
             } else {
-	            Administrador adm = (Administrador) session.getAttribute("adm");
-            }
+            
+            	Administrador adm = (Administrador) session.getAttribute("adm");
         
         %>
             <!DOCTYPE html>
@@ -20,18 +20,18 @@
                 <title>Solicitações</title>
             </head>
 
-
-
             <body>
                 <header>
                     <div class="container main-header">
                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                         <div class="username-wrapper">
-
+							<span>
+                                <%= adm.getNome() %>
+                            </span>
                             <form action="logout.do" mothod="post" class="logout-wrapper">
                                 <button type="submit">
-                        <img src="img/logout.png" alt="logout">
-                    </button>
+			                        <img src="img/logout.png" alt="logout">
+			                    </button>
                             </form>
                         </div>
                     </div>
@@ -236,3 +236,8 @@
             </body>
 
             </html>
+            
+            <%
+            }
+        
+        %>

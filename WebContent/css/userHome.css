@@ -46,7 +46,14 @@ header {
     width: 30px;
 }
 
-.logout-wrapper>img {
+.logout-wrapper>button {
+    padding: 0;
+    border: none;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.logout-wrapper>button>img {
     width: 100%;
 }
 
@@ -348,10 +355,9 @@ form {
     background: #f9f9f9;
 }
 
-
-/* #tela-chatboat {
+#tela-chatboat {
     visibility: hidden;
-} */
+}
 
 .chatboat {
     z-index: 2;

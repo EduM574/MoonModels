@@ -5,9 +5,7 @@
                 //caso a pessoa não esteja logada
                 response.sendRedirect("loginAluno.jsp");
             } else {
-            	  Aluno aluno = (Aluno) session.getAttribute("aluno");
-            }
-        
+            	  Aluno aluno = (Aluno) session.getAttribute("aluno");        
         %>
             <!DOCTYPE html>
             <html lang="en">
@@ -25,10 +23,14 @@
                     <div class="container main-header">
                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                         <div class="username-wrapper">
-                            <span><%=aluno.getNome() %></span>
-                            <div class="logout-wrapper">
-                                <img src="img/logout.png" alt="logout">
-                            </div>
+                            <span>
+                                <%= aluno.getNome() %>
+                            </span>
+                            <form action="logout.do" mothod="post" class="logout-wrapper">
+                                <button type="submit">
+			                        <img src="img/logout.png" alt="logout">
+			                    </button>
+                            </form>
                         </div>
                     </div>
                 </header>
@@ -211,8 +213,8 @@
                         <form action="Comentario.do" method="POST" class="form">
                             <input type="text" class="s-hist-input" name="texto">
                             <button class="s-hist-send-comment-btn" type="submit">
-                    <img src="./img/forward.png" alt="enviar">
-                </button>
+                                <img src="./img/forward.png" alt="enviar">
+                            </button>
                         </form>
                     </div>
                 </section>
@@ -232,3 +234,4 @@
             </body>
 
             </html>
+            <% }%>
