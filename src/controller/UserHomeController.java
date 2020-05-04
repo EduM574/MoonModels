@@ -30,7 +30,7 @@ public class UserHomeController extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession(false);
-
+		
 		if (session == null) {
 			//caso a pessoa não esteja logada
 			response.sendRedirect("loginAluno.jsp");
@@ -38,8 +38,9 @@ public class UserHomeController extends HttpServlet {
 
 		} else if (session.getAttribute("aluno") != null) {
 			//caso a pessoa que esteja logada seja um aluno
+			System.out.println("Chamou a jsp user home aluno");
 			response.sendRedirect("userHomeAluno.jsp");
-
+			
 		} else if (session.getAttribute("adm") != null) {
 			//caso a pessoa que esteja logada seja um adm
 			response.sendRedirect("userHomeAdm.jsp");

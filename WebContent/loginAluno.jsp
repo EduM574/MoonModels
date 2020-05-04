@@ -8,8 +8,8 @@
         <title>Login aluno</title>
     </head>
 
-    <% 
-        if (!session.isNew() && (session.getAttribute("aluno") != null || session.getAttribute("adm") != null)) {
+    <%     
+        if (session.getAttribute("aluno") != null || session.getAttribute("adm") != null) {
             //caso ja esteja logado
             response.sendRedirect("UserHome.do");
         }

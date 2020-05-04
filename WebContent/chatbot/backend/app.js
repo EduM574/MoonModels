@@ -2,7 +2,7 @@ require('dotenv').config();
 const AssistantV1 = require('watson-developer-cloud/assistant/v1');
 const express = require('express');
 const bodyParser = require('body-parser');
-var cors = require('cors')
+const cors = require('cors');
 
 const app = express();
 

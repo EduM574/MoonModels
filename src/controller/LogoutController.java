@@ -30,9 +30,12 @@ public class LogoutController extends HttpServlet {
         String page;
 
         if (session.getAttribute("aluno") != null) {
+        	request.getSession().removeAttribute("aluno");
 			page = "loginAluno.jsp";
+			System.out.println("Logout aluno");
 
 		} else if (session.getAttribute("adm") != null) {
+			request.getSession().removeAttribute("adm");
             page = "loginAdm.jsp";
 
 		} else {
@@ -40,7 +43,6 @@ public class LogoutController extends HttpServlet {
             page = "loginAluno.jsp";
         }
         
-        session.invalidate();
         response.sendRedirect(page);
     }
     
