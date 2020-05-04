@@ -32,7 +32,6 @@ public class LogoutController extends HttpServlet {
         if (session.getAttribute("aluno") != null) {
         	request.getSession().removeAttribute("aluno");
 			page = "loginAluno.jsp";
-			System.out.println("Logout aluno");
 
 		} else if (session.getAttribute("adm") != null) {
 			request.getSession().removeAttribute("adm");

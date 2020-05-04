@@ -141,3 +141,23 @@ select {
     border-color: #345D7D;
     margin: 10px 0;
 }
+
+.content>.editar-user {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content>.editar-user a {
+    font-family: Catamaran;
+    font-size: 26px;
+    color: #FFF;
+    line-height: 48px;
+    border: none;
+    background-color: #C06C84;
+    border-radius: 14px;
+    padding: 4px 30px;
+    margin-right: 5%;
+    text-decoration: none;
+}
