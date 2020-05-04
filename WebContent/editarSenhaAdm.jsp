@@ -24,10 +24,14 @@
                     <div class="container main-header">
                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                         <div class="username-wrapper">
-                            <span>User Name</span>
-                            <div class="logout-wrapper">
-                                <img src="img/logout.png" alt="logout">
-                            </div>
+                            <span>
+                                <%= adm.getNome() %>
+                            </span>
+                            <form action="Logout.do" mothod="post" class="logout-wrapper">
+                                <button type="submit">
+			                        <img src="img/logout.png" alt="logout">
+			                    </button>
+                            </form>
                         </div>
                     </div>
                 </header>

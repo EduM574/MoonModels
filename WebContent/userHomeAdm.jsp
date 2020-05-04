@@ -174,8 +174,8 @@
                                 <span class="s-hist-subtitle">{{Nome da solicitação}}</span>
                             </div>
                             <button class="s-hist-send-comment-btn">
-                <img src="./img/download.png" alt="enviar">
-            </button>
+                                <img src="./img/download.png" alt="enviar">
+                            </button>
                         </div>
                         <div class="title-wrapper">
                             <span class="s-hist-title">Código:</span>
@@ -225,8 +225,8 @@
                             <form action="Comentario.do" method="POST" class="form">
                                 <input type="text" class="s-hist-input" name="texto">
                                 <button class="s-hist-send-comment-btn" type="submit">
-                    <img src="./img/forward.png" alt="enviar">
-                </button>
+                                    <img src="./img/forward.png" alt="enviar">
+                                </button>
                             </form>
                         </div>
                     </section>
