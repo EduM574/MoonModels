@@ -28,12 +28,12 @@
                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                         <div class="username-wrapper">
                             <span>
-						<%= aluno.getNome() %>
-					</span>
+                                <%= aluno.getNome() %>
+                            </span>
                             <form action="Logout.do" mothod="post" class="logout-wrapper">
                                 <button type="submit">
-							<img src="img/logout.png" alt="logout">
-						</button>
+                                    <img src="img/logout.png" alt="logout">
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -42,6 +42,11 @@
                     <a href="userHomeAluno.jsp">
                         <div class="menu-icon-wrapper">
                             <img src="./img/home.png" alt="Home">
+                        </div>
+                    </a>
+                    <a href="cadastroSolicitacoes.jsp">
+                        <div class="menu-icon-wrapper">
+                            <img src="./img/more.png" alt="Cadastrar solicitação">
                         </div>
                     </a>
                     <a href="#">

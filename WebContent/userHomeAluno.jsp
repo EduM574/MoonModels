@@ -46,6 +46,11 @@
                             <img src="./img/home.png" alt="Home">
                         </div>
                     </a>
+                    <a href="cadastroSolicitacoes.jsp">
+                        <div class="menu-icon-wrapper">
+                            <img src="./img/more.png" alt="Cadastrar solicitação">
+                        </div>
+                    </a>
                     <a href="#">
                         <div class="menu-icon-wrapper">
                             <img src="./img/user.png" alt="Visualizar perfil">
