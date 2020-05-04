@@ -62,10 +62,10 @@
                 </nav>
                 <section class="content">
                     <p class="title">Criar Solicitação</p>
-                    <form action="CadastroSolicitacoes.do" method="POST" enctype="multipart/form-data" class=" form ">
-                        <div class="input-form ">
+                    <form action="CadastroSolicitacoes.do" method="POST" class=" form ">
+                        <div class="input-form">
                             <div class="box ">
-                                <select name="solicitacao " class=" ">
+                                <select name="solicitacao">
                                 <option value="Contrato de estágio ">Contrato de Estágio</option> 
                                 <option value="Bilhete da SPTrans ">Bilhete da SPTrans</option>
                                 <option value="Entrega de atividades complementares ">Entrega de Atividades Complementares</option>
@@ -80,8 +80,8 @@
                         </div>
                         <div class="input-form2 ">
                             <label>
-                    Escreva uma descrição
-                </label>
+                                Escreva uma descrição
+                            </label>
                             <textarea rows="3" class="grande" type="text" name="descricao"></textarea>
                         </div>
                         <button type="submit ">Enviar</button>

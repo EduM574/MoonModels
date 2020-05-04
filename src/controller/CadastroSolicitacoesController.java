@@ -41,7 +41,7 @@ public class CadastroSolicitacoesController extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		Aluno al = (Aluno) session.getAttribute("aluno");
-
+		
 		Solicitacao sol = new Solicitacao();
 		sol.setNome(sNome);
 		sol.setDescricao(sDescricao);
@@ -51,7 +51,7 @@ public class CadastroSolicitacoesController extends HttpServlet {
 		SolicitacaoService ss = new SolicitacaoService();
 		ss.create(sol);
 
-		
+		response.sendRedirect("userHomeAluno.jsp");
 
 	}
 }
