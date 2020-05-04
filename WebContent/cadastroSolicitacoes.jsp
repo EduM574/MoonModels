@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
-    <title>Cadastro Administrador</title>
+    <title>Criar Solicitação</title>
 </head>
 
 <body>
@@ -42,28 +44,30 @@
         </a>
     </nav>
     <section class="content">
-        <p class="title">Cadastrar um Administrador</p>
-        <form action="CadastraAdm.do" method="POST" class="form">
-            <div class="input-form">
-                <div class="box">
-                    <input type="text" name="nome" placeholder="Nome">
-                    <input type="text" name="sobrenome" placeholder="Sobrenome">
+        <p class="title">Criar Solicitação</p>
+        <form action="CadastroSolicitacoes.do" method="POST" enctype="multipart/form-data" class=" form ">
+            <div class="input-form ">
+                <div class="box ">
+                    <select name="solicitacao " class=" ">
+                        <option value="Contrato de estágio ">Contrato de Estágio</option> 
+                        <option value="Bilhete da SPTrans ">Bilhete da SPTrans</option>
+                        <option value="Entrega de atividades complementares ">Entrega de Atividades Complementares</option>
+                        <option value="Mudança de horário ">Mudança de Horário</option>
+                    </select>
                 </div>
-                <div class="box">
-                    <input type="email" name="email" placeholder="E-mail">
-                    <div class="mini-box">
-                        <input type="text" name="cpf" placeholder="CPF" class="normal">
-                        <select name="setor" class="normal">
-                            <option disabled selected>Setor</option>
-                            <option value="1">Transporte escolar</option>
-                            <option value="2">Gestão de estagio</option>
-                            <option value="3">Atividades curriculares</option>
-                            <option value="4">MASTER</option>
-                        </select>
-                    </div>
+                <div class="box inputFile">
+                    <span>Escolha um arquivo</span>
+                    <span>+</span>
+                    <input type="file" name="arquivo" id="arquivo" accept=".pdf" />
                 </div>
             </div>
-            <button type="submit">Cadastrar</button>
+            <div class="input-form2 ">
+                <label>
+                    Escreva uma descrição
+                </label>
+                <textarea rows="3" class="grande" type="text" name="descricao"></textarea>
+            </div>
+            <button type="submit ">Enviar</button>
         </form>
     </section>
 </body>

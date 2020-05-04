@@ -38,7 +38,6 @@ public class UserHomeController extends HttpServlet {
 
 		} else if (session.getAttribute("aluno") != null) {
 			//caso a pessoa que esteja logada seja um aluno
-			System.out.println("Chamou a jsp user home aluno");
 			response.sendRedirect("userHomeAluno.jsp");
 			
 		} else if (session.getAttribute("adm") != null) {

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@page import="model.Aluno" %>
         <%
-        if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
+        	if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
                 //caso a pessoa não esteja logada
                 response.sendRedirect("loginAluno.jsp");
             } else {
@@ -36,24 +36,19 @@
                     </div>
                 </header>
                 <nav>
-                    <a href="#">
+                    <a href="userHomeAluno.jsp">
                         <div class="menu-icon-wrapper">
                             <img src="./img/home.png" alt="Home">
                         </div>
                     </a>
                     <a href="#">
                         <div class="menu-icon-wrapper">
-                            <img src="./img/newsfeed.png" alt="SolicitaÃ§Ãµes">
+                            <img src="./img/user.png" alt="Visualizar perfil">
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="editarSenhaAluno.jsp">
                         <div class="menu-icon-wrapper">
-                            <img src="./img/add-friend.png" alt="Adicionar usuário">
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/user.png" alt="Editar perfil">
+                            <img src="./img/configuration.png" alt="Editar senha">
                         </div>
                     </a>
                 </nav>
