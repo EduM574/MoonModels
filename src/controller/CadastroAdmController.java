@@ -1,8 +1,8 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -54,22 +54,12 @@ public class CadastroAdmController extends HttpServlet {
 		Validation v = as.createValidation(adm);
 		
 		if(v.getStatus()) {
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Cadastro Administrador</title></head><body>");
-			out.println(	"Erro = " + v.getText() + "<br>");			
-			out.println("</body></html>");
+			request.setAttribute("erro", v.getText());
+			RequestDispatcher view = request.getRequestDispatcher("cadastroAdm.jsp");
+			view.forward(request, response);
 		} else {
 			as.create(adm);
-			adm = as.selectAdminGeral(adm);
-		
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Cadastro Administrador</title></head><body>");
-			out.println(	"Nome = " + adm.getNome() + "<br>");
-			out.println(	"Sobrenome = " + adm.getSobrenome() + "<br>");		
-			out.println(	"Cpf = " + adm.getCpf() + "<br>");
-			out.println(	"Email = " + adm.getEmail() + "<br>");
-			out.println(	"Senha = " + adm.getSenha() + "<br>");
-			out.println("</body></html>");
+			response.sendRedirect("cadastroUserOk.jsp");
 		}
 	}
 

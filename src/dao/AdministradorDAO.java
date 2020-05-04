@@ -179,36 +179,6 @@ public class AdministradorDAO {
 		return null;
 	}
 
-	// public Validation createValidation(Administrador adm) {
-	// String consulta = "SELECT * FROM administrador WHERE email = ?;";
-	// Validation v = new Validation();
-
-	// try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
-
-	// pst.setString(1, adm.getEmail());
-	// ResultSet resultado = pst.executeQuery();
-
-	// if (resultado.next()) {
-	// v.setStatus(true);
-	// v.setText("Já existe um administrador com esse e-mail cadastrado no banco");
-	// } else {
-	// v.setStatus(false);
-	// v.setText("");
-	// }
-
-	// return v;
-
-	// } catch (SQLException e) {
-	// System.err.println("Falha no banco: " + e.getMessage());
-	// e.printStackTrace();
-	// } catch (Exception e) {
-	// System.err.println("Falha no java: " + e.getMessage());
-	// e.printStackTrace();
-	// }
-
-	// return null;
-	// }
-
 	public Validation createValidation(Administrador adm) {
 		String consulta = "SELECT * FROM administrador WHERE cpf = ?;";
 		Validation v = new Validation();
@@ -236,7 +206,7 @@ public class AdministradorDAO {
 					if (resultado2.next()) {
 						// caso encontre alguem com esse email deve escolher outro
 						v.setStatus(true);
-						v.setText("Já existe um administrador com esse e-mail cadastrado no banco. Escolha outro");
+						v.setText("Já existe um administrador com esse e-mail cadastrado no banco, escolha outro.");
 						
 					} else {
 						// caso nao encontre alguem com esse email e cpf o cadastro pode ser feito
@@ -281,7 +251,7 @@ public class AdministradorDAO {
 				v.setText("");
 			} else {
 				v.setStatus(true);
-				v.setText("Acesso negado para essas credenciais. Verifique seu e-mail e senha");
+				v.setText("Acesso negado para essas credenciais. Verifique seu e-mail e senha.");
 			}
 
 			return v;

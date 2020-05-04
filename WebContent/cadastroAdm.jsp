@@ -7,7 +7,9 @@
                 response.sendRedirect("loginAdm.jsp");
             } else {
             
-            	Administrador adm = (Administrador) session.getAttribute("adm");
+                Administrador adm = (Administrador) session.getAttribute("adm");
+                
+                String erro = (String) request.getAttribute("erro");
         
         %>
             <!DOCTYPE html>
@@ -87,16 +89,20 @@
                                     <div class="mini-box">
                                         <input type="text" name="cpf" placeholder="CPF" class="normal">
                                         <select name="setor" class="normal">
-                            <option disabled selected>Setor</option>
-                            <option value="1">Transporte escolar</option>
-                            <option value="2">Gestão de estagio</option>
-                            <option value="3">Atividades curriculares</option>
-                            <option value="4">MASTER</option>
-                        </select>
+                                            <option value="1">Transporte escolar</option>
+                                            <option value="2">Gestão de estagio</option>
+                                            <option value="3">Atividades curriculares</option>
+                                            <option value="4">MASTER</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Cadastrar</button>
+                            <div class="align-erro">
+                                <p>
+                                    <% if(erro != null) out.print(erro); %>
+                                </p>
+                                <button type="submit">Cadastrar</button>
+                            </div>
                         </form>
                     </section>
             </body>
