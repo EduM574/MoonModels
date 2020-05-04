@@ -42,7 +42,7 @@
                 	if(adm.getSetor().getIdSetor() == 4) {
                 		url = "listaUser.jsp";	
                 	} else {
-                    	url = "listaAluno.jsp";                 		
+                    	url = "listaAlunos.jsp";                 		
                 	}
                 %>
                     <nav>
@@ -51,7 +51,7 @@
                                 <img src="./img/home.png" alt="Home">
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="<%=url%>">
                             <div class="menu-icon-wrapper">
                                 <img src="./img/newsfeed.png" alt="Alunos/ADMs">
                             </div>
