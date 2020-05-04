@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@page import="model.Administrador" %>
         <%
-        if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
+            if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
                 //caso a pessoa não esteja logada
                 response.sendRedirect("loginAdm.jsp");
             } else {
