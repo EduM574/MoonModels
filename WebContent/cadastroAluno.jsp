@@ -85,20 +85,20 @@
                                     </div>
                                     <div class="mini-box">
                                         <select name="curso" class="maior">
-                                <option value="CCP" selected>Ciência da Computação</option> 
-                                <option value="ECP">Engenharia da Computação</option>
-                                <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
-                            </select>
+                                            <option value="CCP" selected>Ciência da Computação</option> 
+                                            <option value="ECP">Engenharia da Computação</option>
+                                            <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+                                        </select>
                                         <select name="semestre" class="menor">
-                                <option value="1" selected>1º</option> 
-                                <option value="2">2º</option>
-                                <option value="3">3º</option>
-                                <option value="4">4º</option>
-                                <option value="5">5º</option>
-                                <option value="6">6º</option>
-                                <option value="7">7º</option>
-                                <option value="8">8º</option>
-                            </select>
+                                            <option value="1" selected>1º</option> 
+                                            <option value="2">2º</option>
+                                            <option value="3">3º</option>
+                                            <option value="4">4º</option>
+                                            <option value="5">5º</option>
+                                            <option value="6">6º</option>
+                                            <option value="7">7º</option>
+                                            <option value="8">8º</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="box">

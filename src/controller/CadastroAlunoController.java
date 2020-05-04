@@ -1,15 +1,15 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import java.util.GregorianCalendar;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Administrador;
 import model.Aluno;
@@ -55,8 +55,8 @@ public class CadastroAlunoController extends HttpServlet {
 		
 		int sem = Integer.parseInt(pSemestre);
 		
-		Administrador adm = new Administrador();
-		adm.setEmail("gerald.cortes@email.com");
+		HttpSession session = request.getSession();
+		Administrador adm = (Administrador) session.getAttribute("adm");
 		
 		Aluno aln = new Aluno();
 		aln.setNome(pNome);
@@ -75,26 +75,13 @@ public class CadastroAlunoController extends HttpServlet {
 		
 		
 		if(v.getStatus()) {
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Cadastro Aluno</title></head><body>");
-			out.println(	"Erro = " + v.getText() + "<br>");
-			out.println("</body></html>");
+			request.setAttribute("erro", v.getText());
+        
+			RequestDispatcher view = request.getRequestDispatcher("loginAluno.jsp");
+			view.forward(request, response);
 		} else {
 			as.create(aln);
-			aln = as.selectAluno(aln);
-			
-			PrintWriter out = response.getWriter();
-			out.println("<html><head><title>Cadastro Aluno</title></head><body>");
-			out.println(	"Nome = " + aln.getNome() + "<br>");
-			out.println(	"Sobrenome = " + aln.getSobrenome() + "<br>");
-			out.println(	"CPF = " + aln.getCpf() + "<br>");
-			out.println(	"Email = " + aln.getEmail() + "<br>");
-			out.println(	"Data de Nascimento = " + aln.getData_nascimento() + "<br>");
-			out.println(	"Curso = " + aln.getCurso() + "<br>");
-			out.println(	"Turno = " + aln.getTurno() + "<br>");
-			out.println(	"Unidade = " + aln.getUnidade() + "<br>");
-			out.println(	"Semestre = " + aln.getSemestre() + "<br>");
-			out.println("</body></html>");		
+			response.sendRedirect("cadastroUserOk.jsp");
 		}
 		
 	}
