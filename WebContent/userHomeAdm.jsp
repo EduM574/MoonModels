@@ -37,12 +37,14 @@
                     </div>
                 </header>
                 <% 
-                    String url;
+                    String editar, adicionar;
                 
                 	if(adm.getSetor().getIdSetor() == 4) {
-                		url = "listaUser.jsp";	
+                        editar = "listaUser.jsp";
+                        adicionar = "adicionarUser.jsp";
                 	} else {
-                    	url = "listaAlunos.jsp";                 		
+                        editar = "listaAlunos.jsp";
+                        adicionar = "adicionarAluno.jsp";
                 	}
                 %>
                     <nav>
@@ -51,12 +53,12 @@
                                 <img src="./img/home.png" alt="Home">
                             </div>
                         </a>
-                        <a href="<%=url%>">
+                        <a href="<%=editar%>">
                             <div class="menu-icon-wrapper">
                                 <img src="./img/newsfeed.png" alt="Alunos/ADMs">
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="<%=adicionar%>">
                             <div class="menu-icon-wrapper">
                                 <img src="./img/add-friend.png" alt="Adicionar usuário">
                             </div>
@@ -64,6 +66,11 @@
                         <a href="#">
                             <div class="menu-icon-wrapper">
                                 <img src="./img/user.png" alt="Visualizar perfil">
+                            </div>
+                        </a>
+                        <a href="editarSenhaAdm.jsp">
+                            <div class="menu-icon-wrapper">
+                                <img src="./img/configuration.png" alt="Editar senha">
                             </div>
                         </a>
                     </nav>

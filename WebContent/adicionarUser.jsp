@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="css/senhas.css" media="screen" />
-        <title>Editar senha</title>
+        <title>Cadastrar</title>
     </head>
 
     <body>
@@ -34,7 +34,7 @@
             </a>
             <a href="#">
                 <div class="menu-icon-wrapper">
-                    <img src="./img/add-friend.png" alt="Adicionar usuário">
+                    <img src="./img/add-friend.png" alt="Cadastrar usuário">
                 </div>
             </a>
             <a href="#">
@@ -44,19 +44,12 @@
             </a>
         </nav>
         <section class="content">
-            <p class="title">Editar senha</p>
-            <form action="CadastroAluno.do" method="POST" class="form">
-                <div class="input-form">
-                    <div class="box">
-                        <input type="password" name="password" maxlength="15" placeholder="Nova senha">
-                        <input type="password" name="password" maxlength="15" placeholder="Confirme a nova senha">
-                    </div>
-                </div>
-                <button type="submit">Editar</button>
-            </form>
+            <p class="title">Cadastrar</p>
+            <div class="editar-user">
+                <a href="cadastroAdm.jsp">Cadastrar ADMs</a>
+                <a href="cadastroAluno.jsp">Cadastrar Alunos</a>
+            </div>
         </section>
     </body>
-
-    </html>
 
     </html>
