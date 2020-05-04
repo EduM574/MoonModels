@@ -7,7 +7,9 @@
                 response.sendRedirect("loginAdm.jsp");
             } else {
             
-            	Administrador adm = (Administrador) session.getAttribute("adm");
+                Administrador adm = (Administrador) session.getAttribute("adm");
+                
+                String erro = (String) request.getAttribute("erro");
         
         %>
             <!DOCTYPE html>
@@ -106,19 +108,24 @@
                                     <input type="email" name="email" placeholder="E-mail">
                                     <div class="mini-box">
                                         <select name="unidade" class="normal">
-                                <option value="paulista" selected>Paulista</option> 
-                                <option value="mooca">Mooca</option>
-                                <option value="santana">Santana</option>
-                            </select>
+                                            <option value="paulista" selected>Paulista</option> 
+                                            <option value="mooca">Mooca</option>
+                                            <option value="santana">Santana</option>
+                                        </select>
                                         <select name="turno" class="normal">
-                                <option value="matutino" selected>Matutino</option> 
-                                <option value="vespetino">Vespetino</option>
-                                <option value="noturno">Noturno</option>
-                            </select>
+                                            <option value="matutino" selected>Matutino</option> 
+                                            <option value="vespetino">Vespetino</option>
+                                            <option value="noturno">Noturno</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit">Cadastrar</button>
+                            <div class="align-erro">
+                                <p>
+                                    <% if(erro != null) out.print(erro); %>
+                                </p>
+                                <button type="submit">Cadastrar</button>
+                            </div>
                         </form>
                     </section>
             </body>

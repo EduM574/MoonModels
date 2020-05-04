@@ -76,8 +76,7 @@ public class CadastroAlunoController extends HttpServlet {
 		
 		if(v.getStatus()) {
 			request.setAttribute("erro", v.getText());
-        
-			RequestDispatcher view = request.getRequestDispatcher("loginAluno.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("cadastroAluno.jsp");
 			view.forward(request, response);
 		} else {
 			as.create(aln);
