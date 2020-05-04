@@ -36,22 +36,12 @@
                     </div>
                 </header>
                 <nav>
-                    <a href="#">
+                    <a href="userHomeAluno.jsp">
                         <div class="menu-icon-wrapper">
                             <img src="./img/home.png" alt="Home">
                         </div>
                     </a>
-                    <a href="#">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/newsfeed.png" alt="SolicitaÃ§Ãµes">
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/add-friend.png" alt="Adicionar usuário">
-                        </div>
-                    </a>
-                    <a href="#">
+                    <a href="">
                         <div class="menu-icon-wrapper">
                             <img src="./img/user.png" alt="Editar perfil">
                         </div>

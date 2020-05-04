@@ -37,14 +37,14 @@
                     </div>
                 </header>
                 <nav>
-                    <a href="#">
+                    <a href="userHomeAdm.jsp">
                         <div class="menu-icon-wrapper">
                             <img src="./img/home.png" alt="Home">
                         </div>
                     </a>
                     <a href="#">
                         <div class="menu-icon-wrapper">
-                            <img src="./img/newsfeed.png" alt="Solicitações">
+                            <img src="./img/newsfeed.png" alt="Alunos/ADMs">
                         </div>
                     </a>
                     <a href="#">
@@ -54,7 +54,7 @@
                     </a>
                     <a href="#">
                         <div class="menu-icon-wrapper">
-                            <img src="./img/user.png" alt="Editar perfil">
+                            <img src="./img/user.png" alt="Visualizar perfil">
                         </div>
                     </a>
                 </nav>
