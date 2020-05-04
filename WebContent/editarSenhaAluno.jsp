@@ -5,6 +5,11 @@
         	if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
                 //caso a pessoa não esteja logada
                 response.sendRedirect("loginAluno.jsp");
+
+            } else if(session.getAttribute("adm") != null) {
+                //caso a pessoa que esteja logada seja um aluno
+                response.sendRedirect("userHomeAdm.jsp");
+
             } else {
             	  Aluno aluno = (Aluno) session.getAttribute("aluno");        
         %>

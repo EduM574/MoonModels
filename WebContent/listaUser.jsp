@@ -5,8 +5,12 @@
             if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
                 //caso a pessoa não esteja logada
                 response.sendRedirect("loginAdm.jsp");
+
+            } else if(session.getAttribute("aluno") != null) {
+                //caso a pessoa que esteja logada seja um aluno
+                response.sendRedirect("userHomeAluno.jsp");
+
             } else {
-            
             	Administrador adm = (Administrador) session.getAttribute("adm");
         
         %>
@@ -78,7 +82,7 @@
                     <section class="content">
                         <p class="title">Visualizar</p>
                         <div class="editar-user">
-                            <a href="listaADM.jsp">Visualizar ADMs</a>
+                            <a href="listaAdm.jsp">Visualizar ADMs</a>
                             <a href="listaAlunos.jsp">Visualizar Alunos</a>
                         </div>
                     </section>
