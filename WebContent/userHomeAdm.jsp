@@ -41,7 +41,7 @@
                 
                 	if(adm.getSetor().getIdSetor() == 4) {
                         editar = "listaUser.jsp";
-                        adicionar = "adicionarUser.jsp";
+                        adicionar = "cadastrarUser.jsp";
                 	} else {
                         editar = "listaAlunos.jsp";
                         adicionar = "adicionarAluno.jsp";
@@ -235,6 +235,5 @@
             </html>
 
             <%
-            }
-        
-        %>
+                }
+            %>

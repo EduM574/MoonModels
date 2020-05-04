@@ -15,8 +15,8 @@
 
             <head>
                 <meta charset="utf-8" />
-                <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
-                <title>Lista de alunos</title>
+                <link rel="stylesheet" type="text/css" href="css/senhas.css" media="screen" />
+                <title>Cadastrar</title>
             </head>
 
             <body>
@@ -71,18 +71,11 @@
                     </nav>
 
                     <section class="content">
-                        <p class="title">Lista de alunos</p>
-                        <div class="lista-alunos">
-                            <div class="linha-aluno">
-                                <p>Ana Lima</p>
-                                <img src="./img/edit-1.png" />
-                            </div>
-                            <div class="linha-aluno">
-                                <p>Vitória Alves</p>
-                                <img src="./img/edit-1.png" />
-                            </div>
+                        <p class="title">Cadastrar</p>
+                        <div class="editar-user">
+                            <a href="cadastroAdm.jsp">Cadastrar ADMs</a>
+                            <a href="cadastroAluno.jsp">Cadastrar Alunos</a>
                         </div>
-
                     </section>
             </body>
 
