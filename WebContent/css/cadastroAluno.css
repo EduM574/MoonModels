@@ -93,6 +93,13 @@ nav {
     color: #F2717F;
     font-size: 32px;
     line-height: 30px;
+    margin: 5% 0 2% 5%;
+}
+
+.data-ra {
+    font-family: Catamaran;
+    color: #345D7D;
+    font-size: 20px;
     margin-left: 5%;
 }
 

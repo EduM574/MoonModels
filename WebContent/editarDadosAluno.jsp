@@ -80,6 +80,7 @@
 
                     <section class="content">
                         <p class="title">Editar um aluno</p>
+                        <span class="data-ra">819100000</span>
                         <form action="CadastroAluno.do" method="POST" class="form">
                             <div class="input-form">
                                 <div class="box">
@@ -90,20 +91,20 @@
                                     </div>
                                     <div class="mini-box">
                                         <select name="curso" class="maior">
-                                <option value="CCP" selected>Ciência da Computação</option> 
-                                <option value="ECP">Engenharia da Computação</option>
-                                <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
-                            </select>
+                                            <option value="CCP" selected>Ciência da Computação</option> 
+                                            <option value="ECP">Engenharia da Computação</option>
+                                            <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+                                        </select>
                                         <select name="semestre" class="menor">
-                                <option value="1" selected>1º</option> 
-                                <option value="2">2º</option>
-                                <option value="3">3º</option>
-                                <option value="4">4º</option>
-                                <option value="5">5º</option>
-                                <option value="6">6º</option>
-                                <option value="7">7º</option>
-                                <option value="8">8º</option>
-                            </select>
+                                            <option value="1" selected>1º</option> 
+                                            <option value="2">2º</option>
+                                            <option value="3">3º</option>
+                                            <option value="4">4º</option>
+                                            <option value="5">5º</option>
+                                            <option value="6">6º</option>
+                                            <option value="7">7º</option>
+                                            <option value="8">8º</option>
+                                        </select>
                                     </div>
                                     <input type="password" name="password" maxlength="15" placeholder="Nova senha">
                                 </div>
@@ -112,20 +113,20 @@
                                     <input type="email" name="email" placeholder="E-mail">
                                     <div class="mini-box">
                                         <select name="unidade" class="normal">
-                                <option value="paulista" selected>Paulista</option> 
-                                <option value="mooca">Mooca</option>
-                                <option value="santana">Santana</option>
-                            </select>
+                                            <option value="paulista" selected>Paulista</option> 
+                                            <option value="mooca">Mooca</option>
+                                            <option value="santana">Santana</option>
+                                        </select>
                                         <select name="turno" class="normal">
-                                <option value="matutino" selected>Matutino</option> 
-                                <option value="vespetino">Vespetino</option>
-                                <option value="noturno">Noturno</option>
-                            </select>
+                                            <option value="matutino" selected>Matutino</option> 
+                                            <option value="vespetino">Vespetino</option>
+                                            <option value="noturno">Noturno</option>
+                                        </select>
                                     </div>
                                     <select name="status" class="altura-diferente">
-                                <option value="ATIVO" selected>ATIVO</option> 
-                                <option value="INATIVO">INATIVO</option>
-                        </select>
+                                            <option value="ATIVO" selected>ATIVO</option> 
+                                            <option value="INATIVO">INATIVO</option>
+                                    </select>
                                 </div>
                             </div>
                             <button type="submit">Editar</button>
