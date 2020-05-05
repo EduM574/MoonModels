@@ -80,7 +80,12 @@ public class CadastroAlunoController extends HttpServlet {
 			view.forward(request, response);
 		} else {
 			as.create(aln);
-			response.sendRedirect("cadastroUserOkAdm.jsp");
+			
+			String data = "O RA do aluno cadastrado é " + aln.getRa() + " e sua senha inicial é seu CPF.";
+			request.setAttribute("data", data);
+        
+			RequestDispatcher view = request.getRequestDispatcher("cadastroUserOkAdm.jsp");
+			view.forward(request, response);
 		}
 		
 	}

@@ -88,6 +88,16 @@ nav {
     padding: 20px;
 }
 
+.data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data .title {
+    margin-left: 0;
+}
+
 .title {
     font-family: Catamaran;
     color: #F2717F;

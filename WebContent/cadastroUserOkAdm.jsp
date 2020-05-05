@@ -12,6 +12,8 @@
 
         } else {
             Administrador adm = (Administrador) session.getAttribute("adm");
+
+            String data = (String) request.getAttribute("data");
     
     %>
             <!DOCTYPE html>
@@ -29,8 +31,8 @@
                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                         <div class="username-wrapper">
                             <span>
-                            <%= adm.getNome() %>
-                        </span>
+                                <%= adm.getNome() %>
+                            </span>
                             <form action="Logout.do" mothod="post" class="logout-wrapper">
                                 <button type="submit">
                                 <img src="img/logout.png" alt="logout">
@@ -79,13 +81,14 @@
                     </nav>
 
                     <section class="content">
-                        <div class="editar-user">
+                        <div class="data">
                             <p class="title">Cadastro realizado com sucesso</p>
+                            <p class="ra">
+                                <% if(!data.equals(null)) out.print(data); %>
+                            </p>
                         </div>
                     </section>
             </body>
 
             </html>
-            <%
-            }
-        %>
+            <%}%>
