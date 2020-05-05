@@ -53,7 +53,7 @@ public class LoginAdmController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("adm", adm);
 
-			response.sendRedirect("UserHomeAdm.jsp");
+			response.sendRedirect("userHomeAdm.jsp");
 		}
 	}
 
