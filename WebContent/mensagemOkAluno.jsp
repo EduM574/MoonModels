@@ -62,7 +62,7 @@
                 </nav>
                 <section class="content">
                     <div class="editar-user">
-                        <p class="title">Cadastro realizado com sucesso</p>
+                        <p class="title">Solicitação realizada com sucesso</p>
                     </div>
                 </section>
             </body>

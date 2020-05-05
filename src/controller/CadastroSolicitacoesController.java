@@ -51,7 +51,7 @@ public class CadastroSolicitacoesController extends HttpServlet {
 		SolicitacaoService ss = new SolicitacaoService();
 		ss.create(sol);
 
-		response.sendRedirect("cadastroUserOkAluno.jsp");
+		response.sendRedirect("mensagemOkAluno.jsp");
 
 	}
 }

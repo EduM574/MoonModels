@@ -13,6 +13,7 @@
         } else {
             Administrador adm = (Administrador) session.getAttribute("adm");
 
+            String title = (String) request.getAttribute("title");
             String data = (String) request.getAttribute("data");
     
     %>
@@ -82,7 +83,9 @@
 
                     <section class="content">
                         <div class="data">
-                            <p class="title">Cadastro realizado com sucesso</p>
+                            <p class="title">
+                                <% if(!title.equals(null)) out.print(title); %>
+                            </p>
                             <p class="ra">
                                 <% if(!data.equals(null)) out.print(data); %>
                             </p>

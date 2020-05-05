@@ -60,10 +60,12 @@ public class CadastroAdmController extends HttpServlet {
 		} else {
 			as.create(adm);
 			
+			String title = "Cadastro realizado com sucesso.";
 			String data = "O e-mail do ADM cadastrado é " + adm.getEmail() + " e sua senha inicial é seu CPF.";
+			request.setAttribute("title", title);
 			request.setAttribute("data", data);
         
-			RequestDispatcher view = request.getRequestDispatcher("cadastroUserOkAdm.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("mensagemOkAdm.jsp");
 			view.forward(request, response);
 		}
 	}
