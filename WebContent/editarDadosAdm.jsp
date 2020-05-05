@@ -80,6 +80,7 @@
 
                     <section class="content">
                         <p class="title">Editar um administrador</p>
+                        <span class="data-ra">fulano@usjt.br</span>
                         <form action="CadastroAluno.do" method="POST" class="form">
                             <div class="input-form">
                                 <div class="box">
