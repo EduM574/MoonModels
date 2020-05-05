@@ -18,6 +18,11 @@
                 		  + "/" + aluno.getData_nascimento().get(GregorianCalendar.MONTH)
                 		  + "/" + aluno.getData_nascimento().get(GregorianCalendar.YEAR);
                   
+                  String newCpf = aluno.getCpf().substring(0, 3) 
+                    		+ "." + aluno.getCpf().substring(3, 6)
+                    		+ "." + aluno.getCpf().substring(6, 9)
+                    		+ "-" + aluno.getCpf().substring(9, 11);
+                  
         %>
                 <!DOCTYPE html>
                 <html>
@@ -78,7 +83,7 @@
                             </div>
                             <div class="group">
                                 <span class="title">CPF:</span>
-                                <span class="data"><%= aluno.getCpf()%></span>
+                                <span class="data"><%=newCpf%></span>
                             </div>
                             <div class="group">
                                 <span class="title">Data de Nascimento:</span>

@@ -27,7 +27,12 @@
             } else if(adm.getSetor().getIdSetor() == 4) {
             	setor = "MASTER";
             }
-    
+            
+            String newCpf = adm.getCpf().substring(0, 3) 
+              		+ "." + adm.getCpf().substring(3, 6)
+              		+ "." + adm.getCpf().substring(6, 9)
+              		+ "-" + adm.getCpf().substring(9, 11);
+    		
     %>
             <!DOCTYPE html>
             <html lang="en">
@@ -105,7 +110,7 @@
                             </div>
                             <div class="group">
                                 <span class="title">CPF:</span>
-                                <span class="data"><%= adm.getCpf()%></span>
+                                <span class="data"><%=newCpf%></span>
                             </div>
                         </div>
                         <div class="box">
