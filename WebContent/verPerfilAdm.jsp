@@ -12,6 +12,21 @@
 
         } else {
             Administrador adm = (Administrador) session.getAttribute("adm");
+
+            String setor = "";
+            
+            if(adm.getSetor().getIdSetor() == 1) {
+                setor = "Transporte escolar";
+                
+            } else if(adm.getSetor().getIdSetor() == 2) {
+            	setor = "Gestão de estágio";
+            	
+            } else if(adm.getSetor().getIdSetor() == 3) {
+            	setor = "Atividades curriculares";
+            	
+            } else if(adm.getSetor().getIdSetor() == 4) {
+            	setor = "MASTER";
+            }
     
     %>
             <!DOCTYPE html>
@@ -30,12 +45,12 @@
                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                         <div class="username-wrapper">
                             <span>
-                    <%= adm.getNome() %>
-                </span>
+                                <%= adm.getNome() %>
+                            </span>
                             <form action="Logout.do" mothod="post" class="logout-wrapper">
                                 <button type="submit">
-                        <img src="img/logout.png" alt="logout">
-                    </button>
+                                    <img src="img/logout.png" alt="logout">
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -82,25 +97,25 @@
                         <div class="box">
                             <div class="group">
                                 <span class="title">Nome:</span>
-                                <span class="data">Kesselyn</span>
+                                <span class="data"><%= adm.getNome()%></span>
                             </div>
                             <div class="group">
                                 <span class="title">Sobrenome:</span>
-                                <span class="data">Fortunato</span>
+                                <span class="data"><%= adm.getSobrenome()%></span>
                             </div>
                             <div class="group">
                                 <span class="title">CPF:</span>
-                                <span class="data">000.000.000-00</span>
+                                <span class="data"><%= adm.getCpf()%></span>
                             </div>
                         </div>
                         <div class="box">
                             <div class="group">
                                 <span class="title">E-mail:</span>
-                                <span class="data">kex@usjt.br</span>
+                                <span class="data"><%= adm.getEmail()%></span>
                             </div>
                             <div class="group">
                                 <span class="title">Setor:</span>
-                                <span class="data">Transporte</span>
+                                <span class="data"><%=setor%></span>
                             </div>
                         </div>
                     </section>
