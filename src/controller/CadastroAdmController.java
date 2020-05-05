@@ -59,7 +59,12 @@ public class CadastroAdmController extends HttpServlet {
 			view.forward(request, response);
 		} else {
 			as.create(adm);
-			response.sendRedirect("cadastroUserOkAdm.jsp");
+			
+			String data = "O e-mail do ADM cadastrado é " + adm.getEmail() + " e sua senha inicial é seu CPF.";
+			request.setAttribute("data", data);
+        
+			RequestDispatcher view = request.getRequestDispatcher("cadastroUserOkAdm.jsp");
+			view.forward(request, response);
 		}
 	}
 
