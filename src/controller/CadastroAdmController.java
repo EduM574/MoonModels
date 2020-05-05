@@ -59,7 +59,7 @@ public class CadastroAdmController extends HttpServlet {
 			view.forward(request, response);
 		} else {
 			as.create(adm);
-			response.sendRedirect("cadastroUserOk.jsp");
+			response.sendRedirect("cadastroUserOkAdm.jsp");
 		}
 	}
 

@@ -80,7 +80,7 @@ public class CadastroAlunoController extends HttpServlet {
 			view.forward(request, response);
 		} else {
 			as.create(aln);
-			response.sendRedirect("cadastroUserOk.jsp");
+			response.sendRedirect("cadastroUserOkAdm.jsp");
 		}
 		
 	}
