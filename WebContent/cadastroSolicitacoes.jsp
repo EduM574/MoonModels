@@ -69,7 +69,7 @@
                                     <option value="Contrato de estagio">Contrato de Estágio</option> 
                                     <option value="Bilhete da SPTrans">Bilhete da SPTrans</option>
                                     <option value="Entrega de atividades complementares">Entrega de Atividades Complementares</option>
-                                    <option value="Mudanca de horario ">Mudança de Horário</option>
+                                    <option value="Mudanca de horario">Mudança de Horário</option>
                                 </select>
                             </div>
                             <div class="box inputFile">
