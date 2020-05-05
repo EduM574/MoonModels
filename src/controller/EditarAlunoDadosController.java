@@ -70,6 +70,7 @@ public class EditarAlunoDadosController extends HttpServlet {
 		aln.setUnidade(pUnidade);
 		aln.setTurno(pTurno);
 		aln.setStatus(pStatus);
+		//RA e ADM para testes
 		aln.setRa(819100000);
 		aln.setAdm(adm);
 		
