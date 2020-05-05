@@ -14,7 +14,7 @@ public class SolicitacaoService {
 	public void create(Solicitacao solicitacao) {
 		solicitacao.setStatus("ABERTA");
 
-		if(solicitacao.getNome().equals("Contrato de estágio")) {
+		if(solicitacao.getNome().equals("Contrato de estagio")) {
 			solicitacao.setPrazo(15);
 
 		} else if(solicitacao.getNome().equals("Bilhete da SPTrans")) {
@@ -23,7 +23,7 @@ public class SolicitacaoService {
 		} else if(solicitacao.getNome().equals("Entrega de atividades complementares")) {
 			solicitacao.setPrazo(8);
 			
-		} else if(solicitacao.getNome().equals("Mudança de horário")) {
+		} else if(solicitacao.getNome().equals("Mudanca de horario")) {
 			solicitacao.setPrazo(10);
 		}
 
