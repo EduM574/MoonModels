@@ -43,7 +43,7 @@
         </nav>
         <section class="content">
         	<p class="title">Editar um aluno</p>
-            <form action="CadastroAluno.do" method="POST" class="form">
+            <form action="EditarAlunoDados.do" method="POST" class="form">
                 <div class="input-form">
                     <div class="box">
                         <input type="text" name="nome" placeholder="Nome">
