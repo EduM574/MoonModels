@@ -67,7 +67,7 @@
                                 <img src="./img/add-friend.png" alt="Adicionar usuário">
                             </div>
                         </a>
-                        <a href="#">
+                        <a href="verPerfilAdm.jsp">
                             <div class="menu-icon-wrapper">
                                 <img src="./img/user.png" alt="Visualizar perfil">
                             </div>

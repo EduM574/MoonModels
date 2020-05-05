@@ -1,0 +1,83 @@
+@charset "UTF-8";
+@import url('fonts.css');
+body {
+    background-color: #f9f9f9;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+header {
+    border-bottom: solid 1px #345D7D;
+    padding: 15px 0;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 22pt;
+    color: #345D7D;
+}
+
+.logo-pink {
+    color: #F2717F;
+}
+
+.username-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.username-wrapper>span {
+    margin-right: 15px;
+    font-size: 18pt;
+    color: #345D7D;
+}
+
+.logout-wrapper {
+    width: 30px;
+}
+
+.logout-wrapper>button {
+    padding: 0;
+    border: none;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.logout-wrapper>button>img {
+    width: 100%;
+}
+
+
+/* Menu */
+
+nav {
+    position: fixed;
+    width: 64px;
+    height: 409px;
+    left: 31px;
+    top: 25%;
+    background: linear-gradient(180deg, #345D7D 0%, #6F5A7D 100%);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu-icon-wrapper {
+    width: 35px;
+}
+
+.menu-icon-wrapper>img {
+    width: 100%;
+}

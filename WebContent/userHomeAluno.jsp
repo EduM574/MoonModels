@@ -51,7 +51,7 @@
                             <img src="./img/more.png" alt="Cadastrar solicitação">
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="verPerfilAluno.jsp">
                         <div class="menu-icon-wrapper">
                             <img src="./img/user.png" alt="Visualizar perfil">
                         </div>

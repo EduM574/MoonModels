@@ -5,7 +5,7 @@
         	if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
                 //caso a pessoa não esteja logada
                 response.sendRedirect("loginAluno.jsp");
-
+            
             } else if(session.getAttribute("adm") != null) {
                 //caso a pessoa que esteja logada seja um aluno
                 response.sendRedirect("userHomeAdm.jsp");
@@ -18,8 +18,8 @@
 
             <head>
                 <meta charset="utf-8" />
-                <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
-                <title>Criar Solicitação</title>
+                <link rel="stylesheet" type="text/css" href="css/visualizarDados.css" media="screen" />
+                <title>Ver Perfil</title>
             </head>
 
             <body>
@@ -32,8 +32,8 @@
                             </span>
                             <form action="Logout.do" mothod="post" class="logout-wrapper">
                                 <button type="submit">
-                                    <img src="img/logout.png" alt="logout">
-                                </button>
+			                        <img src="img/logout.png" alt="logout">
+			                    </button>
                             </form>
                         </div>
                     </div>
@@ -60,33 +60,8 @@
                         </div>
                     </a>
                 </nav>
-                <section class="content">
-                    <p class="title">Criar Solicitação</p>
-                    <form action="CadastroSolicitacoes.do" method="POST" class=" form ">
-                        <div class="input-form">
-                            <div class="box ">
-                                <select name="solicitacao">
-                                    <option value="Contrato de estagio">Contrato de Estágio</option> 
-                                    <option value="Bilhete da SPTrans">Bilhete da SPTrans</option>
-                                    <option value="Entrega de atividades complementares">Entrega de Atividades Complementares</option>
-                                    <option value="Mudanca de horario">Mudança de Horário</option>
-                                </select>
-                            </div>
-                            <div class="box inputFile">
-                                <span>Escolha um arquivo</span>
-                                <span>+</span>
-                                <input type="file" name="arquivo" id="arquivo" accept=".pdf" />
-                            </div>
-                        </div>
-                        <div class="input-form2 ">
-                            <label>
-                                Escreva uma descrição
-                            </label>
-                            <textarea rows="3" class="grande" type="text" name="descricao"></textarea>
-                        </div>
-                        <button type="submit ">Enviar</button>
-                    </form>
-                </section>
+
+
             </body>
 
             </html>
