@@ -1,2 +1,30 @@
 @charset "UTF-8";
 @import url('headerMenu.css');
+.content {
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+}
+
+.box .group {
+    margin-top: 30px;
+    color: #345D7D;
+}
+
+.box .group .title {
+    font-family: Catamaran semibold;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.box .group .data {
+    font-family: Catamaran;
+    font-size: 20px;
+    line-height: 24px;
+}

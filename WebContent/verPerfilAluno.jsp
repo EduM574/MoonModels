@@ -60,8 +60,52 @@
                         </div>
                     </a>
                 </nav>
-
-
+                <section class="content">
+                    <div class="box">
+                        <div class="group">
+                            <span class="title">Nome:</span>
+                            <span class="data">Kesselyn</span>
+                        </div>
+                        <div class="group">
+                            <span class="title">Sobrenome:</span>
+                            <span class="data">Fortunato</span>
+                        </div>
+                        <div class="group">
+                            <span class="title">CPF:</span>
+                            <span class="data">000.000.000-00</span>
+                        </div>
+                        <div class="group">
+                            <span class="title">Data de Nascimento:</span>
+                            <span class="data">00/00/0000</span>
+                        </div>
+                        <div class="group">
+                            <span class="title">E-mail:</span>
+                            <span class="data">kex@usjt.br</span>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="group">
+                            <span class="title">RA:</span>
+                            <span class="data">819100000</span>
+                        </div>
+                        <div class="group">
+                            <span class="title">Curso:</span>
+                            <span class="data">CCP</span>
+                        </div>
+                        <div class="group">
+                            <span class="title">Turno:</span>
+                            <span class="data">Noturno</span>
+                        </div>
+                        <div class="group">
+                            <span class="title">Unidade:</span>
+                            <span class="data">Paulista</span>
+                        </div>
+                        <div class="group">
+                            <span class="title">Semestre:</span>
+                            <span class="data">1º semestre</span>
+                        </div>
+                    </div>
+                </section>
             </body>
 
             </html>
