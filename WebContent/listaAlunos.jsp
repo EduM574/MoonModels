@@ -32,8 +32,8 @@
                                 <span class="logo">MO<span class="logo-pink">O</span>N</span>
                                 <div class="username-wrapper">
                                     <span>
-                                <%= adm.getNome() %>
-                            </span>
+                                        <%= adm.getNome() %>
+                                    </span>
                                     <form action="Logout.do" mothod="post" class="logout-wrapper">
                                         <button type="submit">
 			                        <img src="img/logout.png" alt="logout">
