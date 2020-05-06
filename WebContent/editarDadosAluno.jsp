@@ -100,11 +100,12 @@
 
                             <section class="content">
                                 <p class="title">Editar um aluno</p>
-                                <span class="data-ra"><%=alunoEdicao.getRa() %></span>
-                                <form action="EditarAlunoDados.do" method="POST" class="form">
-                                    <div class="input-form">
-                                        <div class="box">
-                                            <input type="text" name="nome" placeholder="Nome" value="<%=alunoEdicao.getNome()%>">
+                                <span class=" data-ra "><%=alunoEdicao.getRa() %></span>
+                                <form action="EditarAlunoDados.do " method="POST " class="form ">
+                                    <input type="hidden" name="ra-aluno" value="<%=alunoEdicao.getRa() %>">
+                                    <div class="input-form ">
+                                        <div class="box ">
+                                            <input type="text " name="nome" placeholder="Nome" value="<%=alunoEdicao.getNome()%>">
                                             <input type="text" name="sobrenome" placeholder="Sobrenome" value="<%=alunoEdicao.getSobrenome()%>">
                                             <div class="mini-box">
                                                 <input type="text" name="cpf" placeholder="CPF" value="<%=alunoEdicao.getCpf()%>" class="normal">

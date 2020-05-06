@@ -42,6 +42,7 @@ public class EditarAlunoDadosController extends HttpServlet {
 		String pUnidade = request.getParameter("unidade");
 		String pTurno = request.getParameter("turno");
 		String pStatus = request.getParameter("status");
+		String pRa = request.getParameter("ra-aluno");
 		
 		String[] dataSeparada = pDataNascimento.split("-");
 		int ano = Integer.parseInt(dataSeparada[0]);
@@ -49,6 +50,7 @@ public class EditarAlunoDadosController extends HttpServlet {
 		int dia = Integer.parseInt(dataSeparada[2]);
 		
 		int sem = Integer.parseInt(pSemestre);
+		int ra = Integer.parseInt(pRa);
 		
 		GregorianCalendar cal = new GregorianCalendar(ano, mes, dia);
 		
@@ -64,8 +66,7 @@ public class EditarAlunoDadosController extends HttpServlet {
 		aln.setUnidade(pUnidade);
 		aln.setTurno(pTurno);
 		aln.setStatus(pStatus);
-		//RA e ADM para testes
-		aln.setRa(819100000);
+		aln.setRa(ra);
 		
 		AlunoService as = new AlunoService();
 		as.updateDoAdm(aln);
