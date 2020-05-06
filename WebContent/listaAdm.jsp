@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="model.Administrador" %>
+    <%@page import="java.util.ArrayList" %>
         <%
             if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
                 //caso a pessoa não esteja logada
@@ -12,6 +13,7 @@
                 
             } else {
             	Administrador adm = (Administrador) session.getAttribute("adm");
+            	ArrayList<Administrador> administradores = (ArrayList<Administrador>) request.getAttribute("administradores"); 
         %>
 
             <!DOCTYPE html>
@@ -80,14 +82,16 @@
                     <section class="content">
                         <p class="title">Lista de alunos</p>
                         <div class="lista-alunos">
+                        <%
+                        	for(Administrador admin: administradores) {
+                        %>
                             <div class="linha-aluno">
-                                <p>Ana Lima</p>
+                                <p><%= admin.getNome() %></p>
                                 <img src="./img/edit-1.png" />
                             </div>
-                            <div class="linha-aluno">
-                                <p>Vitória Alves</p>
-                                <img src="./img/edit-1.png" />
-                            </div>
+                       <%
+                        	}
+                       %>
                         </div>
 
                     </section>

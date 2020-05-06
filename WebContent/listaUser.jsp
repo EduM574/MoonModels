@@ -82,7 +82,7 @@
                     <section class="content">
                         <p class="title">Visualizar</p>
                         <div class="editar-user">
-                            <a href="listaAdm.jsp">Visualizar ADMs</a>
+                            <a href="listaAdm.do">Visualizar ADMs</a>
                             <a href="ListaAlunos.do">Visualizar Alunos</a>
                         </div>
                     </section>
