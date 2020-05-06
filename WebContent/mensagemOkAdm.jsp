@@ -23,7 +23,7 @@
             <head>
                 <meta charset="utf-8" />
                 <link rel="stylesheet" type="text/css" href="css/senhas.css" media="screen" />
-                <title>Cadastrar</title>
+                <title>Moon</title>
             </head>
 
             <body>
