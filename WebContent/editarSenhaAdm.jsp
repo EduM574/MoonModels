@@ -81,7 +81,7 @@
 
                     <section class="content">
                         <p class="title">Editar senha</p>
-                        <form action="CadastroAluno.do" method="POST" class="form">
+                        <form action="EditarSenhaAdm.do" method="POST" class="form">
                             <div class="input-form">
                                 <div class="box">
                                     <input type="password" name="password" maxlength="15" placeholder="Nova senha">

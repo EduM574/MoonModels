@@ -34,7 +34,7 @@
                             <span>
                                 <%= adm.getNome() %>
                             </span>
-                            <form action="Logout.do" mothod="post" class="logout-wrapper">
+                            <form action="Logout.do" method="post" class="logout-wrapper">
                                 <button type="submit">
                                 <img src="img/logout.png" alt="logout">
                             </button>
