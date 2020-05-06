@@ -156,6 +156,12 @@ select {
     margin: 12px 0;
 }
 
+.linha-aluno button {
+    background-color: #FFF;
+    border: none;
+    cursor: pointer;
+}
+
 .altura-diferente {
     margin-top: 22px;
 }

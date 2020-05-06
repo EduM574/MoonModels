@@ -36,23 +36,23 @@
                                     </span>
                                     <form action="Logout.do" mothod="post" class="logout-wrapper">
                                         <button type="submit">
-			                        <img src="img/logout.png" alt="logout">
-			                    </button>
+                                            <img src="img/logout.png" alt="logout">
+                                        </button>
                                     </form>
                                 </div>
                             </div>
                         </header>
                         <% 
-                    String editar, adicionar;
-                
-                	if(adm.getSetor().getIdSetor() == 4) {
-                        editar = "listaUser.jsp";
-                        adicionar = "cadastrarUser.jsp";
-                	} else {
-                        editar = "ListaAlunos.do";
-                        adicionar = "cadastroAluno.jsp";
-                	}
-                %>
+                            String editar, adicionar;
+                        
+                            if(adm.getSetor().getIdSetor() == 4) {
+                                editar = "listaUser.jsp";
+                                adicionar = "cadastrarUser.jsp";
+                            } else {
+                                editar = "ListaAlunos.do";
+                                adicionar = "cadastroAluno.jsp";
+                            }
+                        %>
                             <nav>
                                 <a href="userHomeAdm.jsp">
                                     <div class="menu-icon-wrapper">
@@ -86,14 +86,17 @@
                                 <div class="lista-alunos">
                                     <% 
 		                        		for(Aluno a : alunos) {
-		                        	
 		                        	%>
-
                                         <div class="linha-aluno">
                                             <p>
                                                 <%= a.getNome() %>
                                             </p>
-                                            <img src="./img/edit-1.png" />
+                                            <form action="DadosAlunoParaEdicao.do" method="POST">
+                                                <input type="hidden" name="ra-aluno" value="<%=a.getRa()%>">
+                                                <button type="submit">
+                                                    <img src="./img/edit-1.png" />
+                                                </button>
+                                            </form>
                                         </div>
                                         <% 
 			                        		}
