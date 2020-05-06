@@ -102,9 +102,13 @@ public class SolicitacaoDAO {
 				int prazo = resultado.getInt("prazo");
 				int fkAluno = resultado.getInt("fk_ra_aluno");
 				InputStream anexo = resultado.getBinaryStream("anexo");
-				GregorianCalendar data = new GregorianCalendar();
 
-				data.setTime(new java.util.Date(resultado.getTimestamp("data_abertura").getTime()));
+				String dataBanco = resultado.getString("data_abertura");
+				String[] dataSeparada = dataBanco.split("-");
+				int ano = Integer.parseInt(dataSeparada[0]);
+				int mes = Integer.parseInt(dataSeparada[1]);
+				int dia = Integer.parseInt(dataSeparada[2]);				
+				GregorianCalendar data = new GregorianCalendar(ano, mes, dia);
 					
 				if(anexo != null) {
 					File novoAnexo = new File("anexo_" + codigo + ".pdf");
@@ -174,9 +178,13 @@ public class SolicitacaoDAO {
 				int prazo = resultado.getInt("prazo");
 				int fkAluno = resultado.getInt("fk_ra_aluno");
 				InputStream anexo = resultado.getBinaryStream("anexo");
-				GregorianCalendar data = new GregorianCalendar();
-
-				data.setTime(new java.util.Date(resultado.getTimestamp("data_abertura").getTime()));
+				
+				String dataBanco = resultado.getString("data_abertura");
+				String[] dataSeparada = dataBanco.split("-");
+				int ano = Integer.parseInt(dataSeparada[0]);
+				int mes = Integer.parseInt(dataSeparada[1]);
+				int dia = Integer.parseInt(dataSeparada[2]);				
+				GregorianCalendar data = new GregorianCalendar(ano, mes, dia);
 					
 				if(anexo != null) {
 					File novoAnexo = new File("anexo_" + codigo + ".pdf");
@@ -249,9 +257,13 @@ public class SolicitacaoDAO {
 				int prazo = resultado.getInt("prazo");
 				int fkAluno = resultado.getInt("fk_ra_aluno");
 				InputStream anexo = resultado.getBinaryStream("anexo");
-				GregorianCalendar data = new GregorianCalendar();
-
-				data.setTime(new java.util.Date(resultado.getTimestamp("data_abertura").getTime()));
+				
+				String dataBanco = resultado.getString("data_abertura");
+				String[] dataSeparada = dataBanco.split("-");
+				int ano = Integer.parseInt(dataSeparada[0]);
+				int mes = Integer.parseInt(dataSeparada[1]);
+				int dia = Integer.parseInt(dataSeparada[2]);				
+				GregorianCalendar data = new GregorianCalendar(ano, mes, dia);
 					
 				if(anexo != null) {
 					File novoAnexo = new File("anexo_" + codigo + ".pdf");
@@ -322,9 +334,13 @@ public class SolicitacaoDAO {
 				int prazo = resultado.getInt("prazo");
 				int fkAluno = resultado.getInt("fk_ra_aluno");
 				InputStream anexo = resultado.getBinaryStream("anexo");
-				GregorianCalendar data = new GregorianCalendar();
-
-				data.setTime(new java.util.Date(resultado.getTimestamp("data_abertura").getTime()));
+				
+				String dataBanco = resultado.getString("data_abertura");
+				String[] dataSeparada = dataBanco.split("-");
+				int ano = Integer.parseInt(dataSeparada[0]);
+				int mes = Integer.parseInt(dataSeparada[1]);
+				int dia = Integer.parseInt(dataSeparada[2]);				
+				GregorianCalendar data = new GregorianCalendar(ano, mes, dia);
 					
 				if(anexo != null) {
 					File novoAnexo = new File("anexo_" + codigo + ".pdf");
