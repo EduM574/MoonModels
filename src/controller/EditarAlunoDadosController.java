@@ -3,13 +3,12 @@ package controller;
 import java.io.IOException;
 import java.util.GregorianCalendar;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import java.io.PrintWriter;
 
 import model.Aluno;
 import service.AlunoService;
@@ -71,27 +70,14 @@ public class EditarAlunoDadosController extends HttpServlet {
 		AlunoService as = new AlunoService();
 		as.updateDoAdm(aln);
 		
-		PrintWriter out = response.getWriter();
-		out.println("RA: " + aln.getRa());
-		out.println("Nome: " + aln.getNome());
-		out.println("Sobrenome: " + aln.getSobrenome());
-		out.println("CPF: " + aln.getCpf());
-		out.println("E-Mail: " + aln.getEmail());
-		out.println("Senha: " + aln.getSenha());
-		out.println("Data de Nascimento: " + aln.getData_nascimento());
-		out.println("Curso: " + aln.getCurso());
-		out.println("Semestre: " + aln.getSemestre());
-		out.println("Unidade: " + aln.getUnidade());
-		out.println("Turno: " + aln.getTurno());
-		out.println("Status: " + aln.getStatus());
-		
-		
-	// UM ADIANTO PRA VCS
-		
-//		HttpSession session = request.getSession();
-//		session.setAttribute("adm", adm);
-//
-//		response.sendRedirect("listaAlunos.jsp");
+		String title = "Dados do aluno alterados com sucesso.";
+		String data = "";
+		request.setAttribute("title", title);
+		request.setAttribute("data", data);
+	
+		RequestDispatcher view = request.getRequestDispatcher("mensagemOkAdm.jsp");
+		view.forward(request, response);
+
 	}
 
 }
