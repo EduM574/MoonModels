@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +46,11 @@ public class EditarSenhaAlunoController extends HttpServlet {
 		//Atualizando os dados na sessao apos update
 		session.setAttribute("aluno", aln);
 
-		
+		String title = "Senha alterada com sucesso.";
+		request.setAttribute("title", title);
+	
+		RequestDispatcher view = request.getRequestDispatcher("mensagemOkAluno.jsp");
+		view.forward(request, response);
 	}
 
 }
