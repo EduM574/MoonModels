@@ -4,35 +4,35 @@
         <%@page import="model.Aluno" %>
             <%@page import="java.util.GregorianCalendar" %>
                 <%
-            if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
-                //caso a pessoa não esteja logada
-                response.sendRedirect("loginAdm.jsp");
+                    if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
+                        //caso a pessoa não esteja logada
+                        response.sendRedirect("loginAdm.jsp");
 
-            } else if(session.getAttribute("aluno") != null) {
-                //caso a pessoa que esteja logada seja um aluno
-                response.sendRedirect("userHomeAluno.jsp");
+                    } else if(session.getAttribute("aluno") != null) {
+                        //caso a pessoa que esteja logada seja um aluno
+                        response.sendRedirect("userHomeAluno.jsp");
 
-            } else {
-                Administrador adm = (Administrador) session.getAttribute("adm");
-                Aluno alunoEdicao = (Aluno) request.getAttribute("exibeAluno");
-                
-                String dia, mes, date;
-                
-                if(alunoEdicao.getData_nascimento().get(GregorianCalendar.MONTH) < 10) {
-                	mes = "-0" + alunoEdicao.getData_nascimento().get(GregorianCalendar.MONTH);
-                } else {
-                	mes = "-" + alunoEdicao.getData_nascimento().get(GregorianCalendar.MONTH);
-                }
-                
-                if(alunoEdicao.getData_nascimento().get(GregorianCalendar.DAY_OF_MONTH) < 10) {
-                	dia = "-0" + alunoEdicao.getData_nascimento().get(GregorianCalendar.DAY_OF_MONTH);
-                } else {
-                	dia = "-" + alunoEdicao.getData_nascimento().get(GregorianCalendar.DAY_OF_MONTH);
-                }
-                
-                date = alunoEdicao.getData_nascimento().get(GregorianCalendar.YEAR) 
-              		  + mes + dia;        
-        %>
+                    } else {
+                        Administrador adm = (Administrador) session.getAttribute("adm");
+                        Aluno alunoEdicao = (Aluno) request.getAttribute("exibeAluno");
+                        
+                        String dia, mes, date;
+                        
+                        if(alunoEdicao.getData_nascimento().get(GregorianCalendar.MONTH) < 10) {
+                            mes = "-0" + alunoEdicao.getData_nascimento().get(GregorianCalendar.MONTH);
+                        } else {
+                            mes = "-" + alunoEdicao.getData_nascimento().get(GregorianCalendar.MONTH);
+                        }
+                        
+                        if(alunoEdicao.getData_nascimento().get(GregorianCalendar.DAY_OF_MONTH) < 10) {
+                            dia = "-0" + alunoEdicao.getData_nascimento().get(GregorianCalendar.DAY_OF_MONTH);
+                        } else {
+                            dia = "-" + alunoEdicao.getData_nascimento().get(GregorianCalendar.DAY_OF_MONTH);
+                        }
+                        
+                        date = alunoEdicao.getData_nascimento().get(GregorianCalendar.YEAR) 
+                            + mes + dia;        
+                    %>
                     <!DOCTYPE html>
                     <html>
 
@@ -47,29 +47,25 @@
                             <div class="container main-header">
                                 <span class="logo">MO<span class="logo-pink">O</span>N</span>
                                 <div class="username-wrapper">
-                                    <span>
-                                <%= adm.getNome() %>
-                            </span>
+                                    <span><%= adm.getNome() %></span>
                                     <form action="Logout.do" mothod="post" class="logout-wrapper">
-                                        <button type="submit">
-                                    <img src="img/logout.png" alt="logout">
-                                </button>
+                                        <button type="submit"><img src="img/logout.png" alt="logout"></button>
                                     </form>
                                 </div>
                             </div>
                         </header>
 
                         <% 
-                    String editar, adicionar;
-                
-                    if(adm.getSetor().getIdSetor() == 4) {
-                        editar = "listaUser.jsp";
-                        adicionar = "cadastrarUser.jsp";
-                    } else {
-                        editar = "ListaAlunos.do";
-                        adicionar = "cadastroAluno.jsp";
-                    }
-                %>
+                            String editar, adicionar;
+                        
+                            if(adm.getSetor().getIdSetor() == 4) {
+                                editar = "listaUser.jsp";
+                                adicionar = "cadastrarUser.jsp";
+                            } else {
+                                editar = "ListaAlunos.do";
+                                adicionar = "cadastroAluno.jsp";
+                            }
+                        %>
                             <nav>
                                 <a href="userHomeAdm.jsp">
                                     <div class="menu-icon-wrapper">
@@ -117,38 +113,40 @@
                                             <input type="email" name="email" placeholder="E-mail" value="<%=alunoEdicao.getEmail()%>">
                                             <div class="mini-box">
                                                 <select name="curso" class="maior">
-                                            <option value="CCP" selected>Ciência da Computação</option>
-                                            <option value="ECP">Engenharia da Computação</option>
-                                            <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
-                                        </select>
+                                                    <option value="CCP" selected>Ciência da Computação</option>
+                                                    <option value="ECP">Engenharia da Computação</option>
+                                                    <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+                                                </select>
                                                 <select name="semestre" class="menor">
-                                            <option value="1" selected>1º</option>
-                                            <option value="2">2º</option>
-                                            <option value="3">3º</option>
-                                            <option value="4">4º</option>
-                                            <option value="5">5º</option>
-                                            <option value="6">6º</option>
-                                            <option value="7">7º</option>
-                                            <option value="8">8º</option>
-                                        </select>
+                                                    <%
+                                                        for(int i = 1; i < 9; i++) {
+                                                            if(alunoEdicao.getSemestre() == i) {
+                                                                out.print("<option value='"+ i +"' selected>"+i+"º</option>");
+                                                            } else {
+                                                                out.print("<option value='"+ i +"'>"+i+"º</option>");
+                                                            }
+                                                        }
+                                                    %>
+                                                    
+                                                </select>
                                             </div>
                                             <div class="mini-box">
                                                 <select name="unidade" class="normal">
-                                            <option value="paulista" selected>Paulista</option>
-                                            <option value="mooca">Mooca</option>
-                                            <option value="santana">Santana</option>
-                                        </select>
+                                                    <option value="paulista" selected>Paulista</option>
+                                                    <option value="mooca">Mooca</option>
+                                                    <option value="santana">Santana</option>
+                                                </select>
                                                 <select name="turno" class="normal">
-                                            <option value="matutino" selected>Matutino</option>
-                                            <option value="vespetino">Vespetino</option>
-                                            <option value="noturno">Noturno</option>
-                                        </select>
+                                                    <option value="matutino" selected>Matutino</option>
+                                                    <option value="vespetino">Vespetino</option>
+                                                    <option value="noturno">Noturno</option>
+                                                </select>
                                             </div>
                                             <div class="mini-box">
                                                 <select name="status" class="normal">
-                                            <option value="ATIVO" selected>ATIVO</option>
-                                            <option value="INATIVO">INATIVO</option>
-                                        </select>
+                                                    <option value="ATIVO" selected>ATIVO</option>
+                                                    <option value="INATIVO">INATIVO</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

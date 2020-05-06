@@ -54,12 +54,12 @@ public class EditarAlunoDadosController extends HttpServlet {
 		
 		GregorianCalendar cal = new GregorianCalendar(ano, mes, dia);
 		
+		AlunoService as = new AlunoService();
 		Aluno aln = new Aluno();
 		aln.setNome(pNome);
 		aln.setSobrenome(pSobrenome);
 		aln.setCpf(pCpf);
 		aln.setEmail(pEmail);
-		aln.setSenha(pSenha);
 		aln.setData_nascimento(cal);
 		aln.setCurso(pCurso);
 		aln.setSemestre(sem);
@@ -67,8 +67,14 @@ public class EditarAlunoDadosController extends HttpServlet {
 		aln.setTurno(pTurno);
 		aln.setStatus(pStatus);
 		aln.setRa(ra);
-		
-		AlunoService as = new AlunoService();
+
+		if(pSenha.equals("")) {
+			Aluno alTemp = as.selectAluno(aln);
+			aln.setSenha(alTemp.getSenha());
+		} else {
+			aln.setSenha(pSenha);
+		}
+
 		as.updateDoAdm(aln);
 		
 		String title = "Dados do aluno alterados com sucesso.";
