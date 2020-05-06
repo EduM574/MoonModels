@@ -108,10 +108,14 @@ public class ComentarioDAO {
 				int fkAluno = resultado.getInt("fk_ra_aluno");
 				String fkAdm = resultado.getString("fk_email_adm");
 				int fkSolicitacao = resultado.getInt("fk_codigo_solicitacao");
-				GregorianCalendar data = new GregorianCalendar();
 				InputStream anexo = resultado.getBinaryStream("anexo");
 				
-				data.setTime(new java.util.Date(resultado.getTimestamp("data_hora").getTime()));
+				String dataBanco = resultado.getString("data_abertura");
+				String[] dataSeparada = dataBanco.split("-");
+				int ano = Integer.parseInt(dataSeparada[0]);
+				int mes = Integer.parseInt(dataSeparada[1]);
+				int dia = Integer.parseInt(dataSeparada[2]);				
+				GregorianCalendar data = new GregorianCalendar(ano, mes, dia);
 				
 				if(anexo != null) {
 					File novoAnexo = new File("anexo_" + codigo + ".pdf");
