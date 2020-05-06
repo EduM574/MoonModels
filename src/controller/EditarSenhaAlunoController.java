@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Aluno;
 import service.AlunoService;
@@ -29,15 +30,21 @@ public class EditarSenhaAlunoController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pSenha = request.getParameter("password");
+		HttpSession session = request.getSession();
 		
-		Aluno aln = new Aluno();
+		Aluno aln = (Aluno) session.getAttribute("aluno");
+		String pSenha = request.getParameter("password");
+	
+		//Passando senha nova para o objeto vindo da sessao
 		aln.setSenha(pSenha);
-		aln.setRa(819100001);
 		
 		AlunoService as = new AlunoService();
+		//Usando o objeto da sessao para update
 		as.updateSenha(aln);
 		
+		//Atualizando os dados na sessao apos update
+		session.setAttribute("aluno", aln);
+
 		PrintWriter out = response.getWriter();
 		out.println("Nova senha: " + aln.getSenha());
 		
