@@ -47,7 +47,7 @@
                         editar = "listaUser.jsp";
                         adicionar = "cadastrarUser.jsp";
                 	} else {
-                        editar = "listaAlunos.do";
+                        editar = "ListaAlunos.do";
                         adicionar = "cadastroAluno.jsp";
                 	}
                 %>
@@ -83,7 +83,7 @@
                         <p class="title">Visualizar</p>
                         <div class="editar-user">
                             <a href="listaAdm.jsp">Visualizar ADMs</a>
-                            <a href="listaAlunos.do">Visualizar Alunos</a>
+                            <a href="ListaAlunos.do">Visualizar Alunos</a>
                         </div>
                     </section>
             </body>

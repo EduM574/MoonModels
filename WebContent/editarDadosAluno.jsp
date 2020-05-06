@@ -47,7 +47,7 @@
                         editar = "listaUser.jsp";
                         adicionar = "cadastrarUser.jsp";
                     } else {
-                        editar = "listaAlunos.do";
+                        editar = "ListaAlunos.do";
                         adicionar = "cadastroAluno.jsp";
                     }
                 %>

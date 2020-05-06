@@ -33,8 +33,8 @@ public class ListaAlunosController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		AlunoService as = new AlunoService();
-		ArrayList<Aluno> alunos = as.listarAlunos();
-	
+		ArrayList<Aluno> alunos = as.listarAlunos();		
+		
 		request.setAttribute("alunos", alunos);
 	
 		RequestDispatcher view = request.getRequestDispatcher("listaAlunos.jsp");
