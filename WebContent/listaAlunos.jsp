@@ -91,7 +91,7 @@
                                             <p>
                                                 <%= a.getNome() %>
                                             </p>
-                                            <form action="DadosAlunoParaEdicao.do" method="POST">
+                                            <form action="ExibeDadosAlunoEdicao.do" method="POST">
                                                 <input type="hidden" name="ra-aluno" value="<%=a.getRa()%>">
                                                 <button type="submit">
                                                     <img src="./img/edit-1.png" />
