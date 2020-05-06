@@ -42,8 +42,6 @@ public class ExibeDadosAlunoEdicaoController extends HttpServlet {
 
         AlunoService aService = new AlunoService();
         aln = aService.selectAluno(aln);
-
-        System.out.println(aln);
  
         request.setAttribute("exibeAluno", aln);
 

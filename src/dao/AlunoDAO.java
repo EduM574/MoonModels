@@ -132,9 +132,15 @@ public class AlunoDAO {
 				String sobrenome = resultado.getString("sobrenome");
 				int ra = resultado.getInt("ra");
     			String cpf = resultado.getString("cpf");
-    			String statusA = resultado.getString("statusA");
-    			GregorianCalendar dataNasc = new GregorianCalendar();
-    			dataNasc.setTime(new java.util.Date(resultado.getTimestamp("data_nascimento").getTime()));
+				String statusA = resultado.getString("statusA");
+				
+				String data = resultado.getString("data_nascimento");
+				String[] dataSeparada = data.split("-");
+				int ano = Integer.parseInt(dataSeparada[0]);
+				int mes = Integer.parseInt(dataSeparada[1]);
+				int dia = Integer.parseInt(dataSeparada[2]);				
+				GregorianCalendar dataNasc = new GregorianCalendar(ano, mes, dia);
+
     			String curso = resultado.getString("curso");
     			String turno = resultado.getString("turno");
     			String unidade = resultado.getString("unidade");
@@ -157,7 +163,6 @@ public class AlunoDAO {
     			aluno1.setSenha(senha);
     			aluno1.setAdm(adm);
     			aluno1.getAdm().setEmail(emailAdm);
-    			
     		}
     		
     		return aluno1;
@@ -188,9 +193,15 @@ public class AlunoDAO {
 				String sobrenome = resultado.getString("sobrenome");
 				int ra = resultado.getInt("ra");
     			String cpf = resultado.getString("cpf");
-    			String statusA = resultado.getString("statusA");
-    			GregorianCalendar dataNasc = new GregorianCalendar();
-    			dataNasc.setTime(new java.util.Date(resultado.getTimestamp("data_nascimento").getTime()));
+				String statusA = resultado.getString("statusA");
+				
+    			String data = resultado.getString("data_nascimento");
+				String[] dataSeparada = data.split("-");
+				int ano = Integer.parseInt(dataSeparada[0]);
+				int mes = Integer.parseInt(dataSeparada[1]);
+				int dia = Integer.parseInt(dataSeparada[2]);				
+				GregorianCalendar dataNasc = new GregorianCalendar(ano, mes, dia);
+				
     			String curso = resultado.getString("curso");
     			String turno = resultado.getString("turno");
     			String unidade = resultado.getString("unidade");
