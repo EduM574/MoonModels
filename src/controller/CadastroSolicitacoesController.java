@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,7 +52,11 @@ public class CadastroSolicitacoesController extends HttpServlet {
 		SolicitacaoService ss = new SolicitacaoService();
 		ss.create(sol);
 
-		response.sendRedirect("mensagemOkAluno.jsp");
+		String title = "Solicitação realizada com sucesso.";
+		request.setAttribute("title", title);
+	
+		RequestDispatcher view = request.getRequestDispatcher("mensagemOkAluno.jsp");
+		view.forward(request, response);
 
 	}
 }

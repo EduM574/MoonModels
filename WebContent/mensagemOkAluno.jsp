@@ -12,6 +12,7 @@
 
         } else {
               Aluno aluno = (Aluno) session.getAttribute("aluno");        
+              String title = (String) request.getAttribute("title");
         %>
             <!DOCTYPE html>
             <html>
@@ -62,7 +63,9 @@
                 </nav>
                 <section class="content">
                     <div class="editar-user">
-                        <p class="title">Solicitação realizada com sucesso</p>
+                        <p class="title">
+                            <%=title%>
+                        </p>
                     </div>
                 </section>
             </body>

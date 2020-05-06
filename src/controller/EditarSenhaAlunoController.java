@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,14 +44,7 @@ public class EditarSenhaAlunoController extends HttpServlet {
 		//Atualizando os dados na sessao apos update
 		session.setAttribute("aluno", aln);
 
-		PrintWriter out = response.getWriter();
-		out.println("Nova senha: " + aln.getSenha());
 		
-		//Ye
-//		HttpSession session = request.getSession();
-//		session.setAttribute("aluno", aln);
-//
-//		response.sendRedirect("userHomeAluno.jsp");
 	}
 
 }
