@@ -11,7 +11,7 @@
     color: #F2717F;
     font-size: 32px;
     line-height: 30px;
-    margin: 5% 0 2% 5%;
+    margin: 4% 0 2% 5%;
 }
 
 .data-ra {
@@ -22,7 +22,7 @@
 }
 
 .form {
-    min-height: 430px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -118,6 +118,7 @@ select {
 .mini-box {
     display: flex;
     justify-content: space-between;
+    margin: 12px 0;
 }
 
 .normal {

@@ -62,11 +62,11 @@
                 </nav>
                 <section class="content">
                     <p class="title">Editar senha</p>
-                    <form action="CadastroAluno.do" method="POST" class="form">
+                    <form action="EditarSenhaAluno.do" method="POST" class="form">
                         <div class="input-form">
                             <div class="box">
                                 <input type="password" name="password" maxlength="15" placeholder="Nova senha">
-                                <input type="password" name="password" maxlength="15" placeholder="Confirme a nova senha">
+                                <input type="password" name="passwordConfirm" maxlength="15" placeholder="Confirme a nova senha">
                             </div>
                         </div>
                         <button type="submit">Editar</button>
