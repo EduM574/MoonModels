@@ -31,7 +31,7 @@
                             <span>
                                 <%= adm.getNome() %>
                             </span>
-                            <form action="Logout.do" mothod="post" class="logout-wrapper">
+                            <form action="Logout.do" method="post" class="logout-wrapper">
                                 <button type="submit">
                                     <img src="img/logout.png" alt="logout">
                                 </button>
@@ -81,7 +81,7 @@
                     <section class="content">
                         <p class="title">Editar um administrador</p>
                         <span class="data-ra">fulano@usjt.br</span>
-                        <form action="CadastroAluno.do" method="POST" class="form">
+                        <form action="EditarAdmDados.do" method="POST" class="form">
                             <div class="input-form">
                                 <div class="box">
                                     <input type="text" name="nome" maxlength="15" placeholder="Nome">
