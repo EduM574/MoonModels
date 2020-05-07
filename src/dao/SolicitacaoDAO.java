@@ -233,10 +233,16 @@ public class SolicitacaoDAO {
 	}
 
 	public ArrayList<Solicitacao> solicitacoesADM(String nomeSolicitacao) {
+		//Captura todos os dados das solicitações com um nome especifico
+		//que não foram concluindas(deferida/indereferida)
+		//e que tenham alunos ativos
+		//trazendo ordenadas pelas mais antigas(data de abertura)
 		String consulta = "SELECT * FROM solicitacao AS S INNER JOIN aluno AS A "
-							+ " ON S.nome = ? AND S.statusS != 'DEFERIDA' "
-							+ " AND S.statusS != 'INDEFERIDA' AND A.statusA = 'ATIVO' "
-							+ " ORDER BY data_abertura ASC;";
+						+ " ON S.nome = ? "
+						+ " AND S.statusS != 'DEFERIDA' "
+						+ " AND S.statusS != 'INDEFERIDA' "
+						+ " AND A.statusA = 'ATIVO' "
+						+ " ORDER BY data_abertura ASC;";
 		
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)) {
 			
@@ -312,10 +318,15 @@ public class SolicitacaoDAO {
 	}
 
 	public ArrayList<Solicitacao> solicitacoesADMaster() {
+		//Captura todos os dados de todas as solicitacoes
+		//que não foram concluindas(deferida/indereferida)
+		//e que tenham alunos ativos
+		//trazendo ordenadas pelas mais antigas(data de abertura)
 		String consulta = "SELECT * FROM solicitacao AS S INNER JOIN aluno AS A "
-						+ " ON S.statusS != 'DEFERIDA' "
-						+ " AND S.statusS != 'INDEFERIDA' AND A.statusA = 'ATIVO' "
-						+ " ORDER BY data_abertura ASC;";
+					+ " ON S.statusS != 'DEFERIDA' "
+					+ " AND S.statusS != 'INDEFERIDA' "
+					+ " AND A.statusA = 'ATIVO' "
+					+ " ORDER BY data_abertura ASC;";
 		
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)) {
 						

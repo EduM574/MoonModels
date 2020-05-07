@@ -49,13 +49,13 @@ public class SolicitacaoService {
 	public ArrayList<Solicitacao> selectSolicitacoesADM(Administrador adm) {
 
 		if(adm.getStatus().equals("ATIVO")) {
-			if(adm.getSetor().getNome().equals("Transporte escolar")) {
+			if(adm.getSetor().getIdSetor() == 1) {
 				return soliDAO.solicitacoesADM("Bilhete da SPTrans");
 	
-			} else if(adm.getSetor().getNome().equals("Gestão de estagio")) {
+			} else if(adm.getSetor().getIdSetor() == 2) {
 				return soliDAO.solicitacoesADM("Contrato de estágio");
 	
-			} else if(adm.getSetor().getNome().equals("Atividades curriculares")) {
+			} else if(adm.getSetor().getIdSetor() == 3) {
 				ArrayList<Solicitacao> array1 = soliDAO.solicitacoesADM("Entrega de atividades complementares");
 				ArrayList<Solicitacao> array2 = soliDAO.solicitacoesADM("Mudança de horário");
 				
@@ -64,7 +64,7 @@ public class SolicitacaoService {
 				resultado.addAll(array2);
 	
 				return resultado;			 
-			} else if(adm.getSetor().getNome().equals("MASTER")) {
+			} else if(adm.getSetor().getIdSetor() == 4) {
 				return soliDAO.solicitacoesADMaster();
 			}
 		}
