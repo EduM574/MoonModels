@@ -298,33 +298,35 @@ public class AlunoDAO {
 	}
 
 	public Validation updateValidation(Aluno aluno) {
-		String consulta = "SELECT * FROM aluno WHERE cpf = ?;";
+		String consulta = "SELECT * FROM aluno WHERE cpf = ? AND ra != ?;";
 		Validation v = new Validation();
 
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
 			
 			pst.setString(1, aluno.getCpf());
+			pst.setInt(2, aluno.getRa());
 			ResultSet resultado = pst.executeQuery();
 
 			if(resultado.next()) {
 				//caso encontre um registro com o cpf
 				v.setStatus(true);
-            	v.setText("Não foi possivel realizar a alteração, já exite um aluno com esse CPF no sistema.");
+            	v.setText("Não foi possivel realizar a alteração, já exite um outro aluno com esse CPF no sistema.");
 
 			} else {
 				//caso nao encontre registro com esse cpf, verificar email
-				String consulta2 = "SELECT * FROM aluno WHERE email = ?;";
+				String consulta2 = "SELECT * FROM aluno WHERE email = ? AND ra != ?;";
 
 				try(PreparedStatement pst2 = conexao.prepareStatement(consulta2)){
 
 					pst2.setString(1, aluno.getEmail());
+					pst2.setInt(2, aluno.getRa());
 
 					ResultSet resultado2 = pst2.executeQuery();
 
 					if(resultado2.next()) {
 						//caso encontre alguem com esse email o ADM deverá escolher outro
 						v.setStatus(true);
-						v.setText("Não foi possivel realizar a alteração, já exite um aluno com esse e-mail no sistema.");
+						v.setText("Não foi possivel realizar a alteração, já exite um outro aluno com esse e-mail no sistema.");
 					} else {
 						//caso nao encontre alguem com esse email, o cadastro pode ser concluido
 						v.setStatus(false);
