@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Aluno;
+import model.Validation;
 import service.AlunoService;
 
 /**
@@ -75,15 +76,24 @@ public class EditarAlunoDadosController extends HttpServlet {
 			aln.setSenha(pSenha);
 		}
 
-		as.updateDoAdm(aln);
+		Validation v = as.updateValidation(aln);
+
+		if(v.getStatus()) {
+			request.setAttribute("erro", v.getText());
+			RequestDispatcher view = request.getRequestDispatcher("ExibeDadosAlunoEdicao.do");
+			view.forward(request, response);
+		} else {
+			as.updateDoAdm(aln);
+			
+			String title = "Dados do aluno alterados com sucesso.";
+			String data = "";
+			request.setAttribute("title", title);
+			request.setAttribute("data", data);
 		
-		String title = "Dados do aluno alterados com sucesso.";
-		String data = "";
-		request.setAttribute("title", title);
-		request.setAttribute("data", data);
-	
-		RequestDispatcher view = request.getRequestDispatcher("mensagemOkAdm.jsp");
-		view.forward(request, response);
+			RequestDispatcher view = request.getRequestDispatcher("mensagemOkAdm.jsp");
+			view.forward(request, response);
+		}
+		
 
 	}
 

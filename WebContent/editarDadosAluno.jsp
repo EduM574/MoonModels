@@ -16,7 +16,8 @@
                     } else {
                         Administrador adm = (Administrador) session.getAttribute("adm");
                         Aluno alunoEdicao = (Aluno) request.getAttribute("exibeAluno");
-                        
+                        String erro = (String) request.getAttribute("erro");
+
                         String dia, mes, date;
                         
                         if(alunoEdicao.getData_nascimento().get(GregorianCalendar.MONTH) < 10) {
@@ -199,7 +200,12 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit">Editar</button>
+                                        <div class="align-erro">
+                                            <p>
+                                                <% if(erro != null) out.print(erro); %>
+                                            </p>
+                                            <button type="submit">Editar</button>
+                                        </div>
                                     </form>
                                 </section>
                         </body>
