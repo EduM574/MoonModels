@@ -48,6 +48,7 @@ public class EditarSenhaAdmController extends HttpServlet {
 
 		String title = "Senha alterada com sucesso.";
 		request.setAttribute("title", title);
+		request.setAttribute("data", "");
 	
 		RequestDispatcher view = request.getRequestDispatcher("mensagemOkAdm.jsp");
 		view.forward(request, response);
