@@ -30,12 +30,12 @@
                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                         <div class="username-wrapper">
                             <span>
-                                <%= aluno.getNome() %>
-                            </span>
+                    <%= aluno.getNome() %>
+                </span>
                             <form action="Logout.do" method="post" class="logout-wrapper">
                                 <button type="submit">
-			                        <img src="img/logout.png" alt="logout">
-			                    </button>
+                        <img src="img/logout.png" alt="logout">
+                    </button>
                             </form>
                         </div>
                     </div>
@@ -46,27 +46,28 @@
                             <img src="./img/home.png" alt="Home">
                         </div>
                     </a>
-                    <a href="cadastroSolicitacoes.jsp">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/more.png" alt="Cadastrar solicitação">
-                        </div>
-                    </a>
-                    <a href="verPerfilAluno.jsp">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/user.png" alt="Visualizar perfil">
-                        </div>
-                    </a>
-                    <a href="editarSenhaAluno.jsp">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/configuration.png" alt="Editar senha">
-                        </div>
-                    </a>
+                    <%
+                        if(aluno.getStatus().equals("ATIVO")) {
+                            //caso o aluno que esteja logado esteja ativo, ele pode criar solicitacoes novas
+	                        out.print("<a href='cadastroSolicitacoes.jsp'><div class='menu-icon-wrapper'><img src='./img/more.png' alt='Cadastrar solicitação'></div></a>");     
+                        } 
+                     %>
+                        <a href="verPerfilAluno.jsp">
+                            <div class="menu-icon-wrapper">
+                                <img src="./img/user.png" alt="Visualizar perfil">
+                            </div>
+                        </a>
+                        <a href="editarSenhaAluno.jsp">
+                            <div class="menu-icon-wrapper">
+                                <img src="./img/configuration.png" alt="Editar senha">
+                            </div>
+                        </a>
                 </nav>
 
                 <div class="chatboat-icon">
                     <button id="button-chatboat-icon">
-                        <img src="./img/comment.png" alt="Icone do chatboat">
-                    </button>
+            <img src="./img/comment.png" alt="Icone do chatboat">
+        </button>
                 </div>
 
                 <div class="content">
@@ -168,8 +169,8 @@
                             <span class="s-hist-subtitle">{{Nome da solicitação}}</span>
                         </div>
                         <button class="s-hist-send-comment-btn">
-                            <img src="./img/download.png" alt="enviar">
-                        </button>
+                <img src="./img/download.png" alt="enviar">
+            </button>
                     </div>
                     <div class="title-wrapper">
                         <span class="s-hist-title">Código:</span>
@@ -219,8 +220,8 @@
                         <form action="Comentario.do" method="POST" class="form">
                             <input type="text" class="s-hist-input" name="texto">
                             <button class="s-hist-send-comment-btn" type="submit">
-                                <img src="./img/forward.png" alt="enviar">
-                            </button>
+                    <img src="./img/forward.png" alt="enviar">
+                </button>
                         </form>
                     </div>
                 </section>

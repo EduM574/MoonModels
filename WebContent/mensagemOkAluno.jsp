@@ -45,21 +45,22 @@
                             <img src="./img/home.png" alt="Home">
                         </div>
                     </a>
-                    <a href="cadastroSolicitacoes.jsp">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/more.png" alt="Cadastrar solicitação">
-                        </div>
-                    </a>
-                    <a href="verPerfilAluno.jsp">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/user.png" alt="Visualizar perfil">
-                        </div>
-                    </a>
-                    <a href="editarSenhaAluno.jsp">
-                        <div class="menu-icon-wrapper">
-                            <img src="./img/configuration.png" alt="Editar senha">
-                        </div>
-                    </a>
+                    <%
+                        if(aluno.getStatus().equals("ATIVO")) {
+                            //caso o aluno que esteja logado esteja ativo, ele pode criar solicitacoes novas
+	                        out.print("<a href='cadastroSolicitacoes.jsp'><div class='menu-icon-wrapper'><img src='./img/more.png' alt='Cadastrar solicitação'></div></a>");     
+                        } 
+                     %>
+                        <a href="verPerfilAluno.jsp">
+                            <div class="menu-icon-wrapper">
+                                <img src="./img/user.png" alt="Visualizar perfil">
+                            </div>
+                        </a>
+                        <a href="editarSenhaAluno.jsp">
+                            <div class="menu-icon-wrapper">
+                                <img src="./img/configuration.png" alt="Editar senha">
+                            </div>
+                        </a>
                 </nav>
                 <section class="content">
                     <div class="editar-user">
