@@ -37,6 +37,10 @@ public class AdministradorService {
         return admDAO.createValidation(adm);
     }
 
+    public Validation updateValidation(Administrador adm) {        
+        return admDAO.updateValidation(adm);
+    }
+
     public Validation loginValidation(Administrador adm) {
         return admDAO.loginValidation(adm);
     }

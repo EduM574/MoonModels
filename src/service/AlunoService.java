@@ -35,6 +35,10 @@ public class AlunoService {
 		return alunoDAO.createValidation(aluno);
 	}
 
+	public Validation updateValidation(Aluno aluno) {
+		return alunoDAO.updateValidation(aluno);
+	}
+
 	public Validation loginValidation(Aluno aluno) {
 		return alunoDAO.loginValidation(aluno);
 	}
