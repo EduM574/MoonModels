@@ -237,7 +237,7 @@ public class AdministradorDAO {
 	}
 
 	public Validation updateValidation(Administrador adm) {
-		String consulta = "SELECT * FROM administrador WHERE cpf = ? AND email !=;";
+		String consulta = "SELECT * FROM administrador WHERE cpf = ? AND email != ? ;";
 		Validation v = new Validation();
 
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {

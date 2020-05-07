@@ -85,21 +85,21 @@
                             <div class="input-form">
                                 <div class="box">
                                     <input type="text" name="nome" maxlength="15" placeholder="Nome">
-                                    <input type="number" name="cpf" placeholder="CPF">
-                                    <select name="setor" class="altura-diferente">
-	                 		<option value="SUS" selected>Selecione um setor</option>
-	                  	 	<option value="GDE" >Gestão de estágio</option>
-	                    	<option value="TPE">Transporte escolar</option>
-							<option value="ATC">Atividades curriculares</option>
-						</select>
-                                </div>
-                                <div class="box">
                                     <input type="text" name="sobrenome" maxlength="15" placeholder="Sobrenome">
                                     <input type="password" name="password" maxlength="15" placeholder="Senha">
+                                </div>
+                                <div class="box">
+                                    <input type="text" name="cpf" placeholder="CPF">
+                                    <select name="setor" class="altura-diferente">
+                                        <option value="1">Transporte escolar</option>
+                                        <option value="2">Gestão de estagio</option>
+                                        <option value="3">Atividades curriculares</option>
+                                        <option value="4">MASTER</option>
+                                    </select>
                                     <select name="status" class="altura-diferente">
-	                 		<option value="ATIVO" selected>ATIVO</option>
-	                  	 	<option value="INATIVO" >INATIVO</option>
-	                </select>
+                                        <option value="ATIVO" selected>ATIVO</option>
+                                        <option value="INATIVO" >INATIVO</option>
+                                    </select>
                                 </div>
                             </div>
                             <button type="submit">Editar</button>
