@@ -237,47 +237,24 @@ public class AdministradorDAO {
 	}
 
 	public Validation updateValidation(Administrador adm) {
-		String consulta = "SELECT * FROM administrador WHERE cpf = ?;";
+		String consulta = "SELECT * FROM administrador WHERE cpf = ? AND email !=;";
 		Validation v = new Validation();
 
 		try (PreparedStatement pst = conexao.prepareStatement(consulta)) {
 
 			pst.setString(1, adm.getCpf());
+			pst.setString(2, adm.getEmail());
+
 			ResultSet resultado = pst.executeQuery();
 
 			if (resultado.next()) {
 				// caso encontre alguem com esse cpf o update nao pode ser feito
 				//pois ja existe um outro user com esse CPF cadastrado
 				v.setStatus(true);
-				v.setText("Não foi possivel realizar a alteração, já exite um administrador com esse CPF no sistema.");
+				v.setText("Não foi possivel realizar a alteração, já exite um outro administrador com esse CPF no sistema.");
 			} else {
-				// caso não encontre alguem com esse cpf, verificar o email
-				String consulta2 = "SELECT * FROM administrador WHERE email = ?;";
-				
-				try (PreparedStatement pst2 = conexao.prepareStatement(consulta2)) {
-					
-					pst2.setString(1, adm.getEmail());
-					
-					ResultSet resultado2 = pst2.executeQuery();
-					
-					if (resultado2.next()) {
-						// caso encontre alguem com esse email deve escolher outro
-						v.setStatus(true);
-						v.setText("Não foi possivel realizar a alteração, já exite um administrador com esse e-mail no sistema.");
-						
-					} else {
-						// caso nao encontre alguem com esse email e cpf o cadastro pode ser feito
-						v.setStatus(false);
-						v.setText("");
-					}
-
-				} catch (SQLException e) {
-					System.err.println("Falha no banco: " + e.getMessage());
-					e.printStackTrace();
-				} catch (Exception e) {
-					System.err.println("Falha no java: " + e.getMessage());
-					e.printStackTrace();
-				}
+				v.setStatus(false);
+				v.setText("");
 			}
 
 			return v;
