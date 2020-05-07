@@ -32,6 +32,7 @@ public class EditarAlunoDadosController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String pNome = request.getParameter("nome");
 		String pSobrenome = request.getParameter("sobrenome");
 		String pCpf = request.getParameter("cpf");
