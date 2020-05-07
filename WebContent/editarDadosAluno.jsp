@@ -1,4 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="model.Administrador" %>
         <%@page import="model.Aluno" %>
@@ -49,7 +49,7 @@
                                     <span class="logo">MO<span class="logo-pink">O</span>N</span>
                                     <div class="username-wrapper">
                                         <span><%= adm.getNome() %></span>
-                                        <form action="Logout.do" mothod="post" class="logout-wrapper">
+                                        <form action="Logout.do" method="post" class="logout-wrapper">
                                             <button type="submit"><img src="img/logout.png" alt="logout"></button>
                                         </form>
                                     </div>
