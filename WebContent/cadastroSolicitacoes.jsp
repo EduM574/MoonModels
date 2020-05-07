@@ -11,7 +11,12 @@
                 response.sendRedirect("userHomeAdm.jsp");
 
             } else {
-            	  Aluno aluno = (Aluno) session.getAttribute("aluno");        
+                  Aluno aluno = (Aluno) session.getAttribute("aluno"); 
+                  
+                  if(aluno.getStatus().equals("INATIVO")) {
+                    //caso o aluno que esteja logado esteja ativo, ele pode criar solicitacoes novas
+                    response.sendRedirect("userHomeAluno.jsp");
+                  } else {
         %>
             <!DOCTYPE html>
             <html>
@@ -91,4 +96,4 @@
             </body>
 
             </html>
-            <% }%>
+            <% }}%>
