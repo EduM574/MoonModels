@@ -285,7 +285,7 @@ public class AdministradorDAO {
 				v.setText("");
 			} else {
 				v.setStatus(true);
-				v.setText("Acesso negado para essas credenciais. Verifique seu e-mail e senha.");
+				v.setText("Acesso negado para essas credenciais. Verifique seu e-mail e senha, ou se seu usuário está ativo com um administrador. ");
 			}
 
 			return v;
