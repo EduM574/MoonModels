@@ -115,6 +115,10 @@
                                 <span class="title">Semestre:</span>
                                 <span class="data"><%= aluno.getSemestre()%>º semestre</span>
                             </div>
+                            <div class="group">
+                                <span class="title">Status:</span>
+                                <span class="data"><%= aluno.getStatus()%></span>
+                            </div>
                         </div>
                     </section>
                 </body>

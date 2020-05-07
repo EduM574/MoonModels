@@ -357,7 +357,7 @@ public class AlunoDAO {
 
 	public Validation loginValidation(Aluno aluno) {
 		String consulta = "SELECT * FROM aluno WHERE ra = ? "
-						+" AND senha = ? AND statusA = 'ATIVO';";
+						+" AND senha = ?;";
 		Validation v = new Validation();
 
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
