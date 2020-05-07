@@ -89,7 +89,12 @@
                                         <p>
                                             <%= admin.getNome() %>
                                         </p>
-                                        <img src="./img/edit-1.png" />
+                                        <form action="ExibeDadosAdminEdicao.do" method="POST">
+                                             <input type="hidden" name="ra-aluno" value="<%=admin.getEmail()%>">
+                                             <button type="submit">
+                                                  <img src="./img/edit-1.png" />
+                                              </button>
+                                        </form>
                                     </div>
                                     <%
                         	}
