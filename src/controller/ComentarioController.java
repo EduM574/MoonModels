@@ -16,10 +16,10 @@ import model.Solicitacao;
 import service.ComentarioService;
 
 /**
- * Servlet implementation class CadastroAdmController
+ * Servlet implementation class ComentarioController
  */
 @WebServlet("/Comentario.do")
-public class ComentariosController extends HttpServlet {
+public class ComentarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
