@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import model.Administrador;
 import service.AdministradorService;
 
+/**
+ * Servlet implementation class ExibeDadosAdminEdicaoController
+ */
 @WebServlet("/ExibeDadosAdminEdicao.do")
 public class ExibeDadosAdminEdicaoController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -20,7 +23,8 @@ public class ExibeDadosAdminEdicaoController extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
      *      response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         doPost(request, response);
     }
 
@@ -28,19 +32,19 @@ public class ExibeDadosAdminEdicaoController extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
      *      response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String email = request.getParameter("email-admin");
-    	
-    	Administrador adm = new Administrador();
-    	adm.setEmail(email);
-    	
-    	AdministradorService admService = new AdministradorService();
-    	adm = admService.selectAdminGeral(adm);
-    	
-    	request.setAttribute("exibeAdmin", adm);
-    	
-    	RequestDispatcher view = request.getRequestDispatcher("editarDadosAdm.jsp");
-        view.forward(request, response);    	
-    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String email = request.getParameter("email-admin");
 
+        Administrador adm = new Administrador();
+        adm.setEmail(email);
+
+        AdministradorService admService = new AdministradorService();
+        adm = admService.selectAdminGeral(adm);
+
+        request.setAttribute("exibeAdmin", adm);
+
+        RequestDispatcher view = request.getRequestDispatcher("editarDadosAdm.jsp");
+        view.forward(request, response);
+    }
 }

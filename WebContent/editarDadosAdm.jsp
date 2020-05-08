@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="model.Administrador" %>
-    <%@page import="java.util.ArrayList" %>
-        <%
+        <%@page import="java.util.ArrayList" %>
+            <%
             if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
                 //caso a pessoa não esteja logada
                 response.sendRedirect("loginAdm.jsp");
@@ -13,34 +13,37 @@
 
             } else {
             	Administrador adm = (Administrador) session.getAttribute("adm");
-        
+                Administrador admEdicao = (Administrador) request.getAttribute("exibeAdmin");
+                String erro = (String) request.getAttribute("erro");
+
+                System.out.println("Adm edição JSP: " + admEdicao);
         %>
-            <!DOCTYPE html>
-            <html>
+                <!DOCTYPE html>
+                <html>
 
-            <head>
-                <meta charset="utf-8" />
-                <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
-                <title>Editar Administrador</title>
-            </head>
+                <head>
+                    <meta charset="utf-8" />
+                    <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
+                    <title>Editar Administrador</title>
+                </head>
 
-            <body>
-                <header>
-                    <div class="container main-header">
-                        <span class="logo">MO<span class="logo-pink">O</span>N</span>
-                        <div class="username-wrapper">
-                            <span>
-                                <%= adm.getNome() %>
+                <body>
+                    <header>
+                        <div class="container main-header">
+                            <span class="logo">MO<span class="logo-pink">O</span>N</span>
+                            <div class="username-wrapper">
+                                <span>
+                                <%= admEdicao.getNome() %>
                             </span>
-                            <form action="Logout.do" method="post" class="logout-wrapper">
-                                <button type="submit">
+                                <form action="Logout.do" method="post" class="logout-wrapper">
+                                    <button type="submit">
                                     <img src="img/logout.png" alt="logout">
                                 </button>
-                            </form>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                </header>
-                <% 
+                    </header>
+                    <% 
                     String editar, adicionar;
                 
                 	if(adm.getSetor().getIdSetor() == 4) {
@@ -51,47 +54,48 @@
                         adicionar = "cadastroAluno.jsp";
                 	}
                 %>
-                    <nav>
-                        <a href="userHomeAdm.jsp">
-                            <div class="menu-icon-wrapper">
-                                <img src="./img/home.png" alt="Home">
-                            </div>
-                        </a>
-                        <a href="<%=editar%>">
-                            <div class="menu-icon-wrapper">
-                                <img src="./img/newsfeed.png" alt="Alunos/ADMs">
-                            </div>
-                        </a>
-                        <a href="<%=adicionar%>">
-                            <div class="menu-icon-wrapper">
-                                <img src="./img/add-friend.png" alt="Adicionar usuário">
-                            </div>
-                        </a>
-                        <a href="verPerfilAdm.jsp">
-                            <div class="menu-icon-wrapper">
-                                <img src="./img/user.png" alt="Visualizar perfil">
-                            </div>
-                        </a>
-                        <a href="editarSenhaAdm.jsp">
-                            <div class="menu-icon-wrapper">
-                                <img src="./img/configuration.png" alt="Editar senha">
-                            </div>
-                        </a>
-                    </nav>
-
-                    <section class="content">
-                        <p class="title">Editar um administrador</p>
-                        <span class="data-ra"><%= adm.getEmail() %></span>
-                        <form action="EditarAdmDados.do" method="POST" class="form">
-                            <div class="input-form">
-                                <div class="box">
-                                    <input type="text" name="nome" maxlength="15" placeholder="Nome" value="<%= adm.getNome()%>">
-                                    <input type="text" name="sobrenome" maxlength="15" placeholder="Sobrenome" value="<%= adm.getSobrenome()%>">
-                                    <input type="password" name="password" maxlength="15" placeholder="Senha">
+                        <nav>
+                            <a href="userHomeAdm.jsp">
+                                <div class="menu-icon-wrapper">
+                                    <img src="./img/home.png" alt="Home">
                                 </div>
-                                <div class="box">
-                                    <input type="text" name="cpf" placeholder="CPF" value="<%= adm.getCpf()%>">
-                                    <select name="setor" class="altura-diferente">
+                            </a>
+                            <a href="<%=editar%>">
+                                <div class="menu-icon-wrapper">
+                                    <img src="./img/newsfeed.png" alt="Alunos/ADMs">
+                                </div>
+                            </a>
+                            <a href="<%=adicionar%>">
+                                <div class="menu-icon-wrapper">
+                                    <img src="./img/add-friend.png" alt="Adicionar usuário">
+                                </div>
+                            </a>
+                            <a href="verPerfilAdm.jsp">
+                                <div class="menu-icon-wrapper">
+                                    <img src="./img/user.png" alt="Visualizar perfil">
+                                </div>
+                            </a>
+                            <a href="editarSenhaAdm.jsp">
+                                <div class="menu-icon-wrapper">
+                                    <img src="./img/configuration.png" alt="Editar senha">
+                                </div>
+                            </a>
+                        </nav>
+
+                        <section class="content">
+                            <p class="title">Editar um administrador</p>
+                            <span class="data-ra"><%= admEdicao.getEmail() %></span>
+                            <form action="EditarAdmDados.do" method="POST" class="form">
+                                <input type="hidden" name="email-admin" value="<%=admEdicao.getEmail() %>">
+                                <div class="input-form">
+                                    <div class="box">
+                                        <input type="text" name="nome" maxlength="15" placeholder="Nome" value="<%= admEdicao.getNome()%>">
+                                        <input type="text" name="sobrenome" maxlength="15" placeholder="Sobrenome" value="<%= admEdicao.getSobrenome()%>">
+                                        <input type="password" name="password" maxlength="15" placeholder="Senha">
+                                    </div>
+                                    <div class="box">
+                                        <input type="text" name="cpf" placeholder="CPF" value="<%= admEdicao.getCpf()%>">
+                                        <select name="setor" class="altura-diferente">
                                     	<%
                                     		ArrayList<String> setor = new ArrayList<String>();
                                     		setor.add("Transporte escolar");
@@ -102,7 +106,7 @@
                                     		for(int i = 0; i < 4; i++) {
                                     			String s = setor.get(i);
                                     			
-                                    			if (i+1 == adm.getSetor().getIdSetor()){
+                                    			if (i+1 == admEdicao.getSetor().getIdSetor()){
                                     				out.print("<option value='"+ i+1 +"' selected>"+s+"</option>");
                                     			} else {
                                     				out.print("<option value='"+ i+1 +"'>"+s+"</option>");
@@ -111,14 +115,14 @@
                                     	%>
                                         
                                     </select>
-                                    <select name="status" class="normal">
+                                        <select name="status" class="altura-diferente">
                                         <%
                                         	ArrayList<String> status = new ArrayList<String>();
-                                         status.add("ATIVO");
-                                         status.add("INATIVO");
+                                            status.add("ATIVO");
+                                            status.add("INATIVO");
                                             
                                             for(String u : status) {
-                                            	if(u.equals(adm.getStatus())) {
+                                            	if(u.equals(admEdicao.getStatus())) {
                                             		out.print("<option value='"+u+"' selected>"+u+"</option>");		
                                             	} else {
                                             		out.print("<option value='"+u+"'>"+u+"</option>");
@@ -127,14 +131,19 @@
                                             
                                         %>
 	                                 </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <button type="submit">Editar</button>
-                        </form>
-                    </section>
-            </body>
+                                <div class="align-erro">
+                                    <p>
+                                        <% if(erro != null) out.print(erro); %>
+                                    </p>
+                                    <button type="submit">Editar</button>
+                                </div>
+                            </form>
+                        </section>
+                </body>
 
-            </html>
-            <%
+                </html>
+                <%
                 }
             %>

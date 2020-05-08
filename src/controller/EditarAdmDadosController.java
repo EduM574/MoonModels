@@ -66,13 +66,10 @@ public class EditarAdmDadosController extends HttpServlet {
 		}
 
 		if (v.getStatus()) {
-			// Depois que controller ExibeDadosAdmEdicao.do estiver pronta, descomentar
-			// codigo
-			System.out.println(v.getText());
-			// request.setAttribute("erro", v.getText());
-			// RequestDispatcher view =
-			// request.getRequestDispatcher("ExibeDadosAdmEdicao.do");
-			// view.forward(request, response);
+			request.setAttribute("erro", v.getText());
+			RequestDispatcher view = request.getRequestDispatcher("ExibeDadosAdminEdicao.do");
+			view.forward(request, response);
+
 		} else {
 			as.updateTotal(adm);
 

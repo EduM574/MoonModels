@@ -34,7 +34,6 @@ public class ExibeDadosAlunoEdicaoController extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         int ra = Integer.parseInt(request.getParameter("ra-aluno"));
 
         Aluno aln = new Aluno();
@@ -42,12 +41,10 @@ public class ExibeDadosAlunoEdicaoController extends HttpServlet {
 
         AlunoService aService = new AlunoService();
         aln = aService.selectAluno(aln);
- 
+
         request.setAttribute("exibeAluno", aln);
 
         RequestDispatcher view = request.getRequestDispatcher("editarDadosAluno.jsp");
         view.forward(request, response);
-
     }
-
 }
