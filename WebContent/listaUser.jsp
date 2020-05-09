@@ -8,7 +8,7 @@
 
             } else if(session.getAttribute("aluno") != null) {
                 //caso a pessoa que esteja logada seja um aluno
-                response.sendRedirect("userHomeAluno.jsp");
+                response.sendRedirect("UserHomeAluno.do");
 
             } else {
             	Administrador adm = (Administrador) session.getAttribute("adm");

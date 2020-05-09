@@ -41,11 +41,11 @@
                     </div>
                 </header>
                 <nav>
-                    <a href="userHomeAluno.jsp">
-                        <div class="menu-icon-wrapper">
+                    <form action="UserHomeAluno.do" method="post" class="form-nav-wrapper">
+                        <button type="submit">
                             <img src="./img/home.png" alt="Home">
-                        </div>
-                    </a>
+                        </button>
+                    </form>
                     <%
                         if(aluno.getStatus().equals("ATIVO")) {
                             //caso o aluno que esteja logado esteja ativo, ele pode criar solicitacoes novas

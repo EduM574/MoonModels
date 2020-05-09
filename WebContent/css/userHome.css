@@ -394,3 +394,19 @@ form {
     padding: 8px 18px;
     margin: 10px 0;
 }
+
+.form-nav-wrapper {
+    width: 45px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-nav-wrapper > button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.form-nav-wrapper > button > img {
+    width: 100%;
+}
