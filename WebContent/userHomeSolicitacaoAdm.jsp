@@ -14,6 +14,7 @@
             } else {
                 Administrador adm = (Administrador) session.getAttribute("adm");
                 ArrayList<Solicitacao> solicitacoes = (ArrayList<Solicitacao>) request.getAttribute("solicitacoesAdm");
+                Solicitacao solicitacao = (Solicitacao) request.getAttribute("solicitacao");
                 
         %>
                     <!DOCTYPE html>
@@ -84,7 +85,7 @@
                                     <div class="info-card">
                                         <p class="info-title">Nº de Solicitações a serem resolvidas</p>
                                         <p class="info-content">
-                                            <%=solicitacoes.size()%>
+
                                         </p>
                                     </div>
                                 </section>
@@ -94,31 +95,31 @@
                                     <div class="cards-adm">
 
                                         <%
-                                            int totalSolicitacoes = 0; for(Solicitacao s : solicitacoes) {
+                                            
                                         %>
                                             <div class="s-card-color-adm">
                                                 <div class="s-card-content">
                                                     <div class="s-row">
                                                         <div>
                                                             <span class="s-card-subtitle">Nome:</span>
-                                                            <span><%=s.getNome()%></span>
+
                                                         </div>
                                                         <div class="s-status-ativo"></div>
                                                     </div>
                                                     <div class="s-row">
                                                         <div>
                                                             <span class="s-card-subtitle">Status:</span>
-                                                            <span><%=s.getStatus()%></span>
+
                                                         </div>
                                                         <div>
                                                             <span class="s-card-subtitle">Código:</span>
-                                                            <span>#<%=s.getIdSolicitacao()%></span>
+
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <%
-                                        	}
+                                        	
                                         %>
                                     </div>
                                 </section>

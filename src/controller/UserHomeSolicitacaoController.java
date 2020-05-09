@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Comentario;
 import model.Solicitacao;
@@ -47,8 +48,21 @@ public class UserHomeSolicitacaoController extends HttpServlet {
         //Adicionando os comentarios na solicitacao
         solicitacao.setComentario(comentarios);
 
+        //inserido a solicitacao na requisicao
         request.setAttribute("solicitacao", solicitacao);
-        RequestDispatcher view = request.getRequestDispatcher("userHomeSolicitacaoAdm.jsp");
+
+        //verificando quem esta logado para fazer o redirect
+        HttpSession session = request.getSession();
+        String url = "";
+
+        if(session.getAttribute("aluno") != null) {
+            url = "userHomeSolicitacaoAluno.jsp";
+
+        } else if(session.getAttribute("adm") != null) {
+            url = "userHomeSolicitacaoAdm.jsp";
+        }
+
+        RequestDispatcher view = request.getRequestDispatcher(url);
         view.forward(request, response);
     }
 }
