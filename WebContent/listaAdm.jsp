@@ -53,11 +53,11 @@
                 	}
                 %>
                         <nav>
-                            <a href="userHomeAdm.jsp">
-                                <div class="menu-icon-wrapper">
+                            <form action="UserHomeAdm.do" method="post" class="form-nav-wrapper">
+                                <button type="submit">
                                     <img src="./img/home.png" alt="Home">
-                                </div>
-                            </a>
+                                </button>
+                            </form>
                             <a href="<%=editar%>">
                                 <div class="menu-icon-wrapper">
                                     <img src="./img/newsfeed.png" alt="Alunos/ADMs">
@@ -90,8 +90,8 @@
                                             <%= admin.getNome() %>
                                         </p>
                                         <form action="ExibeDadosAdminEdicao.do" method="POST">
-                                             <input type="hidden" name="email-admin" value="<%=admin.getEmail()%>">
-                                             <button type="submit">
+                                            <input type="hidden" name="email-admin" value="<%=admin.getEmail()%>">
+                                            <button type="submit">
                                                   <img src="./img/edit-1.png" />
                                               </button>
                                         </form>
