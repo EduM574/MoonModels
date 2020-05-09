@@ -69,4 +69,8 @@ public class SolicitacaoService {
 
 		return null;
 	}
+
+	public Solicitacao selectSolicitacao(int id) {
+		return soliDAO.selectSolicitacao(id);
+	}
 }

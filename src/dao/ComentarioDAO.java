@@ -110,7 +110,7 @@ public class ComentarioDAO {
 				int fkSolicitacao = resultado.getInt("fk_codigo_solicitacao");
 				InputStream anexo = resultado.getBinaryStream("anexo");
 				
-				String dataBanco = resultado.getString("data_abertura");
+				String dataBanco = resultado.getString("data_hora");
 				String[] dataSeparada = dataBanco.split("-");
 				int ano = Integer.parseInt(dataSeparada[0]);
 				int mes = Integer.parseInt(dataSeparada[1]);

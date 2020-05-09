@@ -166,11 +166,7 @@
 }
 
 
-/* Historico de solicitaï¿½ï¿½es */
-
-#detalhe-solicitacao {
-    visibility: hidden;
-}
+/* Historico de solicitacoes */
 
 .hist-solicit {
     z-index: 2;
