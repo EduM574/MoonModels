@@ -64,7 +64,6 @@ public class SolicitacaoService {
 
 			return resultado;
 		} else if (adm.getSetor().getIdSetor() == 4) {
-			System.out.println("Service certa");
 			return soliDAO.solicitacoesADMaster();
 		}
 
