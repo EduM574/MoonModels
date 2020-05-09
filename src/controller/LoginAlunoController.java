@@ -56,7 +56,7 @@ public class LoginAlunoController extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("aluno", aln);
 
-			response.sendRedirect("userHomeAluno.jsp");
+			response.sendRedirect("UserHomeAluno.do");
 
 		}
 	}

@@ -1,7 +1,15 @@
 package controller;
 
-@WebServlet("/userHomeAluno.do")
-public class ComentarioController extends HttpServlet {
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/UserHomeAluno.do")
+public class UserHomeAlunoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -19,5 +27,8 @@ public class ComentarioController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-            }
+		
+		response.sendRedirect("userHomeAluno.jsp");
+	
+	}
+	}
