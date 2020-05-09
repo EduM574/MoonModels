@@ -96,7 +96,7 @@
                                         <%
                                             int totalSolicitacoes = 0; for(Solicitacao s : solicitacoes) {
                                         %>
-                                            <div class="s-card-color">
+                                            <div class="s-card-color-adm">
                                                 <div class="s-card-content">
                                                     <div class="s-row">
                                                         <div>
@@ -117,7 +117,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-										<%
+                                            <%
                                         	}
                                         %>
                                     </div>
