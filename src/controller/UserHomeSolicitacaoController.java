@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Administrador;
 import model.Comentario;
 import model.Solicitacao;
 import service.ComentarioService;
@@ -40,17 +39,16 @@ public class UserHomeSolicitacaoController extends HttpServlet {
         //Pegando os dados da solicitacao
         SolicitacaoService sService = new SolicitacaoService();
         Solicitacao solicitacao = sService.selectSolicitacao(idSolicitacao);
-        System.out.println("Solicitacao antes dos comentarios:"+solicitacao);
 
         //Pegando os comentarios da solicitacao
         ComentarioService cService = new ComentarioService();
         ArrayList<Comentario> comentarios = cService.selectComentariosDados(solicitacao);
-        System.out.println("Comentarios"+comentarios);
 
         //Adicionando os comentarios na solicitacao
         solicitacao.setComentario(comentarios);
-        System.out.println("Solicitacao depois dos comentarios:"+solicitacao);
 
-        // response.sendRedirect("userHomeSolicitacaoAdm.jsp");
+        request.setAttribute("solicitacao", solicitacao);
+        RequestDispatcher view = request.getRequestDispatcher("userHomeSolicitacaoAdm.jsp");
+        view.forward(request, response);
     }
 }

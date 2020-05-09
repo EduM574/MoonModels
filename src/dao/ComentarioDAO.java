@@ -111,11 +111,22 @@ public class ComentarioDAO {
 				InputStream anexo = resultado.getBinaryStream("anexo");
 				
 				String dataBanco = resultado.getString("data_hora");
-				String[] dataSeparada = dataBanco.split("-");
+				
+				String[] dataBancoSeparada = dataBanco.split(" ");
+				String dataCompleta = dataBancoSeparada[0];
+				String horaCompleta = dataBancoSeparada[1];
+
+				String[] dataSeparada = dataCompleta.split("-");
 				int ano = Integer.parseInt(dataSeparada[0]);
 				int mes = Integer.parseInt(dataSeparada[1]);
-				int dia = Integer.parseInt(dataSeparada[2]);				
-				GregorianCalendar data = new GregorianCalendar(ano, mes, dia);
+				int dia = Integer.parseInt(dataSeparada[2]);
+
+				String[] horaSeparada = horaCompleta.split(":");
+				int hora = Integer.parseInt(horaSeparada[0]);
+				int minuto = Integer.parseInt(horaSeparada[1]);
+				int segundo = Integer.parseInt(horaSeparada[2]);
+
+				GregorianCalendar dataFinal = new GregorianCalendar(ano, mes, dia, hora, minuto, segundo);
 				
 				if(anexo != null) {
 					File novoAnexo = new File("anexo_" + codigo + ".pdf");
@@ -138,7 +149,7 @@ public class ComentarioDAO {
 				
 				comenta.setIdComentario(codigo);
 				comenta.setTexto(texto);
-				comenta.setDataHora(data);
+				comenta.setDataHora(dataFinal);
 				comenta.setAluno(alu);
 				comenta.setAdministrador(admin);
 				comenta.setSolicitacao(solici);
