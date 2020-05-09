@@ -96,16 +96,17 @@
                                         <%
                                             int totalSolicitacoes = 0; for(Solicitacao s : solicitacoes) {
                                         %>
-                                            <div class="s-card-color-adm">
-                                                <div class="s-card-content">
-                                                    <div class="s-row">
+                                            <form action="UserHomeSolicitacao.do" method="POST" class="s-card-color-adm">
+                                                <input type="hidden" name="id-solicitacao" value="<%=s.getIdSolicitacao()%>">
+                                                <button type="submit" class="s-card-content-adm">
+                                                    <div class="s-row-adm">
                                                         <div>
                                                             <span class="s-card-subtitle">Nome:</span>
                                                             <span><%=s.getNome()%></span>
                                                         </div>
                                                         <div class="s-status-ativo"></div>
                                                     </div>
-                                                    <div class="s-row">
+                                                    <div class="s-row-adm">
                                                         <div>
                                                             <span class="s-card-subtitle">Status:</span>
                                                             <span><%=s.getStatus()%></span>
@@ -115,8 +116,8 @@
                                                             <span>#<%=s.getIdSolicitacao()%></span>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
+                                                </button>
+                                            </form>
                                             <%
                                         	}
                                         %>
