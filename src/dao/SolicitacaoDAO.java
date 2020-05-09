@@ -322,11 +322,11 @@ public class SolicitacaoDAO {
 		//que não foram concluindas(deferida/indereferida)
 		//e que tenham alunos ativos
 		//trazendo ordenadas pelas mais antigas(data de abertura)
-		String consulta = "SELECT * FROM solicitacao AS S INNER JOIN aluno AS A "
-					+ " ON S.statusS != 'DEFERIDA' "
-					+ " AND S.statusS != 'INDEFERIDA' "
-					+ " AND A.statusA = 'ATIVO' "
-					+ " ORDER BY data_abertura ASC;";
+		String consulta = "SELECT S.* FROM solicitacao AS S "
+						+ "WHERE S.statusS != 'DEFERIDA' "
+						+ "AND S.statusS != 'INDEFERIDA' "
+        				+ "AND fk_ra_aluno IN (SELECT ra FROM aluno WHERE statusA = 'ATIVO') "
+						+ "ORDER BY data_abertura ASC;";
 		
 		try(PreparedStatement pst = conexao.prepareStatement(consulta)) {
 						
