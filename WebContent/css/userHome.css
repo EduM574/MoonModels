@@ -83,6 +83,13 @@
     color: #F2717F;
 }
 
+.cards-adm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+
 .s-card-color {
     width: 30%;
     height: 100px;
@@ -90,6 +97,7 @@
     border-radius: 15px;
     display: flex;
     align-items: flex-end;
+    margin: 10px 0;
 }
 
 .s-card-content {

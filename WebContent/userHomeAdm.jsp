@@ -14,8 +14,7 @@
             } else {
                 Administrador adm = (Administrador) session.getAttribute("adm");
                 ArrayList<Solicitacao> solicitacoes = (ArrayList<Solicitacao>) request.getAttribute("solicitacoesAdm");
-        		
-                System.out.println(solicitacoes);
+                
         %>
                     <!DOCTYPE html>
                     <html lang="en">
@@ -44,21 +43,19 @@
                             </div>
                         </header>
                         <% 
-                    String editar, adicionar;
-                
-                	if(adm.getSetor().getIdSetor() == 4) {
-                        editar = "listaUser.jsp";
-                        adicionar = "cadastrarUser.jsp";
-                	} else {
-                        editar = "ListaAlunos.do";
-                        adicionar = "cadastroAluno.jsp";
-                	}
-                %>
+                            String editar, adicionar;
+                        
+                            if(adm.getSetor().getIdSetor() == 4) {
+                                editar = "listaUser.jsp";
+                                adicionar = "cadastrarUser.jsp";
+                            } else {
+                                editar = "ListaAlunos.do";
+                                adicionar = "cadastroAluno.jsp";
+                            }
+                        %>
                             <nav>
                                 <form action="UserHomeAdm.do" method="post" class="form-nav-wrapper">
-                                    <button type="submit">
-                                <img src="./img/home.png" alt="Home">
-                            </button>
+                                    <button type="submit"><img src="./img/home.png" alt="Home"></button>
                                 </form>
                                 <a href="<%=editar%>">
                                     <div class="menu-icon-wrapper">
@@ -85,91 +82,44 @@
                             <div class="content">
                                 <section class="info">
                                     <div class="info-card">
-                                        <p class="info-title">Total de Solicitações</p>
-                                        <p class="info-content">15</p>
-                                    </div>
-                                    <div class="info-card">
-                                        <p class="info-title">Solicitações concluídas</p>
-                                        <p class="info-content">5</p>
-                                    </div>
-                                    <div class="info-card">
-                                        <p class="info-title">Solicitações deferidas</p>
-                                        <p class="info-content">2</p>
+                                        <p class="info-title">Nº de Solicitações a serem resolvidas</p>
+                                        <p class="info-content">
+                                            <%=solicitacoes.size()%>
+                                        </p>
                                     </div>
                                 </section>
 
                                 <section>
-                                    <h2 class="titulo-solicitacao">Em andamento</h2>
-                                    <div class="s-card-color">
-                                        <div class="s-card-content">
-                                            <div class="s-row">
-                                                <div>
-                                                    <span class="s-card-subtitle">Nome:</span>
-                                                    <span>Cartão do estudante</span>
-                                                </div>
-                                                <div class="s-status-ativo"></div>
-                                            </div>
-                                            <div class="s-row">
-                                                <div>
-                                                    <span class="s-card-subtitle">Status:</span>
-                                                    <span>1/4</span>
-                                                </div>
-                                                <div>
-                                                    <span class="s-card-subtitle">Código:</span>
-                                                    <span>1470</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
+                                    <h2 class="titulo-solicitacao">Solicitações</h2>
+                                    <div class="cards-adm">
 
-                                <section>
-                                    <h2 class="titulo-solicitacao">Deferidas</h2>
-                                    <div class="s-card-color">
-                                        <div class="s-card-content">
-                                            <div class="s-row">
-                                                <div>
-                                                    <span class="s-card-subtitle">Nome:</span>
-                                                    <span>Cartão do estudante</span>
-                                                </div>
-                                                <div class="s-status-ativo"></div>
-                                            </div>
-                                            <div class="s-row">
-                                                <div>
-                                                    <span class="s-card-subtitle">Status:</span>
-                                                    <span>1/4</span>
-                                                </div>
-                                                <div>
-                                                    <span class="s-card-subtitle">Código:</span>
-                                                    <span>1470</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <section>
-                                    <h2 class="titulo-solicitacao">Indeferido</h2>
-                                    <div class="s-card-color">
-                                        <div class="s-card-content">
-                                            <div class="s-row">
-                                                <div>
-                                                    <span class="s-card-subtitle">Nome:</span>
-                                                    <span>Cartão do estudante</span>
-                                                </div>
-                                                <div class="s-status-ativo"></div>
-                                            </div>
-                                            <div class="s-row">
-                                                <div>
-                                                    <span class="s-card-subtitle">Status:</span>
-                                                    <span>1/4</span>
-                                                </div>
-                                                <div>
-                                                    <span class="s-card-subtitle">Código:</span>
-                                                    <span>1470</span>
+                                        <%
+                                            int totalSolicitacoes = 0; for(Solicitacao s : solicitacoes) {
+                                        %>
+                                            <div class="s-card-color">
+                                                <div class="s-card-content">
+                                                    <div class="s-row">
+                                                        <div>
+                                                            <span class="s-card-subtitle">Nome:</span>
+                                                            <span><%=s.getNome()%></span>
+                                                        </div>
+                                                        <div class="s-status-ativo"></div>
+                                                    </div>
+                                                    <div class="s-row">
+                                                        <div>
+                                                            <span class="s-card-subtitle">Status:</span>
+                                                            <span><%=s.getStatus()%></span>
+                                                        </div>
+                                                        <div>
+                                                            <span class="s-card-subtitle">Código:</span>
+                                                            <span>#<%=s.getIdSolicitacao()%></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+										<%
+                                        	}
+                                        %>
                                     </div>
                                 </section>
                             </div>
@@ -242,5 +192,5 @@
                     </html>
 
                     <%
-                }
-            %> } %>
+                		}
+            		%>
