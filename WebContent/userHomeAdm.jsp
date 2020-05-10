@@ -13,7 +13,7 @@
 
             } else {
                 Administrador adm = (Administrador) session.getAttribute("adm");
-                ArrayList<Solicitacao> solicitacoes = (ArrayList<Solicitacao>) request.getAttribute("solicitacoesAdm");
+                ArrayList<Solicitacao> solicitacoes = (ArrayList<Solicitacao>) session.getAttribute("solicitacoesAdm");
                 
         %>
                     <!DOCTYPE html>

@@ -3,8 +3,6 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
-// import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,9 +39,7 @@ public class UserHomeAdmController extends HttpServlet {
 		SolicitacaoService sService = new SolicitacaoService();
 		ArrayList<Solicitacao> solicitacoes = sService.selectSolicitacoesADM(adm);
 
-		request.setAttribute("solicitacoesAdm", solicitacoes);
-		
-		RequestDispatcher view = request.getRequestDispatcher("userHomeAdm.jsp");
-		view.forward(request, response);    
+		session.setAttribute("solicitacoesAdm", solicitacoes);
+		response.sendRedirect("userHomeAdm.jsp");
     }
 }

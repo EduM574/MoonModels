@@ -13,9 +13,10 @@
 
             } else {
                 Administrador adm = (Administrador) session.getAttribute("adm");
-                ArrayList<Solicitacao> solicitacoes = (ArrayList<Solicitacao>) request.getAttribute("solicitacoesAdm");
+                ArrayList<Solicitacao> solicitacoes = (ArrayList<Solicitacao>) session.getAttribute("solicitacoesAdm");
                 Solicitacao solicitacao = (Solicitacao) request.getAttribute("solicitacao");
                 
+                System.out.println(solicitacoes);
         %>
                     <!DOCTYPE html>
                     <html lang="en">
@@ -32,13 +33,9 @@
                             <div class="container main-header">
                                 <span class="logo">MO<span class="logo-pink">O</span>N</span>
                                 <div class="username-wrapper">
-                                    <span>
-                                <%= adm.getNome() %>
-                            </span>
+                                    <span><%= adm.getNome() %></span>
                                     <form action="Logout.do" method="post" class="logout-wrapper">
-                                        <button type="submit">
-			                        <img src="img/logout.png" alt="logout">
-			                    </button>
+                                        <button type="submit"><img src="img/logout.png" alt="logout"></button>
                                     </form>
                                 </div>
                             </div>
@@ -85,7 +82,7 @@
                                     <div class="info-card">
                                         <p class="info-title">Nº de Solicitações a serem resolvidas</p>
                                         <p class="info-content">
-
+                                            <%=solicitacoes.size()%>
                                         </p>
                                     </div>
                                 </section>
@@ -95,32 +92,32 @@
                                     <div class="cards-adm">
 
                                         <%
-                                            
+                                        int totalSolicitacoes = 0; for(Solicitacao s : solicitacoes) {
                                         %>
                                             <div class="s-card-color-adm">
                                                 <div class="s-card-content">
                                                     <div class="s-row">
                                                         <div>
                                                             <span class="s-card-subtitle">Nome:</span>
-
+                                                            <span><%=s.getNome()%></span>
                                                         </div>
                                                         <div class="s-status-ativo"></div>
                                                     </div>
                                                     <div class="s-row">
                                                         <div>
                                                             <span class="s-card-subtitle">Status:</span>
-
+                                                            <span><%=s.getStatus()%></span>
                                                         </div>
                                                         <div>
                                                             <span class="s-card-subtitle">Código:</span>
-
+                                                            <span>#<%=s.getIdSolicitacao()%></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <%
-                                        	
-                                        %>
+                                                }	
+                                            %>
                                     </div>
                                 </section>
                             </div>
