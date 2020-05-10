@@ -12,7 +12,7 @@ public class SolicitacaoService {
 	SolicitacaoDAO soliDAO = new SolicitacaoDAO(ConnectionFactory.conectar());
 
 	public void create(Solicitacao solicitacao) {
-		solicitacao.setStatus("ABERTA");
+		solicitacao.setStatus("Aberta");
 
 		if (solicitacao.getNome().equals("Contrato de estagio")) {
 			solicitacao.setPrazo(15);

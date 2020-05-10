@@ -111,9 +111,9 @@
                                                             <span class="s-card-subtitle">Status:</span>
                                                             <span><%=s.getStatus()%></span>
                                                         </div>
-                                                        <div>
+                                                        <div class="status-card-adm">
                                                             <span class="s-card-subtitle">Código:</span>
-                                                            <span>#<%=s.getIdSolicitacao()%></span>
+                                                            <span><%=s.getIdSolicitacao()%></span>
                                                         </div>
                                                     </div>
                                                 </button>
