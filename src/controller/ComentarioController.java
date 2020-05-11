@@ -1,13 +1,14 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Administrador;
 import model.Aluno;
@@ -37,36 +38,32 @@ public class ComentarioController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// atributos capturados
 		String cTexto = request.getParameter("texto");
-		// COLOCAR CAPTURA DO ANEXO e fks
+		int idSoli = Integer.parseInt(request.getParameter("id-solicitacao"));
 
-		// criar obj
-		Aluno al = new Aluno();
-		al.setRa(3);
-
-		Administrador adm = new Administrador();
-		adm.setEmail("fulano2@usjt.br");
-
-		Solicitacao sol = new Solicitacao();
-		sol.setIdSolicitacao(5);
-
+		HttpSession session = request.getSession();
 		Comentario cm = new Comentario();
+		Solicitacao sol = new Solicitacao();
+
+		sol.setIdSolicitacao(idSoli);
 		cm.setTexto(cTexto);
-		cm.setAluno(al);
 		cm.setSolicitacao(sol);
-		cm.setAdministrador(adm);
+
+		if(session.getAttribute("aluno") != null) {
+			Aluno al = (Aluno) session.getAttribute("aluno");
+			cm.setAluno(al);
+
+        } else if(session.getAttribute("adm") != null) {
+			Administrador adm = (Administrador) session.getAttribute("adm");
+			cm.setAdministrador(adm);
+        }
 
 		ComentarioService cs = new ComentarioService();
 		cs.create(cm);
 
-		PrintWriter out = response.getWriter();
-		out.println("<html><head><title>Cadastro Administrador</title></head><body>");
-		out.println("Texto = " + cm.getTexto() + "<br>");
-		out.println("Ra Aluno = " + cm.getAluno().getRa() + "<br>");
-		out.println("Email Administrador= " + cm.getAdministrador().getEmail() + "<br>");
-		out.println("Id solicição " + cm.getSolicitacao().getIdSolicitacao() + "<br>");
-		out.println("</body></html>");
+		RequestDispatcher view = request.getRequestDispatcher("UserHomeSolicitacao.do");
+		view.forward(request, response);
+		
 	}
 
 }

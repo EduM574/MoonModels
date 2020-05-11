@@ -21,14 +21,24 @@ public class ComentarioDAO {
 	}
 	
 	public int createComentario(Comentario comentario) {
-		String create = "INSERT INTO comentario(texto, data_hora, anexo, fk_ra_aluno, fk_email_adm, fk_codigo_solicitacao)" + "VALUES (?, now(), ?, ?, ?, ?)";
+		
+		String create = "";
+		if(comentario.getAluno() != null) {
+			create = "INSERT INTO comentario(texto, data_hora, anexo, fk_ra_aluno, fk_codigo_solicitacao)" + "VALUES (?, now(), ?, ?, ?)";
+		} else {
+			create = "INSERT INTO comentario(texto, data_hora, anexo, fk_email_adm, fk_codigo_solicitacao)" + "VALUES (?, now(), ?, ?, ?)";
+		}
 		
 		try(PreparedStatement pst = conexao.prepareStatement(create)){
-			
+
 			pst.setString(1, comentario.getTexto());
-			pst.setInt(3, comentario.getAluno().getRa());
-			pst.setString(4, comentario.getAdministrador().getEmail());
-			pst.setInt(5, comentario.getSolicitacao().getIdSolicitacao());
+			pst.setInt(4, comentario.getSolicitacao().getIdSolicitacao());
+
+			if(comentario.getAluno() != null) {
+				pst.setInt(3, comentario.getAluno().getRa());
+			} else {
+				pst.setString(3, comentario.getAdministrador().getEmail());
+			}
 			
 			if(comentario.getAnexo() != null) {
 				FileInputStream inputStream = new FileInputStream(comentario.getAnexo());
