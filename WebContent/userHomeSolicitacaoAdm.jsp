@@ -237,11 +237,18 @@
                                                     
                                                     dateComentario = dia + mes + c.getDataHora().get(GregorianCalendar.YEAR) 
                                                     				+ " " + hora + minuto + segundo;
+                                                    
+                                                    String nome = "";
+                                                    if(c.getAdministrador() != null) {
+                                                    	nome = c.getAdministrador().getNome() + " " + c.getAdministrador().getSobrenome();
+                                                    } else if(c.getAluno() != null) {
+                                                    	nome = c.getAluno().getNome() + " " + c.getAluno().getSobrenome();
+                                                    }
                                               
                                             %>
                                                 <div class="data-comment-adm">
                                                     <div>
-                                                        <span class="s-comment-user">{{nome do usuário}}:</span>
+                                                        <span class="s-comment-user"><%=nome%>:</span>
                                                         <span class="s-comment-content"><%=c.getTexto() %></span>
                                                     </div>
                                                     <div>
