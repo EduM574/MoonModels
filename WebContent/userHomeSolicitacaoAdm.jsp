@@ -39,18 +39,18 @@
                 
                 if (solicitacao.getNome().equals("Contrato de estagio")) {
         			listaStatus.add("Modelo enviado para o aluno");
-        			listaStatus.add("Contrato recebido e enviado para análise");
+        			listaStatus.add("Contrato recebido e enviado para analise");
 
         		} else if (solicitacao.getNome().equals("Bilhete da SPTrans")) {
         			listaStatus.add("Dados enviados para SPTrans");
-        			listaStatus.add("Cartão em produção");
-        			listaStatus.add("Cartão pronto para retirada na universidade");
+        			listaStatus.add("Cartao em producao");
+        			listaStatus.add("Cartao pronto para retirada na universidade");
 
         		} else if (solicitacao.getNome().equals("Entrega de atividades complementares")) {
-        			listaStatus.add("Comprovate em análise");
+        			listaStatus.add("Comprovate em analise");
 
         		} else if (solicitacao.getNome().equals("Mudanca de horario")) {
-        			listaStatus.add("Solicitação em análise");
+        			listaStatus.add("Solicitacao em analise");
         		}
                 
                 listaStatus.add("Deferida");
@@ -201,7 +201,8 @@
                                         </div>
 
                                         <form action="UpdateSolicitacao.do" method="POST" class="update-status-soli">
-                                            <span class="s-hist-title">Alterar status</span>
+                                            <input type="hidden" name="id-solicitacao" value="<%=solicitacao.getIdSolicitacao()%>">
+                                            <span class="s-hist-title">Alterar status:</span>
                                             <select name="status-soli">
                                             <%
                                             	int x = 0;
