@@ -163,7 +163,12 @@
                                                 <span class="s-hist-title">Nome:</span>
                                                 <span class="s-hist-subtitle"><%=solicitacao.getNome() %></span>
                                             </div>
-                                            <button class="s-hist-send-comment-btn"><img src="./img/download.png" alt="enviar"></button>
+                                            <div class="s-hist-buttons-top-adm">
+                                                <button class="s-hist-send-comment-btn"><img src="./img/download.png" alt="enviar"></button>
+                                                <form action="UserHomeAdm.do" method="GET">
+                                                    <button class="s-hist-close-comment-btn">X</button>
+                                                </form>
+                                            </div>
                                         </div>
                                         <div class="title-wrapper">
                                             <span class="s-hist-title">Código:</span>
