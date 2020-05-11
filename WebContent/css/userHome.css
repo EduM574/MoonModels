@@ -301,6 +301,7 @@ form {
     border-radius: 50%;
     border-style: none;
     background-color: #F2717F;
+    cursor: pointer;
 }
 
 .s-hist-send-comment-btn>img {
@@ -462,4 +463,30 @@ form {
 
 .form-nav-wrapper>button>img {
     width: 100%;
+}
+
+.update-status-soli {
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.update-status-soli select {
+    font-family: Catamaran;
+    font-size: 18px;
+    line-height: 45px;
+    border-width: 0 0 2px 0;
+    border-color: #C06C84;
+    margin: 10px 24px;
+}
+
+.update-status-soli button {
+    font-family: Catamaran;
+    font-size: 20px;
+    color: #FFF;
+    border: none;
+    background-color: #F2717F;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0px 14px;
+    height: 40px;
 }

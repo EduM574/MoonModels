@@ -199,6 +199,24 @@
                                                         </p>
                                                     </div>
                                         </div>
+
+                                        <form action="UpdateSolicitacao.do" method="POST" class="update-status-soli">
+                                            <span class="s-hist-title">Alterar status</span>
+                                            <select name="status-soli">
+                                            <%
+                                            	int x = 0;
+                                            	for(int k = 0; k < listaStatus.size(); k++) { 
+                                            		if(listaStatus.get(k).equals(solicitacao.getStatus())) x = k;
+                                            	}
+                                            
+                                            	for(int j = x+1; j < listaStatus.size(); j++) {
+                                                	out.print("<option value='"+listaStatus.get(j)+"'>"+listaStatus.get(j)+"</option>");
+                                            	}
+                                            %>    
+                                            </select>
+                                            <button type="submit">Alterar</button>
+                                        </form>
+
                                         <span class="s-hist-title">Comentários</span>
                                         <div class="caixa-mensagem">
                                             <%
