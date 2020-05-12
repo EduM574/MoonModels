@@ -21,14 +21,24 @@ public class ComentarioDAO {
 	}
 	
 	public int createComentario(Comentario comentario) {
-		String create = "INSERT INTO comentario(texto, data_hora, anexo, fk_ra_aluno, fk_email_adm, fk_codigo_solicitacao)" + "VALUES (?, now(), ?, ?, ?, ?)";
+		
+		String create = "";
+		if(comentario.getAluno() != null) {
+			create = "INSERT INTO comentario(texto, data_hora, anexo, fk_ra_aluno, fk_codigo_solicitacao)" + "VALUES (?, now(), ?, ?, ?)";
+		} else {
+			create = "INSERT INTO comentario(texto, data_hora, anexo, fk_email_adm, fk_codigo_solicitacao)" + "VALUES (?, now(), ?, ?, ?)";
+		}
 		
 		try(PreparedStatement pst = conexao.prepareStatement(create)){
-			
+
 			pst.setString(1, comentario.getTexto());
-			pst.setInt(3, comentario.getAluno().getRa());
-			pst.setString(4, comentario.getAdministrador().getEmail());
-			pst.setInt(5, comentario.getSolicitacao().getIdSolicitacao());
+			pst.setInt(4, comentario.getSolicitacao().getIdSolicitacao());
+
+			if(comentario.getAluno() != null) {
+				pst.setInt(3, comentario.getAluno().getRa());
+			} else {
+				pst.setString(3, comentario.getAdministrador().getEmail());
+			}
 			
 			if(comentario.getAnexo() != null) {
 				FileInputStream inputStream = new FileInputStream(comentario.getAnexo());
@@ -87,38 +97,60 @@ public class ComentarioDAO {
 	} 
 	
 	public ArrayList<Comentario> comentariosDados(Solicitacao solicitacao) {
-		String consulta = "SELECT * FROM comentario WHERE fk_codigo_solicitacao = ? ORDER BY data_hora ASC;";
+		String consulta1 = "SELECT C.*, Al.nome, Al.sobrenome "
+						+ "FROM comentario AS C "
+						+ "INNER JOIN aluno AS Al "
+						+ "ON C.fk_ra_aluno = Al.ra "
+						+ "WHERE C.fk_codigo_solicitacao = ? "
+						+ "ORDER BY C.data_hora ASC;";
 		
-		try(PreparedStatement pst = conexao.prepareStatement(consulta)){
+		String consulta2 = "SELECT C.*, Ad.nome, Ad.sobrenome "
+						+ "FROM comentario AS C "
+						+ "INNER JOIN administrador AS Ad "
+						+ "ON C.fk_email_adm = Ad.email "
+						+ "WHERE C.fk_codigo_solicitacao = ? "
+						+ "ORDER BY C.data_hora ASC;";
+
+		ArrayList<Comentario> comentarios = new ArrayList<Comentario>();
+		try(PreparedStatement pst = conexao.prepareStatement(consulta1)){
 			
 			pst.setInt(1, solicitacao.getIdSolicitacao());
 			
-			ResultSet resultado = pst.executeQuery();
-			
-			ArrayList<Comentario> comentarios = new ArrayList<Comentario>();
+			ResultSet resultado = pst.executeQuery();	
 			
 			while(resultado.next()) {
 				Comentario comenta = new Comentario();
 				Aluno alu = new Aluno();
-				Administrador admin = new Administrador();
 				Solicitacao solici = new Solicitacao();
 				
 				int codigo =  resultado.getInt("codigo");
 				String texto = resultado.getString("texto");
 				int fkAluno = resultado.getInt("fk_ra_aluno");
-				String fkAdm = resultado.getString("fk_email_adm");
 				int fkSolicitacao = resultado.getInt("fk_codigo_solicitacao");
 				InputStream anexo = resultado.getBinaryStream("anexo");
+				String nome = resultado.getString("nome");
+				String sobrenome = resultado.getString("sobrenome");
 				
-				String dataBanco = resultado.getString("data_abertura");
-				String[] dataSeparada = dataBanco.split("-");
+				String dataBanco = resultado.getString("data_hora");
+				
+				String[] dataBancoSeparada = dataBanco.split(" ");
+				String dataCompleta = dataBancoSeparada[0];
+				String horaCompleta = dataBancoSeparada[1];
+
+				String[] dataSeparada = dataCompleta.split("-");
 				int ano = Integer.parseInt(dataSeparada[0]);
 				int mes = Integer.parseInt(dataSeparada[1]);
-				int dia = Integer.parseInt(dataSeparada[2]);				
-				GregorianCalendar data = new GregorianCalendar(ano, mes, dia);
+				int dia = Integer.parseInt(dataSeparada[2]);
+
+				String[] horaSeparada = horaCompleta.split(":");
+				int hora = Integer.parseInt(horaSeparada[0]);
+				int minuto = Integer.parseInt(horaSeparada[1]);
+				int segundo = Integer.parseInt(horaSeparada[2]);
+
+				GregorianCalendar dataFinal = new GregorianCalendar(ano, mes, dia, hora, minuto, segundo);
 				
 				if(anexo != null) {
-					File novoAnexo = new File("anexo_" + codigo + ".pdf");
+					File novoAnexo = new File("C:/Users/kesse/OneDrive/Documents/USJT/3º semestre/PI/MoonModels/WebContent/anexoSolicitacoes/comentario" + codigo + ".pdf");
 					FileOutputStream output = new FileOutputStream(novoAnexo);
 					
 					byte[] buffer = new byte[1024];
@@ -132,20 +164,95 @@ public class ComentarioDAO {
 					
 					comenta.setAnexo(novoAnexo);
 				}
+
 				alu.setRa(fkAluno);
-				admin.setEmail(fkAdm);
+				alu.setNome(nome);
+				alu.setSobrenome(sobrenome);
 				solici.setIdSolicitacao(fkSolicitacao);
 				
 				comenta.setIdComentario(codigo);
 				comenta.setTexto(texto);
-				comenta.setDataHora(data);
+				comenta.setDataHora(dataFinal);
 				comenta.setAluno(alu);
-				comenta.setAdministrador(admin);
 				comenta.setSolicitacao(solici);
 				
 				comentarios.add(comenta);				
 			}
-			return comentarios;
+			
+		} catch(SQLException e) {
+			System.err.println("Falha no banco: " + e.getMessage());
+			e.printStackTrace();
+		} catch( Exception e) {
+			System.err.println("Falha no java: " + e.getMessage());
+			e.printStackTrace();
+		}
+
+		try(PreparedStatement pst = conexao.prepareStatement(consulta2)){
+			
+			pst.setInt(1, solicitacao.getIdSolicitacao());
+			
+			ResultSet resultado = pst.executeQuery();	
+			
+			while(resultado.next()) {
+				Comentario comenta = new Comentario();
+				Administrador adm = new Administrador();
+				Solicitacao solici = new Solicitacao();
+				
+				int codigo =  resultado.getInt("codigo");
+				String texto = resultado.getString("texto");
+				String fkAdm = resultado.getString("fk_email_adm");
+				int fkSolicitacao = resultado.getInt("fk_codigo_solicitacao");
+				InputStream anexo = resultado.getBinaryStream("anexo");
+				String nome = resultado.getString("nome");
+				String sobrenome = resultado.getString("sobrenome");
+				
+				String dataBanco = resultado.getString("data_hora");
+				
+				String[] dataBancoSeparada = dataBanco.split(" ");
+				String dataCompleta = dataBancoSeparada[0];
+				String horaCompleta = dataBancoSeparada[1];
+
+				String[] dataSeparada = dataCompleta.split("-");
+				int ano = Integer.parseInt(dataSeparada[0]);
+				int mes = Integer.parseInt(dataSeparada[1]);
+				int dia = Integer.parseInt(dataSeparada[2]);
+
+				String[] horaSeparada = horaCompleta.split(":");
+				int hora = Integer.parseInt(horaSeparada[0]);
+				int minuto = Integer.parseInt(horaSeparada[1]);
+				int segundo = Integer.parseInt(horaSeparada[2]);
+
+				GregorianCalendar dataFinal = new GregorianCalendar(ano, mes, dia, hora, minuto, segundo);
+				
+				if(anexo != null) {
+					File novoAnexo = new File("C:/Users/kesse/OneDrive/Documents/USJT/3º semestre/PI/MoonModels/WebContent/anexoSolicitacoes/comentario" + codigo + ".pdf");
+					FileOutputStream output = new FileOutputStream(novoAnexo);
+					
+					byte[] buffer = new byte[1024];
+					
+					while (anexo.read(buffer) > 0) {
+						output.write(buffer);
+					}
+					
+					anexo.close();
+					output.close();
+					
+					comenta.setAnexo(novoAnexo);
+				}
+
+				adm.setEmail(fkAdm);
+				adm.setNome(nome);
+				adm.setSobrenome(sobrenome);
+				solici.setIdSolicitacao(fkSolicitacao);
+				
+				comenta.setIdComentario(codigo);
+				comenta.setTexto(texto);
+				comenta.setDataHora(dataFinal);
+				comenta.setAdministrador(adm);
+				comenta.setSolicitacao(solici);
+				
+				comentarios.add(comenta);
+			}
 			
 		} catch(SQLException e) {
 			System.err.println("Falha no banco: " + e.getMessage());
@@ -155,7 +262,7 @@ public class ComentarioDAO {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return comentarios;
 	}
 	
 }

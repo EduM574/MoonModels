@@ -43,12 +43,11 @@ public class UserHomeAlunoController extends HttpServlet {
 		ArrayList<Solicitacao> solicitacaoIndeferida = slcService.selectSolicitacoesAluno(aluno, "INDEFERIDA");
 		ArrayList<Solicitacao> solicitacaoAndamento = slcService.selectSolicitacoesAluno(aluno, "");
 		
-		request.setAttribute("solicitacaoDeferida", solicitacaoDeferida);
-		request.setAttribute("solicitacaoIndeferida", solicitacaoIndeferida);
-		request.setAttribute("solicitacaoAndamento", solicitacaoAndamento);
+		session.setAttribute("solicitacaoDeferida", solicitacaoDeferida);
+		session.setAttribute("solicitacaoIndeferida", solicitacaoIndeferida);
+		session.setAttribute("solicitacaoAndamento", solicitacaoAndamento);
 		
-		RequestDispatcher view = request.getRequestDispatcher("userHomeAluno.jsp");
-		view.forward(request, response);
+		response.sendRedirect("userHomeAluno.jsp");
 	
 		}
 	}

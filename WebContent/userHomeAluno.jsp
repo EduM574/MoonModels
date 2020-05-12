@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@page import="model.Aluno" %>
+    <%@page import="model.Solicitacao" %>
+    <%@page import="java.util.ArrayList" %>
         <%
         	if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
                 //caso a pessoa não esteja logada
@@ -7,10 +9,13 @@
             
             } else if(session.getAttribute("adm") != null) {
                 //caso a pessoa que esteja logada seja um aluno
-                response.sendRedirect("userHomeAdm.jsp");
+                response.sendRedirect("UserHomeAdm.do");
 
             } else {
-            	  Aluno aluno = (Aluno) session.getAttribute("aluno");        
+            	  Aluno aluno = (Aluno) session.getAttribute("aluno");
+            	  ArrayList<Solicitacao> solicitacaoDeferida = (ArrayList<Solicitacao>) session.getAttribute("solicitacaoDeferida");
+            	  ArrayList<Solicitacao> solicitacaoIndeferida = (ArrayList<Solicitacao>) session.getAttribute("solicitacaoIndeferida");
+            	  ArrayList<Solicitacao> solicitacaoAndamento = (ArrayList<Solicitacao>) session.getAttribute("solicitacaoAndamento");
         %>
             <!DOCTYPE html>
             <html lang="en">
@@ -74,91 +79,120 @@
                     <section class="info">
                         <div class="info-card">
                             <p class="info-title">Total de solicitações</p>
-                            <p class="info-content">15</p>
+                            <p class="info-content"><%= solicitacaoDeferida.size() + solicitacaoIndeferida.size() + solicitacaoAndamento.size()%></p>
                         </div>
                         <div class="info-card">
-                            <p class="info-title">Solicitações concluídas</p>
-                            <p class="info-content">5</p>
+                            <p class="info-title">Solicitações Deferidas</p>
+                            <p class="info-content"><%= solicitacaoDeferida.size() %></p>
                         </div>
                         <div class="info-card">
-                            <p class="info-title">Solicitações deferidas</p>
-                            <p class="info-content">2</p>
+                            <p class="info-title">Solicitações Indeferidas</p>
+                            <p class="info-content"><%= solicitacaoIndeferida.size() %></p>
                         </div>
                     </section>
 
                     <section>
                         <h2 class="titulo-solicitacao">Em andamento</h2>
-                        <div class="s-card-color">
-                            <div class="s-card-content">
-                                <div class="s-row">
-                                    <div>
-                                        <span class="s-card-subtitle">Nome:</span>
-                                        <span>Cartão do estudante</span>
-                                    </div>
-                                    <div class="s-status-ativo"></div>
-                                </div>
-                                <div class="s-row">
-                                    <div>
-                                        <span class="s-card-subtitle">Status:</span>
-                                        <span>1/4</span>
-                                    </div>
-                                    <div>
-                                        <span class="s-card-subtitle">Código:</span>
-                                        <span>1470</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="cards-adm">
+                           <%
+                               int totalSolicitacoes = 0; for(Solicitacao s : solicitacaoAndamento) {
+                           %>
+                               <form action="UserHomeSolicitacao.do" method="POST" class="s-card-color-adm">
+                                   <input type="hidden" name="id-solicitacao" value="<%=s.getIdSolicitacao()%>">
+                                   <button type="submit" class="s-card-content-adm">
+                                       <div class="s-row-adm">
+                                           <div>
+                                               <span class="s-card-subtitle">Nome:</span>
+                                               <span><%=s.getNome()%></span>
+                                           </div>
+                                           <div class="s-status-ativo"></div>
+                                       </div>
+                                       <div class="s-row-adm">
+                                           <div>
+                                               <span class="s-card-subtitle">Status:</span>
+                                               <span><%=s.getStatus()%></span>
+                                           </div>
+                                           <div class="status-card-adm">
+                                               <span class="s-card-subtitle">Código:</span>
+                                               <span><%=s.getIdSolicitacao()%></span>
+                                           </div>
+                                       </div>
+                                   </button>
+                               </form>
+                           <%
+                           	}
+                           %>
+                       </div>
                     </section>
 
                     <section>
                         <h2 class="titulo-solicitacao">Deferidas</h2>
-                        <div class="s-card-color">
-                            <div class="s-card-content">
-                                <div class="s-row">
-                                    <div>
-                                        <span class="s-card-subtitle">Nome:</span>
-                                        <span>Cartão do estudante</span>
+                        <div class="cards-adm">
+
+                                        <%
+                                            for(Solicitacao s : solicitacaoDeferida) {
+                                        %>
+                                            <form action="UserHomeSolicitacao.do" method="POST" class="s-card-color-adm">
+                                                <input type="hidden" name="id-solicitacao" value="<%=s.getIdSolicitacao()%>">
+                                                <button type="submit" class="s-card-content-adm">
+                                                    <div class="s-row-adm">
+                                                        <div>
+                                                            <span class="s-card-subtitle">Nome:</span>
+                                                            <span><%=s.getNome()%></span>
+                                                        </div>
+                                                        <div class="s-status-ativo"></div>
+                                                    </div>
+                                                    <div class="s-row-adm">
+                                                        <div>
+                                                            <span class="s-card-subtitle">Status:</span>
+                                                            <span><%=s.getStatus()%></span>
+                                                        </div>
+                                                        <div class="status-card-adm">
+                                                            <span class="s-card-subtitle">Código:</span>
+                                                            <span><%=s.getIdSolicitacao()%></span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                            <%
+                                        	}
+                                        %>
                                     </div>
-                                    <div class="s-status-ativo"></div>
-                                </div>
-                                <div class="s-row">
-                                    <div>
-                                        <span class="s-card-subtitle">Status:</span>
-                                        <span>1/4</span>
-                                    </div>
-                                    <div>
-                                        <span class="s-card-subtitle">Código:</span>
-                                        <span>1470</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </section>
 
                     <section>
                         <h2 class="titulo-solicitacao">Indeferido</h2>
-                        <div class="s-card-color">
-                            <div class="s-card-content">
-                                <div class="s-row">
-                                    <div>
-                                        <span class="s-card-subtitle">Nome:</span>
-                                        <span>Cartão do estudante</span>
+                        <div class="cards-adm">
+
+                                        <%
+                                            for(Solicitacao s : solicitacaoIndeferida) {
+                                        %>
+                                            <form action="UserHomeSolicitacao.do" method="POST" class="s-card-color-adm">
+                                                <input type="hidden" name="id-solicitacao" value="<%=s.getIdSolicitacao()%>">
+                                                <button type="submit" class="s-card-content-adm">
+                                                    <div class="s-row-adm">
+                                                        <div>
+                                                            <span class="s-card-subtitle">Nome:</span>
+                                                            <span><%=s.getNome()%></span>
+                                                        </div>
+                                                        <div class="s-status-ativo"></div>
+                                                    </div>
+                                                    <div class="s-row-adm">
+                                                        <div>
+                                                            <span class="s-card-subtitle">Status:</span>
+                                                            <span><%=s.getStatus()%></span>
+                                                        </div>
+                                                        <div class="status-card-adm">
+                                                            <span class="s-card-subtitle">Código:</span>
+                                                            <span><%=s.getIdSolicitacao()%></span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </form>
+                                            <%
+                                        	}
+                                        %>
                                     </div>
-                                    <div class="s-status-ativo"></div>
-                                </div>
-                                <div class="s-row">
-                                    <div>
-                                        <span class="s-card-subtitle">Status:</span>
-                                        <span>1/4</span>
-                                    </div>
-                                    <div>
-                                        <span class="s-card-subtitle">Código:</span>
-                                        <span>1470</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </section>
                 </div>
 

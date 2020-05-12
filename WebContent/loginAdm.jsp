@@ -12,7 +12,7 @@
     <% 
     	if (session.getAttribute("aluno") != null || session.getAttribute("adm") != null) {
             //caso ja esteja logado
-            response.sendRedirect("userHomeAdm.jsp");
+            response.sendRedirect("UserHomeAdm.do");
         }
 
         String erro = (String) request.getAttribute("erro");

@@ -54,11 +54,11 @@
                 }
             %>
                     <nav>
-                        <a href="userHomeAdm.jsp">
-                            <div class="menu-icon-wrapper">
+                        <form action="UserHomeAdm.do" method="post" class="form-nav-wrapper">
+                            <button type="submit">
                                 <img src="./img/home.png" alt="Home">
-                            </div>
-                        </a>
+                            </button>
+                        </form>
                         <a href="<%=editar%>">
                             <div class="menu-icon-wrapper">
                                 <img src="./img/newsfeed.png" alt="Alunos/ADMs">
