@@ -68,7 +68,7 @@
                 </nav>
                 <section class="content">
                     <p class="title">Criar Solicitação</p>
-                    <form action="CadastroSolicitacoes.do" method="POST" class=" form ">
+                    <form action="CadastroSolicitacoes.do" method="POST" class="form" enctype="multipart/form-data">
                         <div class="input-form">
                             <div class="box ">
                                 <select name="solicitacao">
@@ -81,7 +81,7 @@
                             <div class="box inputFile">
                                 <span>Escolha um arquivo</span>
                                 <span>+</span>
-                                <input type="file" name="arquivo" id="arquivo" accept=".pdf" />
+                                <input type="file" size="50" name="arquivo" id="arquivo" accept=".pdf" />
                             </div>
                         </div>
                         <div class="input-form2 ">
