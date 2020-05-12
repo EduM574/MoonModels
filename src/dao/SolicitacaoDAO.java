@@ -127,7 +127,7 @@ public class SolicitacaoDAO {
 					// Encerra a saída:
 					output.close();
 
-					solicita.setAnexo(novoAnexo);
+					// solicita.setAnexo(novoAnexo);
 				}
 				
 				al.setRa(fkAluno);
@@ -203,7 +203,7 @@ public class SolicitacaoDAO {
 					// Encerra a saída:
 					output.close();
 
-					solicita.setAnexo(novoAnexo);
+					// solicita.setAnexo(novoAnexo);
 				}
 				
 				al.setRa(fkAluno);
@@ -288,7 +288,7 @@ public class SolicitacaoDAO {
 					// Encerra a saída:
 					output.close();
 
-					solicita.setAnexo(novoAnexo);
+					// solicita.setAnexo(novoAnexo);
 				}
 				
 				al.setRa(fkAluno);
@@ -370,7 +370,7 @@ public class SolicitacaoDAO {
 					// Encerra a saída:
 					output.close();
 
-					solicita.setAnexo(novoAnexo);
+					// solicita.setAnexo(novoAnexo);
 				}
 				
 				al.setRa(fkAluno);
@@ -443,7 +443,7 @@ public class SolicitacaoDAO {
 					// Encerra a saída:
 					output.close();
 
-					solicita.setAnexo(novoAnexo);
+					// solicita.setAnexo(novoAnexo);
 				}
 				
 				al.setRa(fkAluno);
