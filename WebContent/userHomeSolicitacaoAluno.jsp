@@ -19,8 +19,7 @@
               	  ArrayList<Solicitacao> solicitacaoIndeferida = (ArrayList<Solicitacao>) session.getAttribute("solicitacaoIndeferida");
               	  ArrayList<Solicitacao> solicitacaoAndamento = (ArrayList<Solicitacao>) session.getAttribute("solicitacaoAndamento");
                	  Solicitacao solicitacao = (Solicitacao) request.getAttribute("solicitacao");
-               	  System.out.println("oi");
-                
+               	
            		String diaSoli, mesSoli, dateSoli;
            		
            	    if(solicitacao.getDataAbertura().get(GregorianCalendar.MONTH) < 10) {
@@ -245,7 +244,7 @@
                                 <img src="./img/download.png" alt="enviar">
                             </a>
                             <%}%>
-                                <form action="UserHomeAdm.do" method="GET">
+                                <form action="UserHomeAluno.do" method="GET">
                                     <button class="s-hist-close-comment-btn">X</button>
                                 </form>
                     </div>
