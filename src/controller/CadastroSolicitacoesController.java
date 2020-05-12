@@ -79,8 +79,6 @@ public class CadastroSolicitacoesController extends HttpServlet {
 			}
 		}
 		
-		File anexo = new File(savePath + File.separator + nomeAnexo);
-		
 		String sNome = request.getParameter("solicitacao");
 		String sDescricao = request.getParameter("descricao");
 
@@ -91,7 +89,11 @@ public class CadastroSolicitacoesController extends HttpServlet {
 		sol.setNome(sNome);
 		sol.setDescricao(sDescricao);
 		sol.setAluno(al);
-		sol.setAnexo(anexo);
+
+		if(!nomeAnexo.equals("")) {
+			File anexo = new File(savePath + File.separator + nomeAnexo);
+			sol.setAnexo(anexo);
+		}
 
 		SolicitacaoService ss = new SolicitacaoService();
 		ss.create(sol);

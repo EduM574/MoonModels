@@ -81,19 +81,22 @@ public class ComentarioController extends HttpServlet {
 			}
 		}
 		
-		File anexo = new File(savePath + File.separator + nomeAnexo);
-				
+		
 		String cTexto = request.getParameter("texto");
 		int idSoli = Integer.parseInt(request.getParameter("id-solicitacao"));
-
+		
 		HttpSession session = request.getSession();
 		Comentario cm = new Comentario();
 		Solicitacao sol = new Solicitacao();
-
+		
 		sol.setIdSolicitacao(idSoli);
 		cm.setTexto(cTexto);
 		cm.setSolicitacao(sol);
-		cm.setAnexo(anexo);
+		
+		if(!nomeAnexo.equals("")) {
+			File anexo = new File(savePath + File.separator + nomeAnexo);
+			cm.setAnexo(anexo);
+		}
 
 		if(session.getAttribute("aluno") != null) {
 			Aluno al = (Aluno) session.getAttribute("aluno");
