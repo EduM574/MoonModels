@@ -302,6 +302,7 @@
     
     .s-hist-send-comment-btn>img {
         width: 65%;
+        cursor: pointer;
     }
     
      ::-webkit-scrollbar {
@@ -484,7 +485,11 @@
     .s-hist-buttons-top-adm {
         width: 30%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
+    }
+    
+    .s-hist-buttons-top-adm a {
+        margin-right: 40%;
     }
     
     .s-hist-close-comment-btn {
@@ -493,4 +498,25 @@
         cursor: pointer;
         font-size: 22px;
         color: #898989;
+    }
+    
+    .inputFile {
+        width: 45px;
+        height: 45px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+    
+    .inputFile input {
+        width: 45px;
+        height: 45px;
+        margin: 0;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        position: absolute;
+        cursor: pointer;
     }

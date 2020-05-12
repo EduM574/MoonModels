@@ -150,7 +150,7 @@ public class ComentarioDAO {
 				GregorianCalendar dataFinal = new GregorianCalendar(ano, mes, dia, hora, minuto, segundo);
 				
 				if(anexo != null) {
-					File novoAnexo = new File("anexo_" + codigo + ".pdf");
+					File novoAnexo = new File("C:/Users/kesse/OneDrive/Documents/USJT/3º semestre/PI/MoonModels/WebContent/anexoSolicitacoes/comentario" + codigo + ".pdf");
 					FileOutputStream output = new FileOutputStream(novoAnexo);
 					
 					byte[] buffer = new byte[1024];
@@ -225,7 +225,7 @@ public class ComentarioDAO {
 				GregorianCalendar dataFinal = new GregorianCalendar(ano, mes, dia, hora, minuto, segundo);
 				
 				if(anexo != null) {
-					File novoAnexo = new File("anexo_" + codigo + ".pdf");
+					File novoAnexo = new File("C:/Users/kesse/OneDrive/Documents/USJT/3º semestre/PI/MoonModels/WebContent/anexoSolicitacoes/comentario" + codigo + ".pdf");
 					FileOutputStream output = new FileOutputStream(novoAnexo);
 					
 					byte[] buffer = new byte[1024];

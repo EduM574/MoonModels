@@ -164,12 +164,14 @@
                                                 <span class="s-hist-subtitle"><%=solicitacao.getNome() %></span>
                                             </div>
                                             <div class="s-hist-buttons-top-adm">
-                                                <a href="./anexoSolicitacoes/solicitacao<%=solicitacao.getIdSolicitacao()%>.pdf" class="s-hist-send-comment-btn" download="solicitacao<%=solicitacao.getIdSolicitacao()%>.pdf">
-                                                    <img src="./img/download.png" alt="enviar">
-                                                </a>
-                                                <form action="UserHomeAdm.do" method="GET">
-                                                    <button class="s-hist-close-comment-btn">X</button>
-                                                </form>
+                                                <% if(solicitacao.getAnexo() != null){ %>
+                                                    <a href="./anexoSolicitacoes/solicitacao<%=solicitacao.getIdSolicitacao()%>.pdf" class="s-hist-send-comment-btn" download="solicitacao<%=solicitacao.getIdSolicitacao()%>.pdf">
+                                                        <img src="./img/download.png" alt="enviar">
+                                                    </a>
+                                                    <%}%>
+                                                        <form action="UserHomeAdm.do" method="GET">
+                                                            <button class="s-hist-close-comment-btn">X</button>
+                                                        </form>
                                             </div>
                                         </div>
                                         <div class="title-wrapper">
@@ -284,9 +286,13 @@
                                                 <%}%>
                                         </div>
                                         <div>
-                                            <form action="Comentario.do" method="POST" class="form">
+                                            <form action="Comentario.do" method="POST" class="form" enctype="multipart/form-data">
                                                 <input type="hidden" name="id-solicitacao" value="<%=solicitacao.getIdSolicitacao()%>">
                                                 <input type="text" class="s-hist-input" name="texto">
+                                                <div class="inputFile">
+                                                    <span class="s-hist-send-comment-btn"><img src="./img/file.png" alt="anexo"></span>
+                                                    <input type="file" size="50" name="arquivo" id="arquivo" accept=".pdf" />
+                                                </div>
                                                 <button class="s-hist-send-comment-btn" type="submit"><img src="./img/forward.png" alt="enviar"></button>
                                             </form>
                                         </div>
