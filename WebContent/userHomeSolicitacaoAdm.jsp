@@ -279,9 +279,9 @@
                                                         <span class="s-comment-user"><%=nome%>:</span>
                                                         <span class="s-comment-content"><%=c.getTexto() %></span>
                                                     </div>
-                                                    <div>
+                                                    <div class="s-comment-file">
                                                         <% if(c.getAnexo() != null){ %>
-                                                            <a href="./anexoSolicitacoes/comentario<%=c.getIdComentario()%>.pdf" class="s-hist-send-comment-btn" download="comentario<%=c.getIdComentario()%>.pdf">
+                                                            <a href="./anexoSolicitacoes/comentario<%=c.getIdComentario()%>.pdf" class="s-comment-file-btn" download="comentario<%=c.getIdComentario()%>.pdf">
                                                                 <img src="./img/download.png" alt="enviar">
                                                             </a>
                                                             <%}%>

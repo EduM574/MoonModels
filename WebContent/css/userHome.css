@@ -520,3 +520,25 @@
         position: absolute;
         cursor: pointer;
     }
+    
+    .s-comment-file {
+        display: flex;
+        align-items: center;
+    }
+    
+    .s-comment-file-btn {
+        width: 30px;
+        height: 30px;
+        background-color: #F2717F;
+        border-radius: 20px;
+        margin-right: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .s-comment-file-btn img {
+        width: 60%;
+        cursor: pointer;
+    }
