@@ -280,7 +280,12 @@
                                                         <span class="s-comment-content"><%=c.getTexto() %></span>
                                                     </div>
                                                     <div>
-                                                        <span class="s-comment-date"><%=dateComentario%></span>
+                                                        <% if(c.getAnexo() != null){ %>
+                                                            <a href="./anexoSolicitacoes/comentario<%=c.getIdComentario()%>.pdf" class="s-hist-send-comment-btn" download="comentario<%=c.getIdComentario()%>.pdf">
+                                                                <img src="./img/download.png" alt="enviar">
+                                                            </a>
+                                                            <%}%>
+                                                                <span class="s-comment-date"><%=dateComentario%></span>
                                                     </div>
                                                 </div>
                                                 <%}%>
