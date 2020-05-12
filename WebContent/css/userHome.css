@@ -295,10 +295,13 @@
         border-style: none;
         background-color: #F2717F;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .s-hist-send-comment-btn>img {
-        width: 95%;
+        width: 65%;
     }
     
      ::-webkit-scrollbar {

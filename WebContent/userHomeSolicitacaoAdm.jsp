@@ -164,7 +164,9 @@
                                                 <span class="s-hist-subtitle"><%=solicitacao.getNome() %></span>
                                             </div>
                                             <div class="s-hist-buttons-top-adm">
-                                                <button class="s-hist-send-comment-btn"><img src="./img/download.png" alt="enviar"></button>
+                                                <a href="./anexoSolicitacoes/solicitacao<%=solicitacao.getIdSolicitacao()%>.pdf" class="s-hist-send-comment-btn" download="solicitacao<%=solicitacao.getIdSolicitacao()%>.pdf">
+                                                    <img src="./img/download.png" alt="enviar">
+                                                </a>
                                                 <form action="UserHomeAdm.do" method="GET">
                                                     <button class="s-hist-close-comment-btn">X</button>
                                                 </form>
