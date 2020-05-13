@@ -116,12 +116,12 @@ select {
     justify-content: center;
 }
 
-.form-nav-wrapper>button {
+.form-nav-wrapper > button {
     background: none;
     border: none;
     cursor: pointer;
 }
 
-.form-nav-wrapper>button>img {
+.form-nav-wrapper > button > img {
     width: 100%;
 }
