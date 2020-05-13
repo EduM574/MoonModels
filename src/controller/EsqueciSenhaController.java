@@ -41,6 +41,8 @@ public class EsqueciSenhaController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String pEmail = request.getParameter("email");
+
         Properties props = new Properties();
         /** Parâmetros de conexão com servidor Gmail */
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -66,15 +68,13 @@ public class EsqueciSenhaController extends HttpServlet {
             message.setFrom(new InternetAddress("alexiavitoriakesselyn@gmail.com")); 
        
             Address[] toUser = InternetAddress //Destinatário(s)
-                       .parse("kesselynfortunato@gmail.com");  
+                       .parse(pEmail);  
        
             message.setRecipients(Message.RecipientType.TO, toUser);
-            message.setSubject("Enviando email com JavaMail");//Assunto
-            message.setText("Enviei este email utilizando JavaMail com minha conta GMail!");
+            message.setSubject("Redefinir senha");//Assunto
+            message.setText("Em breve teremos algo bonito aqui");
             /**Método para enviar a mensagem criada*/
             Transport.send(message);
-       
-            System.out.println("Feito!!!");
        
            } catch (MessagingException e) {
               throw new RuntimeException(e);
