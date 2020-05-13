@@ -130,7 +130,7 @@
                                             <h2 class="titulo-solicitacao">Solicitações</h2>
                                             <div class="cards-adm">
 
-                                                <% int totalSolicitacoes = 0; for(Solicitacao s : solicitacoes) {%>
+                                                <%for(Solicitacao s : solicitacoes) {%>
                                                     <div class="s-card-color-adm">
                                                         <div class="s-card-content">
                                                             <div class="s-row-adm">
