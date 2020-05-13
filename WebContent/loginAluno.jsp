@@ -34,7 +34,7 @@
                     <button type="submit">Fazer login</button>
                 </form>
                 <div class="redirect">
-                    <a href="esqueciSenha.jsp" class="new-password">Esqueci a senha</a>
+                    <a href="esqueciSenhaAluno.jsp" class="new-password">Esqueci a senha</a>
                     <a href="loginAdm.jsp" class="login-adm">Fazer login como administrador</a>
                 </div>
             </section>

@@ -25,8 +25,12 @@
                 </div>
             </header>
             <section class="content">
-                <form action="EsqueciSenha.do" method="POST" class="form3">
+                <form action="EsqueciSenhaAluno.do" method="POST" class="form">
+                    <input type="number" name="ra" placeholder="Insira seu RA">
                     <input type="email" name="email" placeholder="Insira seu e-mail">
+                    <p class="erro">
+                        <% if(erro != null) out.print(erro); %>
+                    </p>
                     <button type="submit">Enviar</button>
                 </form>
                 <div class="redirect">
