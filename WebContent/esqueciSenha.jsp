@@ -25,17 +25,13 @@
                 </div>
             </header>
             <section class="content">
-                <form action="LoginAluno.do" method="post" class="form">
-                    <input type="number" name="ra" placeholder="RA">
-                    <input type="password" name="password" maxlength="15" placeholder="Senha">
-                    <p class="erro">
-                        <% if(erro != null) out.print(erro); %>
-                    </p>
-                    <button type="submit">Fazer login</button>
+                <form action="EsqueciSenha.do" method="POST" class="form3">
+                    <input type="email" name="email" placeholder="Insira seu e-mail">
+                    <button type="submit">Enviar</button>
                 </form>
                 <div class="redirect">
-                    <a href="esqueciSenha.jsp" class="new-password">Esqueci a senha</a>
-                    <a href="loginAdm.jsp" class="login-adm">Fazer login como administrador</a>
+                    <a href="loginAluno.jsp" class="login-adm">Voltar ao login do aluno</a>
+                    <a href="loginAdm.jsp" class="login-adm">Voltar ao login do administrador</a>
                 </div>
             </section>
         </body>

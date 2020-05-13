@@ -19,10 +19,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- * Servlet implementation class EsqueciSenhaAlunoController
+ * Servlet implementation class EsqueciSenhaController
  */
-@WebServlet("/EsqueciSenhaAluno.do")
-public class EsqueciSenhaAlunoController extends HttpServlet {
+@WebServlet("/EsqueciSenha.do")
+public class EsqueciSenhaController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**

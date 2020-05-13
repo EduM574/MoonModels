@@ -75,6 +75,14 @@ header {
     justify-content: space-around;
 }
 
+.form3 {
+    min-height: 150px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .form input {
     width: 100%;
     font-family: Catamaran;
@@ -108,6 +116,27 @@ header {
 }
 
 .form2 button {
+    font-family: Catamaran;
+    font-size: 26px;
+    color: #FFF;
+    line-height: 48px;
+    border: none;
+    background-color: #C06C84;
+    border-radius: 10px;
+}
+
+.form3 input {
+    width: 100%;
+    font-family: Catamaran;
+    font-size: 20px;
+    color: #345D7D;
+    line-height: 45px;
+    background-color: #f9f9f9;
+    border-width: 0 0 2px 0;
+    border-color: #345D7D;
+}
+
+.form3 button {
     font-family: Catamaran;
     font-size: 26px;
     color: #FFF;
