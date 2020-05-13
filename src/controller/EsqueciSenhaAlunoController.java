@@ -95,6 +95,11 @@ public class EsqueciSenhaAlunoController extends HttpServlet {
                 /** Método para enviar a mensagem criada */
                 Transport.send(message);
 
+                request.setAttribute("email", pEmail);
+
+                RequestDispatcher view = request.getRequestDispatcher("mensagemEmailEnviado.jsp");
+                view.forward(request, response);
+
             } catch (MessagingException e) {
                 throw new RuntimeException(e);
             }
