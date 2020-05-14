@@ -80,7 +80,7 @@
                             </a>
                         </nav>
                         <section class="content">
-                            <p class="title">Lista de alunos</p>
+                            <p class="title">Lista de administradores</p>
                             <div class="lista-alunos">
                                 <%
                         	for(Administrador admin: administradores) {
