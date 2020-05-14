@@ -91,7 +91,7 @@ public class EsqueciSenhaAlunoController extends HttpServlet {
 
                 message.setRecipients(Message.RecipientType.TO, toUser);
                 message.setSubject("Redefinir senha");// Assunto
-                message.setText("Para redefinir a senha acesse o link http://localhost:8080/MoonWeb/redefinirSenhaAluno.jsp?email="+pEmail);
+                message.setText("Para redefinir a senha acesse o link http://localhost:8080/MoonWeb/redefinirSenhaAluno.jsp?ra="+pRa);
                 /** Método para enviar a mensagem criada */
                 Transport.send(message);
 

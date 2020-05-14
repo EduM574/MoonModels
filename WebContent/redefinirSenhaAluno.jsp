@@ -13,6 +13,8 @@
             //caso ja esteja logado
             response.sendRedirect("UserHomeAluno.do");
         }
+
+        String ra = request.getParameter("ra");
          
     %>
 
@@ -23,15 +25,12 @@
                 </div>
             </header>
             <section class="content">
-                <form action="EsqueciSenhaAluno.do" method="POST" class="form">
-                    <input type="number" name="ra" placeholder="Insira seu RA">
-                    <input type="email" name="email" placeholder="Insira seu e-mail">
-                    <button type="submit">Enviar</button>
+                <form action="redefinirSenhaAluno.do" method="POST" class="form">
+                    <input type="hidden" name="ra" value="<%=ra%>">
+                    <input type="password" name="password" maxlength="15" placeholder="Nova senha">
+                    <input type="password" name="passwordConfirm" maxlength="15" placeholder="Confirme a nova senha">
+                    <button type="submit">Redefinir</button>
                 </form>
-                <div class="redirect">
-                    <a href="loginAluno.jsp" class="login-adm">Voltar ao login do aluno</a>
-                    <a href="loginAdm.jsp" class="login-adm">Voltar ao login do administrador</a>
-                </div>
             </section>
         </body>
 
