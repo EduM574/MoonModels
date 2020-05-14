@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="css/loginCadastro.css" media="screen" />
-        <title>Esqueci senha</title>
+        <title>Redefinir senha</title>
     </head>
 
     <%     
@@ -13,8 +13,6 @@
             //caso ja esteja logado
             response.sendRedirect("UserHomeAluno.do");
         }
-        
-        String erro = (String) request.getAttribute("erro");
          
     %>
 
@@ -28,9 +26,6 @@
                 <form action="EsqueciSenhaAluno.do" method="POST" class="form">
                     <input type="number" name="ra" placeholder="Insira seu RA">
                     <input type="email" name="email" placeholder="Insira seu e-mail">
-                    <p class="erro">
-                        <% if(erro != null) out.print(erro); %>
-                    </p>
                     <button type="submit">Enviar</button>
                 </form>
                 <div class="redirect">
