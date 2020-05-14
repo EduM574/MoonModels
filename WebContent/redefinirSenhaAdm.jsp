@@ -14,7 +14,7 @@
             response.sendRedirect("UserHomeAluno.do");
         }
 
-        String ra = request.getParameter("ra");
+        String email = request.getParameter("email");
          
     %>
 
@@ -25,8 +25,8 @@
                 </div>
             </header>
             <section class="content">
-                <form action="RedefinirSenhaAluno.do" method="POST" class="form">
-                    <input type="hidden" name="ra" value="<%=ra%>">
+                <form action="RedefinirSenhaAdm.do" method="POST" class="form">
+                    <input type="hidden" name="email" value="<%=email%>">
                     <input type="password" name="password" maxlength="15" placeholder="Nova senha">
                     <input type="password" name="passwordConfirm" maxlength="15" placeholder="Confirme a nova senha">
                     <button type="submit">Redefinir</button>

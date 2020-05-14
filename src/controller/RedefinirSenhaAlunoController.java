@@ -15,7 +15,7 @@ import service.AlunoService;
 /**
  * Servlet implementation class RedefinirSenhaAlunoController
  */
-@WebServlet("/redefinirSenhaAluno.do")
+@WebServlet("/RedefinirSenhaAluno.do")
 public class RedefinirSenhaAlunoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
