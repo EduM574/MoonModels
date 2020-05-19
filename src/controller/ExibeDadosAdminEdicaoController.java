@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Administrador;
+import model.Setor;
 import service.AdministradorService;
+import service.SetorService;
 
 /**
  * Servlet implementation class ExibeDadosAdminEdicaoController
@@ -42,7 +45,11 @@ public class ExibeDadosAdminEdicaoController extends HttpServlet {
         AdministradorService admService = new AdministradorService();
         adm = admService.selectAdminGeral(adm);
 
+        SetorService sS = new SetorService();
+        ArrayList<Setor> setores = sS.listarSetores();
+
         request.setAttribute("exibeAdmin", adm);
+        request.setAttribute("setores", setores);
 
         RequestDispatcher view = request.getRequestDispatcher("editarDadosAdm.jsp");
         view.forward(request, response);
