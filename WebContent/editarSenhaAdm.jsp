@@ -84,8 +84,8 @@
                         <form action="EditarSenhaAdm.do" method="POST" class="form">
                             <div class="input-form">
                                 <div class="box">
-                                    <input type="password" name="password" maxlength="15" placeholder="Nova senha">
-                                    <input type="password" name="password" maxlength="15" placeholder="Confirme a nova senha">
+                                    <input type="password" name="password" maxlength="15" placeholder="Nova senha" maxlength="30" required>
+                                    <input type="password" name="password" maxlength="15" placeholder="Confirme a nova senha" maxlength="30" required>
                                 </div>
                             </div>
                             <button type="submit">Editar</button>
