@@ -84,13 +84,13 @@
                         <form action="CadastraAdm.do" method="POST" class="form">
                             <div class="input-form">
                                 <div class="box">
-                                    <input type="text" name="nome" placeholder="Nome">
-                                    <input type="text" name="sobrenome" placeholder="Sobrenome">
+                                    <input type="text" name="nome" placeholder="Nome" maxlength="35" required>
+                                    <input type="text" name="sobrenome" placeholder="Sobrenome" maxlength="35" required>
                                 </div>
                                 <div class="box">
-                                    <input type="email" name="email" placeholder="E-mail">
+                                    <input type="email" name="email" placeholder="E-mail" maxlength="80" required>
                                     <div class="mini-box">
-                                        <input type="text" name="cpf" placeholder="CPF" class="normal">
+                                        <input type="number" name="cpf" placeholder="CPF" class="normal" required>
                                         <select name="setor" class="normal">
                                             <option value="1">Transporte escolar</option>
                                             <option value="2">Gestão de estagio</option>
