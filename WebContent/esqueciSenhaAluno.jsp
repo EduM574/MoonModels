@@ -26,8 +26,8 @@
             </header>
             <section class="content">
                 <form action="EsqueciSenhaAluno.do" method="POST" class="form">
-                    <input type="number" name="ra" placeholder="Insira seu RA">
-                    <input type="email" name="email" placeholder="Insira seu e-mail">
+                    <input type="number" name="ra" placeholder="Insira seu RA" maxlength="9" required>
+                    <input type="email" name="email" placeholder="Insira seu e-mail" maxlength="80" required>
                     <p class="erro">
                         <% if(erro != null) out.print(erro); %>
                     </p>
