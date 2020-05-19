@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@page import="model.Administrador" %>
+    <%@page import="model.Setor" %>
         <%@page import="java.util.ArrayList" %>
             <%
             if (session.getAttribute("aluno") == null && session.getAttribute("adm") == null) {
@@ -14,6 +15,7 @@
             } else {
             	Administrador adm = (Administrador) session.getAttribute("adm");
                 Administrador admEdicao = (Administrador) request.getAttribute("exibeAdmin");
+                ArrayList<Setor> setores = (ArrayList<Setor>) request.getAttribute("setores");
                 String erro = (String) request.getAttribute("erro");
 
                 System.out.println("Adm edição JSP: " + admEdicao);
@@ -97,19 +99,12 @@
                                         <input type="text" name="cpf" placeholder="CPF" value="<%= admEdicao.getCpf()%>">
                                         <select name="setor" class="altura-diferente">
                                     	<%
-                                    		ArrayList<String> setor = new ArrayList<String>();
-                                    		setor.add("Transporte escolar");
-                                    		setor.add("Gestão de estagio");
-                                    		setor.add("Atividades curriculares");
-                                    		setor.add("MASTER");
-                                    		
-                                    		for(int i = 0; i < 4; i++) {
-                                    			String s = setor.get(i);
+                                    		for(Setor s : setores) {
                                     			
-                                    			if (i+1 == admEdicao.getSetor().getIdSetor()){
-                                    				out.print("<option value='"+ i+1 +"' selected>"+s+"</option>");
+                                    			if (s.getIdSetor() == admEdicao.getSetor().getIdSetor()){
+                                    				out.print("<option value='"+ s.getIdSetor() +"' selected>"+s.getNome()+"</option>");
                                     			} else {
-                                    				out.print("<option value='"+ i+1 +"'>"+s+"</option>");
+                                    				out.print("<option value='"+ s.getIdSetor() +"'>"+s.getNome()+"</option>");
                                     			}
                                     		}
                                     	%>
