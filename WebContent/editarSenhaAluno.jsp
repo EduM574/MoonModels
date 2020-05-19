@@ -66,8 +66,8 @@
                     <form action="EditarSenhaAluno.do" method="POST" class="form">
                         <div class="input-form">
                             <div class="box">
-                                <input type="password" name="password" maxlength="15" placeholder="Nova senha">
-                                <input type="password" name="passwordConfirm" maxlength="15" placeholder="Confirme a nova senha">
+                                <input type="password" name="password" maxlength="30" placeholder="Nova senha" required>
+                                <input type="password" name="passwordConfirm" maxlength="30" placeholder="Confirme a nova senha" required>
                             </div>
                         </div>
                         <button type="submit">Editar</button>
