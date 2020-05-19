@@ -83,10 +83,10 @@
                         <form action="CadastroAluno.do" method="POST" class="form">
                             <div class="input-form">
                                 <div class="box">
-                                    <input type="text" name="nome" placeholder="Nome">
+                                    <input type="text" name="nome" placeholder="Nome" maxlength="35" required>
                                     <div class="mini-box">
-                                        <input type="text" name="cpf" placeholder="CPF" class="normal">
-                                        <input type="date" name="nascimento" placeholder="Data de nascimento" class="normal">
+                                        <input type="number" name="cpf" placeholder="CPF" class="normal" required>
+                                        <input type="date" name="nascimento" placeholder="Data de nascimento" class="normal" required>
                                     </div>
                                     <div class="mini-box">
                                         <select name="curso" class="maior">
@@ -107,8 +107,8 @@
                                     </div>
                                 </div>
                                 <div class="box">
-                                    <input type="text" name="sobrenome" placeholder="Sobrenome">
-                                    <input type="email" name="email" placeholder="E-mail">
+                                    <input type="text" name="sobrenome" placeholder="Sobrenome" maxlength="35" required>
+                                    <input type="email" name="email" placeholder="E-mail" maxlength="80" required>
                                     <div class="mini-box">
                                         <select name="unidade" class="normal">
                                             <option value="paulista" selected>Paulista</option> 
