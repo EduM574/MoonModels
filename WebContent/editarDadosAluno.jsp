@@ -103,16 +103,16 @@
                                         <input type="hidden" name="ra-aluno" value="<%=alunoEdicao.getRa() %>">
                                         <div class="input-form ">
                                             <div class="box ">
-                                                <input type="text " name="nome" placeholder="Nome" value="<%=alunoEdicao.getNome()%>">
-                                                <input type="text" name="sobrenome" placeholder="Sobrenome" value="<%=alunoEdicao.getSobrenome()%>">
+                                                <input type="text" name="nome" placeholder="Nome" value="<%=alunoEdicao.getNome()%>" maxlength="35" required>
+                                                <input type="text" name="sobrenome" placeholder="Sobrenome" value="<%=alunoEdicao.getSobrenome()%>" maxlength="35" required>
                                                 <div class="mini-box">
-                                                    <input type="text" name="cpf" placeholder="CPF" value="<%=alunoEdicao.getCpf()%>" class="normal">
-                                                    <input type="date" name="nascimento" placeholder="Data de nascimento" class="normal" value="<%=date%>">
+                                                    <input type="number" name="cpf" placeholder="CPF" value="<%=alunoEdicao.getCpf()%>" class="normal" required>
+                                                    <input type="date" name="nascimento" placeholder="Data de nascimento" class="normal" value="<%=date%>" required>
                                                 </div>
-                                                <input type="password" name="password" maxlength="15" placeholder="Nova senha">
+                                                <input type="password" name="password" maxlength="30" placeholder="Nova senha" required>
                                             </div>
                                             <div class="box">
-                                                <input type="email" name="email" placeholder="E-mail" value="<%=alunoEdicao.getEmail()%>">
+                                                <input type="email" name="email" placeholder="E-mail" value="<%=alunoEdicao.getEmail()%>" maxlength="80" required>
                                                 <div class="mini-box">
                                                     <select name="curso" class="maior">
                                                     <%
