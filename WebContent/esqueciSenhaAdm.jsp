@@ -26,7 +26,7 @@
             </header>
             <section class="content">
                 <form action="EsqueciSenhaAdm.do" method="POST" class="form3">
-                    <input type="email" name="email" placeholder="Insira seu e-mail">
+                    <input type="email" name="email" placeholder="Insira seu e-mail" maxlength="80" required>
                     <p class="erro">
                         <% if(erro != null) out.print(erro); %>
                     </p>
