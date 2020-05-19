@@ -88,7 +88,7 @@
                             <label>
                                 Escreva uma descrição
                             </label>
-                            <textarea rows="3" class="grande" type="text" name="descricao"></textarea>
+                            <textarea rows="3" class="grande" type="text" name="descricao" maxlength="100"></textarea>
                         </div>
                         <button type="submit ">Enviar</button>
                     </form>
