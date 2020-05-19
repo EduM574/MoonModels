@@ -16,7 +16,6 @@
                 Administrador admEdicao = (Administrador) request.getAttribute("exibeAdmin");
                 String erro = (String) request.getAttribute("erro");
 
-                System.out.println("Adm edição JSP: " + admEdicao);
         %>
                 <!DOCTYPE html>
                 <html>
