@@ -27,8 +27,8 @@
             <section class="content">
                 <form action="RedefinirSenhaAdm.do" method="POST" class="form">
                     <input type="hidden" name="email" value="<%=email%>">
-                    <input type="password" name="password" maxlength="15" placeholder="Nova senha">
-                    <input type="password" name="passwordConfirm" maxlength="15" placeholder="Confirme a nova senha">
+                    <input type="password" name="password" maxlength="30" placeholder="Nova senha" required>
+                    <input type="password" name="passwordConfirm" maxlength="30" placeholder="Confirme a nova senha" required>
                     <button type="submit">Redefinir</button>
                 </form>
             </section>
