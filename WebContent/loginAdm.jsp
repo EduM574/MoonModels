@@ -26,8 +26,8 @@
             </header>
             <section class="content">
                 <form action="LoginAdmin.do" method="post" class="form">
-                    <input type="email" name="email" placeholder="E-mail">
-                    <input type="password" name="password" placeholder="Senha">
+                    <input type="email" name="email" placeholder="E-mail" maxlength="80" required>
+                    <input type="password" name="password" placeholder="Senha" maxlength="30" required>
                     <p class="erro">
                         <% if(erro != null) out.print(erro); %>
                     </p>
