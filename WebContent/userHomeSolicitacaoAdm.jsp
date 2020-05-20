@@ -293,7 +293,7 @@
                                         <div>
                                             <form action="Comentario.do" method="POST" class="form" enctype="multipart/form-data">
                                                 <input type="hidden" name="id-solicitacao" value="<%=solicitacao.getIdSolicitacao()%>">
-                                                <input type="text" class="s-hist-input" name="texto">
+                                                <input type="text" class="s-hist-input" name="texto" maxlength="200" required>
                                                 <div class="inputFile">
                                                     <span class="s-hist-send-comment-btn"><img src="./img/file.png" alt="anexo"></span>
                                                     <input type="file" size="50" name="arquivo" id="arquivo" accept=".pdf" />
