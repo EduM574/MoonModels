@@ -26,8 +26,8 @@
             </header>
             <section class="content">
                 <form action="LoginAluno.do" method="post" class="form">
-                    <input type="number" name="ra" placeholder="RA">
-                    <input type="password" name="password" maxlength="15" placeholder="Senha">
+                    <input type="number" name="ra" placeholder="RA" maxlength="9" required>
+                    <input type="password" name="password" maxlength="15" placeholder="Senha" maxlength="30" required>
                     <p class="erro">
                         <% if(erro != null) out.print(erro); %>
                     </p>
