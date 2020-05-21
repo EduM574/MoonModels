@@ -542,3 +542,9 @@
         width: 60%;
         cursor: pointer;
     }
+
+    .form-comentario {
+    	position: fixed;
+	    width: 50vw;
+	    bottom: 8px;
+    }

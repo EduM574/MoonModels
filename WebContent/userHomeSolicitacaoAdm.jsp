@@ -291,7 +291,7 @@
                                                 <%}%>
                                         </div>
                                         <div>
-                                            <form action="Comentario.do" method="POST" class="form" enctype="multipart/form-data">
+                                            <form action="Comentario.do" method="POST" class="form form-comentario" enctype="multipart/form-data">
                                                 <input type="hidden" name="id-solicitacao" value="<%=solicitacao.getIdSolicitacao()%>">
                                                 <input type="text" class="s-hist-input" name="texto" maxlength="200" required>
                                                 <div class="inputFile">
