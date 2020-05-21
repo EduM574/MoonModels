@@ -41,6 +41,7 @@
                         <head>
                             <meta charset="utf-8" />
                             <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
+                            <script src="js/cpf.js" defer></script>
                             <title>Editar Aluno</title>
                         </head>
 
@@ -106,10 +107,10 @@
                                                 <input type="text" name="nome" placeholder="Nome" value="<%=alunoEdicao.getNome()%>" maxlength="35" required>
                                                 <input type="text" name="sobrenome" placeholder="Sobrenome" value="<%=alunoEdicao.getSobrenome()%>" maxlength="35" required>
                                                 <div class="mini-box">
-                                                    <input type="number" name="cpf" placeholder="CPF" value="<%=alunoEdicao.getCpf()%>" class="normal" required>
+                                                    <input type="text" name="cpf" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );" maxlength = "14" value="<%=alunoEdicao.getCpf()%>" class="normal" required>
                                                     <input type="date" name="nascimento" placeholder="Data de nascimento" class="normal" value="<%=date%>" required>
                                                 </div>
-                                                <input type="password" name="password" maxlength="30" placeholder="Nova senha" required>
+                                                <input type="password" name="password" maxlength="30" placeholder="Nova senha">
                                             </div>
                                             <div class="box">
                                                 <input type="email" name="email" placeholder="E-mail" value="<%=alunoEdicao.getEmail()%>" maxlength="80" required>

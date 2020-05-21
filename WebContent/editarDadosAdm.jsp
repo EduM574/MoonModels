@@ -25,6 +25,7 @@
                     <head>
                         <meta charset="utf-8" />
                         <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
+                        <script src="js/cpf.js" defer></script>
                         <title>Editar Administrador</title>
                     </head>
 
@@ -95,7 +96,7 @@
                                             <input type="password" name="password" maxlength="30" placeholder="Senha">
                                         </div>
                                         <div class="box">
-                                            <input type="number" name="cpf" placeholder="CPF" value="<%= admEdicao.getCpf()%>" required>
+                                            <input type="text" name="cpf" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );" maxlength = "14" value="<%= admEdicao.getCpf()%>" required>
                                             <select name="setor" class="altura-diferente">
                                     	<%
                                     		for(Setor s : setores) {

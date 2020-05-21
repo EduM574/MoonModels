@@ -22,6 +22,7 @@
                 <meta charset="utf-8" />
                 <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
                 <title>Cadastro Administrador</title>
+                <script src="js/cpf.js" defer></script>
             </head>
 
             <body>
@@ -90,7 +91,7 @@
                                 <div class="box">
                                     <input type="email" name="email" placeholder="E-mail" maxlength="80" required>
                                     <div class="mini-box">
-                                        <input type="number" name="cpf" placeholder="CPF" class="normal" required>
+                                        <input type="text" name="cpf" placeholder="CPF" class="normal" onkeydown="javascript: fMasc( this, mCPF );" maxlength = "14" required>
                                         <select name="setor" class="normal">
                                             <option value="1">Transporte escolar</option>
                                             <option value="2">Gestão de estagio</option>

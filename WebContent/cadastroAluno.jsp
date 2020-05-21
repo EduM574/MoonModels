@@ -21,6 +21,7 @@
             <head>
                 <meta charset="utf-8" />
                 <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
+                <script src="js/cpf.js" defer></script>
                 <title>Cadastro Aluno</title>
             </head>
 
@@ -85,7 +86,7 @@
                                 <div class="box">
                                     <input type="text" name="nome" placeholder="Nome" maxlength="35" required>
                                     <div class="mini-box">
-                                        <input type="number" name="cpf" placeholder="CPF" class="normal" required>
+                                        <input type="text" name="cpf" placeholder="CPF" class="normal" onkeydown="javascript: fMasc( this, mCPF );" maxlength = "14" required>
                                         <input type="date" name="nascimento" placeholder="Data de nascimento" class="normal" required>
                                     </div>
                                     <div class="mini-box">
