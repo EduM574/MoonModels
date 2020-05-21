@@ -255,11 +255,11 @@
                                                     </form>
                                         </div>
                                     </div>
-                                    <div class="title-wrapper">
-                                        <span class="s-hist-title">Código:</span>
-                                        <span class="s-hist-subtitle"><%=solicitacao.getIdSolicitacao()%></span>
-                                    </div>
                                     <div class="s-hist-sub-info title-wrapper">
+                                    	<div class="title-wrapper">
+	                                        <span class="s-hist-title">Código:</span>
+	                                        <span class="s-hist-subtitle"><%=solicitacao.getIdSolicitacao()%></span>
+	                                    </div>
                                         <div>
                                             <span class="s-hist-title">Abertura:</span>
                                             <span class="s-hist-subtitle"><%=dateSoli %></span>
@@ -269,6 +269,10 @@
                                             <span class="s-hist-title">Prazo:</span>
                                             <span class="s-hist-subtitle"><%=solicitacao.getPrazo()%> dias úteis</span>
                                         </div>
+                                    </div>
+                                    <div>
+                                    	<span class="s-hist-title">Descricao:</span>
+                                        <span class="s-hist-subtitle"><%=solicitacao.getDescricao()%></span>
                                     </div>
                                     <div class="s-hist-step-wrapper">
                                         <%
