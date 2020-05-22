@@ -39,6 +39,9 @@ public class CadastroAdmController extends HttpServlet {
 		String pCpf = request.getParameter("cpf");
 		String pSetor = request.getParameter("setor");
 
+		pCpf = pCpf.replace("." , "");
+    	pCpf = pCpf.replace("-" , "");
+
 		int setConv = Integer.parseInt(pSetor);
 		Setor setor = new Setor();
 		setor.setIdSetor(setConv);
