@@ -45,7 +45,10 @@ public class CadastroAlunoController extends HttpServlet {
 		String pSemestre = request.getParameter("semestre");
 		String pUnidade = request.getParameter("unidade");
 		String pTurno = request.getParameter("turno");
-				
+		
+		pCpf = pCpf.replace("." , "");
+		pCpf = pCpf.replace("-" , "");
+		
 		String[] dataSeparada = pDataNascimento.split("-");
 		int ano = Integer.parseInt(dataSeparada[0]);
 		int mes = Integer.parseInt(dataSeparada[1]);
@@ -88,8 +91,6 @@ public class CadastroAlunoController extends HttpServlet {
         
 			RequestDispatcher view = request.getRequestDispatcher("mensagemOkAdm.jsp");
 			view.forward(request, response);
-		}
-		
+		}		
 	}
-
 }
