@@ -44,6 +44,7 @@ public class ExibeDadosAdminEdicaoController extends HttpServlet {
 
         AdministradorService admService = new AdministradorService();
         adm = admService.selectAdminGeral(adm);
+        adm.setCpf(adm.getCpf().substring(0, 3) + "." + adm.getCpf().substring(3, 6) + "." + adm.getCpf().substring(6, 9) + "-" + adm.getCpf().substring(9, 11));
 
         SetorService sS = new SetorService();
         ArrayList<Setor> setores = sS.listarSetores();
