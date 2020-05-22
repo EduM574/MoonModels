@@ -43,7 +43,11 @@ public class EditarAdmDadosController extends HttpServlet {
 		String pSobrenome = request.getParameter("sobrenome");
 		String pSenha = request.getParameter("password");
 		String pStatus = request.getParameter("status");
+		String pEmail = request.getParameter("email-admin");
 
+		pCpf = pCpf.replace("." , "");
+		pCpf = pCpf.replace("-" , "");
+		
 		Setor st = new Setor();
 		st.setIdSetor(pSetor);
 
@@ -53,18 +57,19 @@ public class EditarAdmDadosController extends HttpServlet {
 		adm.setCpf(pCpf);
 		adm.setSetor(st);
 		adm.setStatus(pStatus);
-		adm.setEmail("kesselyn@usjt.br");
+		adm.setEmail(pEmail);
 
 		AdministradorService as = new AdministradorService();
-		Validation v = as.updateValidation(adm);
-
+		
 		if (pSenha.equals("")) {
 			Administrador alTemp = as.selectAdminGeral(adm);
 			adm.setSenha(alTemp.getSenha());
 		} else {
 			adm.setSenha(pSenha);
 		}
-
+		
+		Validation v = as.updateValidation(adm);
+		
 		if (v.getStatus()) {
 			request.setAttribute("erro", v.getText());
 			RequestDispatcher view = request.getRequestDispatcher("ExibeDadosAdminEdicao.do");

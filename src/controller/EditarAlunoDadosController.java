@@ -45,6 +45,9 @@ public class EditarAlunoDadosController extends HttpServlet {
 		String pTurno = request.getParameter("turno");
 		String pStatus = request.getParameter("status");
 		String pRa = request.getParameter("ra-aluno");
+	
+		pCpf = pCpf.replace("." , "");
+		pCpf = pCpf.replace("-" , "");
 		
 		String[] dataSeparada = pDataNascimento.split("-");
 		int ano = Integer.parseInt(dataSeparada[0]);
