@@ -41,6 +41,7 @@ public class ExibeDadosAlunoEdicaoController extends HttpServlet {
 
         AlunoService aService = new AlunoService();
         aln = aService.selectAluno(aln);
+        aln.setCpf(aln.getCpf().substring(0, 3) + "." + aln.getCpf().substring(3, 6) + "." + aln.getCpf().substring(6, 9) + "-" + aln.getCpf().substring(9, 11));
 
         request.setAttribute("exibeAluno", aln);
 
