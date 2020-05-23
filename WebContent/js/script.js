@@ -44,3 +44,15 @@ function redefinirSenhaAluno() {
         document.getElementById("redefinirSenhaAluno").submit();
     }
 }
+
+function redefinirSenhaAdm() {
+    var passRedefinirAdm = document.getElementById("passRedefinirAdm").value;
+    var confRedefinirAdm = document.getElementById("confRedefinirAdm").value;
+
+    if (passRedefinirAdm != confRedefinirAdm) {
+        document.getElementById('errorPassword').innerHTML = "As senhas não correspondem";
+        return false;
+    } else {
+        document.getElementById("redefinirSenhaAdm").submit();
+    }
+}

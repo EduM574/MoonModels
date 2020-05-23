@@ -5,6 +5,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" type="text/css" href="css/loginCadastro.css" media="screen" />
+        <script src="js/script.js" defer></script>
         <title>Redefinir senha</title>
     </head>
 
@@ -25,11 +26,12 @@
                 </div>
             </header>
             <section class="content">
-                <form action="RedefinirSenhaAdm.do" method="POST" class="form">
+                <form id="redefinirSenhaAdm" action="RedefinirSenhaAdm.do" method="POST" class="form">
                     <input type="hidden" name="email" value="<%=email%>">
-                    <input type="password" name="password" maxlength="30" placeholder="Nova senha" required>
-                    <input type="password" name="passwordConfirm" maxlength="30" placeholder="Confirme a nova senha" required>
-                    <button type="submit">Redefinir</button>
+                    <input id="passRedefinirAdm" type="password" name="password" maxlength="30" placeholder="Nova senha" required>
+                    <input id="confRedefinirAdm" type="password" name="passwordConfirm" maxlength="30" placeholder="Confirme a nova senha" required>
+                    <button type="submit" onClick="return redefinirSenhaAdm()">Redefinir</button>
+                    <p id="errorPassword">oi</p>
                 </form>
             </section>
         </body>
