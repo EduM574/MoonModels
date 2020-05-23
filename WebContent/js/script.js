@@ -32,3 +32,15 @@ function editarSenhaAdm() {
         document.getElementById("editarSenhaAdm").submit();
     }
 }
+
+function redefinirSenhaAluno() {
+    var passRedefinirAluno = document.getElementById("passRedefinirAluno").value;
+    var confRedefinirAluno = document.getElementById("confRedefinirAluno").value;
+
+    if (passRedefinirAluno != confRedefinirAluno) {
+        document.getElementById('errorPassword').innerHTML = "As senhas não correspondem";
+        return false;
+    } else {
+        document.getElementById("redefinirSenhaAluno").submit();
+    }
+}
