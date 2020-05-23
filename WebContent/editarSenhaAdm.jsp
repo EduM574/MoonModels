@@ -21,6 +21,7 @@
             <head>
                 <meta charset="utf-8" />
                 <link rel="stylesheet" type="text/css" href="css/senhas.css" media="screen" />
+                <script src="js/script.js" defer></script>
                 <title>Editar senha</title>
             </head>
 
@@ -81,14 +82,15 @@
 
                     <section class="content">
                         <p class="title">Editar senha</p>
-                        <form action="EditarSenhaAdm.do" method="POST" class="form">
+                        <form id="editarSenhaAdm" action="EditarSenhaAdm.do" method="POST" class="form">
                             <div class="input-form">
                                 <div class="box">
-                                    <input type="password" name="password" placeholder="Nova senha" maxlength="30" required>
-                                    <input type="password" name="password" placeholder="Confirme a nova senha" maxlength="30" required>
+                                    <input id="passEditarAdm" type="password" name="password" maxlength="30" placeholder="Nova senha" required>
+                                    <input id="confEditarAdm" type="password" name="passwordConfirm" maxlength="30" placeholder="Confirme a nova senha" required>
+                                    <p id="errorPassword"></p>
                                 </div>
                             </div>
-                            <button type="submit">Editar</button>
+                            <button type="submit" onclick=" return editarSenhaAdm()">Editar</button>
                         </form>
                     </section>
             </body>

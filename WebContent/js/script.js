@@ -22,13 +22,13 @@ function editarSenhaAluno() {
 }
 
 function editarSenhaAdm() {
-    var passEditarAluno = document.getElementById("passEditarAluno").value;
-    var confEditarAluno = document.getElementById("confEditarAluno").value;
+    var passEditarAdm = document.getElementById("passEditarAdm").value;
+    var confEditarAdm = document.getElementById("confEditarAdm").value;
 
-    if (passEditarAluno != confEditarAluno) {
+    if (passEditarAdm != confEditarAdm) {
         document.getElementById('errorPassword').innerHTML = "As senhas não correspondem";
         return false;
     } else {
-        document.getElementById("editarSenhaAluno").submit();
+        document.getElementById("editarSenhaAdm").submit();
     }
 }
