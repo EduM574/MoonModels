@@ -64,7 +64,7 @@
                         </nav>
 
                         <div class="chatboat-icon">
-                            <button id="button-chatboat-icon"><img src="./img/comment.png" onClick="openBot()" alt="Icone do chatboat"></button>
+                            <button onClick="openBot()"><img src="./img/comment.png" alt="Icone do chatboat"></button>
                         </div>
 
                         <div class="content">

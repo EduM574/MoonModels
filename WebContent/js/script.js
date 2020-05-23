@@ -1,5 +1,4 @@
 function openBot() {
-    var btnBot = document.getElementById('button-chatboat-icon');
     var telaBot = document.getElementById('tela-chatboat');
 
     var visibilidade = telaBot.style.visibility;
