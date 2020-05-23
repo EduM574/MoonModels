@@ -19,6 +19,7 @@
             <head>
                 <meta charset="utf-8" />
                 <link rel="stylesheet" type="text/css" href="css/senhas.css" media="screen" />
+                <script src="js/script.js" defer></script>
                 <title>Editar senha</title>
             </head>
 
@@ -63,14 +64,15 @@
                 </nav>
                 <section class="content">
                     <p class="title">Editar senha</p>
-                    <form action="EditarSenhaAluno.do" method="POST" class="form">
+                    <form id="editarSenhaAluno" action="EditarSenhaAluno.do" method="POST" class="form">
                         <div class="input-form">
                             <div class="box">
-                                <input type="password" name="password" maxlength="30" placeholder="Nova senha" required>
-                                <input type="password" name="passwordConfirm" maxlength="30" placeholder="Confirme a nova senha" required>
+                                <input id="passEditarAluno" type="password" name="password" maxlength="30" placeholder="Nova senha" required>
+                                <input id="confEditarAluno" type="password" name="passwordConfirm" maxlength="30" placeholder="Confirme a nova senha" required>
+                                <p id="errorPassword"></p>
                             </div>
                         </div>
-                        <button type="submit">Editar</button>
+                        <button type="submit" onclick=" return editarSenhaAluno()">Editar</button>
                     </form>
                 </section>
             </body>

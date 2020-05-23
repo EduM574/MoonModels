@@ -107,7 +107,7 @@
                                                 <input type="text" name="nome" placeholder="Nome" value="<%=alunoEdicao.getNome()%>" maxlength="35" required>
                                                 <input type="text" name="sobrenome" placeholder="Sobrenome" value="<%=alunoEdicao.getSobrenome()%>" maxlength="35" required>
                                                 <div class="mini-box">
-                                                    <input type="text" name="cpf" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );" maxlength = "14" value="<%=alunoEdicao.getCpf()%>" class="normal" required>
+                                                    <input type="text" name="cpf" placeholder="CPF" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" value="<%=alunoEdicao.getCpf()%>" class="normal" required>
                                                     <input type="date" name="nascimento" placeholder="Data de nascimento" class="normal" value="<%=date%>" required>
                                                 </div>
                                                 <input type="password" name="password" maxlength="30" placeholder="Nova senha">
