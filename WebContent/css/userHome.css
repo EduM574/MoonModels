@@ -72,6 +72,7 @@
         font-weight: bold;
         font-size: 50pt;
         margin: 0;
+        text-align: right;
     }
     
     .titulo-solicitacao {
@@ -201,7 +202,6 @@
         font-style: normal;
         font-weight: normal;
         font-size: 20px;
-        line-height: 57px;
         color: #898989;
     }
     
@@ -246,6 +246,7 @@
     
     .caixa-mensagem {
         height: 100px;
+        overflow-y: auto;
     }
     
     .data-comment-adm {
@@ -542,9 +543,9 @@
         width: 60%;
         cursor: pointer;
     }
-
+    
     .form-comentario {
-    	position: fixed;
-	    width: 50vw;
-	    bottom: 8px;
+        position: fixed;
+        width: 50vw;
+        bottom: 8px;
     }
