@@ -321,11 +321,6 @@
         background: #888;
         border-radius: 10px;
     }
-    /* Handle on hover */
-    
-     ::-webkit-scrollbar-thumb:hover {
-        background: #f9f9f9;
-    }
     
     #tela-chatboat {
         visibility: hidden;
@@ -393,7 +388,7 @@
     .chat-content {
         height: 295px;
         padding: 20px;
-        overflow-y: auto;
+        overflow-y: scroll;
     }
     
     .from-watson {

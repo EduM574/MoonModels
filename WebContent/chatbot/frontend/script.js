@@ -39,6 +39,8 @@ const getWatsonMessageAndInsertTemplate = async(text = '') => {
     const template = templateChatMessage(response.output.text, 'watson');
 
     InsertTemplateInTheChat(template);
+    var objDiv = document.getElementById("chat-content");
+    objDiv.scrollTop = objDiv.scrollHeight;
 };
 
 textInput.addEventListener('keydown', (event) => {
@@ -51,6 +53,9 @@ textInput.addEventListener('keydown', (event) => {
 
         // Clear input box for further messages
         textInput.value = '';
+
+        var objDiv = document.getElementById("chat-content");
+        objDiv.scrollTop = objDiv.scrollHeight;
     }
 });
 

@@ -200,13 +200,6 @@ header {
     border-radius: 10px;
 }
 
-
-/* Handle on hover */
-
- ::-webkit-scrollbar-thumb:hover {
-    background: #f9f9f9;
-}
-
 #errorPassword {
     text-align: center;
     color: #F2717F;
