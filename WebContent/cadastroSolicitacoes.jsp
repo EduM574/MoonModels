@@ -24,6 +24,7 @@
             <head>
                 <meta charset="utf-8" />
                 <link rel="stylesheet" type="text/css" href="css/cadastroAluno.css" media="screen" />
+                <script src="js/script.js" defer></script>
                 <title>Criar Solicitação</title>
             </head>
 
@@ -79,8 +80,8 @@
                                 </select>
                             </div>
                             <div class="box inputFile">
-                                <span>Escolha um arquivo</span>
-                                <span>+</span>
+                                <span id="textFile">Escolha um arquivo</span>
+                                <span id="textMore">+</span>
                                 <input type="file" size="50" name="arquivo" id="arquivo" accept=".pdf" />
                             </div>
                         </div>

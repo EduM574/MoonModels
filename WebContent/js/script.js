@@ -55,3 +55,13 @@ function redefinirSenhaAdm() {
         document.getElementById("redefinirSenhaAdm").submit();
     }
 }
+
+var inputFile = document.getElementById("arquivo");
+
+inputFile.addEventListener('change', () => {
+    var nameFile = inputFile.files[0].name;
+    var textFile = document.getElementById("textFile");
+    var textFileMore = document.getElementById("textMore");
+    textFile.innerHTML = nameFile;
+    textFileMore.innerHTML = "";
+});
