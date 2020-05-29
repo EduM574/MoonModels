@@ -175,10 +175,10 @@
                                             </div>
                                         </div>
                                         <div class="s-hist-sub-info title-wrapper">
-                                        	<div class="title-wrapper">
-	                                            <span class="s-hist-title">Código:</span>
-	                                            <span class="s-hist-subtitle"><%=solicitacao.getIdSolicitacao()%></span>
-	                                        </div>
+                                            <div class="title-wrapper">
+                                                <span class="s-hist-title">Código:</span>
+                                                <span class="s-hist-subtitle"><%=solicitacao.getIdSolicitacao()%></span>
+                                            </div>
                                             <div>
                                                 <span class="s-hist-title">Abertura:</span>
                                                 <span class="s-hist-subtitle"><%=dateSoli %></span>
@@ -190,9 +190,9 @@
                                             </div>
                                         </div>
                                         <div>
-	                                    	<span class="s-hist-title">Descricao:</span>
-	                                        <span class="s-hist-subtitle"><%=solicitacao.getDescricao()%></span>
-	                                    </div>
+                                            <span class="s-hist-title">Descricao:</span>
+                                            <span class="s-hist-subtitle"><%=solicitacao.getDescricao()%></span>
+                                        </div>
                                         <div class="s-hist-step-wrapper">
                                             <%
                                         	int i = 0;
@@ -230,10 +230,10 @@
                                             </select>
                                             <button type="submit">Alterar</button>
                                         </form>
-
-                                        <span class="s-hist-title">Comentários</span>
-                                        <div class="caixa-mensagem">
-                                            <%
+                                        <div class="align-comentarios">
+                                            <span class="s-hist-title">Comentários</span>
+                                            <div class="caixa-mensagem">
+                                                <%
                                             	for(Comentario c : solicitacao.getComentarios()){
                                             		String dia, mes, hora, minuto, segundo, dateComentario;
                                                     
@@ -278,26 +278,27 @@
                                                     }
                                               
                                             %>
-                                                <div class="data-comment-adm">
-                                                    <div>
-                                                        <span class="s-comment-user"><%=nome%>:</span>
-                                                        <span class="s-comment-content"><%=c.getTexto() %></span>
+                                                    <div class="data-comment-adm">
+                                                        <div>
+                                                            <span class="s-comment-user"><%=nome%>:</span>
+                                                            <span class="s-comment-content"><%=c.getTexto() %></span>
+                                                        </div>
+                                                        <div class="s-comment-file">
+                                                            <% if(c.getAnexo() != null){ %>
+                                                                <a href="./anexoSolicitacoes/comentario<%=c.getIdComentario()%>.pdf" class="s-comment-file-btn" download="comentario<%=c.getIdComentario()%>.pdf">
+                                                                    <img src="./img/download.png" alt="enviar">
+                                                                </a>
+                                                                <%}%>
+                                                                    <span class="s-comment-date"><%=dateComentario%></span>
+                                                        </div>
                                                     </div>
-                                                    <div class="s-comment-file">
-                                                        <% if(c.getAnexo() != null){ %>
-                                                            <a href="./anexoSolicitacoes/comentario<%=c.getIdComentario()%>.pdf" class="s-comment-file-btn" download="comentario<%=c.getIdComentario()%>.pdf">
-                                                                <img src="./img/download.png" alt="enviar">
-                                                            </a>
-                                                            <%}%>
-                                                                <span class="s-comment-date"><%=dateComentario%></span>
-                                                    </div>
-                                                </div>
-                                                <%}%>
+                                                    <%}%>
+                                            </div>
                                         </div>
                                         <div>
                                             <form action="Comentario.do" method="POST" class="form form-comentario" enctype="multipart/form-data">
                                                 <input type="hidden" name="id-solicitacao" value="<%=solicitacao.getIdSolicitacao()%>">
-                                                <input type="text" class="s-hist-input" name="texto" maxlength="200" required>
+                                                <input type="text" class="s-hist-input" autocomplete="off" name="texto" maxlength="200" required>
                                                 <div class="inputFile">
                                                     <span class="s-hist-send-comment-btn"><img src="./img/file.png" alt="anexo"></span>
                                                     <input type="file" size="50" name="arquivo" id="arquivo" accept=".pdf" />

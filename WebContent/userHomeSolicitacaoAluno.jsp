@@ -76,22 +76,16 @@
                                     <div class="container main-header">
                                         <span class="logo">MO<span class="logo-pink">O</span>N</span>
                                         <div class="username-wrapper">
-                                            <span>
-                    <%= aluno.getNome() %>
-                </span>
+                                            <span><%= aluno.getNome() %></span>
                                             <form action="Logout.do" method="post" class="logout-wrapper">
-                                                <button type="submit">
-                        <img src="img/logout.png" alt="logout">
-                    </button>
+                                                <button type="submit"><img src="img/logout.png" alt="logout"></button>
                                             </form>
                                         </div>
                                     </div>
                                 </header>
                                 <nav>
                                     <form action="UserHomeAluno.do" method="post" class="form-nav-wrapper">
-                                        <button type="submit">
-                            <img src="./img/home.png" alt="Home">
-                        </button>
+                                        <button type="submit"><img src="./img/home.png" alt="Home"></button>
                                     </form>
                                     <%
                         if(aluno.getStatus().equals("ATIVO")) {
@@ -136,34 +130,30 @@
                                     <section>
                                         <h2 class="titulo-solicitacao">Em andamento</h2>
                                         <div class="cards-adm">
-                                            <%
-                               int totalSolicitacoes = 0; for(Solicitacao s : solicitacaoAndamento) {
-                           %>
+                                            <% int totalSolicitacoes = 0; for(Solicitacao s : solicitacaoAndamento) {%>
                                                 <form action="UserHomeSolicitacao.do" method="POST" class="s-card-color-adm">
                                                     <input type="hidden" name="id-solicitacao" value="<%=s.getIdSolicitacao()%>">
                                                     <button type="submit" class="s-card-content-adm">
-                                       <div class="s-row-adm">
-                                           <div>
-                                               <span class="s-card-subtitle">Nome:</span>
-                                               <span><%=s.getNome()%></span>
-                                           </div>
-                                           <div class="s-status-ativo"></div>
-                                       </div>
-                                       <div class="s-row-adm">
-                                           <div>
-                                               <span class="s-card-subtitle">Status:</span>
-                                               <span><%=s.getStatus()%></span>
-                                           </div>
-                                           <div class="status-card-adm">
-                                               <span class="s-card-subtitle">Código:</span>
-                                               <span><%=s.getIdSolicitacao()%></span>
-                                           </div>
-                                       </div>
-                                   </button>
+                                                        <div class="s-row-adm">
+                                                            <div>
+                                                                <span class="s-card-subtitle">Nome:</span>
+                                                                <span><%=s.getNome()%></span>
+                                                            </div>
+                                                            <div class="s-status-ativo"></div>
+                                                        </div>
+                                                        <div class="s-row-adm">
+                                                            <div>
+                                                                <span class="s-card-subtitle">Status:</span>
+                                                                <span><%=s.getStatus()%></span>
+                                                            </div>
+                                                            <div class="status-card-adm">
+                                                                <span class="s-card-subtitle">Código:</span>
+                                                                <span><%=s.getIdSolicitacao()%></span>
+                                                            </div>
+                                                        </div>
+                                                    </button>
                                                 </form>
-                                                <%
-                           	}
-                           %>
+                                                <%}%>
                                         </div>
                                     </section>
 
@@ -171,69 +161,61 @@
                                         <h2 class="titulo-solicitacao">Deferidas</h2>
                                         <div class="cards-adm">
 
-                                            <%
-                                for(Solicitacao s : solicitacaoDeferida) {
-                            %>
+                                            <%for(Solicitacao s : solicitacaoDeferida) {%>
                                                 <form action="UserHomeSolicitacao.do" method="POST" class="s-card-color-adm">
                                                     <input type="hidden" name="id-solicitacao" value="<%=s.getIdSolicitacao()%>">
                                                     <button type="submit" class="s-card-content-adm">
-                                        <div class="s-row-adm">
-                                            <div>
-                                                <span class="s-card-subtitle">Nome:</span>
-                                                <span><%=s.getNome()%></span>
-                                            </div>
-                                            <div class="s-status-ativo"></div>
-                                        </div>
-                                        <div class="s-row-adm">
-                                            <div>
-                                                <span class="s-card-subtitle">Status:</span>
-                                                <span><%=s.getStatus()%></span>
-                                            </div>
-                                            <div class="status-card-adm">
-                                                <span class="s-card-subtitle">Código:</span>
-                                                <span><%=s.getIdSolicitacao()%></span>
-                                            </div>
-                                        </div>
-                                    </button>
+                                                        <div class="s-row-adm">
+                                                            <div>
+                                                                <span class="s-card-subtitle">Nome:</span>
+                                                                <span><%=s.getNome()%></span>
+                                                            </div>
+                                                            <div class="s-status-ativo"></div>
+                                                        </div>
+                                                        <div class="s-row-adm">
+                                                            <div>
+                                                                <span class="s-card-subtitle">Status:</span>
+                                                                <span><%=s.getStatus()%></span>
+                                                            </div>
+                                                            <div class="status-card-adm">
+                                                                <span class="s-card-subtitle">Código:</span>
+                                                                <span><%=s.getIdSolicitacao()%></span>
+                                                            </div>
+                                                        </div>
+                                                    </button>
                                                 </form>
-                                                <%
-                                }
-                            %>
+                                                <%}%>
                                         </div>
                                     </section>
 
                                     <section>
-                                        <h2 class="titulo-solicitacao">Indeferido</h2>
+                                        <h2 class="titulo-solicitacao">Indeferidas</h2>
                                         <div class="cards-adm">
 
-                                            <%
-                            for(Solicitacao s : solicitacaoIndeferida) {
-                        %>
+                                            <%for(Solicitacao s : solicitacaoIndeferida) {%>
                                                 <form action="UserHomeSolicitacao.do" method="POST" class="s-card-color-adm">
                                                     <input type="hidden" name="id-solicitacao" value="<%=s.getIdSolicitacao()%>">
                                                     <button type="submit" class="s-card-content-adm">
-                                    <div class="s-row-adm">
-                                        <div>
-                                            <span class="s-card-subtitle">Nome:</span>
-                                            <span><%=s.getNome()%></span>
-                                        </div>
-                                        <div class="s-status-ativo"></div>
-                                    </div>
-                                    <div class="s-row-adm">
-                                        <div>
-                                            <span class="s-card-subtitle">Status:</span>
-                                            <span><%=s.getStatus()%></span>
-                                        </div>
-                                        <div class="status-card-adm">
-                                            <span class="s-card-subtitle">Código:</span>
-                                            <span><%=s.getIdSolicitacao()%></span>
-                                        </div>
-                                    </div>
-                                </button>
+                                                        <div class="s-row-adm">
+                                                            <div>
+                                                                <span class="s-card-subtitle">Nome:</span>
+                                                                <span><%=s.getNome()%></span>
+                                                            </div>
+                                                            <div class="s-status-ativo"></div>
+                                                        </div>
+                                                        <div class="s-row-adm">
+                                                            <div>
+                                                                <span class="s-card-subtitle">Status:</span>
+                                                                <span><%=s.getStatus()%></span>
+                                                            </div>
+                                                            <div class="status-card-adm">
+                                                                <span class="s-card-subtitle">Código:</span>
+                                                                <span><%=s.getIdSolicitacao()%></span>
+                                                            </div>
+                                                        </div>
+                                                    </button>
                                                 </form>
-                                                <%
-                            }
-                        %>
+                                                <%}%>
                                         </div>
                                     </section>
                                 </div>
@@ -256,10 +238,10 @@
                                         </div>
                                     </div>
                                     <div class="s-hist-sub-info title-wrapper">
-                                    	<div class="title-wrapper">
-	                                        <span class="s-hist-title">Código:</span>
-	                                        <span class="s-hist-subtitle"><%=solicitacao.getIdSolicitacao()%></span>
-	                                    </div>
+                                        <div class="title-wrapper">
+                                            <span class="s-hist-title">Código:</span>
+                                            <span class="s-hist-subtitle"><%=solicitacao.getIdSolicitacao()%></span>
+                                        </div>
                                         <div>
                                             <span class="s-hist-title">Abertura:</span>
                                             <span class="s-hist-subtitle"><%=dateSoli %></span>
@@ -271,7 +253,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                    	<span class="s-hist-title">Descricao:</span>
+                                        <span class="s-hist-title">Descricao:</span>
                                         <span class="s-hist-subtitle"><%=solicitacao.getDescricao()%></span>
                                     </div>
                                     <div class="s-hist-step-wrapper">
@@ -293,74 +275,75 @@
                                                     </p>
                                                 </div>
                                     </div>
-
-                                    <span class="s-hist-title">Comentários</span>
-                                    <div class="caixa-mensagem">
-                                        <%
-                        for(Comentario c : solicitacao.getComentarios()){
-                            String dia, mes, hora, minuto, segundo, dateComentario;
-                            
-                            if(c.getDataHora().get(GregorianCalendar.MONTH) < 10) {
-                                mes = "0" + c.getDataHora().get(GregorianCalendar.MONTH) + "/";
-                            } else {
-                                mes = c.getDataHora().get(GregorianCalendar.MONTH)  + "/";
-                            }
-                            
-                            if(c.getDataHora().get(GregorianCalendar.DAY_OF_MONTH) < 10) {
-                                dia = "0" + c.getDataHora().get(GregorianCalendar.DAY_OF_MONTH) + "/";
-                            } else {
-                                dia = c.getDataHora().get(GregorianCalendar.DAY_OF_MONTH) + "/";
-                            }
-                            
-                            if(c.getDataHora().get(GregorianCalendar.HOUR_OF_DAY) < 10) {
-                                hora = "0" + c.getDataHora().get(GregorianCalendar.HOUR_OF_DAY) + ":";
-                            } else {
-                                hora = c.getDataHora().get(GregorianCalendar.HOUR_OF_DAY) + ":";
-                            }
-                            
-                            if(c.getDataHora().get(GregorianCalendar.MINUTE) < 10) {
-                                minuto = "0" + c.getDataHora().get(GregorianCalendar.MINUTE) + ":";
-                            } else {
-                                minuto = c.getDataHora().get(GregorianCalendar.MINUTE) + ":";
-                            }
-                            
-                            if(c.getDataHora().get(GregorianCalendar.SECOND) < 10) {
-                                segundo = "0" + c.getDataHora().get(GregorianCalendar.SECOND);
-                            } else {
-                                segundo = c.getDataHora().get(GregorianCalendar.SECOND) + "";
-                            }
-                            
-                            dateComentario = dia + mes + c.getDataHora().get(GregorianCalendar.YEAR) 
-                                            + " " + hora + minuto + segundo;
-                            
-                            String nome = "";
-                            if(c.getAdministrador() != null) {
-                                nome = c.getAdministrador().getNome() + " " + c.getAdministrador().getSobrenome();
-                            } else if(c.getAluno() != null) {
-                                nome = c.getAluno().getNome() + " " + c.getAluno().getSobrenome();
-                            }
-                        
-                    %>
-                                            <div class="data-comment-adm">
-                                                <div>
-                                                    <span class="s-comment-user"><%=nome%>:</span>
-                                                    <span class="s-comment-content"><%=c.getTexto() %></span>
+                                    <div class="align-comentarios">
+                                        <span class="s-hist-title">Comentários</span>
+                                        <div class="caixa-mensagem">
+                                            <%
+                                                for(Comentario c : solicitacao.getComentarios()){
+                                                    String dia, mes, hora, minuto, segundo, dateComentario;
+                                                    
+                                                    if(c.getDataHora().get(GregorianCalendar.MONTH) < 10) {
+                                                        mes = "0" + c.getDataHora().get(GregorianCalendar.MONTH) + "/";
+                                                    } else {
+                                                        mes = c.getDataHora().get(GregorianCalendar.MONTH)  + "/";
+                                                    }
+                                                    
+                                                    if(c.getDataHora().get(GregorianCalendar.DAY_OF_MONTH) < 10) {
+                                                        dia = "0" + c.getDataHora().get(GregorianCalendar.DAY_OF_MONTH) + "/";
+                                                    } else {
+                                                        dia = c.getDataHora().get(GregorianCalendar.DAY_OF_MONTH) + "/";
+                                                    }
+                                                    
+                                                    if(c.getDataHora().get(GregorianCalendar.HOUR_OF_DAY) < 10) {
+                                                        hora = "0" + c.getDataHora().get(GregorianCalendar.HOUR_OF_DAY) + ":";
+                                                    } else {
+                                                        hora = c.getDataHora().get(GregorianCalendar.HOUR_OF_DAY) + ":";
+                                                    }
+                                                    
+                                                    if(c.getDataHora().get(GregorianCalendar.MINUTE) < 10) {
+                                                        minuto = "0" + c.getDataHora().get(GregorianCalendar.MINUTE) + ":";
+                                                    } else {
+                                                        minuto = c.getDataHora().get(GregorianCalendar.MINUTE) + ":";
+                                                    }
+                                                    
+                                                    if(c.getDataHora().get(GregorianCalendar.SECOND) < 10) {
+                                                        segundo = "0" + c.getDataHora().get(GregorianCalendar.SECOND);
+                                                    } else {
+                                                        segundo = c.getDataHora().get(GregorianCalendar.SECOND) + "";
+                                                    }
+                                                    
+                                                    dateComentario = dia + mes + c.getDataHora().get(GregorianCalendar.YEAR) 
+                                                                    + " " + hora + minuto + segundo;
+                                                    
+                                                    String nome = "";
+                                                    if(c.getAdministrador() != null) {
+                                                        nome = c.getAdministrador().getNome() + " " + c.getAdministrador().getSobrenome();
+                                                    } else if(c.getAluno() != null) {
+                                                        nome = c.getAluno().getNome() + " " + c.getAluno().getSobrenome();
+                                                    }
+                                                
+                                            %>
+                                                <div class="data-comment-adm">
+                                                    <div>
+                                                        <span class="s-comment-user"><%=nome%>:</span>
+                                                        <span class="s-comment-content"><%=c.getTexto() %></span>
+                                                    </div>
+                                                    <div class="s-comment-file">
+                                                        <% if(c.getAnexo() != null){ %>
+                                                            <a href="./anexoSolicitacoes/comentario<%=c.getIdComentario()%>.pdf" class="s-comment-file-btn" download="comentario<%=c.getIdComentario()%>.pdf">
+                                                                <img src="./img/download.png" alt="enviar">
+                                                            </a>
+                                                            <%}%>
+                                                                <span class="s-comment-date"><%=dateComentario%></span>
+                                                    </div>
                                                 </div>
-                                                <div class="s-comment-file">
-                                                    <% if(c.getAnexo() != null){ %>
-                                                        <a href="./anexoSolicitacoes/comentario<%=c.getIdComentario()%>.pdf" class="s-comment-file-btn" download="comentario<%=c.getIdComentario()%>.pdf">
-                                                            <img src="./img/download.png" alt="enviar">
-                                                        </a>
-                                                        <%}%>
-                                                            <span class="s-comment-date"><%=dateComentario%></span>
-                                                </div>
-                                            </div>
-                                            <%}%>
+                                                <%}%>
+                                        </div>
                                     </div>
                                     <div>
                                         <form action="Comentario.do" method="POST" class="form form-comentario" enctype="multipart/form-data">
                                             <input type="hidden" name="id-solicitacao" value="<%=solicitacao.getIdSolicitacao()%>">
-                                            <input type="text" class="s-hist-input" name="texto" maxlength="200" required>
+                                            <input type="text" class="s-hist-input" name="texto" autocomplete="off" maxlength="200" required>
                                             <div class="inputFile">
                                                 <span class="s-hist-send-comment-btn"><img src="./img/file.png" alt="anexo"></span>
                                                 <input type="file" size="50" name="arquivo" id="arquivo" accept=".pdf" />

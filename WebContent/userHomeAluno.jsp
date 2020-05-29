@@ -159,7 +159,7 @@
                             </section>
 
                             <section>
-                                <h2 class="titulo-solicitacao">Indeferido</h2>
+                                <h2 class="titulo-solicitacao">Indeferidas</h2>
                                 <div class="cards-adm">
 
                                     <%

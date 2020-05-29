@@ -252,7 +252,7 @@
     .data-comment-adm {
         display: flex;
         flex-direction: column;
-        margin: 0 0 20px 0;
+        margin: 0 0 10px 0;
     }
     
     .s-comment-user {
@@ -266,7 +266,7 @@
     .s-comment-content {
         font-style: normal;
         font-size: 16px;
-        line-height: 39px;
+        line-height: 20px;
         color: #464646;
     }
     
@@ -543,4 +543,9 @@
         position: fixed;
         width: 50vw;
         bottom: 8px;
+    }
+    
+    .align-comentarios {
+        position: fixed;
+        bottom: 70px;
     }
