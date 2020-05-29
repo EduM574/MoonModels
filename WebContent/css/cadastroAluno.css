@@ -39,6 +39,7 @@
     border-radius: 14px;
     padding: 4px 30px;
     margin-right: 5%;
+    cursor: pointer;
 }
 
 .form .align-erro {

@@ -1,5 +1,15 @@
 @charset "UTF-8";
 @import url('fonts.css');
+textarea:focus,
+input:focus,
+select:focus {
+    outline: 2px solid rgb(169, 192, 209);
+}
+
+button:focus {
+    outline: none;
+}
+
 body {
     background-color: #f9f9f9;
     font-family: sans-serif;
@@ -102,6 +112,7 @@ header {
     border: none;
     background-color: #C06C84;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .form2 input {
@@ -123,6 +134,7 @@ header {
     border: none;
     background-color: #C06C84;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .form3 input {
@@ -144,6 +156,7 @@ header {
     border: none;
     background-color: #C06C84;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .mini-input {
