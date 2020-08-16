@@ -3,21 +3,21 @@
 
 <h4>Tecnologias utilizadas na construção do projeto</h4>
 <details>
-<summary>Front-End:</summary>
+<summary>Front-End</summary>
 <p align="left"><img src="https://devicons.github.io/devicon/devicon.git/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> <img src="https://devicons.github.io/devicon/devicon.git/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> <img src="https://devicons.github.io/devicon/devicon.git/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/></p>
 </details>
 
 <details>
-<summary>Back-End:</summary>
+<summary>Back-End</summary>
 <p align="left"><img src="https://devicons.github.io/devicon/devicon.git/icons/java/java-original-wordmark.svg" alt="java" width="40" height="40"/> <img src="https://devicons.github.io/devicon/devicon.git/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/></p>
 </details>
 
 <details>
-<summary>Banco de Dados:</summary>
+<summary>Banco de Dados</summary>
 <p align="left"><img src="https://devicons.github.io/devicon/devicon.git/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/></p>
 </details>
 
 <details>
-  <summary>IBM Cloud:</summary>
+  <summary>IBM Cloud</summary>
   <p align="left"><img src="./WebContent/img/IBM-Watson-Assistant-blog-banner.jpg" alt="Watson Assitant" width="150" height="70"/></p>
 </details>
