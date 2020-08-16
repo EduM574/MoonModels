@@ -13,7 +13,7 @@ app.use(express.static('./public'));
 const port = 3000;
 
 const assistant = new AssistantV1({
-    iam_apikey: 'N1Wy_LvlBViEMjNuWWfqD_ljerPcpCIJniXNfShsaMKp',
+    iam_apikey: '',
     version: '2019-08-16',
     url: 'https://gateway.watsonplatform.net/assistant/api'
 });
@@ -23,7 +23,7 @@ app.post('/conversation/', (req, res) => {
 
     const params = {
         input: { text },
-        workspace_id: 'd762afb2-67d3-43f2-87c4-8d1d6c37050b',
+        workspace_id: '',
         context,
     };
 
